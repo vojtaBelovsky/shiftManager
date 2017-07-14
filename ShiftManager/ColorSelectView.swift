@@ -1,59 +1,55 @@
 //
-//  CalendarView.swift
+//  ColorSelectView.swift
 //  ShiftManager
 //
-//  Created by Tadeusz Raszka on 29.06.17.
+//  Created by Tadeusz Raszka on 13.07.17.
 //  Copyright © 2017 Tadeusz Raszka. All rights reserved.
 //
 
 import UIKit
-import PureLayout
 
-class CalendarView: UIView {
+class ColorSelectView: UIView {
     
-    let headerView = HeaderView()
     var collectionView: UICollectionView!
     
-    fileprivate let numberOfCellsInCollum: Int = 7
-    
+    fileprivate let numberOfCellsInCollum: Int = 4
+
     init() {
         super.init(frame: .zero)
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
     }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     func initializeViewsAndAddThemAsSubviews() {
+        backgroundColor = .white
         let flowLayout = UICollectionViewFlowLayout()
         
         let space: CGFloat = 10.0
         flowLayout.itemSize = getCellSize()
-        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = .clear
         
-        addSubview(headerView)
         addSubview(collectionView)
     }
     
     func setupConstraints() {
-        headerView.autoPinEdge(toSuperviewEdge: .top)
-        headerView.autoMatch(.width, to: .width, of: self)
-        headerView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
-        
-        collectionView.autoPinEdge(.top, to: .bottom, of: headerView)
+      //  collectionView.autoPinEdge(toSuperviewEdge: .top)
+        collectionView.autoPinEdge(toSuperviewEdge: .top, withInset: 30)
         collectionView.autoPinEdge(toSuperviewEdge: .leading)
         collectionView.autoPinEdge(toSuperviewEdge: .trailing)
-        collectionView.autoPinEdge(toSuperviewEdge: .bottom)
-        
-        collectionView.backgroundColor = .clear
+        collectionView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
     }
     
     fileprivate func getCellSize() -> CGSize {
-        let size = UIScreen.main.bounds.size.width / CGFloat(numberOfCellsInCollum)
+        let size = (UIScreen.main.bounds.size.width / CGFloat(numberOfCellsInCollum)) - 10
         return CGSize(width: size, height: size)
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
 }
