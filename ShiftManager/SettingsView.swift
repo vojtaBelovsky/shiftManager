@@ -9,33 +9,28 @@
 import UIKit
 import PureLayout
 
-class SettingsView: UIView {
+class SettingsView: UIView, UITableViewDelegate {
     
-    let textLabel = UILabel ()
-    let shiftButtonView = ShiftButtonView()
+    let tableView = UITableView()
+    let dataSource = SettingsTableViewDataSource()
     
     init() {
         super.init(frame: .zero)
-         addSubview(textLabel)
-        addSubview(shiftButtonView)
-        labelSettings()
+        
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: settingsTableViewCellReuseIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = dataSource
+        addSubview(tableView)
         setupConstraints()
-            }
-
-    fileprivate func setupConstraints() {
-        
-        textLabel.autoAlignAxis(toSuperviewAxis: .vertical)
-        textLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.5)
-        
-        shiftButtonView.autoMatch(.width, to: .width, of: self, withMultiplier: 1.0)
-        shiftButtonView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
-        shiftButtonView.autoPinEdge(toSuperviewEdge: .bottom)
     }
     
-    func labelSettings() {
-        backgroundColor = .white
-        textLabel.text = "Set your default shift :)"
-        textLabel.textColor = .black
+    func setupConstraints() {
+        tableView.autoPinEdgesToSuperviewEdges()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -14,17 +14,8 @@ class CalendarViewController: UIViewController {
     let calendarView: CalendarView = CalendarView()
     let calendarDataSource = CalendarDataSource()
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     override func loadView() {
         view = calendarView
-        
     }
     
     override func viewDidLoad() {
@@ -32,13 +23,10 @@ class CalendarViewController: UIViewController {
         title = "Shift manager"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(settingsButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
         
         calendarView.collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier:calendarCollectionViewCellReuseIdentifier)
         calendarView.collectionView.register(CalendarEmtpyCollectionViewCell.self, forCellWithReuseIdentifier:calendarCollectionViewCellEmptyCellCount)
         calendarView.collectionView.dataSource = calendarDataSource
-        
     }
 
     func settingsButtonDidPress() {

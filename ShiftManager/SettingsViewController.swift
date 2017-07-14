@@ -19,11 +19,12 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Default shift"
-        
+        title = "Settings"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewShift))
         
     }
     
-    
-
+    func addNewShift() {
+        
+    }
 }
