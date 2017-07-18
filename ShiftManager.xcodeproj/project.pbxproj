@@ -70,6 +70,7 @@
 		18C92B7D1F0633EF00F29A1B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		18D846961F1C9DEF004264D8 /* ColorSettingsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSettingsProtocol.swift; sourceTree = "<group>"; };
 		29C811EC97CC96244BD29BFD /* Pods-ShiftManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManager/Pods-ShiftManager.release.xcconfig"; sourceTree = "<group>"; };
+		2A2C5D641F1E204D001BA754 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A834CFB1F13AC170084F697 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		2AA400251F1E09B300712B19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2AA400271F1E09C400712B19 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -389,6 +390,7 @@
 				en,
 				Base,
 				cs,
+				pl,
 			);
 			mainGroup = 18C92B421F05170F00F29A1B;
 			productRefGroup = 18C92B4C1F05170F00F29A1B /* Products */;
@@ -573,6 +575,7 @@
 			children = (
 				2AA400251F1E09B300712B19 /* en */,
 				2AA400271F1E09C400712B19 /* cs */,
+				2A2C5D641F1E204D001BA754 /* pl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
