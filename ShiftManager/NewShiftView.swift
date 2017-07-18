@@ -57,7 +57,8 @@ class NewShiftView: UIView {
         selectShiftColorLabel.textColor = .black
         addSubview(selectShiftColorLabel)
         
-        selectShiftColorButton = createButton(color: .blue, name: NSLocalizedString("Create new shift_loc007", comment: ""))
+        let color = UserDefaults.standard.value(forKey: "color") as? UIColor ?? .blue
+        selectShiftColorButton = createButton(color: color, name: NSLocalizedString("Create new shift_loc007", comment: ""))
         addSubview(selectShiftColorButton)
         
     }

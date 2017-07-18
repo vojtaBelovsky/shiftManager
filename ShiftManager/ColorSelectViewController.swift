@@ -33,8 +33,8 @@ class ColorSelectViewController: UIViewController, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let color: UIColor = dataSource.colors[indexPath.row]
         delegate?.colorDidSet(color: color)
+        UserDefaults.standard.set(color, forKey: "color")
+        UserDefaults.standard.synchronize()
         dismiss(animated: true, completion: nil)
-        
-        
     }
 }
