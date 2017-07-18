@@ -31,7 +31,7 @@ class NewShiftView: UIView {
     
     func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
-        nameLabel.text = NSLocalizedString("Create new shift_loc003", comment: "")
+        nameLabel.text = NSLocalizedString("CreateNewShift_loc003", comment: "")
         nameLabel.textColor = .black
         addSubview(nameLabel)
         
@@ -39,17 +39,17 @@ class NewShiftView: UIView {
         nameTextField.layer.borderWidth = 1
         addSubview(nameTextField)
         
-        selectFirstShiftDateLabel.text = NSLocalizedString("Create new shift_loc004", comment: "")
+        selectFirstShiftDateLabel.text = NSLocalizedString("CreateNewShift_loc004", comment: "")
         selectFirstShiftDateLabel.textColor = .black
         addSubview(selectFirstShiftDateLabel)
         
-        intervalLabel.text = NSLocalizedString("Create new shift_loc005", comment: "")
+        intervalLabel.text = NSLocalizedString("CreateNewShift_loc005", comment: "")
         intervalLabel.textColor = .black
         addSubview(intervalLabel)
 
         intervalTextField.layer.borderColor = UIColor.black.cgColor
         intervalTextField.layer.borderWidth = 1
-        intervalTextField.placeholder = NSLocalizedString("Create new shift_loc006", comment: "")
+        intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
         intervalTextField.keyboardType = UIKeyboardType.numberPad
         addSubview(intervalTextField)
         
@@ -57,7 +57,7 @@ class NewShiftView: UIView {
         selectShiftColorLabel.textColor = .black
         addSubview(selectShiftColorLabel)
         
-        selectShiftColorButton = createButton(color: .blue, name: NSLocalizedString("Create new shift_loc007", comment: ""))
+        selectShiftColorButton = createButton(color: .blue, name: NSLocalizedString("CreateNewShift_loc007", comment: ""))
         addSubview(selectShiftColorButton)
         
     }
