@@ -1,0 +1,13 @@
+// Calendar
+"Calendar_loc001" = "Šichtovnice";
+// Settings
+"Settings_loc001" = "Šichtovnice";
+"Settings_loc002" = "Nastavení";
+//Create new shift
+"Create new shift_loc001" = "Nastavení";
+"Create new shift_loc002" = "Vytvořit novou šichtu";
+"Create new shift_loc003" = "Název nové šichty";
+"Create new shift_loc004" = "Zvolte si první šichtu";
+"Create new shift_loc005" = "Interval";
+"Create new shift_loc006" = "Za jak dlouho se šichta bude opakovat";
+"Create new shift_loc007" = "Zvolte barvu";
