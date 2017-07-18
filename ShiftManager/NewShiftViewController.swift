@@ -8,8 +8,8 @@
 
 import UIKit
 
-class NewShiftViewController: UIViewController {
-    
+
+class NewShiftViewController: UIViewController, ColorSelectViewDelegate {
     let newShiftView = NewShiftView()
     
     override func loadView() {
@@ -21,15 +21,27 @@ class NewShiftViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Create new shift"
+         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
         self.newShiftView.setActionForColorButton(self, action: #selector(selectShiftColorButtonDidPress))
     }
+    
+    func colorDidSet(color: UIColor) {
+        newShiftView.selectShiftColorButton.backgroundColor = color
+    }
+    
+    func saveButtonDidPress() {
+        
+    }
 
     func selectShiftColorButtonDidPress() {
-        self.navigationController?.present(ColorSelectViewController(), animated: true, completion: nil)
+        let colorController = ColorSelectViewController()
+        colorController.delegate = self
+        
+        self.navigationController?.present(colorController, animated: true, completion: nil)
     }
     
     

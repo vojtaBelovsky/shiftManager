@@ -9,6 +9,7 @@ target 'ShiftManager' do
 pod 'AFDateHelper', '~> 4.2.1'
 pod 'AFNetworking', '~> 2.6'
 pod 'PureLayout'
+pod 'IQKeyboardManager'
 pod 'SwiftLint'
 
   target 'ShiftManagerTests' do

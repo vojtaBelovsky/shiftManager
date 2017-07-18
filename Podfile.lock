@@ -21,21 +21,24 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - IQKeyboardManager (4.0.10)
   - PureLayout (3.0.2)
   - SwiftLint (0.20.0)
 
 DEPENDENCIES:
   - AFDateHelper (~> 4.2.1)
   - AFNetworking (~> 2.6)
+  - IQKeyboardManager
   - PureLayout
   - SwiftLint
 
 SPEC CHECKSUMS:
   AFDateHelper: 0f9588a442b4d7ef862568ae5d40ab883672efb5
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SwiftLint: 3f7543509c931d1291395335f34e245d3919b7f2
 
-PODFILE CHECKSUM: b59c524a3771b390b1840b0517c327c6c7615e70
+PODFILE CHECKSUM: 4cda08769b2ce25dfc0d385970879927c2a5dfce
 
 COCOAPODS: 1.2.1

@@ -25,6 +25,7 @@
 		18C92B7A1F0519EB00F29A1B /* CalendarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B791F0519EB00F29A1B /* CalendarDataSource.swift */; };
 		18C92B7C1F06106A00F29A1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B7B1F06106A00F29A1B /* SettingsViewController.swift */; };
 		18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B7D1F0633EF00F29A1B /* SettingsView.swift */; };
+		18D846971F1C9DEF004264D8 /* ColorSettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D846961F1C9DEF004264D8 /* ColorSettingsProtocol.swift */; };
 		2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A834CFB1F13AC170084F697 /* HeaderView.swift */; };
 		2AA4FFED1F1779D400712B19 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */; };
 		2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4FFEE1F177A0C00712B19 /* SettingsTableViewDataSource.swift */; };
@@ -45,7 +46,7 @@
 /* Begin PBXFileReference section */
 		01C50E9F74E5E1CC46C44320 /* Pods-ShiftManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManagerTests/Pods-ShiftManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		183AF5971F18B0F60033CFD7 /* ColorSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectView.swift; sourceTree = "<group>"; };
-		183AF5981F18B0F60033CFD7 /* NewShiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewShiftView.swift; sourceTree = "<group>"; };
+		183AF5981F18B0F60033CFD7 /* NewShiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewShiftView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		183AF5991F18B0F60033CFD7 /* ShiftSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftSettingsView.swift; sourceTree = "<group>"; };
 		183AF59D1F18B1030033CFD7 /* ColorSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectViewController.swift; sourceTree = "<group>"; };
 		183AF59E1F18B1030033CFD7 /* NewShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewShiftViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +67,7 @@
 		18C92B791F0519EB00F29A1B /* CalendarDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataSource.swift; sourceTree = "<group>"; };
 		18C92B7B1F06106A00F29A1B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		18C92B7D1F0633EF00F29A1B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		18D846961F1C9DEF004264D8 /* ColorSettingsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSettingsProtocol.swift; sourceTree = "<group>"; };
 		29C811EC97CC96244BD29BFD /* Pods-ShiftManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManager/Pods-ShiftManager.release.xcconfig"; sourceTree = "<group>"; };
 		2A834CFB1F13AC170084F697 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +98,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183AF5A71F18F0720033CFD7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				183AF5AD1F18F1F00033CFD7 /* Settings */,
+				18C92B731F05198B00F29A1B /* NewShift */,
+				183AF5AE1F18F2020033CFD7 /* ColorSelect */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		183AF5A81F18F0C90033CFD7 /* Cellendar */ = {
+			isa = PBXGroup;
+			children = (
+				183AF5AC1F18F18E0033CFD7 /* DataSource */,
+				183AF5AB1F18F16A0033CFD7 /* View */,
+				183AF5A91F18F1440033CFD7 /* Controllers */,
+			);
+			name = Cellendar;
+			sourceTree = "<group>";
+		};
+		183AF5A91F18F1440033CFD7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				18C92B501F05170F00F29A1B /* CalendarViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		183AF5AB1F18F16A0033CFD7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18C92B771F0519CC00F29A1B /* CalendarEmtpyCollectionViewCell.swift */,
+				18C92B741F0519AE00F29A1B /* CalendarCollectionViewCell.swift */,
+				2A834CFB1F13AC170084F697 /* HeaderView.swift */,
+				18C92B711F05198400F29A1B /* CalendarView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		183AF5AC1F18F18E0033CFD7 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				18C92B791F0519EB00F29A1B /* CalendarDataSource.swift */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		183AF5AD1F18F1F00033CFD7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				18D8468D1F18F592004264D8 /* DataSource */,
+				18D8468C1F18F580004264D8 /* View */,
+				18D8468B1F18F55E004264D8 /* Controllers */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		183AF5AE1F18F2020033CFD7 /* ColorSelect */ = {
+			isa = PBXGroup;
+			children = (
+				18D846931F18F607004264D8 /* DataSource */,
+				18D846911F18F5E0004264D8 /* View */,
+				18D846921F18F5E6004264D8 /* Controllers */,
+				18D846901F18F5D5004264D8 /* Protocol */,
+			);
+			name = ColorSelect;
+			sourceTree = "<group>";
+		};
 		18C92B421F05170F00F29A1B = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +189,8 @@
 		18C92B4D1F05170F00F29A1B /* ShiftManager */ = {
 			isa = PBXGroup;
 			children = (
-				18C92B6E1F05196000F29A1B /* Controllers */,
+				183AF5A81F18F0C90033CFD7 /* Cellendar */,
+				183AF5A71F18F0720033CFD7 /* Settings */,
 				18C92B4E1F05170F00F29A1B /* AppDelegate.swift */,
 				18C92B551F05170F00F29A1B /* Assets.xcassets */,
 				18C92B571F05170F00F29A1B /* LaunchScreen.storyboard */,
@@ -137,76 +208,88 @@
 			path = ShiftManagerTests;
 			sourceTree = "<group>";
 		};
-		18C92B6E1F05196000F29A1B /* Controllers */ = {
+		18C92B731F05198B00F29A1B /* NewShift */ = {
 			isa = PBXGroup;
 			children = (
-				18C92B6F1F05196600F29A1B /* Calendar */,
+				18D8468F1F18F5BD004264D8 /* View */,
+				18D8468E1F18F5AE004264D8 /* Controllers */,
+			);
+			name = NewShift;
+			sourceTree = "<group>";
+		};
+		18D8468B1F18F55E004264D8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				18C92B7B1F06106A00F29A1B /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		18C92B6F1F05196600F29A1B /* Calendar */ = {
+		18D8468C1F18F580004264D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				18C92B7F1F06341400F29A1B /* Components */,
-				18C92B761F0519B600F29A1B /* Cells */,
-				18C92B731F05198B00F29A1B /* DataSource */,
-				2AA4FFF01F178EA700712B19 /* ViewControllers */,
-				18C92B701F05197000F29A1B /* View */,
-			);
-			name = Calendar;
-			sourceTree = "<group>";
-		};
-		18C92B701F05197000F29A1B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				183AF5971F18B0F60033CFD7 /* ColorSelectView.swift */,
-				183AF5981F18B0F60033CFD7 /* NewShiftView.swift */,
 				183AF5991F18B0F60033CFD7 /* ShiftSettingsView.swift */,
-				18C92B711F05198400F29A1B /* CalendarView.swift */,
+				2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */,
 				18C92B7D1F0633EF00F29A1B /* SettingsView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
 		};
-		18C92B731F05198B00F29A1B /* DataSource */ = {
+		18D8468D1F18F592004264D8 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				183AF5A11F18B10E0033CFD7 /* ColorSelectDataSource.swift */,
 				2AA4FFEE1F177A0C00712B19 /* SettingsTableViewDataSource.swift */,
-				18C92B791F0519EB00F29A1B /* CalendarDataSource.swift */,
 			);
 			name = DataSource;
 			sourceTree = "<group>";
 		};
-		18C92B761F0519B600F29A1B /* Cells */ = {
+		18D8468E1F18F5AE004264D8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				183AF59E1F18B1030033CFD7 /* NewShiftViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		18D8468F1F18F5BD004264D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				183AF5981F18B0F60033CFD7 /* NewShiftView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		18D846901F18F5D5004264D8 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				18D846961F1C9DEF004264D8 /* ColorSettingsProtocol.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		18D846911F18F5E0004264D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				183AF5A31F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift */,
-				18C92B741F0519AE00F29A1B /* CalendarCollectionViewCell.swift */,
-				2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */,
-				18C92B771F0519CC00F29A1B /* CalendarEmtpyCollectionViewCell.swift */,
+				183AF5971F18B0F60033CFD7 /* ColorSelectView.swift */,
 			);
-			name = Cells;
+			name = View;
 			sourceTree = "<group>";
 		};
-		18C92B7F1F06341400F29A1B /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				2A834CFB1F13AC170084F697 /* HeaderView.swift */,
-			);
-			name = Components;
-			sourceTree = "<group>";
-		};
-		2AA4FFF01F178EA700712B19 /* ViewControllers */ = {
+		18D846921F18F5E6004264D8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				183AF59D1F18B1030033CFD7 /* ColorSelectViewController.swift */,
-				183AF59E1F18B1030033CFD7 /* NewShiftViewController.swift */,
-				18C92B7B1F06106A00F29A1B /* SettingsViewController.swift */,
-				18C92B501F05170F00F29A1B /* CalendarViewController.swift */,
 			);
-			name = ViewControllers;
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		18D846931F18F607004264D8 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				183AF5A11F18B10E0033CFD7 /* ColorSelectDataSource.swift */,
+			);
+			name = DataSource;
 			sourceTree = "<group>";
 		};
 		544C7C9C385207CDA315669A /* Frameworks */ = {
@@ -431,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C92B751F0519AE00F29A1B /* CalendarCollectionViewCell.swift in Sources */,
+				18D846971F1C9DEF004264D8 /* ColorSettingsProtocol.swift in Sources */,
 				2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */,
 				183AF5A41F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift in Sources */,
 				18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */,

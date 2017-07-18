@@ -30,7 +30,8 @@ class NewShiftView: UIView {
         }
     
     func initializeViewsAndAddThemAsSubviews() {
-        nameLabel.text = "Název nové šichty"
+        backgroundColor = .white
+        nameLabel.text = "New shift name"
         nameLabel.textColor = .black
         addSubview(nameLabel)
         
@@ -38,7 +39,7 @@ class NewShiftView: UIView {
         nameTextField.layer.borderWidth = 1
         addSubview(nameTextField)
         
-        selectFirstShiftDateLabel.text = "Select fist shift"
+        selectFirstShiftDateLabel.text = "Select first shift"
         selectFirstShiftDateLabel.textColor = .black
         addSubview(selectFirstShiftDateLabel)
         
@@ -49,9 +50,10 @@ class NewShiftView: UIView {
         intervalTextField.layer.borderColor = UIColor.black.cgColor
         intervalTextField.layer.borderWidth = 1
         intervalTextField.placeholder = "Opakování šichty v dnech"
+        intervalTextField.keyboardType = UIKeyboardType.numberPad
         addSubview(intervalTextField)
         
-        selectShiftColorLabel.text = "Select color"
+        selectShiftColorLabel.text = ""
         selectShiftColorLabel.textColor = .black
         addSubview(selectShiftColorLabel)
         
@@ -109,6 +111,11 @@ class NewShiftView: UIView {
     
     func shiftFirstDate() {
         let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/dd/MM"
+        let selectedDate = dateFormatter.string(from: datePicker.date)
+        print(selectedDate)
         addSubview(datePicker)
         
         datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
@@ -116,7 +123,6 @@ class NewShiftView: UIView {
         datePicker.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.8)
         datePicker.autoMatch(.height, to: .height, of: self, withMultiplier: 0.3)
         }
-    
     
  
     required init?(coder aDecoder: NSCoder) {

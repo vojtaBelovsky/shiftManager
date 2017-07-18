@@ -20,11 +20,11 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Settings"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewShift))
-        
+         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
     }
     
-    func addNewShift() {
-        
+    func settingsButtonDidPress() {
+        self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
+
 }

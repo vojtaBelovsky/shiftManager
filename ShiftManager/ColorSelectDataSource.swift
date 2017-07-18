@@ -10,14 +10,14 @@ import UIKit
 
 class ColorSelectDataSource: NSObject, UICollectionViewDataSource {
     
-    let color: [UIColor] = [.red, .green, .blue, .red, .green, .blue, .red, .green, .blue, .red, .green, .blue]
+    let colors: [UIColor] = [.black, .darkGray, .red, .green, .blue, .cyan, .lightGray, .yellow, .magenta, .orange, .purple, .brown]
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return colors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -28,7 +28,7 @@ class ColorSelectDataSource: NSObject, UICollectionViewDataSource {
                 assertionFailure("Non existing cell")
                 return UICollectionViewCell()
         }
-        cell.backgroundColor = color[indexPath.row]
+        cell.backgroundColor = colors[indexPath.row]
         return cell
     }
 
