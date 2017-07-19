@@ -32,7 +32,7 @@ class CalendarView: UIView {
         flowLayout.itemSize = getCellSize()
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = space
-        
+        flowLayout.headerReferenceSize = CGSize(width: 400, height: 20)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         
         addSubview(headerView)

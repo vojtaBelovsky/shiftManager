@@ -33,13 +33,12 @@ struct Shift {
 
 var firstMorningShiftOfYear: Date? {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd-mm-yyyy"
+    dateFormatter.dateFormat = "dd-mmm-yyyy"
     
     return dateFormatter.date(from: "01-01-2017")
 }
 
-class CalendarDataSource: NSObject, UICollectionViewDataSource {
-    
+class CalendarDataSource: NSObject, UICollectionViewDataSource {    
     var numberOfEmptyCells: [Int] = []
     let numberOfMonthsInCalendar = 24
     
@@ -88,10 +87,7 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
                     assertionFailure("Non existing cell")
                     return UICollectionViewCell()
             }
-            
             return cell
-            
-            
         } else {
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: calendarCollectionViewCellReuseIdentifier, for: indexPath)
@@ -104,24 +100,15 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
             cell.dayLabel.text = "\(indexPath.row - numberOfEmptyCellsForSection + 1)"
             return cell
         }
-        
-        
-        
-        
         // jak zjistit den
         // date = Date() => dnešek
         // indexPath.section = měsíc
         // indexPath.row = den
-        
-        
-        
     }
-    
-    
     
     func numberOfEmptyDays(date: Date) -> Int {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "dd-MMM-yyyy"
         //dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)!
         dateFormatter.timeZone = NSTimeZone.local
         let firstDayOfMonth = dateFormatter.date(
@@ -157,7 +144,29 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
             assertionFailure("Máš tu špatný den")
         }
         return Shift(color: .red, shiftType: shiftType)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let headerView = collectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionElementKindSectionHeader,
+            withReuseIdentifier:CalendarHeaderView.calendarHeaderIdentifier,
+            for: indexPath
+        ) as? CalendarHeaderView else {
+            assertionFailure("Cannot deque CalendarHeaderView header")
+            return UICollectionReusableView()
+        }
         
+        var date = Date()
+        date = date.adjust(.month, offset: indexPath.section)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MMM-yyyy"
+        
+        if let monthOrder = date.component(.month) {
+            let monthName = DateFormatter().shortMonthSymbols[monthOrder - 1]
+            headerView.monthLabel.text = monthName
+        }
+        
+        return headerView
     }
 }
 
