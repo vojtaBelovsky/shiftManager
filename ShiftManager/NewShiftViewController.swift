@@ -20,7 +20,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("Create new shift_loc002", comment: "")
+        title = NSLocalizedString("CreateNewShift_loc002", comment: "")
          navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -34,6 +34,8 @@ class NewShiftViewController: UIViewController, ColorSelectViewDelegate {
     }
     
     func saveButtonDidPress() {
+        let shift = Shift()
+        shift.name = newShiftView.name()
         
     }
 

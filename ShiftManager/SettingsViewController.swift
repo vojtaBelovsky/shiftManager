@@ -21,9 +21,10 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         title = NSLocalizedString("Settings_loc002", comment: "")
          navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
-    }
+               }
     
     func settingsButtonDidPress() {
+        
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
 

@@ -25,10 +25,10 @@ enum Relay{ //= typeOfShift
     case Unknow
 }
 
-struct Shift {
-    let color: UIColor
-    let shiftType: Relay
-    //další kraviny
+struct ShiftDay {
+   let color: UIColor
+  let shiftType: Relay
+  //další kraviny
 }
 
 var firstMorningShiftOfYear: Date? {

@@ -26,6 +26,10 @@
 		18C92B7C1F06106A00F29A1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B7B1F06106A00F29A1B /* SettingsViewController.swift */; };
 		18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B7D1F0633EF00F29A1B /* SettingsView.swift */; };
 		18D846971F1C9DEF004264D8 /* ColorSettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D846961F1C9DEF004264D8 /* ColorSettingsProtocol.swift */; };
+		18D8469C1F1F660F004264D8 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* Shift.swift */; };
+		18D8469D1F1F660F004264D8 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* Shift.swift */; };
+		18D846A01F1F6A3E004264D8 /* ShiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */; };
+		18D846A11F1F6A3E004264D8 /* ShiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */; };
 		2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A834CFB1F13AC170084F697 /* HeaderView.swift */; };
 		2AA400241F1E09B300712B19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AA400261F1E09B300712B19 /* Localizable.strings */; };
 		2AA4FFED1F1779D400712B19 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */; };
@@ -69,6 +73,8 @@
 		18C92B7B1F06106A00F29A1B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		18C92B7D1F0633EF00F29A1B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		18D846961F1C9DEF004264D8 /* ColorSettingsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSettingsProtocol.swift; sourceTree = "<group>"; };
+		18D8469B1F1F660F004264D8 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shift.swift; sourceTree = "<group>"; };
+		18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftManager.swift; sourceTree = "<group>"; };
 		29C811EC97CC96244BD29BFD /* Pods-ShiftManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManager/Pods-ShiftManager.release.xcconfig"; sourceTree = "<group>"; };
 		2A2C5D641F1E204D001BA754 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A834CFB1F13AC170084F697 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -193,6 +199,8 @@
 		18C92B4D1F05170F00F29A1B /* ShiftManager */ = {
 			isa = PBXGroup;
 			children = (
+				18D8469E1F1F6A25004264D8 /* Managers */,
+				18D8469A1F1F65EB004264D8 /* Models */,
 				183AF5A81F18F0C90033CFD7 /* Cellendar */,
 				183AF5A71F18F0720033CFD7 /* Settings */,
 				18C92B4E1F05170F00F29A1B /* AppDelegate.swift */,
@@ -295,6 +303,22 @@
 				183AF5A11F18B10E0033CFD7 /* ColorSelectDataSource.swift */,
 			);
 			name = DataSource;
+			sourceTree = "<group>";
+		};
+		18D8469A1F1F65EB004264D8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				18D8469B1F1F660F004264D8 /* Shift.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		18D8469E1F1F6A25004264D8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		544C7C9C385207CDA315669A /* Frameworks */ = {
@@ -525,9 +549,11 @@
 				18D846971F1C9DEF004264D8 /* ColorSettingsProtocol.swift in Sources */,
 				2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */,
 				183AF5A41F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift in Sources */,
+				18D8469C1F1F660F004264D8 /* Shift.swift in Sources */,
 				18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */,
 				183AF59F1F18B1030033CFD7 /* ColorSelectViewController.swift in Sources */,
 				18C92B511F05170F00F29A1B /* CalendarViewController.swift in Sources */,
+				18D846A01F1F6A3E004264D8 /* ShiftManager.swift in Sources */,
 				18C92B7C1F06106A00F29A1B /* SettingsViewController.swift in Sources */,
 				18C92B7A1F0519EB00F29A1B /* CalendarDataSource.swift in Sources */,
 				183AF59A1F18B0F60033CFD7 /* ColorSelectView.swift in Sources */,
@@ -547,7 +573,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D8469D1F1F660F004264D8 /* Shift.swift in Sources */,
 				18C92B641F05170F00F29A1B /* ShiftManagerTests.swift in Sources */,
+				18D846A11F1F6A3E004264D8 /* ShiftManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

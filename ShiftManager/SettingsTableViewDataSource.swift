@@ -19,17 +19,18 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
                 return UITableViewCell()
         }
 
-        let viewModel = SettingsCellViewModel (
-            title: "Směna \(indexPath.row)"
-            //          title: "Section \(indexPath.section) Row \(indexPath.row)", color: .red
-        )
-        cell.setupCell(viewModel: viewModel)
         
+        
+        let viewModel = SettingsCellViewModel(title: "Směna \(indexPath.row)")
+        cell.setupCell(viewModel: viewModel)
         return cell
+
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 3
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

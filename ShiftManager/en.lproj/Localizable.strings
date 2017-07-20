@@ -4,10 +4,10 @@
 "Settings_loc001" = "Shift Manager";
 "Settings_loc002" = "Settings";
 //Create new shift
-"Create new shift_loc001" = "Settings";
-"Create new shift_loc002" = "Create New Shift";
-"Create new shift_loc003" = "Name of the New Shift";
-"Create new shift_loc004" = "Select First Shift";
-"Create new shift_loc005" = "Interval";
-"Create new shift_loc006" = "When your shift will repeat";
-"Create new shift_loc007" = "Select Color";
+"CreateNewShift_loc001" = "Settings";
+"CreateNewShift_loc002" = "Create New Shift";
+"CreateNewShift_loc003" = "Name of the New Shift";
+"CreateNewShift_loc004" = "Select First Shift";
+"CreateNewShift_loc005" = "Interval";
+"CreateNewShift_loc006" = "When your shift will repeat";
+"CreateNewShift_loc007" = "Select Color";
