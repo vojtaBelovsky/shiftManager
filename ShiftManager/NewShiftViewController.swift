@@ -36,7 +36,10 @@ class NewShiftViewController: UIViewController, ColorSelectViewDelegate {
     func saveButtonDidPress() {
         let shift = ShiftModel()
         shift.name = newShiftView.name()
-        
+        // interval
+        // datum
+        // barva
+        ShiftManager().saveShift(shift: shift)
     }
 
     func selectShiftColorButtonDidPress() {

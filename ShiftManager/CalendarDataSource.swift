@@ -53,6 +53,7 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
             let dateMonth = today.component(.month) ?? 0
             let adjustedDate = today.adjust(hour: nil, minute: nil, second: nil, day: nil, month: dateMonth+index)
             numberOfEmptyCells.append(numberOfEmptyDays(date: adjustedDate))
+            
         }
     }
     
@@ -116,7 +117,7 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
         ) ?? today
   
 //        return firstDayOfMonth.component(.weekday) ?? 1
-        return NSCalendar.current.component(.weekday, from: firstDayOfMonth) - 0
+        return NSCalendar.current.component(.weekday, from: firstDayOfMonth)
         
     }
     

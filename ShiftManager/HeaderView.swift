@@ -45,6 +45,7 @@ class HeaderView: UIView {
         
         [dayMon, dayTues, dayWedn, dayThur, dayFri, daySat, daySun].forEach { daysLabel in
             daysLabel.textColor = .black
+            backgroundColor = UIColor.black.withAlphaComponent(0.02)
         }
         [dayMon, dayTues, dayWedn, dayThur, dayFri, daySat, daySun].forEach { label in
             stackView.addArrangedSubview(label)

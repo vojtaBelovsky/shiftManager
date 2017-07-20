@@ -24,9 +24,8 @@ class CalendarHeaderView: UICollectionReusableView {
     
      func labelSettings() {
         
-        backgroundColor = .black
-    
-        monthLabel.textColor = .white
+        backgroundColor = UIColor.black.withAlphaComponent(0.02)
+        monthLabel.textColor = .black
      }
     
     func addSubviews() {

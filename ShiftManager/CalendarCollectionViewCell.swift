@@ -25,10 +25,8 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     }
     
     func setupViewItems() {
-        backgroundColor = .green
         cellView.backgroundColor = .white
-        dayLabel.text = "32"
-        dayLabel.textColor = .red
+        dayLabel.textColor = .black
     }
     
     func labelSettings() {

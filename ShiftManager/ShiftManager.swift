@@ -37,4 +37,19 @@ class ShiftManager: NSObject {
         }
         defaults.set(NSKeyedArchiver.archivedData(withRootObject: shift), forKey:shiftsKey)
     }
+    
+    //po tolik program dojde :D 
+    
+    
+    
+   public func getShifts<T>(shiftsArray:Array<T>) -> Array<T> {
+        let getShifts = shiftsArray
+               
+        return getShifts
+    }
+        // public func getShifts() -> [ShiftModel] {
+        // ziskas pole sichet a vratis ( z user defaults ziskas pole [Data], pres
+        // for cyklus prevedes objekty Data na ShiftModel, ulozis do pomocneho pole
+        // a to vratis
+        // }
 }
