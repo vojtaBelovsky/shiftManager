@@ -18,7 +18,7 @@ class ShiftManager: NSObject {
         super.init()
     }
     
-    public func saveShift(shift: Shift) {
+    public func saveShift(shift: ShiftModel) {
         /*
         var shiftsArray = defaults.object(forKey: shiftsKey) as? [Data]
         if shiftsArray != nil {

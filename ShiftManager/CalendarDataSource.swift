@@ -25,7 +25,7 @@ enum Relay{ //= typeOfShift
     case Unknow
 }
 
-struct ShiftDay {
+struct Shift{
    let color: UIColor
   let shiftType: Relay
   //další kraviny
@@ -116,7 +116,7 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
         ) ?? today
   
 //        return firstDayOfMonth.component(.weekday) ?? 1
-        return NSCalendar.current.component(.weekday, from: firstDayOfMonth) - 1
+        return NSCalendar.current.component(.weekday, from: firstDayOfMonth) - 0
         
     }
     

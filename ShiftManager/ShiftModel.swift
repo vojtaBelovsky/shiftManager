@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Shift: NSObject, NSCoding {
+class ShiftModel: NSObject, NSCoding {
     
     var shifID : Int = 0
     var name : String?
