@@ -23,7 +23,7 @@ class CalendarViewController: UIViewController {
         title = NSLocalizedString("Calendar_loc001", comment: "")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(settingsButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
-        
+    
         calendarView.collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier:calendarCollectionViewCellReuseIdentifier)
         calendarView.collectionView.register(CalendarEmtpyCollectionViewCell.self, forCellWithReuseIdentifier:calendarCollectionViewCellEmptyCellCount)
         calendarView.collectionView.dataSource = calendarDataSource

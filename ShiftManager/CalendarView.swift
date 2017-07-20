@@ -12,6 +12,7 @@ import PureLayout
 class CalendarView: UIView {
     
     let headerView = HeaderView()
+    var daysLabel = UILabel()
     var collectionView: UICollectionView!
     
     fileprivate let numberOfCellsInCollum: Int = 7

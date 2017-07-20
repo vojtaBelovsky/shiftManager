@@ -32,14 +32,23 @@ class HeaderView: UIView {
         stackView.alignment = .center
         stackView.distribution = .equalCentering
         
-        // smazat a zmenit na dynamicke pojmenovani podle systemu
-        dayMon.text = "Po"
-        dayTues.text = "Út"
-        dayWedn.text = "St"
-        dayThur.text = "Čt"
-        dayFri.text = "Pá"
-        daySat.text = "So"
-        daySun.text = "Ne"
+          // smazat a zmenit na dynamicke pojmenovani podle systemu
+//        dayMon.text = "Po"
+//        dayTues.text = "Út"
+//        dayWedn.text = "St"
+//        dayThur.text = "Čt"
+//        dayFri.text = "Pá"
+//        daySat.text = "So"
+//        daySun.text = "Ne"
+        
+        var i = 0
+        [dayMon, dayTues, dayWedn, dayThur, dayFri, daySat, daySun].forEach { daysLabel in
+            var date = Date()
+            date = date.adjust(.day, offset: i)
+            let dateFormatter = DateFormatter()
+            daysLabel.text = dateFormatter.shortWeekdaySymbols[i]
+            i += 1
+        }
         
         addSubview(stackView)
         

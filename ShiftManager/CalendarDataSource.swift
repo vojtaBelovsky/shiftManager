@@ -33,7 +33,7 @@ struct Shift{
 
 var firstMorningShiftOfYear: Date? {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd-mmm-yyyy"
+    dateFormatter.dateFormat = "dd-mm-yyyy"
     
     return dateFormatter.date(from: "01-01-2017")
 }
@@ -100,6 +100,7 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
             cell.dayLabel.text = "\(indexPath.row - numberOfEmptyCellsForSection + 1)"
             return cell
         }
+        
         // jak zjistit den
         // date = Date() => dnešek
         // indexPath.section = měsíc
@@ -107,17 +108,8 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func numberOfEmptyDays(date: Date) -> Int {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MMM-yyyy"
-        //dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)!
-        dateFormatter.timeZone = NSTimeZone.local
-        let firstDayOfMonth = dateFormatter.date(
-            from: "01-\(date.component(.month) ?? 1)-\(date.component(.year) ?? 2017)"
-        ) ?? today
-  
-//        return firstDayOfMonth.component(.weekday) ?? 1
-        return NSCalendar.current.component(.weekday, from: firstDayOfMonth) - 0
-        
+        let firstDayOfMonth = date.dateFor(.startOfMonth)
+        return NSCalendar.current.component(.weekday, from: firstDayOfMonth) - 1
     }
     
     func everydayRelay(date: Date, shift: ShiftType) -> Shift {

@@ -202,9 +202,9 @@
 		18C92B4D1F05170F00F29A1B /* ShiftManager */ = {
 			isa = PBXGroup;
 			children = (
+				183AF5A81F18F0C90033CFD7 /* Cellendar */,
 				18D8469E1F1F6A25004264D8 /* Managers */,
 				18D8469A1F1F65EB004264D8 /* Models */,
-				183AF5A81F18F0C90033CFD7 /* Cellendar */,
 				183AF5A71F18F0720033CFD7 /* Settings */,
 				18C92B4E1F05170F00F29A1B /* AppDelegate.swift */,
 				18C92B551F05170F00F29A1B /* Assets.xcassets */,
