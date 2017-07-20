@@ -135,4 +135,16 @@ class NewShiftView: UIView {
     public func name() -> String {
         return self.nameTextField.text!
     }
+    
+    public func interval() -> String {
+        return self.intervalTextField.text!
+    }
+    
+    public func date() -> Date {
+        return self.datePicker.date
+    }
+    
+    public func color() -> UIColor {
+        return self.color()
+    }
 }

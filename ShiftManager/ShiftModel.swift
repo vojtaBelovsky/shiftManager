@@ -19,7 +19,7 @@ class ShiftModel: NSObject, NSCoding {
     
     var shifID : Int = 0
     var name : String?
-    var interval : Int = 0
+    var interval : String?
     var date : Date?
     var color : UIColor?
     
@@ -39,7 +39,7 @@ class ShiftModel: NSObject, NSCoding {
             self.name = name
         }
         
-        if let interval = aDecoder.decodeObject(forKey: intervalPropertyKey) as? Int {
+        if let interval = aDecoder.decodeObject(forKey: intervalPropertyKey) as? String {
             self.interval = interval
         }
         
@@ -59,11 +59,9 @@ class ShiftModel: NSObject, NSCoding {
             aCoder.encode(name, forKey: namePropertyKey)
         }
         
-        /*
         if let interval = self.interval {
             aCoder.encode(interval, forKey: intervalPropertyKey)
         }
-        */
         
         if let date = self.date{
             aCoder.encode(date, forKey: DatePropertyKey)

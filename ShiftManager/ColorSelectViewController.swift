@@ -7,15 +7,15 @@
 //
 
 import UIKit
-protocol ColorSelectViewDelegate {
-    func colorDidSet(color: UIColor)
+protocol ColorSelectViewControllerDelegate {
+    func colorSelectViewController(_ controller: ColorSelectViewController, didSelectColor: UIColor)
 }
 
 class ColorSelectViewController: UIViewController, UICollectionViewDelegate{
     
     let colorSelectView: ColorSelectView = ColorSelectView()
     let dataSource = ColorSelectDataSource()
-    var delegate: ColorSelectViewDelegate?
+    var delegate: ColorSelectViewControllerDelegate?
     
     override func loadView() {
         self.view = colorSelectView
@@ -32,7 +32,6 @@ class ColorSelectViewController: UIViewController, UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let color: UIColor = dataSource.colors[indexPath.row]
-        delegate?.colorDidSet(color: color)
-        dismiss(animated: true, completion: nil)
+        delegate?.colorSelectViewController(self, didSelectColor: color)
     }
 }

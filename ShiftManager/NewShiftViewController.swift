@@ -9,8 +9,9 @@
 import UIKit
 
 
-class NewShiftViewController: UIViewController, ColorSelectViewDelegate {
+class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegate {
     let newShiftView = NewShiftView()
+    var newShiftColor: UIColor?
     
     override func loadView() {
         self.view = newShiftView
@@ -36,6 +37,10 @@ class NewShiftViewController: UIViewController, ColorSelectViewDelegate {
     func saveButtonDidPress() {
         let shift = ShiftModel()
         shift.name = newShiftView.name()
+        shift.interval = newShiftView.interval()
+        shift.date = newShiftView.date()
+        shift.color = newShiftColor
+        //shift.color
         // interval
         // datum
         // barva
@@ -49,5 +54,9 @@ class NewShiftViewController: UIViewController, ColorSelectViewDelegate {
         self.navigationController?.present(colorController, animated: true, completion: nil)
     }
     
-    
+    func colorSelectViewController(_ controller: ColorSelectViewController, didSelectColor: UIColor) {
+        newShiftColor = didSelectColor
+        newShiftView.selectShiftColorButton.backgroundColor = didSelectColor
+        controller.dismiss(animated: true, completion: nil)
+    }
 }

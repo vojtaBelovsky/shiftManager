@@ -25,7 +25,6 @@
 		18C92B7A1F0519EB00F29A1B /* CalendarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B791F0519EB00F29A1B /* CalendarDataSource.swift */; };
 		18C92B7C1F06106A00F29A1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B7B1F06106A00F29A1B /* SettingsViewController.swift */; };
 		18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B7D1F0633EF00F29A1B /* SettingsView.swift */; };
-		18D846971F1C9DEF004264D8 /* ColorSettingsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D846961F1C9DEF004264D8 /* ColorSettingsProtocol.swift */; };
 		18D8469C1F1F660F004264D8 /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* ShiftModel.swift */; };
 		18D8469D1F1F660F004264D8 /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* ShiftModel.swift */; };
 		18D846A01F1F6A3E004264D8 /* ShiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */; };
@@ -73,7 +72,6 @@
 		18C92B791F0519EB00F29A1B /* CalendarDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataSource.swift; sourceTree = "<group>"; };
 		18C92B7B1F06106A00F29A1B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		18C92B7D1F0633EF00F29A1B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		18D846961F1C9DEF004264D8 /* ColorSettingsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSettingsProtocol.swift; sourceTree = "<group>"; };
 		18D8469B1F1F660F004264D8 /* ShiftModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftModel.swift; sourceTree = "<group>"; };
 		18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftManager.swift; sourceTree = "<group>"; };
 		29C811EC97CC96244BD29BFD /* Pods-ShiftManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManager/Pods-ShiftManager.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 				18D846931F18F607004264D8 /* DataSource */,
 				18D846911F18F5E0004264D8 /* View */,
 				18D846921F18F5E6004264D8 /* Controllers */,
-				18D846901F18F5D5004264D8 /* Protocol */,
 			);
 			name = ColorSelect;
 			sourceTree = "<group>";
@@ -273,14 +270,6 @@
 				183AF5981F18B0F60033CFD7 /* NewShiftView.swift */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		18D846901F18F5D5004264D8 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				18D846961F1C9DEF004264D8 /* ColorSettingsProtocol.swift */,
-			);
-			name = Protocol;
 			sourceTree = "<group>";
 		};
 		18D846911F18F5E0004264D8 /* View */ = {
@@ -549,7 +538,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C92B751F0519AE00F29A1B /* CalendarCollectionViewCell.swift in Sources */,
-				18D846971F1C9DEF004264D8 /* ColorSettingsProtocol.swift in Sources */,
 				2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */,
 				183AF5A41F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift in Sources */,
 				18D8469C1F1F660F004264D8 /* ShiftModel.swift in Sources */,

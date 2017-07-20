@@ -35,17 +35,18 @@ class ShiftManager: NSObject {
             defaults.set(shiftsArray, forKey: shiftsKey)
 
         }
-        defaults.set(NSKeyedArchiver.archivedData(withRootObject: shift), forKey:shiftsKey)
+        defaults.synchronize()
     }
     
     //po tolik program dojde :D 
     
-    
-    
-   public func getShifts<T>(shiftsArray:Array<T>) -> Array<T> {
-        let getShifts = shiftsArray
-               
-        return getShifts
+   public func getShifts() -> [ShiftModel] {
+        let shiftModelsAsData = defaults.object(forKey: shiftsKey) as? [Data]
+        let shifts = [ShiftModel]()
+        shiftModelsAsData?.forEach({ shiftAsData in
+          //            shift -> prevedes na datovy typ ShiftModel -> pridas do pole shifts
+        })
+        return shifts
     }
         // public func getShifts() -> [ShiftModel] {
         // ziskas pole sichet a vratis ( z user defaults ziskas pole [Data], pres
