@@ -27,6 +27,9 @@ class CalendarViewController: UIViewController {
         calendarView.collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier:calendarCollectionViewCellReuseIdentifier)
         calendarView.collectionView.register(CalendarEmtpyCollectionViewCell.self, forCellWithReuseIdentifier:calendarCollectionViewCellEmptyCellCount)
         calendarView.collectionView.dataSource = calendarDataSource
+        calendarView.collectionView.register(CalendarHeaderView.self,
+                                             forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                                             withReuseIdentifier: CalendarHeaderView.calendarHeaderIdentifier)
     }
 
     func settingsButtonDidPress() {
@@ -37,7 +40,6 @@ class CalendarViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 

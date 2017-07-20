@@ -32,6 +32,7 @@ class HeaderView: UIView {
         stackView.alignment = .center
         stackView.distribution = .equalCentering
         
+        // smazat a zmenit na dynamicke pojmenovani podle systemu
         dayMon.text = "Po"
         dayTues.text = "Út"
         dayWedn.text = "St"
