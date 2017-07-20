@@ -13,8 +13,6 @@ public let horizontalSpacing: CGFloat = 16
 
 class NewShiftView: UIView {
     
-     let defaults = UserDefaults.standard
-    
     fileprivate var nameLabel = UILabel()
     fileprivate var nameTextField = UITextField()
     fileprivate var selectFirstShiftDateLabel = UILabel()
@@ -40,7 +38,6 @@ class NewShiftView: UIView {
         nameTextField.layer.borderColor = UIColor.black.cgColor
         nameTextField.layer.borderWidth = 1
         addSubview(nameTextField)
-        defaults.set(nameTextField, forKey: "nameTextField")
         
         selectFirstShiftDateLabel.text = NSLocalizedString("CreateNewShift_loc004", comment: "")
         selectFirstShiftDateLabel.textColor = .black

@@ -53,6 +53,7 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
             let dateMonth = today.component(.month) ?? 0
             let adjustedDate = today.adjust(hour: nil, minute: nil, second: nil, day: nil, month: dateMonth+index)
             numberOfEmptyCells.append(numberOfEmptyDays(date: adjustedDate))
+            
         }
     }
     
@@ -108,8 +109,10 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func numberOfEmptyDays(date: Date) -> Int {
+
         let firstDayOfMonth = date.dateFor(.startOfMonth)
         return NSCalendar.current.component(.weekday, from: firstDayOfMonth) - 1
+
     }
     
     func everydayRelay(date: Date, shift: ShiftType) -> Shift {
