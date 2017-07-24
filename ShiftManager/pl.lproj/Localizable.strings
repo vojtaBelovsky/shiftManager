@@ -11,3 +11,10 @@
 "CreateNewShift_loc005" = "Interwał";
 "CreateNewShift_loc006" = "Kiedy zmiana się powtarza";
 "CreateNewShift_loc007" = "Wybierz kolor";
+//Sign Up
+"SignUpAllert_loc001" = "Błąd";
+"SignUpAllert_loc002" = "Pole z imieniem jest puste";
+"SignUpAllert_loc003" = "Pole z nazwiskiem jest puste";
+"SignUpAllert_loc004" = "Pole z hasłem jest puste";
+"SignUpAllert_loc005" = "Zamknij";
+"SignUp_loc006" = "Rejestracja";

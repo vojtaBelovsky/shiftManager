@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
-        window?.rootViewController = UINavigationController(rootViewController: CalendarViewController())
+        window?.rootViewController = UINavigationController(rootViewController: SignUpViewController())
         window?.makeKeyAndVisible()
        
         return true

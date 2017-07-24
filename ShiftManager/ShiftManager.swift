@@ -19,11 +19,7 @@ class ShiftManager: NSObject {
     }
     
     public func saveShift(shift: ShiftModel) {
-        /*
-        var shiftsArray = defaults.object(forKey: shiftsKey) as? [Data]
-        if shiftsArray != nil {
-            shiftsArray!.append(NSKeyedArchiver.archivedData(withRootObject: shift))
-    */
+       
         if let shiftsArray = defaults.object(forKey: shiftsKey) as? [Data] {
             var newArray: [Data] = []
             newArray.append(contentsOf: shiftsArray)
@@ -33,12 +29,9 @@ class ShiftManager: NSObject {
         } else {
             let shiftsArray = [NSKeyedArchiver.archivedData(withRootObject: shift)]
             defaults.set(shiftsArray, forKey: shiftsKey)
-
         }
         defaults.synchronize()
     }
-    
-    //po tolik program dojde :D 
     
    public func getShifts() -> [ShiftModel] {
         let shiftModelsAsData = defaults.object(forKey: shiftsKey) as? [Data]

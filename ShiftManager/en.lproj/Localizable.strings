@@ -11,11 +11,10 @@
 "CreateNewShift_loc005" = "Interval";
 "CreateNewShift_loc006" = "When your shift will repeat";
 "CreateNewShift_loc007" = "Select Color";
-//Weekdays
-//"Weekdays_loc001" = "Mon"
-//"Weekdays_loc001" = "Tues"
-//"Weekdays_loc001" = ""
-//"Weekdays_loc001" =
-//"Weekdays_loc001" =
-//"Weekdays_loc001" =
-//"Weekdays_loc001" =
+//Sign Up
+"SignUpAllert_loc001" = "Error";
+"SignUpAllert_loc002" = "Field with first name are empty";
+"SignUpAllert_loc003" = "Field with last name are empty";
+"SignUpAllert_loc004" = "Field with password are empty";
+"SignUpAllert_loc005" = "Close";
+"SignUp_loc006" = "Sign Up";

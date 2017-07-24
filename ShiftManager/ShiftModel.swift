@@ -3,23 +3,16 @@
 //  ShiftManager
 //
 //  Created by Tadeusz Raszka on 19.07.17.
-//  Copyright © 2017 Tadeusz Raszka. All rights reserved.
+//  Copyright © 2017 Krystian Raszka. All rights reserved.
 //
-
-
-// interval
-// date
-// barva
-
-
 import Foundation
 import UIKit
 
 class ShiftModel: NSObject, NSCoding {
     
-    var shifID : Int = 0
+    var shiftID : Int = 1
     var name : String?
-    var interval : String?
+    var interval : Int = 1
     var date : Date?
     var color : UIColor?
     
@@ -27,6 +20,7 @@ class ShiftModel: NSObject, NSCoding {
     fileprivate let intervalPropertyKey = "intervalPropertyKey"
     fileprivate let DatePropertyKey = "DatePropertyKey"
     fileprivate let ColorPropertyKey = "ColorPropertyKey"
+    fileprivate let shiftIDKey = "shiftIDKey"
 
     
     override init() {
@@ -39,12 +33,16 @@ class ShiftModel: NSObject, NSCoding {
             self.name = name
         }
         
-        if let interval = aDecoder.decodeObject(forKey: intervalPropertyKey) as? String {
+        if let interval = aDecoder.decodeObject(forKey: intervalPropertyKey) as? Int {
             self.interval = interval
         }
         
         if let date = aDecoder.decodeObject(forKey: DatePropertyKey) as? Date {
             self.date = date
+        }
+        
+        if let shiftID = aDecoder.decodeObject(forKey: shiftIDKey) as? Int {
+            self.shiftID = shiftID
         }
         
         func encode() -> Data {
@@ -59,19 +57,22 @@ class ShiftModel: NSObject, NSCoding {
             aCoder.encode(name, forKey: namePropertyKey)
         }
         
-        if let interval = self.interval {
-            aCoder.encode(interval, forKey: intervalPropertyKey)
-        }
-        
         if let date = self.date{
             aCoder.encode(date, forKey: DatePropertyKey)
         }
+/*
+        
+        if var interval = self.interval {
+            aCoder.encode(interval, forKey: intervalPropertyKey)
+        }
+        
+        if var shiftID = self.shiftID {
+            aCoder.encode(shiftID, forKey: shiftIDKey)
+        }
+ */
         
         func color(withData data:Data) -> UIColor {
             return NSKeyedUnarchiver.unarchiveObject(with: data) as! UIColor
         }
-       
-
-        
     }
 }

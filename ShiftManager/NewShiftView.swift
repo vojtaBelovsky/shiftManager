@@ -9,7 +9,7 @@
 import UIKit
 import PureLayout
 
-public let horizontalSpacing: CGFloat = 16
+//public let horizontalSpacing: CGFloat = 16
 
 class NewShiftView: UIView {
     
@@ -65,7 +65,6 @@ class NewShiftView: UIView {
         let button = UIButton()
         button.backgroundColor = color
         button.setTitle(name, for: .normal)
-        
         return button
     }
     
