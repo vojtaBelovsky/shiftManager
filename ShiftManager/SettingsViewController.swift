@@ -10,11 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    
     override func loadView() {
         self.view = SettingsView()
-        
-        
     }
     
     override func viewDidLoad() {
@@ -23,8 +20,7 @@ class SettingsViewController: UIViewController {
          navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
                }
     
-    func settingsButtonDidPress() {
-        
+    func settingsButtonDidPress() {        
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
 
