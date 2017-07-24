@@ -9,7 +9,7 @@
 import UIKit
 import PureLayout
 
-public let horizontalSpacing: CGFloat = 16
+
 
 class SignUpView: UIView {
 
@@ -28,44 +28,44 @@ class SignUpView: UIView {
         
         firstNameTextField.layer.borderColor = UIColor.black.cgColor
         firstNameTextField.layer.borderWidth = 1
-        firstNameTextField.placeholder = "First name"
+        firstNameTextField.placeholder = NSLocalizedString("SignUpPlaceholder_loc007", comment: "")
         addSubview(firstNameTextField)
         
         lastNameTextField.layer.borderColor = UIColor.black.cgColor
         lastNameTextField.layer.borderWidth = 1
-        lastNameTextField.placeholder = "Last name"
+        lastNameTextField.placeholder = NSLocalizedString("SignUpPlaceholder_loc008", comment: "")
         addSubview(lastNameTextField)
         
         passwordTextField.layer.borderColor = UIColor.black.cgColor
         passwordTextField.layer.borderWidth = 1
-        passwordTextField.placeholder = "Set password"
+        passwordTextField.placeholder = NSLocalizedString("SignUpPlaceholder_loc009", comment: "")
         passwordTextField.isSecureTextEntry = true
         addSubview(passwordTextField)
        
         signUpButton.backgroundColor = .red
-        signUpButton.setTitle("Sign Up", for: .normal)
+        signUpButton.setTitle(NSLocalizedString("SignUpButton_loc001", comment: ""), for: .normal)
         addSubview(signUpButton)
     }
     
     fileprivate func setupConstraints() {
         
-        firstNameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        firstNameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        firstNameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        firstNameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         firstNameTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.4)
         firstNameTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
-        lastNameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        lastNameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        lastNameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        lastNameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         lastNameTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.6)
         lastNameTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
 
-        passwordTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        passwordTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        passwordTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        passwordTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         passwordTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.8)
         passwordTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
 
-        signUpButton.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        signUpButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        signUpButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        signUpButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         signUpButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.0)
         signUpButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         

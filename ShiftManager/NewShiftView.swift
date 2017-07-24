@@ -9,7 +9,7 @@
 import UIKit
 import PureLayout
 
-//public let horizontalSpacing: CGFloat = 16
+public let horizontalSpacing: CGFloat = 16
 
 class NewShiftView: UIView {
     
@@ -70,38 +70,38 @@ class NewShiftView: UIView {
     
     fileprivate func setupConstraints() {
         
-        nameLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        nameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        nameLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        nameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         nameLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.1)
         nameLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
         
-        nameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        nameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        nameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        nameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         nameTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.2)
         nameTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
-        selectFirstShiftDateLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        selectFirstShiftDateLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        selectFirstShiftDateLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        selectFirstShiftDateLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         selectFirstShiftDateLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.45)
         selectFirstShiftDateLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
         
-        intervalLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        intervalLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        intervalLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        intervalLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         intervalLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.2)
         intervalLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
         
-        intervalTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        intervalTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        intervalTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        intervalTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         intervalTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.3)
         intervalTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
-        selectShiftColorLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        selectShiftColorLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        selectShiftColorLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        selectShiftColorLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         selectShiftColorLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.5)
         selectShiftColorLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
         
-        selectShiftColorButton.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        selectShiftColorButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        selectShiftColorButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        selectShiftColorButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.65)
         selectShiftColorButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.1)
         
@@ -116,8 +116,8 @@ class NewShiftView: UIView {
         print(selectedDate)
         addSubview(datePicker)
         
-        datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: horizontalSpacing)
-        datePicker.autoPinEdge(toSuperviewEdge: .trailing, withInset: horizontalSpacing)
+        datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        datePicker.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         datePicker.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.8)
         datePicker.autoMatch(.height, to: .height, of: self, withMultiplier: 0.3)
         }

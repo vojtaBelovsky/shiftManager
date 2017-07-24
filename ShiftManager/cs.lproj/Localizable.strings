@@ -18,3 +18,17 @@
 "SignUpAllert_loc004" = "Pole s heslem je prázdné";
 "SignUpAllert_loc005" = "Zavřít";
 "SignUp_loc006" = "Registrace";
+"SignUpPlaceholder_loc007" = "Jméno";
+"SignUpPlaceholder_loc008" = "Příjmení";
+"SignUpPlaceholder_loc009" = "Heslo";
+
+"SignUpButton_loc001" = "Registrace";
+//Login
+"LoginPlaceholder_loc001" = "priklad@email.com";
+"LoginPlaceholder_loc002" = "heslo";
+"LoginButton_loc001" = "Přihlásit se";
+"LoginTitle_loc001" = "Přihlášení";
+"LoginAllert_loc001" = "Chyba";
+"LoginAllert_loc002" = "Špatný email.";
+"LoginAllert_loc003" = "Špatné heslo.";
+"LoginAllert_loc004" = "Zavřít";

@@ -17,4 +17,19 @@
 "SignUpAllert_loc003" = "Field with last name are empty";
 "SignUpAllert_loc004" = "Field with password are empty";
 "SignUpAllert_loc005" = "Close";
-"SignUp_loc006" = "Sign Up";
+"SignUpTitle_loc006" = "Sign Up";
+"SignUpPlaceholder_loc007" = "First name";
+"SignUpPlaceholder_loc008" = "Last name";
+"SignUpPlaceholder_loc009" = "Password";
+
+"SignUpButton_loc001" = "Sign Up";
+
+//Login
+"LoginPlaceholder_loc001" = "exaple@email.com";
+"LoginPlaceholder_loc002" = "password";
+"LoginButton_loc001" = "Login";
+"LoginTitle_loc001" = "Login";
+"LoginAllert_loc001" = "Error";
+"LoginAllert_loc002" = "Invalid email.";
+"LoginAllert_loc003" = "Invalid password.";
+"LoginAllert_loc004" = "Close";
