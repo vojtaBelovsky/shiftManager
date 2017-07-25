@@ -10,7 +10,7 @@ import UIKit
 
 class ShiftModel: NSObject, NSCoding {
     
-    var uniqueID: Int
+    var uniqueID: String = UUID().uuidString
     var name : String?
     var interval : Int = 1
     var date : Date?
@@ -23,15 +23,11 @@ class ShiftModel: NSObject, NSCoding {
     fileprivate let shiftIDKey = "shiftIDKey"
 
     
-    init(id: Int) {
-        uniqueID = id
+    override init() {
         super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        
-        uniqueID = 0
-        //zbavit se uniqueID jakmile to bude mozne je to jenom proto aby nerval kompilator
         
         if let name = aDecoder.decodeObject(forKey: namePropertyKey) as? String {
             self.name = name
@@ -45,7 +41,7 @@ class ShiftModel: NSObject, NSCoding {
             self.date = date
         }
         
-        if let shiftID = aDecoder.decodeObject(forKey: shiftIDKey) as? Int {
+        if let shiftID = aDecoder.decodeObject(forKey: shiftIDKey) as? String {
             self.uniqueID = shiftID
         }
         

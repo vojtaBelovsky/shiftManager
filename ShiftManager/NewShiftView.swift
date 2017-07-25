@@ -18,7 +18,7 @@ class NewShiftView: UIView {
     fileprivate var selectFirstShiftDateLabel = UILabel()
     fileprivate let datePicker = UIDatePicker()
     fileprivate var intervalLabel = UILabel()
-   var intervalTextField = UITextField()
+    var intervalTextField = UITextField()
     fileprivate var selectShiftColorLabel = UILabel()
     var selectShiftColorButton = UIButton()
 
@@ -141,9 +141,5 @@ class NewShiftView: UIView {
     
     public func date() -> Date {
         return self.datePicker.date
-    }
-    
-    public func color() -> UIColor {
-        return self.color()
     }
 }

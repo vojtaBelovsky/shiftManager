@@ -19,9 +19,6 @@ class ShiftManager: NSObject {
     }
     
     public func saveShift(shift: ShiftModel) {
-        
-        if shift.uniqueID == 0 {
-            shift.uniqueID = newShiftID(Shift: shift)
             
             if let shiftsArray = defaults.object(forKey: shiftsKey) as? [Data] {
                 var newArray: [Data] = []
@@ -34,11 +31,8 @@ class ShiftManager: NSObject {
                 defaults.set(shiftsArray, forKey: shiftsKey)
             }
             defaults.synchronize()
-        } else {
-            update(Shift: shift)
         }
-    }
-    
+
    public func getShifts() -> [ShiftModel] {
         let shiftModelsAsData = defaults.object(forKey: shiftsKey) as? [Data]
         let shifts = [ShiftModel]()
@@ -57,11 +51,7 @@ class ShiftManager: NSObject {
         // updatnes model sichty ( to se bude volat pri editaci sichty )
         
     }
+     
     
-    private func newShiftID(Shift: ShiftModel) -> Int {
-        if Shift.uniqueID != 0 {
-
-        }
-        return 0
-    }
 }
+
