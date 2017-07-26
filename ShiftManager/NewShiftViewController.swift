@@ -33,7 +33,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
     func colorDidSet(color: UIColor) {
         newShiftView.selectShiftColorButton.backgroundColor = color
     }
-    
+
     func saveButtonDidPress() {
         let shift = ShiftModel()
         shift.name = newShiftView.name()

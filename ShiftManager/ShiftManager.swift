@@ -19,20 +19,20 @@ class ShiftManager: NSObject {
     }
     
     public func saveShift(shift: ShiftModel) {
-       
-        if let shiftsArray = defaults.object(forKey: shiftsKey) as? [Data] {
-            var newArray: [Data] = []
-            newArray.append(contentsOf: shiftsArray)
-            newArray.append(NSKeyedArchiver.archivedData(withRootObject: shift))
-            defaults.set(shiftsArray, forKey: shiftsKey)
-
-        } else {
-            let shiftsArray = [NSKeyedArchiver.archivedData(withRootObject: shift)]
-            defaults.set(shiftsArray, forKey: shiftsKey)
+            
+            if let shiftsArray = defaults.object(forKey: shiftsKey) as? [Data] {
+                var newArray: [Data] = []
+                newArray.append(contentsOf: shiftsArray)
+                newArray.append(NSKeyedArchiver.archivedData(withRootObject: shift))
+                defaults.set(shiftsArray, forKey: shiftsKey)
+                
+            } else {
+                let shiftsArray = [NSKeyedArchiver.archivedData(withRootObject: shift)]
+                defaults.set(shiftsArray, forKey: shiftsKey)
+            }
+            defaults.synchronize()
         }
-        defaults.synchronize()
-    }
-    
+
    public func getShifts() -> [ShiftModel] {
         let shiftModelsAsData = defaults.object(forKey: shiftsKey) as? [Data]
         let shifts = [ShiftModel]()
@@ -46,4 +46,12 @@ class ShiftManager: NSObject {
         // for cyklus prevedes objekty Data na ShiftModel, ulozis do pomocneho pole
         // a to vratis
         // }
+    
+    public func update(Shift: ShiftModel) {
+        // updatnes model sichty ( to se bude volat pri editaci sichty )
+        
+    }
+     
+    
 }
+

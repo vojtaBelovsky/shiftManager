@@ -10,7 +10,7 @@ import UIKit
 
 class ShiftModel: NSObject, NSCoding {
     
-    var shiftID : Int = 1
+    var uniqueID: String = UUID().uuidString
     var name : String?
     var interval : Int = 1
     var date : Date?
@@ -41,17 +41,15 @@ class ShiftModel: NSObject, NSCoding {
             self.date = date
         }
         
-        if let shiftID = aDecoder.decodeObject(forKey: shiftIDKey) as? Int {
-            self.shiftID = shiftID
+        if let shiftID = aDecoder.decodeObject(forKey: shiftIDKey) as? String {
+            self.uniqueID = shiftID
         }
         
         func encode() -> Data {
             return NSKeyedArchiver.archivedData(withRootObject: self)
         }
     }
-
-        
-
+    
     func encode(with aCoder: NSCoder) {
         if let name = self.name {
             aCoder.encode(name, forKey: namePropertyKey)
@@ -60,17 +58,11 @@ class ShiftModel: NSObject, NSCoding {
         if let date = self.date{
             aCoder.encode(date, forKey: DatePropertyKey)
         }
-/*
+
+        aCoder.encode(interval, forKey: intervalPropertyKey)
         
-        if var interval = self.interval {
-            aCoder.encode(interval, forKey: intervalPropertyKey)
-        }
-        
-        if var shiftID = self.shiftID {
-            aCoder.encode(shiftID, forKey: shiftIDKey)
-        }
- */
-        
+        aCoder.encode(uniqueID, forKey: shiftIDKey)
+
         func color(withData data:Data) -> UIColor {
             return NSKeyedUnarchiver.unarchiveObject(with: data) as! UIColor
         }
