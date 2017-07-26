@@ -21,6 +21,7 @@
 "SignUpPlaceholder_loc007" = "Jméno";
 "SignUpPlaceholder_loc008" = "Příjmení";
 "SignUpPlaceholder_loc009" = "Heslo";
+"SignUpPlaceholder_loc010" = "Email: priklade@email.com";
 
 "SignUpButton_loc001" = "Registrace";
 //Login

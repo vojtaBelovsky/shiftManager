@@ -19,7 +19,6 @@ class LoginViewController: UIViewController{
         self.loginView.setActionForLoginButton(self, action: #selector(selectLoginButtonDidPress))
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -44,16 +43,5 @@ class LoginViewController: UIViewController{
             present(alertController, animated: true, completion: nil)
             return
         }
-        
-        /*
-         else {
-         let alertController = UIAlertController(title: "Error", message: "Textfields are badly filled", preferredStyle: .alert)
-         let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
-         alertController.addAction(defaultAction)
-         present(alertController, animated: true, completion: nil)
-         }
-         */
     }
-    
-    
 }

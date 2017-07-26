@@ -23,6 +23,7 @@
 "SignUpPlaceholder_loc007" = "Imię";
 "SignUpPlaceholder_loc008" = "Nazwisko";
 "SignUpPlaceholder_loc009" = "Hasło";
+"SignUpPlaceholder_loc010" = "Email: przyklad@email.com";
 
 "SignUpButton_loc001" = "Rejestruj";
 //Login

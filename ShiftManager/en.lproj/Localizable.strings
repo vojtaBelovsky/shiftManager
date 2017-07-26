@@ -21,6 +21,7 @@
 "SignUpPlaceholder_loc007" = "First name";
 "SignUpPlaceholder_loc008" = "Last name";
 "SignUpPlaceholder_loc009" = "Password";
+"SignUpPlaceholder_loc010" = "Email: exmple@email.com";
 
 "SignUpButton_loc001" = "Sign Up";
 

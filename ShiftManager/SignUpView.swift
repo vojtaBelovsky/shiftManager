@@ -15,6 +15,7 @@ class SignUpView: UIView {
 
     fileprivate var firstNameTextField = UITextField()
     fileprivate var lastNameTextField = UITextField()
+    fileprivate var emailTextField = UITextField()
     fileprivate var passwordTextField = UITextField()
     fileprivate var signUpButton = UIButton()
 
@@ -35,6 +36,12 @@ class SignUpView: UIView {
         lastNameTextField.layer.borderWidth = 1
         lastNameTextField.placeholder = NSLocalizedString("SignUpPlaceholder_loc008", comment: "")
         addSubview(lastNameTextField)
+        
+        emailTextField.layer.borderColor = UIColor.black.cgColor
+        emailTextField.layer.borderWidth = 1
+        emailTextField.keyboardType = .emailAddress
+        emailTextField.placeholder = NSLocalizedString("SignUpPlaceholder_loc010", comment: "")
+        addSubview(emailTextField)
         
         passwordTextField.layer.borderColor = UIColor.black.cgColor
         passwordTextField.layer.borderWidth = 1
@@ -58,15 +65,20 @@ class SignUpView: UIView {
         lastNameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         lastNameTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.6)
         lastNameTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
+        
+        emailTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        emailTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        emailTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.8)
+        emailTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
 
         passwordTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         passwordTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        passwordTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.8)
+        passwordTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.0)
         passwordTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
 
         signUpButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         signUpButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        signUpButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.0)
+        signUpButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.2)
         signUpButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
     }
@@ -77,6 +89,12 @@ class SignUpView: UIView {
     
     public func setActionForSignUpButton(_ target: Any?, action: Selector) {
         signUpButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    public func isValid(_ enteredEmail: String) -> Bool {
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        return emailPredicate.evaluate(with: enteredEmail)
     }
     
     public func firstName() -> String {
@@ -90,8 +108,4 @@ class SignUpView: UIView {
     public func password() -> String {
         return self.passwordTextField.text ?? ""
     }
-   
-    
-    
-
 }

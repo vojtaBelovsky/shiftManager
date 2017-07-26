@@ -236,7 +236,6 @@
 		18C92B4D1F05170F00F29A1B /* ShiftManager */ = {
 			isa = PBXGroup;
 			children = (
-				188974D31F261A9D00E4CE92 /* Constants.swift */,
 				188974C61F25D47200E4CE92 /* SignUp/Login */,
 				18D8469A1F1F65EB004264D8 /* Models */,
 				18D8469E1F1F6A25004264D8 /* Managers */,
@@ -246,6 +245,7 @@
 				18C92B551F05170F00F29A1B /* Assets.xcassets */,
 				18C92B571F05170F00F29A1B /* LaunchScreen.storyboard */,
 				18C92B5A1F05170F00F29A1B /* Info.plist */,
+				188974D31F261A9D00E4CE92 /* Constants.swift */,
 				2AA400261F1E09B300712B19 /* Localizable.strings */,
 			);
 			path = ShiftManager;

@@ -15,14 +15,12 @@ class SignUpViewController: UIViewController{
     override func loadView() {
         self.view = signUpView
         title = NSLocalizedString("SignUp_loc006", comment: "")
-        
         self.signUpView.setActionForSignUpButton(self, action: #selector(selectSignUpButtonDidPress))
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-}
+    }
     
     func selectSignUpButtonDidPress() {
         
@@ -45,7 +43,6 @@ class SignUpViewController: UIViewController{
             present(alertController, animated: true, completion: nil)
             return
         }
-
         
         if passwordString.isEmpty {
             let alertController = UIAlertController(title: NSLocalizedString("SignUpAllert_loc001", comment: ""), message: NSLocalizedString("SignUpAllert_loc004", comment: ""), preferredStyle: .alert)
@@ -54,16 +51,5 @@ class SignUpViewController: UIViewController{
             present(alertController, animated: true, completion: nil)
             return
         }
-
-     /*
-        else {
-            let alertController = UIAlertController(title: "Error", message: "Textfields are badly filled", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
-            alertController.addAction(defaultAction)
-            present(alertController, animated: true, completion: nil)
-        }
-    */
     }
-    
-   
 }

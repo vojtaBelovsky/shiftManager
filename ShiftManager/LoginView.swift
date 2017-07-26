@@ -25,6 +25,7 @@ class LoginView: UIView {
         
         emailTextField.layer.borderColor = UIColor.black.cgColor
         emailTextField.layer.borderWidth = 1
+        emailTextField.keyboardType = .emailAddress
         emailTextField.placeholder = NSLocalizedString("LoginPlaceholder_loc001", comment: "")
         addSubview(emailTextField)
         
@@ -74,8 +75,4 @@ class LoginView: UIView {
     public func password() -> String {
         return self.passwordTextField.text ?? ""
     }
-    
-    
-    
-    
 }
