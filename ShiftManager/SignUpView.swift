@@ -80,7 +80,6 @@ class SignUpView: UIView {
         signUpButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         signUpButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.2)
         signUpButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
-        
     }
 
     required init?(coder aDecoder: NSCoder) {

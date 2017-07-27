@@ -34,3 +34,8 @@
 "LoginAllert_loc002" = "Invalid email.";
 "LoginAllert_loc003" = "Invalid password.";
 "LoginAllert_loc004" = "Close";
+//New shift
+"NewShiftAllert_loc001" = "Error";
+"NewShiftAllert_loc002" = "Field with name are empty";
+"NewShiftAllert_loc003" = "Field with interval are empty";
+"NewShiftAllert_loc004" = "Close";

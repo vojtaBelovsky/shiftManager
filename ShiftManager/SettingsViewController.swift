@@ -25,7 +25,7 @@ class SettingsViewController: UIViewController {
         
         // smazat
         ShiftManager().getShifts().forEach { shiftModel in
-            print("shift name: \(shiftModel.name ?? <#default value#>)")
+            print("shift name: \(shiftModel.name)")
         }
         // smazat - konec
     }

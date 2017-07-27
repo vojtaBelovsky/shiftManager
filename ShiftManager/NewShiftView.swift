@@ -79,7 +79,8 @@ class NewShiftView: UIView {
         selectShiftColorLabel.textColor = .black
         addSubview(selectShiftColorLabel)
         
-        selectShiftColorButton = createButton(color: .blue, name: NSLocalizedString("CreateNewShift_loc007", comment: ""))
+        selectShiftColorButton = createButton(color: .clear, name: NSLocalizedString("CreateNewShift_loc007", comment: ""))
+        //button.layer.borderColor = UIColor.orangeColor().CGColor
         addSubview(selectShiftColorButton)
     }
     
@@ -87,6 +88,7 @@ class NewShiftView: UIView {
         let button = UIButton()
         button.backgroundColor = color
         button.setTitle(name, for: .normal)
+       // button.layer.borderColor = .red
         return button
     }
     
@@ -154,14 +156,15 @@ class NewShiftView: UIView {
     }
     
     public func name() -> String {
-        return self.nameTextField.text!
+        return self.nameTextField.text ?? ""
     }
     
     public func interval() -> String {
-        return self.intervalTextField.text!
+        return self.intervalTextField.text ?? ""
     }
     
     public func date() -> Date {
         return self.datePicker.date
     }
+    
 }

@@ -6,80 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShiftManager/ShiftManager.swift"
-            timestampString = "522765375.557346"
+            filePath = "ShiftManager/NewShiftView.swift"
+            timestampString = "522868482.005272"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "saveShift(shift:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShiftManager/ShiftManager.swift"
-            timestampString = "522765574.085043"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "getShifts()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ShiftManager.ShiftManager.getShifts () -&gt; Swift.Array&lt;ShiftManager.ShiftModel&gt;"
-                  moduleName = "ShiftManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Tado/Desktop/shiftManager/ShiftManager/ShiftManager.swift"
-                  timestampString = "522765676.490248"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "47">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ShiftManager.ShiftManager.getShifts () -&gt; Swift.Array&lt;ShiftManager.ShiftModel&gt;"
-                  moduleName = "ShiftManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Tado/Desktop/shiftManager/ShiftManager/ShiftManager.swift"
-                  timestampString = "522765676.492982"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "694">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShiftManager/ShiftManager.swift"
-            timestampString = "522765603.481249"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "getShifts()"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "createButton(color:name:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

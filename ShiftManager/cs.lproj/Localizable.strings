@@ -33,3 +33,8 @@
 "LoginAllert_loc002" = "Špatný email.";
 "LoginAllert_loc003" = "Špatné heslo.";
 "LoginAllert_loc004" = "Zavřít";
+//New shift
+"NewShiftAllert_loc001" = "Chyba";
+"NewShiftAllert_loc002" = "Pole se jménem je prázdné";
+"NewShiftAllert_loc003" = "Pole s příjmením je prázdné";
+"NewShiftAllert_loc004" = "Zavřít";

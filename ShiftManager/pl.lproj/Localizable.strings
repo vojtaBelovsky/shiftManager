@@ -35,3 +35,8 @@
 "LoginAllert_loc002" = "Nieprawidłowy mail.";
 "LoginAllert_loc003" = "Nieprawidłowe hasło";
 "LoginAllert_loc004" = "Zamknij";
+//New shift
+"NewShiftAllert_loc001" = "Błąd";
+"NewShiftAllert_loc002" = "Pole z imieniem jest puste";
+"NewShiftAllert_loc003" = "Pole z interwałem jest puste";
+"NewShiftAllert_loc004" = "Zamknij";
