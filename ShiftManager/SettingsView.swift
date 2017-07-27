@@ -12,7 +12,6 @@ import PureLayout
 class SettingsView: UIView, UITableViewDelegate {
     
     let tableView = UITableView()
-    let dataSource = SettingsTableViewDataSource()
     
     init() {
         super.init(frame: .zero)
@@ -20,7 +19,6 @@ class SettingsView: UIView, UITableViewDelegate {
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: settingsTableViewCellReuseIdentifier)
         tableView.delegate = self
-        tableView.dataSource = dataSource
         addSubview(tableView)
         setupConstraints()
     }

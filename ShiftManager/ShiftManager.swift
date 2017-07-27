@@ -19,39 +19,35 @@ class ShiftManager: NSObject {
     }
     
     public func saveShift(shift: ShiftModel) {
+        
+        if let shiftsArray = defaults.object(forKey: shiftsKey) as? [Data] {
+            var newArray: [Data] = []
+            newArray.append(contentsOf: shiftsArray)
+            newArray.append(NSKeyedArchiver.archivedData(withRootObject: shift))
+            defaults.set(newArray, forKey: shiftsKey)
             
-            if let shiftsArray = defaults.object(forKey: shiftsKey) as? [Data] {
-                var newArray: [Data] = []
-                newArray.append(contentsOf: shiftsArray)
-                newArray.append(NSKeyedArchiver.archivedData(withRootObject: shift))
-                defaults.set(shiftsArray, forKey: shiftsKey)
-                
-            } else {
-                let shiftsArray = [NSKeyedArchiver.archivedData(withRootObject: shift)]
-                defaults.set(shiftsArray, forKey: shiftsKey)
-            }
-            defaults.synchronize()
+        } else {
+            let shiftsArray = [NSKeyedArchiver.archivedData(withRootObject: shift)]
+            defaults.set(shiftsArray, forKey: shiftsKey)
         }
-
-   public func getShifts() -> [ShiftModel] {
-        let shiftModelsAsData = defaults.object(forKey: shiftsKey) as? [Data]
-        let shifts = [ShiftModel]()
-        shiftModelsAsData?.forEach({ shiftAsData in
-          //            shift -> prevedes na datovy typ ShiftModel -> pridas do pole shifts
-        })
-        return shifts
+        defaults.synchronize()
     }
-        // public func getShifts() -> [ShiftModel] {
-        // ziskas pole sichet a vratis ( z user defaults ziskas pole [Data], pres
-        // for cyklus prevedes objekty Data na ShiftModel, ulozis do pomocneho pole
-        // a to vratis
-        // }
+    
+    public func getShifts() -> [ShiftModel] {
+        var shiftsArray = [ShiftModel]()
+        if let shiftModelsAsData = defaults.object(forKey: shiftsKey) as? [Data] {
+            shiftModelsAsData.forEach({ shiftModelData in
+                shiftsArray.append(NSKeyedUnarchiver.unarchiveObject(with:shiftModelData) as! ShiftModel)
+            })
+        }
+        return shiftsArray
+    }
     
     public func update(Shift: ShiftModel) {
         // updatnes model sichty ( to se bude volat pri editaci sichty )
         
     }
-     
+    
     
 }
 

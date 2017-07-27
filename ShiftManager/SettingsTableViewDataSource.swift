@@ -19,13 +19,9 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
                 return UITableViewCell()
         }
 
-        
-        
         let viewModel = SettingsCellViewModel(title: "Směna \(indexPath.row)")
         cell.setupCell(viewModel: viewModel)
         return cell
-
-        
         
     }
     

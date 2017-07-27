@@ -10,7 +10,7 @@ import UIKit
 
 class ShiftModel: NSObject, NSCoding {
     
-    var uniqueID: String = UUID().uuidString
+    var uniqueID: String = ""
     var name : String?
     var interval : Int = 1
     var date : Date?
@@ -18,8 +18,8 @@ class ShiftModel: NSObject, NSCoding {
     
     fileprivate let namePropertyKey = "namePropertyKey"
     fileprivate let intervalPropertyKey = "intervalPropertyKey"
-    fileprivate let DatePropertyKey = "DatePropertyKey"
-    fileprivate let ColorPropertyKey = "ColorPropertyKey"
+    fileprivate let datePropertyKey = "datePropertyKey"
+    fileprivate let colorPropertyKey = "colorPropertyKey"
     fileprivate let shiftIDKey = "shiftIDKey"
 
     
@@ -37,7 +37,7 @@ class ShiftModel: NSObject, NSCoding {
             self.interval = interval
         }
         
-        if let date = aDecoder.decodeObject(forKey: DatePropertyKey) as? Date {
+        if let date = aDecoder.decodeObject(forKey: datePropertyKey) as? Date {
             self.date = date
         }
         
@@ -45,8 +45,8 @@ class ShiftModel: NSObject, NSCoding {
             self.uniqueID = shiftID
         }
         
-        func encode() -> Data {
-            return NSKeyedArchiver.archivedData(withRootObject: self)
+        if let color = aDecoder.decodeObject(forKey: colorPropertyKey) as? UIColor {
+            self.color = color
         }
     }
     
@@ -56,15 +56,15 @@ class ShiftModel: NSObject, NSCoding {
         }
         
         if let date = self.date{
-            aCoder.encode(date, forKey: DatePropertyKey)
+            aCoder.encode(date, forKey: datePropertyKey)
         }
 
         aCoder.encode(interval, forKey: intervalPropertyKey)
         
         aCoder.encode(uniqueID, forKey: shiftIDKey)
 
-        func color(withData data:Data) -> UIColor {
-            return NSKeyedUnarchiver.unarchiveObject(with: data) as! UIColor
+        if let color = self.color {
+            aCoder.encode(color, forKey: colorPropertyKey)
         }
     }
 }
