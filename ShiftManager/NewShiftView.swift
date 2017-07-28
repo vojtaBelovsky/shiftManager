@@ -19,8 +19,7 @@ class NewShiftView: UIView {
     fileprivate let datePicker = UIDatePicker()
     fileprivate var intervalLabel = UILabel()
     var intervalTextField = UITextField()
-    fileprivate var selectShiftColorLabel = UILabel()
-    var selectShiftColorButton = UIButton()
+    let selectShiftColorButton = UIButton()
 
     init() {
         super.init(frame: .zero)
@@ -51,27 +50,14 @@ class NewShiftView: UIView {
         intervalTextField.layer.borderWidth = 1
         intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
         intervalTextField.keyboardType = UIKeyboardType.numberPad
-       //TODO: validation numbers
-        
         addSubview(intervalTextField)
-        
-        selectShiftColorLabel.text = ""
-        selectShiftColorLabel.textColor = .black
-        addSubview(selectShiftColorLabel)
-        
-        selectShiftColorButton = createButton(color: .white, name: NSLocalizedString("CreateNewShift_loc007", comment: ""), labelColor: .black)
-        //button.layer.borderColor = UIColor.orangeColor().CGColor
+ 
+        selectShiftColorButton.backgroundColor = .white
+        selectShiftColorButton.setTitle(NSLocalizedString("CreateNewShift_loc007", comment: ""), for: .normal)
+        selectShiftColorButton.setTitleColor(.black, for: UIControlState.normal)
+        //selectShiftColorButton.layer.borderColor = UIColor.black as! CGColor
         addSubview(selectShiftColorButton)
     }
-    
-    fileprivate func createButton(color: UIColor, name: String, labelColor: UIColor) -> UIButton {
-        let button = UIButton()
-        button.backgroundColor = color
-        button.setTitle(name, for: .normal)
-        button.setTitleColor(labelColor, for: UIControlState.normal)
-        button.layer.borderColor = UIColor.black.cgColor
-        return button
-}
     
     fileprivate func setupConstraints() {
         
@@ -99,12 +85,7 @@ class NewShiftView: UIView {
         intervalTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         intervalTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.3)
         intervalTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
-        
-        selectShiftColorLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        selectShiftColorLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        selectShiftColorLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.5)
-        selectShiftColorLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
-        
+
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.65)
