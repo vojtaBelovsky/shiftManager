@@ -11,10 +11,10 @@ import UIKit
 class ShiftModel: NSObject, NSCoding {
     
     var uniqueID: String = ""
-    var name : String?
-    var interval : Int = 1
-    var date : Date?
-    var color : UIColor?
+    var name: String = ""
+    var interval: Int = 1
+    var date: Date?
+    var color: UIColor?
     
     fileprivate let namePropertyKey = "namePropertyKey"
     fileprivate let intervalPropertyKey = "intervalPropertyKey"
@@ -51,9 +51,8 @@ class ShiftModel: NSObject, NSCoding {
     }
     
     func encode(with aCoder: NSCoder) {
-        if let name = self.name {
-            aCoder.encode(name, forKey: namePropertyKey)
-        }
+        
+        aCoder.encode(name, forKey: namePropertyKey)
         
         if let date = self.date{
             aCoder.encode(date, forKey: datePropertyKey)

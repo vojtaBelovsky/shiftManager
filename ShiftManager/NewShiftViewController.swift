@@ -63,7 +63,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
             return
         }
         
-               ShiftManager().saveShift(shift: shift)
+               ShiftManager.sharedInstance.saveShift(shift: shift)
         print(UserDefaults.standard.dictionaryRepresentation())
     }
 

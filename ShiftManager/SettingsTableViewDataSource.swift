@@ -19,14 +19,15 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
                 return UITableViewCell()
         }
 
-        let viewModel = SettingsCellViewModel(title: "Směna \(indexPath.row)")
+        let shiftModel = ShiftManager.sharedInstance.shiftFor(IndexPath: indexPath)
+        let viewModel = SettingsCellViewModel(title: "Směna \(shiftModel.name)")
         cell.setupCell(viewModel: viewModel)
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return ShiftManager.sharedInstance.numberOfShifts()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
