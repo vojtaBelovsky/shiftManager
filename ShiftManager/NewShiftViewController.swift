@@ -65,6 +65,9 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         
                ShiftManager().saveShift(shift: shift)
         print(UserDefaults.standard.dictionaryRepresentation())
+        
+         navigationController?.popViewController(animated:true)
+       
     }
 
     func selectShiftColorButtonDidPress() {
