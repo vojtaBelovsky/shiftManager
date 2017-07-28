@@ -39,3 +39,4 @@
 "NewShiftAllert_loc002" = "Field with name are empty";
 "NewShiftAllert_loc003" = "Field with interval are empty";
 "NewShiftAllert_loc004" = "Close";
+"NewShiftAllert_loc005" = "Please select color";

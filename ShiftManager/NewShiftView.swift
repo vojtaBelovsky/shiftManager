@@ -51,7 +51,7 @@ class NewShiftView: UIView {
         intervalTextField.layer.borderWidth = 1
         intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
         intervalTextField.keyboardType = UIKeyboardType.numberPad
-       //TODO: validation numbers only not working yet
+       //TODO: validation numbers
         
         addSubview(intervalTextField)
         
@@ -59,18 +59,19 @@ class NewShiftView: UIView {
         selectShiftColorLabel.textColor = .black
         addSubview(selectShiftColorLabel)
         
-        selectShiftColorButton = createButton(color: .clear, name: NSLocalizedString("CreateNewShift_loc007", comment: ""))
+        selectShiftColorButton = createButton(color: .white, name: NSLocalizedString("CreateNewShift_loc007", comment: ""), labelColor: .black)
         //button.layer.borderColor = UIColor.orangeColor().CGColor
         addSubview(selectShiftColorButton)
     }
     
-    fileprivate func createButton(color: UIColor, name: String) -> UIButton {
+    fileprivate func createButton(color: UIColor, name: String, labelColor: UIColor) -> UIButton {
         let button = UIButton()
         button.backgroundColor = color
         button.setTitle(name, for: .normal)
-       // button.layer.borderColor = .red
+        button.setTitleColor(labelColor, for: UIControlState.normal)
+        button.layer.borderColor = UIColor.black.cgColor
         return button
-    }
+}
     
     fileprivate func setupConstraints() {
         
@@ -145,5 +146,6 @@ class NewShiftView: UIView {
     public func date() -> Date {
         return self.datePicker.date
     }
+   
     
 }

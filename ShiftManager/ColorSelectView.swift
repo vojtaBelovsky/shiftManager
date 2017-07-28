@@ -36,7 +36,7 @@ class ColorSelectView: UIView {
     }
     
     func setupConstraints() {
-      //  collectionView.autoPinEdge(toSuperviewEdge: .top)
+    //  collectionView.autoPinEdge(toSuperviewEdge: .top)
         collectionView.autoPinEdge(toSuperviewEdge: .top, withInset: 30)
         collectionView.autoPinEdge(toSuperviewEdge: .leading)
         collectionView.autoPinEdge(toSuperviewEdge: .trailing)

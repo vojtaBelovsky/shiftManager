@@ -37,15 +37,12 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
     func saveButtonDidPress() {
         let shift = ShiftModel()
         shift.name = newShiftView.name()
-        //shift.interval = newShiftView.interval()
         shift.date = newShiftView.date()
         shift.color = newShiftColor
         
         
         let nameString = newShiftView.name()
         let intervalString = newShiftView.interval()
-       // let dateString = newShiftView.date()
-        
         
         if nameString.isEmpty {
             let alertController = UIAlertController(title: NSLocalizedString("NewShiftAllert_loc001", comment: ""), message: NSLocalizedString("NewShiftAllert_loc002", comment: ""), preferredStyle: .alert)
@@ -63,10 +60,17 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
             return
         }
         
-               ShiftManager().saveShift(shift: shift)
-        print(UserDefaults.standard.dictionaryRepresentation())
+        if newShiftView.selectShiftColorButton.backgroundColor == UIColor.white {
+            let alertController = UIAlertController(title: NSLocalizedString("NewShiftAllert_loc001", comment: ""), message: NSLocalizedString("NewShiftAllert_loc005", comment: ""), preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: NSLocalizedString("NewShiftAllert_loc004", comment: ""), style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            return
+        }
         
-         navigationController?.popViewController(animated:true)
+        ShiftManager.sharedInstance.saveShift(shift: shift)
+        print(UserDefaults.standard.dictionaryRepresentation())
+        navigationController?.popViewController(animated:true)
        
     }
 

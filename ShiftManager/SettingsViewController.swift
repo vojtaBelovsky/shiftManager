@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController {
         settingsView.tableView.dataSource = dataSource
         
         // smazat
-        ShiftManager().getShifts().forEach { shiftModel in
+        ShiftManager.sharedInstance.getShifts().forEach { shiftModel in
             print("shift name: \(shiftModel.name)")
         }
         // smazat - konec
