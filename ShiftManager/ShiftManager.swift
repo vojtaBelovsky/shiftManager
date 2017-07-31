@@ -25,7 +25,7 @@ class ShiftManager: NSObject {
         saveShiftsToPersistentStorage()
     }
     
-    func saveShiftsToPersistentStorage() {
+    private func saveShiftsToPersistentStorage() {
         let shiftsAsData = shifts.map { (shift) -> Data in
             NSKeyedArchiver.archivedData(withRootObject: shift)
         }
@@ -54,14 +54,17 @@ class ShiftManager: NSObject {
     
     func addNewShift(shift: ShiftModel) {
         shifts.append(shift)
+        saveShiftsToPersistentStorage()
     }
     
     public func update(Shift: ShiftModel) {
         
+        saveShiftsToPersistentStorage()
     }
     
     public func deleteShift(at index: Int) {
         shifts.remove(at: index)
+        saveShiftsToPersistentStorage()
         
     }
     
