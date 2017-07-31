@@ -55,7 +55,9 @@ class NewShiftView: UIView {
         selectShiftColorButton.backgroundColor = .white
         selectShiftColorButton.setTitle(NSLocalizedString("CreateNewShift_loc007", comment: ""), for: .normal)
         selectShiftColorButton.setTitleColor(.black, for: UIControlState.normal)
-        //selectShiftColorButton.layer.borderColor = UIColor.black as! CGColor
+        selectShiftColorButton.layer.borderColor = UIColor.black.cgColor
+        selectShiftColorButton.layer.borderWidth = 1
+        
         addSubview(selectShiftColorButton)
     }
     

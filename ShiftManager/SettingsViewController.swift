@@ -12,6 +12,7 @@ class SettingsViewController: UIViewController {
     
     let dataSource = SettingsTableViewDataSource()
     let settingsView = SettingsView()
+    let settingsViewController = UIViewController()
     
     override func loadView() {
         self.view = settingsView
@@ -23,11 +24,19 @@ class SettingsViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
         settingsView.tableView.dataSource = dataSource
         
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(loadList), name: myNotification, object: nil)
+
         // smazat
         ShiftManager.sharedInstance.getShifts().forEach { shiftModel in
             print("shift name: \(shiftModel.name)")
         }
         // smazat - konec
+    }
+    
+    func loadList(){
+        //load data here
+        settingsView.tableView.reloadData()
     }
     
     func settingsButtonDidPress() {

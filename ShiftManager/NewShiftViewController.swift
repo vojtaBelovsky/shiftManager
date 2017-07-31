@@ -8,14 +8,15 @@
 
 import UIKit
 
+let myNotification = Notification.Name(rawValue:"load")
 
 class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegate {
+    
     let newShiftView = NewShiftView()
     var newShiftColor: UIColor?
     
     override func loadView() {
         self.view = newShiftView
-        
         
     }
     
@@ -39,7 +40,6 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         shift.name = newShiftView.name()
         shift.date = newShiftView.date()
         shift.color = newShiftColor
-        
         
         let nameString = newShiftView.name()
         let intervalString = newShiftView.interval()
@@ -69,9 +69,14 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         }
         
         ShiftManager.sharedInstance.saveShift(shift: shift)
-        print(UserDefaults.standard.dictionaryRepresentation())
+        sendNotification()
         navigationController?.popViewController(animated:true)
-       
+        
+    }
+    
+    func sendNotification() {
+        let nc = NotificationCenter.default
+        nc.post(name: myNotification, object: nil)
     }
 
     func selectShiftColorButtonDidPress() {
