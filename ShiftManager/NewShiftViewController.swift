@@ -8,7 +8,7 @@
 
 import UIKit
 
-let myNotification = Notification.Name(rawValue:"load")
+let myNotification = Notification.Name(rawValue:"ReloadNewShiftController")
 
 class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegate {
     
