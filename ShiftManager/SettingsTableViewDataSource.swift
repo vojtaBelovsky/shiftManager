@@ -20,11 +20,22 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
                 return UITableViewCell()
         }
 
-        let shiftModel = ShiftManager.sharedInstance.shiftFor(IndexPath: indexPath)
+        let shiftModel = ShiftManager.sharedInstance.shiftForIndex(indexPath.row)
         let viewModel = SettingsCellViewModel(title: "Směna \(shiftModel.name)")
         cell.setupCell(viewModel: viewModel)
         return cell
         
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            ShiftManager.sharedInstance.deleteShift(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

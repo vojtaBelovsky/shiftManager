@@ -21,6 +21,18 @@ class ShiftManager: NSObject {
         self.loadShiftsFromUserDefaults()
     }
     
+    deinit {
+        saveShiftsToPersistentStorage()
+    }
+    
+    func saveShiftsToPersistentStorage() {
+        let shiftsAsData = shifts.map { (shift) -> Data in
+            NSKeyedArchiver.archivedData(withRootObject: shift)
+        }
+        defaults.set(shiftsAsData, forKey: shiftsKey)
+        defaults.synchronize()
+    }
+    
     private func loadShiftsFromUserDefaults() {
         var shiftsArray = [ShiftModel]()
         if let shiftModelsAsData = defaults.object(forKey: shiftsKey) as? [Data] {
@@ -42,15 +54,15 @@ class ShiftManager: NSObject {
     
     func addNewShift(shift: ShiftModel) {
         shifts.append(shift)
-        let shiftsAsData = shifts.map { (shift) -> Data in
-            NSKeyedArchiver.archivedData(withRootObject: shift)
-        }
-        defaults.set(shiftsAsData, forKey: shiftsKey)
-        defaults.synchronize()
     }
     
     public func update(Shift: ShiftModel) {
-        // updatnes model sichty ( to se bude volat pri editaci sichty )
+        
+    }
+    
+    public func deleteShift(at index: Int) {
+        shifts.remove(at: index)
+        
     }
     
     public func getShifts() -> [ShiftModel] {
@@ -61,8 +73,8 @@ class ShiftManager: NSObject {
         return shifts.count
     }
     
-    public func shiftFor(IndexPath: IndexPath) -> ShiftModel {
-        return shifts[IndexPath.row]
+    public func shiftForIndex(_ index: Int) -> ShiftModel {
+        return shifts[index]
     }
 }
 

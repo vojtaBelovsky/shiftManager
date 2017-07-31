@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITableViewDelegate {
     
     let dataSource = SettingsTableViewDataSource()
     let settingsView = SettingsView()
@@ -23,24 +23,21 @@ class SettingsViewController: UIViewController {
         title = NSLocalizedString("Settings_loc002", comment: "")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
         settingsView.tableView.dataSource = dataSource
+        settingsView.tableView.delegate = self
         
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(loadList), name: myNotification, object: nil)
 
-        // smazat
         ShiftManager.sharedInstance.getShifts().forEach { shiftModel in
             print("shift name: \(shiftModel.name)")
         }
-        // smazat - konec
     }
     
     func loadList(){
-        //load data here
         settingsView.tableView.reloadData()
     }
     
     func settingsButtonDidPress() {
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
-    
 }
