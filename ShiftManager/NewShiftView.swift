@@ -130,5 +130,14 @@ class NewShiftView: UIView {
         return self.datePicker.date
     }
    
+    public func setupView(with shift: ShiftModel) {
+        nameTextField.text = shift.name
+        intervalTextField.text = String(shift.interval)
+        selectShiftColorButton.backgroundColor = shift.color
+        
+        if let date = shift.date {
+            datePicker.date = date
+        }
+    }
     
 }

@@ -17,7 +17,6 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
     
     override func loadView() {
         self.view = newShiftView
-        
     }
     
     override func viewDidLoad() {
