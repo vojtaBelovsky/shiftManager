@@ -98,8 +98,13 @@ class NewShiftView: UIView {
     func shiftFirstDate() {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/dd/MM"
+        dateFormatter.dateStyle = DateFormatter.Style.short   // You can also use Long, Medium and No style.
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        let inputDate = dateFormatter.string(from: date())
+        print(inputDate)
+        
         let selectedDate = dateFormatter.string(from: datePicker.date)
         print(selectedDate)
         addSubview(datePicker)
