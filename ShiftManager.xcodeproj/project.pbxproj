@@ -19,6 +19,7 @@
 		188974D01F26170900E4CE92 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974CF1F26170900E4CE92 /* LoginView.swift */; };
 		188974D21F26171D00E4CE92 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974D11F26171D00E4CE92 /* LoginViewController.swift */; };
 		188974D41F261A9D00E4CE92 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974D31F261A9D00E4CE92 /* Constants.swift */; };
+		18C8E4351F31CC14001D1AAD /* ShiftModelValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8E4341F31CC14001D1AAD /* ShiftModelValidator.swift */; };
 		18C92B4F1F05170F00F29A1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B4E1F05170F00F29A1B /* AppDelegate.swift */; };
 		18C92B511F05170F00F29A1B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B501F05170F00F29A1B /* CalendarViewController.swift */; };
 		18C92B561F05170F00F29A1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C92B551F05170F00F29A1B /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		18D846A01F1F6A3E004264D8 /* ShiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */; };
 		18D846A11F1F6A3E004264D8 /* ShiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */; };
 		2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A834CFB1F13AC170084F697 /* HeaderView.swift */; };
+		2A9E68B11F306BA600CE6541 /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9E68B01F306BA600CE6541 /* EditShiftViewController.swift */; };
 		2AA400241F1E09B300712B19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AA400261F1E09B300712B19 /* Localizable.strings */; };
 		2AA4FFED1F1779D400712B19 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */; };
 		2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4FFEE1F177A0C00712B19 /* SettingsTableViewDataSource.swift */; };
@@ -67,6 +69,7 @@
 		188974CF1F26170900E4CE92 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		188974D11F26171D00E4CE92 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		188974D31F261A9D00E4CE92 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		18C8E4341F31CC14001D1AAD /* ShiftModelValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftModelValidator.swift; sourceTree = "<group>"; };
 		18C92B4B1F05170F00F29A1B /* ShiftManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShiftManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C92B4E1F05170F00F29A1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18C92B501F05170F00F29A1B /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 		29C811EC97CC96244BD29BFD /* Pods-ShiftManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManager/Pods-ShiftManager.release.xcconfig"; sourceTree = "<group>"; };
 		2A2C5D641F1E204D001BA754 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A834CFB1F13AC170084F697 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		2A9E68B01F306BA600CE6541 /* EditShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditShiftViewController.swift; sourceTree = "<group>"; };
 		2AA400251F1E09B300712B19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2AA400271F1E09C400712B19 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 		183AF5A71F18F0720033CFD7 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				2A9E68AF1F306B4100CE6541 /* EditShift */,
 				183AF5AD1F18F1F00033CFD7 /* Settings */,
 				18C92B731F05198B00F29A1B /* NewShift */,
 				183AF5AE1F18F2020033CFD7 /* ColorSelect */,
@@ -213,6 +218,14 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		18C8E4331F31CBE0001D1AAD /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				18C8E4341F31CC14001D1AAD /* ShiftModelValidator.swift */,
+			);
+			name = Validator;
+			sourceTree = "<group>";
+		};
 		18C92B421F05170F00F29A1B = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +254,7 @@
 				18D8469E1F1F6A25004264D8 /* Managers */,
 				183AF5A81F18F0C90033CFD7 /* Cellendar */,
 				183AF5A71F18F0720033CFD7 /* Settings */,
+				18C8E4331F31CBE0001D1AAD /* Validator */,
 				18C92B4E1F05170F00F29A1B /* AppDelegate.swift */,
 				18C92B551F05170F00F29A1B /* Assets.xcassets */,
 				18C92B571F05170F00F29A1B /* LaunchScreen.storyboard */,
@@ -350,6 +364,14 @@
 				18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		2A9E68AF1F306B4100CE6541 /* EditShift */ = {
+			isa = PBXGroup;
+			children = (
+				2A9E68B01F306BA600CE6541 /* EditShiftViewController.swift */,
+			);
+			name = EditShift;
 			sourceTree = "<group>";
 		};
 		544C7C9C385207CDA315669A /* Frameworks */ = {
@@ -582,6 +604,7 @@
 				183AF5A41F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift in Sources */,
 				18D8469C1F1F660F004264D8 /* ShiftModel.swift in Sources */,
 				188974CC1F25D54800E4CE92 /* SignUpView.swift in Sources */,
+				18C8E4351F31CC14001D1AAD /* ShiftModelValidator.swift in Sources */,
 				188974D01F26170900E4CE92 /* LoginView.swift in Sources */,
 				18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */,
 				183AF59F1F18B1030033CFD7 /* ColorSelectViewController.swift in Sources */,
@@ -590,6 +613,7 @@
 				18C92B7C1F06106A00F29A1B /* SettingsViewController.swift in Sources */,
 				18C92B7A1F0519EB00F29A1B /* CalendarDataSource.swift in Sources */,
 				188974D21F26171D00E4CE92 /* LoginViewController.swift in Sources */,
+				2A9E68B11F306BA600CE6541 /* EditShiftViewController.swift in Sources */,
 				183AF59A1F18B0F60033CFD7 /* ColorSelectView.swift in Sources */,
 				2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */,
 				2AA4FFED1F1779D400712B19 /* SettingsTableViewCell.swift in Sources */,

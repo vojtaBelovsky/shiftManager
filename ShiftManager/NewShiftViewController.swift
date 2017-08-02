@@ -17,7 +17,6 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
     
     override func loadView() {
         self.view = newShiftView
-        
     }
     
     override func viewDidLoad() {
@@ -40,38 +39,20 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         shift.name = newShiftView.name()
         shift.date = newShiftView.date()
         shift.color = newShiftColor
+        shift.interval = newShiftView.interval()
         
-        let nameString = newShiftView.name()
-        let intervalString = newShiftView.interval()
-        
-        if nameString.isEmpty {
-            let alertController = UIAlertController(title: NSLocalizedString("NewShiftAllert_loc001", comment: ""), message: NSLocalizedString("NewShiftAllert_loc002", comment: ""), preferredStyle: .alert)
+        if let validationError = ShiftModelValidator.validateShift(shift) {
+            let alertController = UIAlertController(title: validationError.localizedDescription, message: validationError.localizedFailureReason, preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: NSLocalizedString("NewShiftAllert_loc004", comment: ""), style: .default, handler: nil)
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
             return
         }
-        
-        if intervalString.isEmpty {
-            let alertController = UIAlertController(title: NSLocalizedString("NewShiftAllert_loc001", comment: ""), message: NSLocalizedString("NewShiftAllert_loc003", comment: ""), preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: NSLocalizedString("NewShiftAllert_loc004", comment: ""), style: .default, handler: nil)
-            alertController.addAction(defaultAction)
-            present(alertController, animated: true, completion: nil)
-            return
+        else {
+            ShiftManager.sharedInstance.saveShift(shift: shift)
+            sendNotification()
+            navigationController?.popViewController(animated:true)
         }
-        
-        if newShiftView.selectShiftColorButton.backgroundColor == UIColor.white {
-            let alertController = UIAlertController(title: NSLocalizedString("NewShiftAllert_loc001", comment: ""), message: NSLocalizedString("NewShiftAllert_loc005", comment: ""), preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: NSLocalizedString("NewShiftAllert_loc004", comment: ""), style: .default, handler: nil)
-            alertController.addAction(defaultAction)
-            present(alertController, animated: true, completion: nil)
-            return
-        }
-        
-        ShiftManager.sharedInstance.saveShift(shift: shift)
-        sendNotification()
-        navigationController?.popViewController(animated:true)
-        
     }
     
     func sendNotification() {

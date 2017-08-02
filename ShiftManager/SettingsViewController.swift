@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, UITableViewDelegate {
+class SettingsViewController: UIViewController {
     
     let dataSource = SettingsTableViewDataSource()
     let settingsView = SettingsView()
@@ -39,5 +39,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate {
     
     func settingsButtonDidPress() {
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
+    }
+}
+
+extension SettingsViewController: UITableViewDelegate  {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let shift = ShiftManager.sharedInstance.shiftForIndex(indexPath.row)
+        navigationController?.pushViewController(EditShiftViewController(shift: shift), animated: true)
     }
 }
