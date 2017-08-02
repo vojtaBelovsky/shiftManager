@@ -3,7 +3,12 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "CalendarViewController.init(nibName : String?, bundle : Bundle?) -&gt; CalendarViewController:CalendarViewController.swift">
+         contextName = "NewShiftView.date() -&gt; Date:NewShiftView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "datePicker.date">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "CalendarDataSource.collectionView(UICollectionView, viewForSupplementaryElementOfKind : String, at : IndexPath) -&gt; UICollectionReusableView:CalendarDataSource.swift">
@@ -15,6 +20,20 @@
                value = "date.component(.month)!">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ShiftManager.saveShift(shift : ShiftModel) -&gt; ():ShiftManager.swift">
+      </ContextState>
+      <ContextState
+         contextName = "EditShiftViewController.saveButtonDidPress() -&gt; ():EditShiftViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "newShiftView.date()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CalendarViewController.init(nibName : String?, bundle : Bundle?) -&gt; CalendarViewController:CalendarViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

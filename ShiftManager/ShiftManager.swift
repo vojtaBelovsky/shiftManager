@@ -53,6 +53,7 @@ class ShiftManager: NSObject {
     }
     
     func addNewShift(shift: ShiftModel) {
+        shift.uniqueID = UUID().uuidString
         shifts.append(shift)
         saveShiftsToPersistentStorage()
     }

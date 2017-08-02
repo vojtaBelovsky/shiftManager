@@ -140,4 +140,6 @@ class NewShiftView: UIView {
         }
     }
     
+    // vztvořit funkci která vrátí bckColor tlačítka
+    
 }

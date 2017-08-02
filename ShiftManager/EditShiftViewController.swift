@@ -9,7 +9,7 @@
 import UIKit
 
 class EditShiftViewController: NewShiftViewController {
-
+    
     fileprivate let shift: ShiftModel
 
     init(shift: ShiftModel) {
@@ -31,6 +31,15 @@ class EditShiftViewController: NewShiftViewController {
     }
     
     override func saveButtonDidPress() {
+        shift.name = newShiftView.name()
+        shift.date = newShiftView.date()
         
+        if let interval = Int(newShiftView.interval()) {
+            shift.interval = interval
+        }
+        
+        //shift.color = newShiftView.backgroundColor
+        
+        ShiftManager.sharedInstance.saveShift(shift: shift)
     }
 }
