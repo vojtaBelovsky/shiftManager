@@ -31,7 +31,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     
     func labelSettings() {
         backgroundColor = .white
-        relayLabel.text = "A"
+        relayLabel.text = ""
         relayLabel.textColor = .red
     }
  

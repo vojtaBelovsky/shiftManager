@@ -30,17 +30,16 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         self.newShiftView.setActionForColorButton(self, action: #selector(selectShiftColorButtonDidPress))
     }
     
-    func colorDidSet(color: UIColor) {
-        newShiftView.selectShiftColorButton.backgroundColor = color
-    }
-
     func saveButtonDidPress() {
         let shift = ShiftModel()
         shift.name = newShiftView.name()
         shift.date = newShiftView.date()
         shift.color = newShiftColor
-        shift.interval = newShiftView.interval()
         
+        if let interval = Int(newShiftView.interval()) {
+            shift.interval = interval
+        }
+
         if let validationError = ShiftModelValidator.validateShift(shift) {
             let alertController = UIAlertController(title: validationError.localizedDescription, message: validationError.localizedFailureReason, preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: NSLocalizedString("NewShiftAllert_loc004", comment: ""), style: .default, handler: nil)

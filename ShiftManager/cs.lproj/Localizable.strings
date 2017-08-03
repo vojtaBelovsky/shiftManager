@@ -2,9 +2,9 @@
 "Calendar_loc001" = "Šichtovnice";
 // Settings
 "Settings_loc001" = "Šichtovnice";
-"Settings_loc002" = "Nastavení";
+"Settings_loc002" = "Směny";
 //Create new shift
-"CreateNewShift_loc001" = "Nastavení";
+"CreateNewShift_loc001" = "Směny";
 "CreateNewShift_loc002" = "Vytvořit novou šichtu";
 "CreateNewShift_loc003" = "Název nové šichty";
 "CreateNewShift_loc004" = "Zvolte si první šichtu";
@@ -36,6 +36,6 @@
 //New shift
 "NewShiftAllert_loc001" = "Chyba";
 "NewShiftAllert_loc002" = "Pole se jménem je prázdné";
-"NewShiftAllert_loc003" = "Pole s příjmením je prázdné";
+"NewShiftAllert_loc003" = "Pole s intervalem je prázdné";
 "NewShiftAllert_loc004" = "Zavřít";
 "NewShiftAllert_loc005" = "Vyberte prosím barvu";

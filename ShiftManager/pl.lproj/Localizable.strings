@@ -2,9 +2,9 @@
 "Calendar_loc001" = "Kalendarz zmian";
 // Settings
 "Settings_loc001" = "Kalendarz zmian";
-"Settings_loc002" = "Ustawienia";
+"Settings_loc002" = "Zmiany";
 //Create new shift
-"CreateNewShift_loc001" = "Ustawienia";
+"CreateNewShift_loc001" = "Zmiany";
 "CreateNewShift_loc002" = "Utwórz nową zmianę";
 "CreateNewShift_loc003" = "Nazwa nowej zmiany";
 "CreateNewShift_loc004" = "Wybierz ostatnią zmianę";

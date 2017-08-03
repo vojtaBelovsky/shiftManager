@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "NewShiftView.date() -&gt; Date:NewShiftView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "datePicker.date">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewShiftViewController.saveButtonDidPress() -&gt; ():NewShiftViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "CalendarDataSource.numberOfEmptyDays(date : Date) -&gt; Int:CalendarDataSource.swift">
          <PersistentStrings>
             <PersistentString

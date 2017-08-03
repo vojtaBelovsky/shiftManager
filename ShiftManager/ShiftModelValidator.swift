@@ -26,7 +26,7 @@ class ShiftModelValidator: NSObject {
         
         
         
-        if shift.interval <= 0 {
+        if shift.interval <= 1 {
             let userInfo: [AnyHashable : Any] =
                 [
                     NSLocalizedDescriptionKey :  NSLocalizedString("NewShiftAllert_loc001", comment: "") ,

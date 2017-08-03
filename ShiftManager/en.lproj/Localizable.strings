@@ -2,9 +2,9 @@
 "Calendar_loc001" = "Shift Manager";
 // Settings
 "Settings_loc001" = "Shift Manager";
-"Settings_loc002" = "Settings";
+"Settings_loc002" = "Shifts";
 //Create new shift
-"CreateNewShift_loc001" = "Settings";
+"CreateNewShift_loc001" = "Shifts";
 "CreateNewShift_loc002" = "Create New Shift";
 "CreateNewShift_loc003" = "Name of the New Shift";
 "CreateNewShift_loc004" = "Select First Shift";

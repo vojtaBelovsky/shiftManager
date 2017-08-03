@@ -92,16 +92,13 @@ class NewShiftView: UIView {
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.65)
         selectShiftColorButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.1)
-        
         }
     
     func shiftFirstDate() {
-        let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/dd/MM"
-        let selectedDate = dateFormatter.string(from: datePicker.date)
-        print(selectedDate)
+        dateFormatter.dateFormat = "MM/dd/yy"
+
         addSubview(datePicker)
         
         datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
@@ -124,7 +121,6 @@ class NewShiftView: UIView {
     
     public func interval() -> String {
        return self.intervalTextField.text ?? ""
-      //€  return 0
     }
     
     public func date() -> Date {
@@ -140,5 +136,7 @@ class NewShiftView: UIView {
             datePicker.date = date
         }
     }
+    
+    // vztvořit funkci která vrátí bckColor tlačítka
     
 }
