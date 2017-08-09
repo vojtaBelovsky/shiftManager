@@ -12,11 +12,13 @@ class ShiftModel: NSObject, NSCoding {
     
     var uniqueID: String = ""
     var name: String = ""
+    var shortcut: String = ""
     var interval: Int = 1
     var date: Date?
     var color: UIColor?
     
     fileprivate let namePropertyKey = "namePropertyKey"
+    fileprivate let shortcutPropertyKey = "shortcutPropertyKey"
     fileprivate let intervalPropertyKey = "intervalPropertyKey"
     fileprivate let datePropertyKey = "datePropertyKey"
     fileprivate let colorPropertyKey = "colorPropertyKey"
@@ -30,6 +32,10 @@ class ShiftModel: NSObject, NSCoding {
         
         if let name = aDecoder.decodeObject(forKey: namePropertyKey) as? String {
             self.name = name
+        }
+        
+        if let shortcut = aDecoder.decodeObject(forKey: shortcutPropertyKey) as? String {
+            self.shortcut = shortcut
         }
         
         if let interval = aDecoder.decodeObject(forKey: intervalPropertyKey) as? Int {
@@ -52,6 +58,7 @@ class ShiftModel: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         
         aCoder.encode(name, forKey: namePropertyKey)
+        aCoder.encode(shortcut, forKey: shortcutPropertyKey)
         
         if let date = self.date{
             aCoder.encode(date, forKey: datePropertyKey)

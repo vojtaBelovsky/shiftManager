@@ -19,6 +19,7 @@ class NewShiftView: UIView {
     fileprivate let datePicker = UIDatePicker()
     fileprivate var intervalLabel = UILabel()
     var intervalTextField = UITextField()
+     var shortcutTextField = UITextField()
     let selectShiftColorButton = UIButton()
 
     init() {
@@ -51,6 +52,12 @@ class NewShiftView: UIView {
         intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
         intervalTextField.keyboardType = UIKeyboardType.numberPad
         addSubview(intervalTextField)
+        
+        shortcutTextField.layer.borderColor = UIColor.black.cgColor
+        shortcutTextField.layer.borderWidth = 1
+        shortcutTextField.placeholder = NSLocalizedString("CreateNewShift_loc008", comment: "")
+      //  shortCutTextField.keyboardType = UIKeyboardType.numberPad
+        addSubview(shortcutTextField)
  
         selectShiftColorButton.backgroundColor = .white
         selectShiftColorButton.setTitle(NSLocalizedString("CreateNewShift_loc007", comment: ""), for: .normal)
@@ -73,19 +80,24 @@ class NewShiftView: UIView {
         nameTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.2)
         nameTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
+        shortcutTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        shortcutTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        shortcutTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.35)
+        shortcutTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
+        
         selectFirstShiftDateLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         selectFirstShiftDateLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        selectFirstShiftDateLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.45)
-        selectFirstShiftDateLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
+        selectFirstShiftDateLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.55)
+        selectFirstShiftDateLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.6)
         
         intervalLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         intervalLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        intervalLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.2)
+        intervalLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.3)
         intervalLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
         
         intervalTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         intervalTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        intervalTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.3)
+        intervalTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.4)
         intervalTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
 
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
@@ -103,7 +115,7 @@ class NewShiftView: UIView {
         
         datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         datePicker.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        datePicker.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.8)
+        datePicker.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.9)
         datePicker.autoMatch(.height, to: .height, of: self, withMultiplier: 0.3)
         }
     
@@ -119,6 +131,11 @@ class NewShiftView: UIView {
         return self.nameTextField.text ?? ""
     }
     
+    public func shortcut() -> String {
+        return self.shortcutTextField.text ?? ""
+    }
+
+    
     public func interval() -> String {
        return self.intervalTextField.text ?? ""
     }
@@ -129,6 +146,7 @@ class NewShiftView: UIView {
    
     public func setupView(with shift: ShiftModel) {
         nameTextField.text = shift.name
+        shortcutTextField.text = shift.shortcut
         intervalTextField.text = String(shift.interval)
         selectShiftColorButton.backgroundColor = shift.color
         

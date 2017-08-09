@@ -59,8 +59,7 @@ class ShiftManager: NSObject {
     }
     
     public func update(Shift: ShiftModel) {
-        
-        saveShiftsToPersistentStorage()
+            saveShiftsToPersistentStorage()
     }
     
     public func deleteShift(at index: Int) {

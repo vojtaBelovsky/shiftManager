@@ -11,33 +11,26 @@
 "CreateNewShift_loc005" = "Interwał";
 "CreateNewShift_loc006" = "Kiedy zmiana się powtarza";
 "CreateNewShift_loc007" = "Wybierz kolor";
-//Sign Up
-"SignUpAllert_loc001" = "Błąd";
-"SignUpAllert_loc002" = "Pole z imieniem jest puste";
-"SignUpAllert_loc003" = "Pole z nazwiskiem jest puste";
-"SignUpAllert_loc004" = "Pole z hasłem jest puste";
-"SignUpAllert_loc005" = "Zamknij";
-
-"SignUp_loc006" = "Rejestracja";
-
-"SignUpPlaceholder_loc007" = "Imię";
-"SignUpPlaceholder_loc008" = "Nazwisko";
-"SignUpPlaceholder_loc009" = "Hasło";
-"SignUpPlaceholder_loc010" = "Email: przyklad@email.com";
-
-"SignUpButton_loc001" = "Rejestruj";
-//Login
-"LoginPlaceholder_loc001" = "przyklad@email.com";
-"LoginPlaceholder_loc002" = "hasło";
-"LoginButton_loc001" = "Login";
-"LoginTitle_loc001" = "Logowanie";
-"LoginAllert_loc001" = "Błąd";
-"LoginAllert_loc002" = "Nieprawidłowy mail.";
-"LoginAllert_loc003" = "Nieprawidłowe hasło";
-"LoginAllert_loc004" = "Zamknij";
+"CreateNewShift_loc008" = "Skrót zmiany (maks. 2 znaki)";
+//Register
+"RegisterTitle_loc001" = "Rejestracja";
+"RegisterPlaceholder_loc001" = "Imię";
+"RegisterPlaceholder_loc002" = "Nazkisko";
+"RegisterButton_loc003" = "Rejestracja";
+"RegisterButton_loc004" = "Galeria";
+"RegisterAllert_loc001" = "Błąd";
+"RegisterAllert_loc002" = "Pole z imieniem jest puste";
+"RegisterAllert_loc003" = "Pole z nazwiskiem jest puste";
 //New shift
 "NewShiftAllert_loc001" = "Błąd";
 "NewShiftAllert_loc002" = "Pole z imieniem jest puste";
 "NewShiftAllert_loc003" = "Pole z interwałem jest puste";
 "NewShiftAllert_loc004" = "Zamknij";
 "NewShiftAllert_loc005" = "Kolor nie został wybrany";
+"NewShiftAllert_loc006" = "Skrót jest za długi albo pole jest puste";
+//Edit Callendar Day
+"BasicInfo_loc001" = "Podstawowe info:";
+"ExtraShiftButton_loc001" = "Ekstra zmiana";
+"EditCallendarDayViewTitle" = "Edytacja dnia";
+"DayOffLabel_loc001" = "Urlop";
+"NoteLabel_loc001" = "Twoje notatki";

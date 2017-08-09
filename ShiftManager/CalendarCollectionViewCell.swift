@@ -31,8 +31,12 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     
     func labelSettings() {
         backgroundColor = .white
-        relayLabel.text = ""
+        relayLabel.backgroundColor = .blue
+        relayLabel.layer.masksToBounds = true
+        relayLabel.text = "A"
         relayLabel.textColor = .red
+        relayLabel.textAlignment = .center
+        relayLabel.adjustsFontSizeToFitWidth = true
     }
  
     func addSubviews() {
@@ -40,6 +44,8 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         cellView.addSubview(dayLabel)
         cellView.addSubview(relayLabel)
     }
+    
+   
     
     func setupConstraints() {
         cellView.autoPinEdgesToSuperviewEdges()
@@ -50,7 +56,13 @@ class CalendarCollectionViewCell: UICollectionViewCell {
       
         relayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
         relayLabel.autoMatch(.height, to: .height, of: self.cellView, withMultiplier: 0.5)
+        relayLabel.autoMatch(.width, to: .height, of: relayLabel)
         relayLabel.autoPinEdge(toSuperviewEdge: .bottom)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        relayLabel.layer.cornerRadius = contentView.bounds.size.height/4;
     }
     
     required init?(coder aDecoder: NSCoder) {

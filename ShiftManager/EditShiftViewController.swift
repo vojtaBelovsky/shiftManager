@@ -33,12 +33,23 @@ class EditShiftViewController: NewShiftViewController {
     
     override func saveButtonDidPress() {
         shift.name = newShiftView.name()
+        shift.shortcut = newShiftView.shortcut()
         shift.date = newShiftView.date()
+       
+        // PODMÍNKA (PŘESUNOUT JINAM)
+        
+        if newShiftColor == nil {
+            newShiftView.selectShiftColorButton.backgroundColor = shift.color
+        }
+        else{
         shift.color = newShiftColor
-
+        }
+        
+        // KONEC PODMÍNKY
         
         if let interval = Int(newShiftView.interval()) {
             shift.interval = interval
+            print (interval)
         }
         
         if let validationError = ShiftModelValidator.validateShift(shift) {

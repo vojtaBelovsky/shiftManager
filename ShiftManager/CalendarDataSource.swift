@@ -9,28 +9,6 @@
 import UIKit
 import AFDateHelper
 
-//enum ShiftType{
-//    case A
-//    case B
-//    case C
-//    case D
-//}
-//
-//enum Relay{ //= typeOfShift
-//    case Morning
-//    case Afternoon
-//    case Evening
-//    case DayOff
-//    
-//    case Unknow
-//}
-
-//struct Shift{
-//   let color: UIColor
-//  let shiftType: Relay
-  //další kraviny
-//}
-
 var firstMorningShiftOfYear: Date? {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd-mm-yyyy"
@@ -101,11 +79,6 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
             cell.dayLabel.text = "\(indexPath.row - numberOfEmptyCellsForSection + 1)"
             return cell
         }
-        
-        // jak zjistit den
-        // date = Date() => dnešek
-        // indexPath.section = měsíc
-        // indexPath.row = den
     }
     
     func numberOfEmptyDays(date: Date) -> Int {
@@ -114,32 +87,18 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
         return NSCalendar.current.component(.weekday, from: firstDayOfMonth) - 1
     }
     
-//    func everydayRelay(date: Date, shift: ShiftType) -> Shift {
-//        let daySince = firstMorningShiftOfYear?.days(from: today) ?? 0
-//        var shiftType: Relay
-//        var modulo = daySince % 8
-//        
-//        switch shift {
-//        case .A: break
-//        case .B: modulo -= 2
-//        case .C: modulo -= 4
-//        case .D: modulo -= 6
-//        }
-//        
-//        if modulo < 0 { modulo += 8 }
-//        
-//        switch modulo {
-//        case 0,1: shiftType = .Morning
-//        case 2,3: shiftType = .Afternoon
-//        case 4,5: shiftType = .Evening
-//        case 6,7: shiftType = .DayOff
-//        default :
-//            shiftType = .Unknow
-//            assertionFailure("Máš tu špatný den")
-//        }
-//        return Shift(color: .red, shiftType: shiftType)
-//    }
-    
+     static func Shift(_ shift: ShiftModel){
+        
+   func since(_ date:Date, in component:DateComponentType) -> Int64 {
+        let num = date.since(shift.date!, in: .day)
+        print(num)
+        print("shift name: \(String(describing: shift.date))")
+        return num
+            }
+        
+        }
+ 
+ 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let headerView = collectionView.dequeueReusableSupplementaryView(
             ofKind: UICollectionElementKindSectionHeader,

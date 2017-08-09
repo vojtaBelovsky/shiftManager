@@ -11,32 +11,26 @@
 "CreateNewShift_loc005" = "Interval";
 "CreateNewShift_loc006" = "When your shift will repeat";
 "CreateNewShift_loc007" = "Select Color";
-//Sign Up
-"SignUpAllert_loc001" = "Error";
-"SignUpAllert_loc002" = "Field with first name are empty";
-"SignUpAllert_loc003" = "Field with last name are empty";
-"SignUpAllert_loc004" = "Field with password are empty";
-"SignUpAllert_loc005" = "Close";
-"SignUpTitle_loc006" = "Sign Up";
-"SignUpPlaceholder_loc007" = "First name";
-"SignUpPlaceholder_loc008" = "Last name";
-"SignUpPlaceholder_loc009" = "Password";
-"SignUpPlaceholder_loc010" = "Email: exmple@email.com";
-
-"SignUpButton_loc001" = "Sign Up";
-
-//Login
-"LoginPlaceholder_loc001" = "exaple@email.com";
-"LoginPlaceholder_loc002" = "password";
-"LoginButton_loc001" = "Login";
-"LoginTitle_loc001" = "Login";
-"LoginAllert_loc001" = "Error";
-"LoginAllert_loc002" = "Invalid email.";
-"LoginAllert_loc003" = "Invalid password.";
-"LoginAllert_loc004" = "Close";
+"CreateNewShift_loc008" = "Shortcut for shift (max. 2 symbols)";
+//Register
+"RegisterTitle_loc001" = "Register";
+"RegisterPlaceholder_loc001" = "First name";
+"RegisterPlaceholder_loc002" = "Last name";
+"RegisterButton_loc003" = "Register";
+"RegisterButton_loc004" = "Gallery";
+"RegisterAllert_loc001" = "Error";
+"RegisterAllert_loc002" = "First name field are empty";
+"RegisterAllert_loc003" = "Last name field are empty";
 //New shift
 "NewShiftAllert_loc001" = "Error";
-"NewShiftAllert_loc002" = "Field with name are empty";
-"NewShiftAllert_loc003" = "Field with interval are empty";
+"NewShiftAllert_loc002" = "First name field are empty";
+"NewShiftAllert_loc003" = "Interval field are empty";
 "NewShiftAllert_loc004" = "Close";
 "NewShiftAllert_loc005" = "Please select color";
+"NewShiftAllert_loc006" = "Shortcut is too long or field are empty";
+//Edit Callendar Day
+"BasicInfo_loc001" = "Basic info:";
+"ExtraShiftButton_loc001" = "Extra Shift";
+"EditCallendarDayViewTitle" = "Edit day";
+"DayOffLabel_loc001" = "Holiday";
+"NoteLabel_loc001" = "Your notes";

@@ -14,6 +14,20 @@
          contextName = "NewShiftViewController.saveButtonDidPress() -&gt; ():NewShiftViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "CalendarCollectionViewCell.layoutSubviews() -&gt; ():CalendarCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cellView">
+            </PersistentString>
+            <PersistentString
+               value = "relayLabel">
+            </PersistentString>
+            <PersistentString
+               value = "self.contentView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CalendarDataSource.numberOfEmptyDays(date : Date) -&gt; Int:CalendarDataSource.swift">
          <PersistentStrings>
             <PersistentString
