@@ -18,9 +18,9 @@ class UserModel: NSObject {
         fileprivate let lastNamePropertyKey = "lastNamePropertyKey"
         fileprivate let userIDKey = "userIDKey"
 
-        override init() {
-            super.init()
-        }
+    override init() {
+        super.init()
+    }
     
     required init?(coder aDecoder: NSCoder) {
         

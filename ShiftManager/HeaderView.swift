@@ -5,7 +5,6 @@
 //  Created by Daniel Krezelok on 10/07/2017.
 //  Copyright © 2017 Tadeusz Raszka. All rights reserved.
 //
-
 import UIKit
 import PureLayout
 
@@ -62,5 +61,6 @@ class HeaderView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }
+

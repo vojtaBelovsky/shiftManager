@@ -15,12 +15,6 @@ class UserManager: NSObject {
     
     
     func isUserRegistered() -> Bool {
-        
-        if userIsRegister == true {
         return true
-    }
-        else{
-            return false
-        }
-    }
+      }
 }
