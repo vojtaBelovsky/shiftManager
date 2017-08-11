@@ -12,6 +12,7 @@
 "CreateNewShift_loc006" = "Kiedy zmiana się powtarza";
 "CreateNewShift_loc007" = "Wybierz kolor";
 "CreateNewShift_loc008" = "Skrót zmiany (maks. 2 znaki)";
+"CreateNewShift_loc009" = "Edytacja zmiany";
 //Register
 "RegisterTitle_loc001" = "Rejestracja";
 "RegisterPlaceholder_loc001" = "Imię";

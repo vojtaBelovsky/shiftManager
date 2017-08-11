@@ -13,7 +13,7 @@ class ShiftModel: NSObject, NSCoding {
     var uniqueID: String = ""
     var name: String = ""
     var shortcut: String = ""
-    var interval: Int = 1
+    var interval: Int!
     var date: Date?
     var color: UIColor?
     

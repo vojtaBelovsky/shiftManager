@@ -40,6 +40,7 @@ class SettingsViewController: UIViewController {
     func settingsButtonDidPress() {
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
+    
 }
 
 extension SettingsViewController: UITableViewDelegate  {

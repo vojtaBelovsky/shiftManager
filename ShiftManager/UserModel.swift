@@ -1,5 +1,5 @@
 //
-//  RegisterModel.swift
+//  UserModel.swift
 //  ShiftManager
 //
 //  Created by Tadeusz Raszka on 09.08.17.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
     
-class RegisterModel: NSObject {
+class UserModel: NSObject {
         
         var uniqueID: String = ""
         var firstName: String = ""

@@ -154,7 +154,4 @@ class NewShiftView: UIView {
             datePicker.date = date
         }
     }
-    
-    // vztvořit funkci která vrátí bckColor tlačítka
-    
 }

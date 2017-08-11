@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: UIViewController, RegisterViewControllerDelegate {
     
     let callendarViewControllerIdentifier = "callendarViewControllerIdentifier"
     let calendarView: CalendarView = CalendarView()
@@ -32,6 +32,15 @@ class CalendarViewController: UIViewController {
                                              forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                                              withReuseIdentifier: CalendarHeaderView.calendarHeaderIdentifier)
         
+        if (!UserManager().isUserRegistered()) {
+            let registerViewController = RegisterViewController()
+            registerViewController.delegate = self
+            navigationController?.present(registerViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func registerViewController(_ controller: RegisterViewController, didRegisterUser: UserModel) {
+        controller.dismiss(animated: true, completion: nil)
     }
 
     func settingsButtonDidPress() {

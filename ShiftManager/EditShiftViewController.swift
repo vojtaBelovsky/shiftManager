@@ -24,6 +24,7 @@ class EditShiftViewController: NewShiftViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = NSLocalizedString("CreateNewShift_loc009", comment: "")
         setupView()
     }
     
@@ -38,7 +39,7 @@ class EditShiftViewController: NewShiftViewController {
        
         // PODMÍNKA (PŘESUNOUT JINAM)
         
-        if newShiftColor == nil {
+        if newShiftColor == nil{
             newShiftView.selectShiftColorButton.backgroundColor = shift.color
         }
         else{

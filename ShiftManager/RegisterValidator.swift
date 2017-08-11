@@ -10,7 +10,7 @@ import UIKit
 
 class RegisterValidator: NSObject {
     
-    static func validateRegister(_ name: RegisterModel) -> NSError? {
+    static func validateRegister(_ name: UserModel) -> NSError? {
         
         var error : NSError? = nil
         

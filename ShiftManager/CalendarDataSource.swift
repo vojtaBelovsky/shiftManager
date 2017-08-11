@@ -89,15 +89,12 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
     
      static func Shift(_ shift: ShiftModel){
         
-   func since(_ date:Date, in component:DateComponentType) -> Int64 {
+    func since(_ date:Date, in component:DateComponentType) -> Int64 {
         let num = date.since(shift.date!, in: .day)
         print(num)
-        print("shift name: \(String(describing: shift.date))")
         return num
             }
-        
         }
- 
  
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let headerView = collectionView.dequeueReusableSupplementaryView(

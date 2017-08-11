@@ -12,6 +12,7 @@
 "CreateNewShift_loc006" = "When your shift will repeat";
 "CreateNewShift_loc007" = "Select Color";
 "CreateNewShift_loc008" = "Shortcut for shift (max. 2 symbols)";
+"CreateNewShift_loc009" = "Edit shift";
 //Register
 "RegisterTitle_loc001" = "Register";
 "RegisterPlaceholder_loc001" = "First name";

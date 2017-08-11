@@ -7,10 +7,15 @@
 //
 
 import UIKit
+protocol RegisterViewControllerDelegate {
+    func registerViewController(_ controller: RegisterViewController, didRegisterUser: UserModel)
+}
 
 class RegisterViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     let registerView = RegisterView()
+    var delegate: RegisterViewControllerDelegate?
+
 
     override func loadView() {
         self.view = registerView
@@ -22,7 +27,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.tapDetected))
-        singleTap.numberOfTapsRequired = 1 // you can change this value
+        singleTap.numberOfTapsRequired = 1
         registerView.selectImage.isUserInteractionEnabled = true
         registerView.selectImage.addGestureRecognizer(singleTap)
     }
@@ -33,7 +38,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
         
    func selectPicture() {
         let picker = UIImagePickerController()
-      //picker.allowsEditing = true
+      picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
     }
@@ -63,17 +68,17 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
-            imagePicker.allowsEditing = false
+            imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
     
     func selectRegisterButtonDidPress() {
-        let name = RegisterModel()
-        name.firstName = registerView.firstName()
-        name.lastName = registerView.lastName()
+        let user = UserModel()
+        user.firstName = registerView.firstName()
+        user.lastName = registerView.lastName()
         
-        if let validationError = RegisterValidator.validateRegister(name) {
+        if let validationError = RegisterValidator.validateRegister(user) {
             let alertController = UIAlertController(title: validationError.localizedDescription, message: validationError.localizedFailureReason, preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: NSLocalizedString("NewShiftAllert_loc004", comment: ""), style: .default, handler: nil)
             alertController.addAction(defaultAction)
@@ -81,7 +86,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
             return
         }
         else {
-            navigationController?.popViewController(animated:true)
+            delegate?.registerViewController(self, didRegisterUser: user)
         }
     }
     

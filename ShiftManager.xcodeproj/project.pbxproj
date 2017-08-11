@@ -13,8 +13,8 @@
 		183AF5A01F18B1030033CFD7 /* NewShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF59E1F18B1030033CFD7 /* NewShiftViewController.swift */; };
 		183AF5A21F18B10E0033CFD7 /* ColorSelectDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5A11F18B10E0033CFD7 /* ColorSelectDataSource.swift */; };
 		183AF5A41F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5A31F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift */; };
-		185078E81F3B2F57004C4F49 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185078E71F3B2F57004C4F49 /* RegisterModel.swift */; };
-		185078EA1F3B314A004C4F49 /* RegisterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185078E91F3B314A004C4F49 /* RegisterManager.swift */; };
+		185078E81F3B2F57004C4F49 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185078E71F3B2F57004C4F49 /* UserModel.swift */; };
+		185078EA1F3B314A004C4F49 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185078E91F3B314A004C4F49 /* UserManager.swift */; };
 		188974CA1F25D4C400E4CE92 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974C91F25D4C400E4CE92 /* RegisterViewController.swift */; };
 		188974CC1F25D54800E4CE92 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974CB1F25D54800E4CE92 /* RegisterView.swift */; };
 		188974D41F261A9D00E4CE92 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974D31F261A9D00E4CE92 /* Constants.swift */; };
@@ -65,8 +65,8 @@
 		183AF59E1F18B1030033CFD7 /* NewShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewShiftViewController.swift; sourceTree = "<group>"; };
 		183AF5A11F18B10E0033CFD7 /* ColorSelectDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectDataSource.swift; sourceTree = "<group>"; };
 		183AF5A31F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectCollectionViewCell.swift; sourceTree = "<group>"; };
-		185078E71F3B2F57004C4F49 /* RegisterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
-		185078E91F3B314A004C4F49 /* RegisterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterManager.swift; sourceTree = "<group>"; };
+		185078E71F3B2F57004C4F49 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		185078E91F3B314A004C4F49 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		188974C91F25D4C400E4CE92 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		188974CB1F25D54800E4CE92 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		188974D31F261A9D00E4CE92 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				18D8469B1F1F660F004264D8 /* ShiftModel.swift */,
-				185078E71F3B2F57004C4F49 /* RegisterModel.swift */,
+				185078E71F3B2F57004C4F49 /* UserModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -359,7 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */,
-				185078E91F3B314A004C4F49 /* RegisterManager.swift */,
+				185078E91F3B314A004C4F49 /* UserManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -448,7 +448,7 @@
 				TargetAttributes = {
 					18C92B4A1F05170F00F29A1B = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = W9QKF6T8S7;
+						DevelopmentTeam = L36HE29JXS;
 						ProvisioningStyle = Automatic;
 					};
 					18C92B5E1F05170F00F29A1B = {
@@ -616,8 +616,8 @@
 				2A9E68B11F306BA600CE6541 /* EditShiftViewController.swift in Sources */,
 				183AF59A1F18B0F60033CFD7 /* ColorSelectView.swift in Sources */,
 				2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */,
-				185078E81F3B2F57004C4F49 /* RegisterModel.swift in Sources */,
-				185078EA1F3B314A004C4F49 /* RegisterManager.swift in Sources */,
+				185078E81F3B2F57004C4F49 /* UserModel.swift in Sources */,
+				185078EA1F3B314A004C4F49 /* UserManager.swift in Sources */,
 				2AA4FFED1F1779D400712B19 /* SettingsTableViewCell.swift in Sources */,
 				183AF5A21F18B10E0033CFD7 /* ColorSelectDataSource.swift in Sources */,
 				2AF3B3C31F1F5A7D00AB752A /* CalendarHeaderView.swift in Sources */,
@@ -774,8 +774,9 @@
 			baseConfigurationReference = 5B24AEA32C6A1BD17EDB60E4 /* Pods-ShiftManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = W9QKF6T8S7;
+				DEVELOPMENT_TEAM = L36HE29JXS;
 				INFOPLIST_FILE = ShiftManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.ShiftManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -789,8 +790,9 @@
 			baseConfigurationReference = 29C811EC97CC96244BD29BFD /* Pods-ShiftManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = W9QKF6T8S7;
+				DEVELOPMENT_TEAM = L36HE29JXS;
 				INFOPLIST_FILE = ShiftManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.ShiftManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
