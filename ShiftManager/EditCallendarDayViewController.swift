@@ -20,12 +20,19 @@ class EditCallendarDayViewController: UIViewController {
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        
+        self.editCallendarDayView.setActionForShiftButton(self, action: #selector(setActionForShiftButton))
     }
 
     func saveButtonDidPress() {
-        
+        navigationController?.popViewController(animated:true)
     }
     
+    func setActionForShiftButton(){
+        navigationController?.pushViewController(EditDayViewControllerForShifts(), animated: true)
+    }
+        
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

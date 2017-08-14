@@ -127,7 +127,9 @@ class EditCallendarDayView: UIView {
             extraShift.backgroundColor = .red
         }
     }
-    
+    public func setActionForShiftButton(_ target: Any?, action: Selector) {
+        extraShift.addTarget(target, action: action, for: .touchUpInside)
+    }
     
     
     required init?(coder aDecoder: NSCoder) {

@@ -8,8 +8,7 @@
 
 import UIKit
 
-class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
-    
+class SettingsTableViewDataSource: NSObject, UITableViewDataSource {    
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
@@ -26,7 +25,7 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
         return cell
         
     }
-    
+   
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -37,11 +36,11 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
     }
-    
+ 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ShiftManager.sharedInstance.numberOfShifts()
     }
-    
+ 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
