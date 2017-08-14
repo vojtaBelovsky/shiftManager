@@ -22,13 +22,10 @@ class UserManager: NSObject {
     private override init() {
         super.init()
         self.loadUsersFromUserDefaults()
-    }
-    
-    deinit {
         saveUsersToPersistentStorage()
     }
     
-    private func saveUsersToPersistentStorage() {
+     private func saveUsersToPersistentStorage() {
         let usersAsData = users.map { (user) -> Data in
             NSKeyedArchiver.archivedData(withRootObject: user)
         }
@@ -84,6 +81,6 @@ class UserManager: NSObject {
     
     
     func isUserRegistered() -> Bool {
-        return true
+        return false
     }
 }

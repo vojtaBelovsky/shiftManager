@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController, RegisterViewControllerDelegate {
+class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
     
     let callendarViewControllerIdentifier = "callendarViewControllerIdentifier"
     let calendarView: CalendarView = CalendarView()
@@ -44,13 +44,13 @@ class CalendarViewController: UIViewController, RegisterViewControllerDelegate {
         //IF isUserRegistered
         
         if (!UserManager.sharedInstance.isUserRegistered()) {
-            let registerViewController = RegisterViewController()
-            registerViewController.delegate = self
-            navigationController?.present(registerViewController, animated: true, completion: nil)
+            let newUserViewController = NewUserViewController()
+            newUserViewController.delegate = self
+            navigationController?.present(newUserViewController, animated: true, completion: nil)
         }
     }
     
-    func registerViewController(_ controller: RegisterViewController, didRegisterUser: UserModel) {
+    func newUserViewController(_ controller: NewUserViewController, didRegisterUser: UserModel) {
         controller.dismiss(animated: true, completion: nil)
     }
 

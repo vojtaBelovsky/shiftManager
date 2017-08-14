@@ -7,29 +7,28 @@
 //
 
 import UIKit
-protocol RegisterViewControllerDelegate {
-    func registerViewController(_ controller: RegisterViewController, didRegisterUser: UserModel)
+protocol NewUserViewControllerDelegate {
+    func newUserViewController(_ controller: NewUserViewController, didRegisterUser: UserModel)
 }
 
-class RegisterViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class NewUserViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    let registerView = RegisterView()
-    var delegate: RegisterViewControllerDelegate?
-
+    let newUserView = NewUserView()
+    var delegate: NewUserViewControllerDelegate?
 
     override func loadView() {
-        self.view = registerView
+        self.view = newUserView
         title = NSLocalizedString("RegisterTitle_loc001", comment: "")
-        self.registerView.registerButtonDidPress(self, action: #selector(selectRegisterButtonDidPress))
-        self.registerView.cameraButtonDidPress(self, action: #selector(selectCameraButtonDidPress))
+        self.newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
+        self.newUserView.cameraButtonDidPress(self, action: #selector(cameraButtonDidPress))
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.tapDetected))
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(NewUserViewController.tapDetected))
         singleTap.numberOfTapsRequired = 1
-        registerView.selectImage.isUserInteractionEnabled = true
-        registerView.selectImage.addGestureRecognizer(singleTap)
+        newUserView.selectImage.isUserInteractionEnabled = true
+        newUserView.selectImage.addGestureRecognizer(singleTap)
     }
     
     func tapDetected() {
@@ -38,7 +37,7 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
         
    func selectPicture() {
         let picker = UIImagePickerController()
-      picker.allowsEditing = true
+        picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
     }
@@ -58,12 +57,12 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
             return
         }
         
-        registerView.selectImage.image = newImage
+        newUserView.selectImage.image = newImage
         
         dismiss(animated: true)
     }
     
-    func selectCameraButtonDidPress(){
+    func cameraButtonDidPress(){
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -73,10 +72,10 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
         }
     }
     
-    func selectRegisterButtonDidPress() {
+    func registerButtonDidPress() {
         let user = UserModel()
-        user.firstName = registerView.firstName()
-        user.lastName = registerView.lastName()
+        user.firstName = newUserView.firstName()
+        user.lastName = newUserView.lastName()
         
         if let validationError = RegisterValidator.validateRegister(user) {
             let alertController = UIAlertController(title: validationError.localizedDescription, message: validationError.localizedFailureReason, preferredStyle: .alert)
@@ -86,7 +85,8 @@ class RegisterViewController: UIViewController, UINavigationControllerDelegate, 
             return
         }
         else {
-            delegate?.registerViewController(self, didRegisterUser: user)
+            UserManager.sharedInstance.saveUser(user: user)
+             
         }
     }
     

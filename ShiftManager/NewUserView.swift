@@ -9,23 +9,25 @@
 import UIKit
 import PureLayout
 
-
-
-class RegisterView: UIView {
+class NewUserView: UIView {
 
     public var selectImage = UIImageView()
     public var cameraButton = UIButton()
     public var firstNameTextField = UITextField()
     public var lastNameTextField = UITextField()
-     var registerButton = UIButton()
-
+    var registerButton = UIButton()
+    
     init() {
         super.init(frame: .zero)
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
-      
     }
-     func initializeViewsAndAddThemAsSubviews() {
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
         
         selectImage.layer.borderWidth = 4
@@ -43,7 +45,7 @@ class RegisterView: UIView {
         lastNameTextField.layer.borderWidth = 1
         lastNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc002", comment: "")
         addSubview(lastNameTextField)
-       
+        
         registerButton.backgroundColor = .red
         registerButton.setTitle(NSLocalizedString("RegisterButton_loc003", comment: ""), for: .normal)
         addSubview(registerButton)
@@ -74,18 +76,13 @@ class RegisterView: UIView {
         lastNameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         lastNameTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.1)
         lastNameTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
-       
+        
         registerButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         registerButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         registerButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.4)
         registerButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
     public func registerButtonDidPress(_ target: Any?, action: Selector) {
         registerButton.addTarget(target, action: action, for: .touchUpInside)
     }
@@ -94,7 +91,6 @@ class RegisterView: UIView {
         cameraButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
-
     public func firstName() -> String {
         return self.firstNameTextField.text ?? ""
     }
