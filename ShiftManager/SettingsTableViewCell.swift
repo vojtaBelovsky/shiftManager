@@ -17,7 +17,6 @@ class SettingsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        backgroundColor = .red
         
         titleLabel.textColor = .black
         addSubview(titleLabel)
@@ -36,11 +35,9 @@ class SettingsTableViewCell: UITableViewCell {
 extension SettingsTableViewCell {
     func setupCell(viewModel: SettingsCellViewModel) {
         titleLabel.text = viewModel.title
-//        backgroundColor = viewModel.color
     }
 }
 
 struct SettingsCellViewModel {
     let title: String
-//    let color: UIColor
 }

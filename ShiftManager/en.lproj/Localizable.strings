@@ -18,7 +18,7 @@
 "RegisterPlaceholder_loc001" = "First name";
 "RegisterPlaceholder_loc002" = "Last name";
 "RegisterButton_loc003" = "Register";
-"RegisterButton_loc004" = "Gallery";
+"RegisterButton_loc004" = "Camera";
 "RegisterAllert_loc001" = "Error";
 "RegisterAllert_loc002" = "First name field are empty";
 "RegisterAllert_loc003" = "Last name field are empty";

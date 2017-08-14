@@ -18,7 +18,7 @@
 "RegisterPlaceholder_loc001" = "Imię";
 "RegisterPlaceholder_loc002" = "Nazkisko";
 "RegisterButton_loc003" = "Rejestracja";
-"RegisterButton_loc004" = "Galeria";
+"RegisterButton_loc004" = "Aparat";
 "RegisterAllert_loc001" = "Błąd";
 "RegisterAllert_loc002" = "Pole z imieniem jest puste";
 "RegisterAllert_loc003" = "Pole z nazwiskiem jest puste";
