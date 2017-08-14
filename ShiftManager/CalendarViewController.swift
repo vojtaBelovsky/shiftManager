@@ -43,7 +43,7 @@ class CalendarViewController: UIViewController, RegisterViewControllerDelegate {
         
         //IF isUserRegistered
         
-        if (!UserManager().isUserRegistered()) {
+        if (!UserManager.sharedInstance.isUserRegistered()) {
             let registerViewController = RegisterViewController()
             registerViewController.delegate = self
             navigationController?.present(registerViewController, animated: true, completion: nil)
