@@ -25,11 +25,11 @@ class EditCallendarDayViewController: UIViewController {
     }
 
     func saveButtonDidPress() {
-        navigationController?.popViewController(animated:true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
-    func setActionForShiftButton(){
-        //navigationController?.pushViewController(EditDayViewControllerForShifts(), animated: true)
+    func setActionForShiftButton() {
+        navigationController?.pushViewController(ExtraShiftViewController(), animated: true)
     }
         
     override func didReceiveMemoryWarning() {

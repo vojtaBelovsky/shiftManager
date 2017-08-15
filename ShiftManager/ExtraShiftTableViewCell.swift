@@ -1,18 +1,16 @@
 //
-//  SettingsTableViewCell.swift
+//  ExtraShiftTableViewCell.swift
 //  ShiftManager
 //
-//  Created by Daniel Krezelok on 13/07/2017.
+//  Created by Daniel Krezelok on 15/08/2017.
 //  Copyright © 2017 Tadeusz Raszka. All rights reserved.
 //
 
 import UIKit
 import PureLayout
 
-let settingsTableViewCellReuseIdentifier = "settingsTableViewCellReuseIdentifier"
+class ShiftTableViewCell: UITableViewCell {
 
-class SettingsTableViewCell: UITableViewCell {
-    
     let titleLabel = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -32,8 +30,8 @@ class SettingsTableViewCell: UITableViewCell {
     }
 }
 
-extension SettingsTableViewCell {
-    func setupCell(viewModel: ShiftViewModel) {
+extension ShiftTableViewCell {
+    func extraShiftCell(viewModel: ShiftViewModel) {
         titleLabel.text = viewModel.title
         backgroundColor = viewModel.color
     }
