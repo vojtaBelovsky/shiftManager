@@ -33,12 +33,13 @@ class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
                                              withReuseIdentifier: CalendarHeaderView.calendarHeaderIdentifier)
         
         //IF isUserRegistered
-        
+        /*
         if (!UserManager.sharedInstance.isUserRegistered()) {
             let newUserViewController = NewUserViewController()
             newUserViewController.delegate = self
             navigationController?.present(newUserViewController, animated: true, completion: nil)
         }
+ */
     }
     
     func newUserViewController(_ controller: NewUserViewController, didRegisterUser: UserModel) {
