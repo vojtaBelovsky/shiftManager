@@ -10,6 +10,7 @@
 		18014A931F41D50200980414 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18014A921F41D50200980414 /* UserView.swift */; };
 		18014A961F41D91600980414 /* UserBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18014A951F41D91600980414 /* UserBarView.swift */; };
 		18014A991F42DAEB00980414 /* UserBarViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18014A981F42DAEB00980414 /* UserBarViewDataSource.swift */; };
+		18014A9B1F43092200980414 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18014A9A1F43092200980414 /* EditUserViewController.swift */; };
 		183AF59A1F18B0F60033CFD7 /* ColorSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5971F18B0F60033CFD7 /* ColorSelectView.swift */; };
 		183AF59B1F18B0F60033CFD7 /* NewShiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5981F18B0F60033CFD7 /* NewShiftView.swift */; };
 		183AF59F1F18B1030033CFD7 /* ColorSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF59D1F18B1030033CFD7 /* ColorSelectViewController.swift */; };
@@ -33,7 +34,7 @@
 		18C92B7A1F0519EB00F29A1B /* CalendarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B791F0519EB00F29A1B /* CalendarDataSource.swift */; };
 		18C92B7C1F06106A00F29A1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B7B1F06106A00F29A1B /* SettingsViewController.swift */; };
 		18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B7D1F0633EF00F29A1B /* SettingsView.swift */; };
-		18CDAB781F39933D00FA1CF8 /* RegisterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDAB771F39933D00FA1CF8 /* RegisterValidator.swift */; };
+		18CDAB781F39933D00FA1CF8 /* NewUserValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDAB771F39933D00FA1CF8 /* NewUserValidator.swift */; };
 		18CDAB7B1F39AE7200FA1CF8 /* EditCallendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDAB7A1F39AE7200FA1CF8 /* EditCallendarDayView.swift */; };
 		18CDAB7D1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDAB7C1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift */; };
 		18D8469C1F1F660F004264D8 /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* ShiftModel.swift */; };
@@ -66,6 +67,7 @@
 		18014A921F41D50200980414 /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		18014A951F41D91600980414 /* UserBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBarView.swift; sourceTree = "<group>"; };
 		18014A981F42DAEB00980414 /* UserBarViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBarViewDataSource.swift; sourceTree = "<group>"; };
+		18014A9A1F43092200980414 /* EditUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
 		183AF5971F18B0F60033CFD7 /* ColorSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectView.swift; sourceTree = "<group>"; };
 		183AF5981F18B0F60033CFD7 /* NewShiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewShiftView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		183AF59D1F18B1030033CFD7 /* ColorSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 		18C92B791F0519EB00F29A1B /* CalendarDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDataSource.swift; sourceTree = "<group>"; };
 		18C92B7B1F06106A00F29A1B /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		18C92B7D1F0633EF00F29A1B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		18CDAB771F39933D00FA1CF8 /* RegisterValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterValidator.swift; sourceTree = "<group>"; };
+		18CDAB771F39933D00FA1CF8 /* NewUserValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserValidator.swift; sourceTree = "<group>"; };
 		18CDAB7A1F39AE7200FA1CF8 /* EditCallendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCallendarDayView.swift; sourceTree = "<group>"; };
 		18CDAB7C1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCallendarDayViewController.swift; sourceTree = "<group>"; };
 		18D8469B1F1F660F004264D8 /* ShiftModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftModel.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				188974C91F25D4C400E4CE92 /* NewUserViewController.swift */,
 				188974CB1F25D54800E4CE92 /* NewUserView.swift */,
 				18014A921F41D50200980414 /* UserView.swift */,
+				18014A9A1F43092200980414 /* EditUserViewController.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -228,7 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				18C8E4341F31CC14001D1AAD /* ShiftModelValidator.swift */,
-				18CDAB771F39933D00FA1CF8 /* RegisterValidator.swift */,
+				18CDAB771F39933D00FA1CF8 /* NewUserValidator.swift */,
 			);
 			name = Validator;
 			sourceTree = "<group>";
@@ -619,7 +622,7 @@
 			files = (
 				18014A961F41D91600980414 /* UserBarView.swift in Sources */,
 				188974CA1F25D4C400E4CE92 /* NewUserViewController.swift in Sources */,
-				18CDAB781F39933D00FA1CF8 /* RegisterValidator.swift in Sources */,
+				18CDAB781F39933D00FA1CF8 /* NewUserValidator.swift in Sources */,
 				18C92B751F0519AE00F29A1B /* CalendarCollectionViewCell.swift in Sources */,
 				2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */,
 				183AF5A41F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift in Sources */,
@@ -650,6 +653,7 @@
 				18C92B721F05198400F29A1B /* CalendarView.swift in Sources */,
 				188974D41F261A9D00E4CE92 /* Constants.swift in Sources */,
 				183AF5A01F18B1030033CFD7 /* NewShiftViewController.swift in Sources */,
+				18014A9B1F43092200980414 /* EditUserViewController.swift in Sources */,
 				18C92B781F0519CC00F29A1B /* CalendarEmtpyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

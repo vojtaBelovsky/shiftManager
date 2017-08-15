@@ -16,6 +16,14 @@ class UserBarViewDataSource: NSObject {
         self.users = UserManager.sharedInstance.getUsers()
         super.init()
     }
+    
+    func getDefaultUser() -> UserModel? {
+        if self.users.count > 0 {
+            return self.users[0]
+        } else {
+            return nil
+        }
+    }
 }
 
 extension UserBarViewDataSource: UICollectionViewDataSource {

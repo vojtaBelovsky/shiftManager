@@ -37,6 +37,7 @@ class SettingsView: UIView, UITableViewDelegate {
         userBarView.autoPinEdge(.top, to: .bottom, of: tableView)
         userBarView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

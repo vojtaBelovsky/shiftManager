@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RegisterValidator: NSObject {
+class NewUserValidator: NSObject {
     
-    static func validateRegister(_ name: UserModel) -> NSError? {
+    static func validateNewUser(_ name: UserModel) -> NSError? {
         
         var error : NSError? = nil
         

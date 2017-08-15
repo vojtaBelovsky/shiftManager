@@ -11,6 +11,8 @@ protocol NewUserViewControllerDelegate {
     func newUserViewController(_ controller: NewUserViewController, didRegisterUser: UserModel)
 }
 
+let reloadNotification = Notification.Name(rawValue:"ReloadNewUserController")
+
 class NewUserViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     let newUserView = NewUserView()
     var delegate: NewUserViewControllerDelegate?
@@ -71,12 +73,17 @@ class NewUserViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
+    func sendNotification() {
+        let nc = NotificationCenter.default
+        nc.post(name: reloadNotification, object: nil)
+    }
+    
     func registerButtonDidPress() {
         let user = UserModel()
         user.firstName = newUserView.firstName()
         user.lastName = newUserView.lastName()
         
-        if let validationError = RegisterValidator.validateRegister(user) {
+        if let validationError = NewUserValidator.validateNewUser(user) {
             let alertController = UIAlertController(title: validationError.localizedDescription, message: validationError.localizedFailureReason, preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: NSLocalizedString("NewShiftAllert_loc004", comment: ""), style: .default, handler: nil)
             alertController.addAction(defaultAction)
@@ -85,9 +92,10 @@ class NewUserViewController: UIViewController, UINavigationControllerDelegate, U
         }
         else {
             UserManager.sharedInstance.saveUser(user: user)
-            let calendarViewController = CalendarViewController()
+            sendNotification()
+            navigationController?.popViewController(animated: true)
             
-            present(calendarViewController, animated: true)
+            //TODO: vystřelit notifikaci která upozorní, že se mají refreshnout collection view z uživateli
         }
     }
     

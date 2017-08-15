@@ -8,7 +8,10 @@
 
 import UIKit
 
+
+
 class UserBarView: UIView {
+    var selectedUser: UserModel?
     let addButton = UIButton()
     var isAddUserButtonHidden = false {
         didSet {
@@ -35,6 +38,7 @@ class UserBarView: UIView {
     
     init() {
         super.init(frame: .zero)
+        selectedUser = userBarViewDataSource.getDefaultUser()
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
     }

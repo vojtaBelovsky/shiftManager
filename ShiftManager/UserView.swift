@@ -8,9 +8,15 @@
 
 import UIKit
 
-class UserView: UIView {
+class UserView: UIButton {
 
-    var user: UserModel?
+    var user: UserModel? {
+        didSet {
+            userPhotoImageView.image = user?.userPhoto
+            userFirstNameLabel.text = user?.firstName
+            userLastNameLabel.text = user?.lastName
+        }
+    }
     
     let userPhotoImageView = UIImageView()
     let userFirstNameLabel = UILabel()
@@ -30,19 +36,23 @@ class UserView: UIView {
     
     func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
-      //  addSubview(userBar)
         userPhotoImageView.layer.borderWidth = 4
         userPhotoImageView.layer.borderColor = UIColor.black.cgColor
         userPhotoImageView.layer.cornerRadius = 75.0
         userPhotoImageView.layer.masksToBounds = true
+        userPhotoImageView.isUserInteractionEnabled = false
         addSubview(userPhotoImageView)
         
         userFirstNameLabel.textColor = .black
+        userFirstNameLabel.backgroundColor = .red
+        userFirstNameLabel.isUserInteractionEnabled = false
         addSubview(userFirstNameLabel)
         
         userLastNameLabel.textColor = .black
+        userLastNameLabel.backgroundColor = .red
+        userLastNameLabel.isUserInteractionEnabled = false
         addSubview(userLastNameLabel)
-        }
+    }
 
     fileprivate func setupConstraints() {
         

@@ -10,13 +10,14 @@ import UIKit
     
 class UserModel: NSObject, NSCoding {
         
-        var uniqueID: String = ""
-        var firstName: String = ""
-        var lastName: String = ""
+    var uniqueID: String = ""
+    var userPhoto: UIImage?
+    var firstName: String = ""
+    var lastName: String = ""
 
-        fileprivate let firstNamePropertyKey = "firstNamePropertyKey"
-        fileprivate let lastNamePropertyKey = "lastNamePropertyKey"
-        fileprivate let userIDKey = "userIDKey"
+    fileprivate let firstNamePropertyKey = "firstNamePropertyKey"
+    fileprivate let lastNamePropertyKey = "lastNamePropertyKey"
+    fileprivate let userIDKey = "userIDKey"
 
     override init() {
         super.init()
@@ -27,6 +28,8 @@ class UserModel: NSObject, NSCoding {
         if let firstName = aDecoder.decodeObject(forKey: firstNamePropertyKey) as? String {
             self.firstName = firstName
         }
+        
+        //TODO: decode userPhoto
         
         if let lastName = aDecoder.decodeObject(forKey: lastNamePropertyKey) as? String {
             self.lastName = lastName
@@ -41,6 +44,7 @@ class UserModel: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         
         aCoder.encode(firstName, forKey: firstNamePropertyKey)
+        //TODO: encode userPhoto
         aCoder.encode(lastName, forKey: lastNamePropertyKey)
         aCoder.encode(uniqueID, forKey: userIDKey)
         

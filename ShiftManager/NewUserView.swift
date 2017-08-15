@@ -98,4 +98,9 @@ class NewUserView: UIView {
     public func lastName() -> String {
         return self.lastNameTextField.text ?? ""
     }
+    
+    public func editUserSetupView(with user: UserModel) {
+        firstNameTextField.text = user.firstName
+        lastNameTextField.text = user.lastName
+        }
 }
