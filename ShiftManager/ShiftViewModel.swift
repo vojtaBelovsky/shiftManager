@@ -10,5 +10,4 @@ import UIKit
 
 struct ShiftViewModel {
     let title: String
-    let color: UIColor?
 }

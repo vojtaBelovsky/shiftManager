@@ -35,6 +35,5 @@ class SettingsTableViewCell: UITableViewCell {
 extension SettingsTableViewCell {
     func setupCell(viewModel: ShiftViewModel) {
         titleLabel.text = viewModel.title
-        backgroundColor = viewModel.color
     }
 }

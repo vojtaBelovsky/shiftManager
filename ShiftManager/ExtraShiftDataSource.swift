@@ -20,7 +20,7 @@ class ExtraShiftDataSource: NSObject, UITableViewDataSource {
         }
         
         let shiftModel = ShiftManager.sharedInstance.shiftForIndex(indexPath.row)
-        let viewModel = ShiftViewModel(title: "Směna \(shiftModel.name)", color: shiftModel.color)
+        let viewModel = ShiftViewModel(title: "Směna \(shiftModel.name)")
         cell.extraShiftCell(viewModel: viewModel)
 
         return cell
