@@ -12,7 +12,6 @@ protocol NewUserViewControllerDelegate {
 }
 
 class NewUserViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
     let newUserView = NewUserView()
     var delegate: NewUserViewControllerDelegate?
 
@@ -86,7 +85,9 @@ class NewUserViewController: UIViewController, UINavigationControllerDelegate, U
         }
         else {
             UserManager.sharedInstance.saveUser(user: user)
-             
+            let calendarViewController = CalendarViewController()
+            
+            present(calendarViewController, animated: true)
         }
     }
     

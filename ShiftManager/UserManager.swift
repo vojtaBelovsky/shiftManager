@@ -11,9 +11,6 @@ import UIKit
 class UserManager: NSObject {
     
     let defaults = UserDefaults.standard
-   
-    
-    
     private var users = [UserModel]()
     let usersKey = "usersKey"
     
@@ -60,7 +57,7 @@ class UserManager: NSObject {
     public func update(User: UserModel) {
         saveUsersToPersistentStorage()
     }
-    
+
     public func deleteUser(at index: Int) {
         users.remove(at: index)
         saveUsersToPersistentStorage()
@@ -77,8 +74,6 @@ class UserManager: NSObject {
     public func userForIndex(_ index: Int) -> UserModel {
         return users[index]
     }
-
-    
     
     func isUserRegistered() -> Bool {
         return false

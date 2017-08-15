@@ -20,7 +20,7 @@ class HeaderView: UIView {
     fileprivate var daySun = UILabel()
     
     init() {
-        super .init(frame: .zero)
+        super.init(frame: .zero)
         stackViewInitilizer()
         setupConstraints()
     }
