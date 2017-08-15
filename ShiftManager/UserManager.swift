@@ -75,7 +75,7 @@ class UserManager: NSObject {
         return users[index]
     }
     
-    func isUserRegistered() -> Bool {
-        return true
-    }
+//    func isUserRegistered() -> Bool {
+//        return true
+//    }
 }
