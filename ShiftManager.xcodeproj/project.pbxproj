@@ -205,13 +205,13 @@
 			name = ColorSelect;
 			sourceTree = "<group>";
 		};
-		188974C71F25D49A00E4CE92 /* Register */ = {
+		188974C71F25D49A00E4CE92 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				188974C91F25D4C400E4CE92 /* NewUserViewController.swift */,
 				188974CB1F25D54800E4CE92 /* NewUserView.swift */,
 			);
-			name = Register;
+			name = User;
 			sourceTree = "<group>";
 		};
 		18C8E4331F31CBE0001D1AAD /* Validator */ = {
@@ -247,7 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				18CDAB791F39AE3500FA1CF8 /* EditCallendarDay */,
-				188974C71F25D49A00E4CE92 /* Register */,
+				188974C71F25D49A00E4CE92 /* User */,
 				18D8469A1F1F65EB004264D8 /* Models */,
 				18D8469E1F1F6A25004264D8 /* Managers */,
 				183AF5A81F18F0C90033CFD7 /* Cellendar */,
