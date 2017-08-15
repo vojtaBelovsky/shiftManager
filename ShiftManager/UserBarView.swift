@@ -10,8 +10,13 @@ import UIKit
 
 class UserBarView: UIView {
     let addButton = UIButton()
+    var isAddUserButtonHidden = true {
+        didSet {
+            updateAddButtonConstraints()
+        }
+    }
     
-    let userBarViewDataSource = UserBarViewDataSource()
+    private let userBarViewDataSource = UserBarViewDataSource()
     
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -30,6 +35,7 @@ class UserBarView: UIView {
         collectionView.dataSource = userBarViewDataSource
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
+        updateAddButtonConstraints()
         
     }
     required init?(coder aDecoder: NSCoder) {
@@ -59,6 +65,10 @@ class UserBarView: UIView {
         addButton.autoPinEdge(toSuperviewEdge: .top)
         addButton.autoPinEdge(.leading, to: .trailing, of: collectionView)
         addButton.autoPinEdge(toSuperviewEdge: .trailing)
+    }
+    
+    fileprivate func updateAddButtonConstraints() {
+        addButton.autoSetDimensions(to: CGSize(width: 0, height: 0))
     }
 }
 

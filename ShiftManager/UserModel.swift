@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
     
-class UserModel: NSObject {
+class UserModel: NSObject, NSCoding {
         
         var uniqueID: String = ""
         var firstName: String = ""
