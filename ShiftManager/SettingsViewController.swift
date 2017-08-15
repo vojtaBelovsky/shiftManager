@@ -43,7 +43,7 @@ class SettingsViewController: UIViewController {
     }
     
     func addButtonDidPress(){
-        self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
+        self.navigationController?.pushViewController(NewUserViewController(), animated: true)
     }
     
 }

@@ -14,10 +14,10 @@
 "CreateNewShift_loc008" = "Skrót zmiany (maks. 2 znaki)";
 "CreateNewShift_loc009" = "Edytacja zmiany";
 //Register
-"RegisterTitle_loc001" = "Rejestracja";
+"RegisterTitle_loc001" = "Nowy użytkownik";
 "RegisterPlaceholder_loc001" = "Imię";
 "RegisterPlaceholder_loc002" = "Nazkisko";
-"RegisterButton_loc003" = "Rejestracja";
+"RegisterButton_loc003" = "Stwórz";
 "RegisterButton_loc004" = "Aparat";
 "RegisterAllert_loc001" = "Błąd";
 "RegisterAllert_loc002" = "Pole z imieniem jest puste";
@@ -31,7 +31,7 @@
 "NewShiftAllert_loc006" = "Skrót jest za długi albo pole jest puste";
 //Edit Callendar Day
 "BasicInfo_loc001" = "Podstawowe info:";
-"ExtraShiftButton_loc001" = "Ekstra zmiana";
+"ExtraShiftButton_loc001" = "Stwórz ekstra zmiana";
 "EditCallendarDayViewTitle" = "Edytacja dnia";
 "DayOffLabel_loc001" = "Urlop";
 "NoteLabel_loc001" = "Twoje notatki";

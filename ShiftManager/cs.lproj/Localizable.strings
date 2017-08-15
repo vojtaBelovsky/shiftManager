@@ -15,10 +15,10 @@
 "CreateNewShift_loc009" = "Úprava šichty";
 
 //Register
-"RegisterTitle_loc001" = "Registrace";
+"RegisterTitle_loc001" = "Nový uživatel";
 "RegisterPlaceholder_loc001" = "Jméno";
 "RegisterPlaceholder_loc002" = "Příjmení";
-"RegisterButton_loc003" = "Registrace";
+"RegisterButton_loc003" = "Vytvořit";
 "RegisterButton_loc004" = "FOTO";
 "RegisterAllert_loc001" = "Chyba";
 "RegisterAllert_loc002" = "Pole se jménem je prázdné";
@@ -33,7 +33,7 @@
 "NewShiftAllert_loc006" = "Zkratka je příliš dlouha nebo pole je prázdné";
 //Edit Callendar Day
 "BasicInfo_loc001" = "Základní informace:";
-"ExtraShiftButton_loc001" = "Extra šichta";
+"ExtraShiftButton_loc001" = "Vytvořit extra šichta";
 "EditCallendarDayViewTitle" = "Úprava dne";
 "DayOffLabel_loc001" = "Dovolená";
 "NoteLabel_loc001" = "Vaše poznámky";
