@@ -8,7 +8,7 @@
 import UIKit
 import PureLayout
 
-class FriendCollectionCell: UICollectionViewCell {
+class UserBarCollectionCell: UICollectionViewCell {
     
     let photoImageView = UIImageView()
     
@@ -31,7 +31,6 @@ class FriendCollectionCell: UICollectionViewCell {
     func setupConstraints() {
         photoImageView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
         photoImageView.autoMatch(.width, to: .height, of: photoImageView)
-        
         photoImageView.autoCenterInSuperview()
     }
     

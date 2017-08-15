@@ -13,7 +13,7 @@ class CalendarView: UIView {
     
     let headerView = HeaderView()
     var daysLabel = UILabel()
-    var addFriend = UIButton()
+    let userBarView = UserBarView()
     
     lazy var calendarCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -24,18 +24,8 @@ class CalendarView: UIView {
         let calendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         return calendarCollectionView
     }()
-    lazy var friendsCollectionVIew: UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.minimumLineSpacing = 6
-        flowLayout.scrollDirection = .horizontal
-
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        return collectionView
-    }()
     
     fileprivate let numberOfCalendarCellsInCollum: Int = 7
-    fileprivate let numberOfFriendsCellsInCollum: Int = 5
     
     init() {
         super.init(frame: .zero)
@@ -48,20 +38,10 @@ class CalendarView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
-        addFriend.backgroundColor = .white
-        addFriend.setTitle(NSLocalizedString("AddFriendButton_loc001", comment: ""), for: .normal)
-        addFriend.setTitleColor(.black, for: UIControlState.normal)
-        addFriend.layer.borderColor = UIColor.black.cgColor
-        addFriend.layer.borderWidth = 1
-        addSubview(addFriend)
-
-        
         calendarCollectionView.backgroundColor = .clear
-        friendsCollectionVIew.backgroundColor = .clear
-        
+        addSubview(userBarView)
         addSubview(headerView)
         addSubview(calendarCollectionView)
-        addSubview(friendsCollectionVIew)
     }
     
     fileprivate func setupConstraints() {
@@ -73,27 +53,16 @@ class CalendarView: UIView {
         calendarCollectionView.autoPinEdge(toSuperviewEdge: .leading)
         calendarCollectionView.autoPinEdge(toSuperviewEdge: .trailing)
         
-        friendsCollectionVIew.autoMatch(.height, to: .height, of: self, withMultiplier: 0.12)
-        friendsCollectionVIew.autoPinEdge(.top, to: .bottom, of: calendarCollectionView)
-        friendsCollectionVIew.autoPinEdge(toSuperviewEdge: .leading)
-        friendsCollectionVIew.autoPinEdge(toSuperviewEdge: .bottom)
-        
-        addFriend.autoMatch(.height, to: .height, of: friendsCollectionVIew)
-        addFriend.autoMatch(.width, to: .height, of: addFriend)
-        addFriend.autoPinEdge(.top, to: .bottom, of: calendarCollectionView)
-        addFriend.autoPinEdge(.leading, to: .trailing, of: friendsCollectionVIew)
-        addFriend.autoPinEdge(toSuperviewEdge: .trailing)
+        userBarView.autoPinEdge(.top, to: .bottom, of: calendarCollectionView)
+        userBarView.autoPinEdge(toSuperviewEdge: .leading)
+        userBarView.autoPinEdge(toSuperviewEdge: .trailing)
+        userBarView.autoPinEdge(toSuperviewEdge: .bottom)
     }
 }
 
 extension CalendarView {
     func getCalendarCellSize() -> CGSize {
         let size = UIScreen.main.bounds.size.width / CGFloat(numberOfCalendarCellsInCollum)
-        return CGSize(width: size, height: size)
-    }
-    
-    func getFriendsCellSize() -> CGSize {
-        let size = UIScreen.main.bounds.size.width / CGFloat(numberOfFriendsCellsInCollum)
         return CGSize(width: size, height: size)
     }
 }

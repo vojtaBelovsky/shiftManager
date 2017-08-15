@@ -13,10 +13,7 @@ class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
     let callendarViewControllerIdentifier = "callendarViewControllerIdentifier"
     let calendarView: CalendarView = CalendarView()
     let calendarDataSource = CalendarDataSource()
-    let friendsDataSource = FriendsDataSource(friends:
-        [UserModel(), UserModel(), UserModel(), UserModel(), UserModel(), UserModel(), UserModel(), UserModel(), UserModel()]
-    ) //TODO: Mock data for friendsDataSource, delete in future
-    
+
     override func loadView() {
         view = calendarView
     }
@@ -34,12 +31,6 @@ class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
         calendarView.calendarCollectionView.register(CalendarHeaderView.self,
                                              forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                                              withReuseIdentifier: CalendarHeaderView.calendarHeaderIdentifier)
-        
-        
-        calendarView.friendsCollectionVIew.register(FriendCollectionCell.self, forCellWithReuseIdentifier: String(describing: FriendCollectionCell.self))
-        calendarView.friendsCollectionVIew.dataSource = friendsDataSource
-        calendarView.friendsCollectionVIew.delegate = self
-        
         
         //IF isUserRegistered
         
@@ -66,23 +57,11 @@ class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
 
 extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        switch collectionView {
-        case calendarView.calendarCollectionView:
-            navigationController?.pushViewController(EditCallendarDayViewController(), animated: true)
-        case calendarView.friendsCollectionVIew:
-            break //TODO: Handle tap on friend cell
-        default: return
-        }
+        navigationController?.pushViewController(EditCallendarDayViewController(), animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        switch collectionView {
-        case calendarView.calendarCollectionView: return calendarView.getCalendarCellSize()
-        case calendarView.friendsCollectionVIew: return calendarView.getFriendsCellSize()
-        default: return CGSize(width: 0, height: 0)
-        }
+         return calendarView.getCalendarCellSize()
     }
 }
 

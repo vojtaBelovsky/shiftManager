@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18014A861F3DE42200980414 /* EditDayViewControllerForShifts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18014A851F3DE42200980414 /* EditDayViewControllerForShifts.swift */; };
-		18014A881F4182B300980414 /* EditCalendarDayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18014A871F4182B300980414 /* EditCalendarDayDataSource.swift */; };
+		18014A931F41D50200980414 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18014A921F41D50200980414 /* UserView.swift */; };
+		18014A961F41D91600980414 /* UserBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18014A951F41D91600980414 /* UserBarView.swift */; };
+		18014A991F42DAEB00980414 /* UserBarViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18014A981F42DAEB00980414 /* UserBarViewDataSource.swift */; };
 		183AF59A1F18B0F60033CFD7 /* ColorSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5971F18B0F60033CFD7 /* ColorSelectView.swift */; };
 		183AF59B1F18B0F60033CFD7 /* NewShiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5981F18B0F60033CFD7 /* NewShiftView.swift */; };
 		183AF59F1F18B1030033CFD7 /* ColorSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF59D1F18B1030033CFD7 /* ColorSelectViewController.swift */; };
@@ -39,8 +40,7 @@
 		18D8469D1F1F660F004264D8 /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* ShiftModel.swift */; };
 		18D846A01F1F6A3E004264D8 /* ShiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */; };
 		18D846A11F1F6A3E004264D8 /* ShiftManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */; };
-		18DCD4E61F3DCFD400442DAE /* FriendCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCD4E51F3DCFD400442DAE /* FriendCollectionCell.swift */; };
-		18DCD4E81F3DD0F000442DAE /* FriendsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCD4E71F3DD0F000442DAE /* FriendsDataSource.swift */; };
+		18DCD4E61F3DCFD400442DAE /* UserBarCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */; };
 		2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A834CFB1F13AC170084F697 /* HeaderView.swift */; };
 		2A9E68B11F306BA600CE6541 /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9E68B01F306BA600CE6541 /* EditShiftViewController.swift */; };
 		2AA400241F1E09B300712B19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AA400261F1E09B300712B19 /* Localizable.strings */; };
@@ -63,8 +63,9 @@
 
 /* Begin PBXFileReference section */
 		01C50E9F74E5E1CC46C44320 /* Pods-ShiftManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManagerTests/Pods-ShiftManagerTests.release.xcconfig"; sourceTree = "<group>"; };
-		18014A851F3DE42200980414 /* EditDayViewControllerForShifts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDayViewControllerForShifts.swift; sourceTree = "<group>"; };
-		18014A871F4182B300980414 /* EditCalendarDayDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCalendarDayDataSource.swift; sourceTree = "<group>"; };
+		18014A921F41D50200980414 /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		18014A951F41D91600980414 /* UserBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBarView.swift; sourceTree = "<group>"; };
+		18014A981F42DAEB00980414 /* UserBarViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBarViewDataSource.swift; sourceTree = "<group>"; };
 		183AF5971F18B0F60033CFD7 /* ColorSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectView.swift; sourceTree = "<group>"; };
 		183AF5981F18B0F60033CFD7 /* NewShiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewShiftView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		183AF59D1F18B1030033CFD7 /* ColorSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectViewController.swift; sourceTree = "<group>"; };
@@ -97,8 +98,7 @@
 		18CDAB7C1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCallendarDayViewController.swift; sourceTree = "<group>"; };
 		18D8469B1F1F660F004264D8 /* ShiftModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftModel.swift; sourceTree = "<group>"; };
 		18D8469F1F1F6A3E004264D8 /* ShiftManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftManager.swift; sourceTree = "<group>"; };
-		18DCD4E51F3DCFD400442DAE /* FriendCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendCollectionCell.swift; sourceTree = "<group>"; };
-		18DCD4E71F3DD0F000442DAE /* FriendsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDataSource.swift; sourceTree = "<group>"; };
+		18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBarCollectionCell.swift; sourceTree = "<group>"; };
 		29C811EC97CC96244BD29BFD /* Pods-ShiftManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManager/Pods-ShiftManager.release.xcconfig"; sourceTree = "<group>"; };
 		2A2C5D641F1E204D001BA754 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A834CFB1F13AC170084F697 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -134,6 +134,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18014A971F42DA6000980414 /* UserBarView */ = {
+			isa = PBXGroup;
+			children = (
+				18014A951F41D91600980414 /* UserBarView.swift */,
+				18014A981F42DAEB00980414 /* UserBarViewDataSource.swift */,
+				18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */,
+			);
+			name = UserBarView;
+			sourceTree = "<group>";
+		};
 		183AF5A71F18F0720033CFD7 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +181,6 @@
 				2A834CFB1F13AC170084F697 /* HeaderView.swift */,
 				18C92B711F05198400F29A1B /* CalendarView.swift */,
 				2AF3B3C21F1F5A7D00AB752A /* CalendarHeaderView.swift */,
-				18DCD4E51F3DCFD400442DAE /* FriendCollectionCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -180,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				18C92B791F0519EB00F29A1B /* CalendarDataSource.swift */,
-				18DCD4E71F3DD0F000442DAE /* FriendsDataSource.swift */,
 			);
 			name = DataSource;
 			sourceTree = "<group>";
@@ -208,8 +216,10 @@
 		188974C71F25D49A00E4CE92 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				18014A971F42DA6000980414 /* UserBarView */,
 				188974C91F25D4C400E4CE92 /* NewUserViewController.swift */,
 				188974CB1F25D54800E4CE92 /* NewUserView.swift */,
+				18014A921F41D50200980414 /* UserView.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -286,8 +296,6 @@
 			children = (
 				18CDAB7A1F39AE7200FA1CF8 /* EditCallendarDayView.swift */,
 				18CDAB7C1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift */,
-				18014A851F3DE42200980414 /* EditDayViewControllerForShifts.swift */,
-				18014A871F4182B300980414 /* EditCalendarDayDataSource.swift */,
 			);
 			name = EditCallendarDay;
 			sourceTree = "<group>";
@@ -609,8 +617,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18014A961F41D91600980414 /* UserBarView.swift in Sources */,
 				188974CA1F25D4C400E4CE92 /* NewUserViewController.swift in Sources */,
-				18014A881F4182B300980414 /* EditCalendarDayDataSource.swift in Sources */,
 				18CDAB781F39933D00FA1CF8 /* RegisterValidator.swift in Sources */,
 				18C92B751F0519AE00F29A1B /* CalendarCollectionViewCell.swift in Sources */,
 				2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */,
@@ -618,14 +626,14 @@
 				18D8469C1F1F660F004264D8 /* ShiftModel.swift in Sources */,
 				188974CC1F25D54800E4CE92 /* NewUserView.swift in Sources */,
 				18C8E4351F31CC14001D1AAD /* ShiftModelValidator.swift in Sources */,
-				18DCD4E81F3DD0F000442DAE /* FriendsDataSource.swift in Sources */,
-				18DCD4E61F3DCFD400442DAE /* FriendCollectionCell.swift in Sources */,
+				18DCD4E61F3DCFD400442DAE /* UserBarCollectionCell.swift in Sources */,
 				18CDAB7D1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift in Sources */,
 				18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */,
 				183AF59F1F18B1030033CFD7 /* ColorSelectViewController.swift in Sources */,
 				18C92B511F05170F00F29A1B /* CalendarViewController.swift in Sources */,
 				18CDAB7B1F39AE7200FA1CF8 /* EditCallendarDayView.swift in Sources */,
 				18D846A01F1F6A3E004264D8 /* ShiftManager.swift in Sources */,
+				18014A991F42DAEB00980414 /* UserBarViewDataSource.swift in Sources */,
 				18C92B7C1F06106A00F29A1B /* SettingsViewController.swift in Sources */,
 				18C92B7A1F0519EB00F29A1B /* CalendarDataSource.swift in Sources */,
 				2A9E68B11F306BA600CE6541 /* EditShiftViewController.swift in Sources */,
@@ -634,8 +642,8 @@
 				185078E81F3B2F57004C4F49 /* UserModel.swift in Sources */,
 				185078EA1F3B314A004C4F49 /* UserManager.swift in Sources */,
 				2AA4FFED1F1779D400712B19 /* SettingsTableViewCell.swift in Sources */,
-				18014A861F3DE42200980414 /* EditDayViewControllerForShifts.swift in Sources */,
 				183AF5A21F18B10E0033CFD7 /* ColorSelectDataSource.swift in Sources */,
+				18014A931F41D50200980414 /* UserView.swift in Sources */,
 				2AF3B3C31F1F5A7D00AB752A /* CalendarHeaderView.swift in Sources */,
 				183AF59B1F18B0F60033CFD7 /* NewShiftView.swift in Sources */,
 				18C92B4F1F05170F00F29A1B /* AppDelegate.swift in Sources */,
