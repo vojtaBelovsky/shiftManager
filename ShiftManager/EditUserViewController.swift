@@ -38,7 +38,7 @@ final class EditUserViewController: NewUserViewController {
     func deleteButtonDidPress(){
         UserManager.sharedInstance.deleteUser(at: 0)
         sendDeleteNotification()
-        navigationController?.popViewController(animated:true)
+        _ = navigationController?.popViewController(animated:true)
         
     }
     func sendDeleteNotification() {
@@ -66,7 +66,7 @@ final class EditUserViewController: NewUserViewController {
         } else {
             UserManager.sharedInstance.saveUser(user: user)
             sendNotification()
-            navigationController?.popViewController(animated:true)
+            _ = navigationController?.popViewController(animated:true)
         }
     }
 }
