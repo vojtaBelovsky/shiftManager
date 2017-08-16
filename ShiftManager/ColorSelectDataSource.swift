@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ColorSelectDataSource: NSObject, UICollectionViewDataSource {
+final class ColorSelectDataSource: NSObject, UICollectionViewDataSource {
     
     let colors: [UIColor] = [.black, .darkGray, .red, .green, .blue, .cyan, .lightGray, .yellow, .magenta, .orange, .purple, .brown]
     
@@ -23,11 +23,11 @@ class ColorSelectDataSource: NSObject, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: colorSelectCollectionViewCellReuseIdentifier, for: indexPath)
-            as? ColorSelectCollectionViewCell
-            else {
-                assertionFailure("Non existing cell")
-                return UICollectionViewCell()
+        as? ColorSelectCollectionViewCell else {
+            assertionFailure("Non existing cell")
+            return UICollectionViewCell()
         }
+
         cell.backgroundColor = colors[indexPath.row]
         return cell
     }
