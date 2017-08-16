@@ -9,13 +9,13 @@
 import UIKit
 import PureLayout
 
-class NewUserView: UIView {
-
-    public var selectImage = UIImageView()
-    public var cameraButton = UIButton()
-    public var firstNameTextField = UITextField()
-    public var lastNameTextField = UITextField()
-    var registerButton = UIButton()
+final class NewUserView: UIView {
+    
+    fileprivate let selectImage = UIImageView()
+    fileprivate let registerButton = UIButton()
+    fileprivate let cameraButton = UIButton()
+    fileprivate let firstNameTextField = UITextField()
+    fileprivate let lastNameTextField = UITextField()
     
     init() {
         super.init(frame: .zero)
@@ -34,6 +34,7 @@ class NewUserView: UIView {
         selectImage.layer.borderColor = UIColor.black.cgColor
         selectImage.layer.cornerRadius = 75.0
         selectImage.layer.masksToBounds = true
+        selectImage.isUserInteractionEnabled = true
         addSubview(selectImage)
         
         firstNameTextField.layer.borderColor = UIColor.black.cgColor
@@ -56,7 +57,6 @@ class NewUserView: UIView {
     }
     
     fileprivate func setupConstraints() {
-        
         selectImage.autoPinEdge(toSuperviewEdge: .leading, withInset: 130)
         selectImage.autoPinEdge(toSuperviewEdge: .trailing, withInset: 130)
         selectImage.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.4)
@@ -82,7 +82,9 @@ class NewUserView: UIView {
         registerButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.4)
         registerButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
     }
+}
 
+extension NewUserView {
     public func registerButtonDidPress(_ target: Any?, action: Selector) {
         registerButton.addTarget(target, action: action, for: .touchUpInside)
     }
@@ -91,16 +93,24 @@ class NewUserView: UIView {
         cameraButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
+    public func addGestureRecognizerToSelectedImageView(_ gestureRecognizer: UITapGestureRecognizer) {
+        selectImage.addGestureRecognizer(gestureRecognizer)
+    }
+    
     public func firstName() -> String {
-        return self.firstNameTextField.text ?? ""
+        return firstNameTextField.text ?? ""
     }
     
     public func lastName() -> String {
-        return self.lastNameTextField.text ?? ""
+        return lastNameTextField.text ?? ""
     }
     
     public func editUserSetupView(with user: UserModel) {
         firstNameTextField.text = user.firstName
         lastNameTextField.text = user.lastName
-        }
+    }
+    
+    public func setImage(_ image: UIImage) {
+        selectImage.image = image
+    }
 }

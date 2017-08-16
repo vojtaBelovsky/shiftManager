@@ -29,8 +29,7 @@ class NewUserViewController: UIViewController {
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(NewUserViewController.tapDetected))
         singleTap.numberOfTapsRequired = 1
-        newUserView.selectImage.isUserInteractionEnabled = true
-        newUserView.selectImage.addGestureRecognizer(singleTap)
+        newUserView.addGestureRecognizerToSelectedImageView(singleTap)
         newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
         newUserView.cameraButtonDidPress(self, action: #selector(cameraButtonDidPress))
     }
@@ -96,7 +95,7 @@ extension NewUserViewController: UINavigationControllerDelegate, UIImagePickerCo
             return
         }
         
-        newUserView.selectImage.image = newImage
+        newUserView.setImage(newImage)
         
         dismiss(animated: true)
     }
