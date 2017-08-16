@@ -11,7 +11,7 @@ import UIKit
 let updateUserNotification = Notification.Name(rawValue:"UpdateUserProfil")
 let deleteUserNotification = Notification.Name(rawValue:"DeleteUserProfil")
 
-class EditUserViewController: NewUserViewController {
+final class EditUserViewController: NewUserViewController {
     
     fileprivate let user: UserModel
     
@@ -43,7 +43,7 @@ class EditUserViewController: NewUserViewController {
         //  userView.reloadData()
         
     }
-     func sendDeleteNotification() {
+    func sendDeleteNotification() {
         let nec = NotificationCenter.default
         nec.post(name: updateUserNotification, object: nil)
     }
@@ -64,8 +64,7 @@ class EditUserViewController: NewUserViewController {
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
             return
-        }
-        else {
+        } else {
             UserManager.sharedInstance.saveUser(user: user)
             sendNotification()
             navigationController?.popViewController(animated:true)
