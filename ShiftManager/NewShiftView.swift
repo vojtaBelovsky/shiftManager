@@ -134,8 +134,12 @@ extension NewShiftView {
     }
     
     
-    public func interval() -> String {
-        return self.intervalTextField.text ?? ""
+    public func interval() -> Int {
+        if let textInput = intervalTextField.text, let interval = Int(textInput) {
+            return interval
+        } else {
+            return 0
+        }
     }
     
     public func date() -> Date {
