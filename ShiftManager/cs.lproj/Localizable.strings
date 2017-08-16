@@ -40,3 +40,5 @@
 "NoteLabel_loc001" = "Vaše poznámky";
 //SHARE
 "AddFriendButton_loc001" = "+";
+//General
+"GeneralShiftName_loc001" = "Směna %@ %@";

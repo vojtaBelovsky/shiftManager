@@ -37,10 +37,8 @@ final class EditUserViewController: NewUserViewController {
     
     func deleteButtonDidPress(){
         UserManager.sharedInstance.deleteUser(at: 0)
-        // TODO: poslat notku
         sendDeleteNotification()
         navigationController?.popViewController(animated:true)
-        //  userView.reloadData()
         
     }
     func sendDeleteNotification() {

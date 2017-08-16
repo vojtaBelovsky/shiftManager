@@ -38,3 +38,5 @@
 "NoteLabel_loc001" = "Twoje notatki";
 //SHARE
 "AddFriendButton_loc001" = "+";
+//General
+"GeneralShiftName_loc001" = "Zmiana %@ %@";
