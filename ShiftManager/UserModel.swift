@@ -16,6 +16,7 @@ final class UserModel: NSObject, NSCoding {
     var firstName: String = ""
     var lastName: String = ""
 
+    fileprivate let userPhotoImagePropertyKey = "userPhotoImagePropertyKey"
     fileprivate let firstNamePropertyKey = "firstNamePropertyKey"
     fileprivate let lastNamePropertyKey = "lastNamePropertyKey"
     fileprivate let userIDKey = "userIDKey"
@@ -26,11 +27,13 @@ final class UserModel: NSObject, NSCoding {
     
     required init?(coder aDecoder: NSCoder) {
         
+        if let userPhotoImage = aDecoder.decodeObject(forKey: userPhotoImagePropertyKey) as? UIImage {
+            self.userPhotoImage = userPhotoImage
+        }
+        
         if let firstName = aDecoder.decodeObject(forKey: firstNamePropertyKey) as? String {
             self.firstName = firstName
         }
-        
-        //TODO: decode userPhoto
         
         if let lastName = aDecoder.decodeObject(forKey: lastNamePropertyKey) as? String {
             self.lastName = lastName
@@ -44,8 +47,8 @@ final class UserModel: NSObject, NSCoding {
     
     func encode(with aCoder: NSCoder) {
         
+        aCoder.encode(userPhotoImage, forKey: userPhotoImagePropertyKey)
         aCoder.encode(firstName, forKey: firstNamePropertyKey)
-        //TODO: encode userPhoto
         aCoder.encode(lastName, forKey: lastNamePropertyKey)
         aCoder.encode(uniqueID, forKey: userIDKey)
         
