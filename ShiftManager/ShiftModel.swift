@@ -5,10 +5,11 @@
 //  Created by Tadeusz Raszka on 19.07.17.
 //  Copyright © 2017 Krystian Raszka. All rights reserved.
 //
+
 import Foundation
 import UIKit
 
-class ShiftModel: NSObject, NSCoding {
+final class ShiftModel: NSObject, NSCoding {
     
     var uniqueID: String = ""
     var name: String = ""

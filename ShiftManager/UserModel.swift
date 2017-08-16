@@ -5,10 +5,11 @@
 //  Created by Tadeusz Raszka on 09.08.17.
 //  Copyright © 2017 Tadeusz Raszka. All rights reserved.
 //
+
 import Foundation
 import UIKit
     
-class UserModel: NSObject, NSCoding {
+final class UserModel: NSObject, NSCoding {
         
     var uniqueID: String = ""
     var userPhotoImage: UIImage?
