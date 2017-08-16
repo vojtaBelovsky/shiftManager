@@ -6,6 +6,14 @@
          contextName = "ShiftManager.saveShift(shift : ShiftModel) -&gt; ():ShiftManager.swift">
       </ContextState>
       <ContextState
+         contextName = "ExtraShiftDataSource.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:ExtraShiftDataSource.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ShiftManager.sharedInstance.numberOfShifts()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "NewShiftView.date() -&gt; Date:NewShiftView.swift">
          <PersistentStrings>
             <PersistentString

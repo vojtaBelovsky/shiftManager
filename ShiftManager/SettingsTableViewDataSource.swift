@@ -20,7 +20,7 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
         }
 
         let shiftModel = ShiftManager.sharedInstance.shiftForIndex(indexPath.row)
-        let viewModel = SettingsCellViewModel(title: "Směna \(shiftModel.name)")
+        let viewModel = ShiftViewModel(title: "Směna \(shiftModel.name)")
         cell.setupCell(viewModel: viewModel)
         return cell
         

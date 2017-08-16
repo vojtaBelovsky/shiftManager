@@ -47,6 +47,11 @@
 		2AA400241F1E09B300712B19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AA400261F1E09B300712B19 /* Localizable.strings */; };
 		2AA4FFED1F1779D400712B19 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */; };
 		2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4FFEE1F177A0C00712B19 /* SettingsTableViewDataSource.swift */; };
+		2AE8C9BC1F43275F00F70A7F /* ExtraShiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */; };
+		2AE8C9BE1F43279A00F70A7F /* ExtraShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BD1F43279A00F70A7F /* ExtraShiftTableViewCell.swift */; };
+		2AE8C9C01F4327B900F70A7F /* ExtraShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */; };
+		2AE8C9C31F43370C00F70A7F /* ExtraShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9C21F43370C00F70A7F /* ExtraShiftViewController.swift */; };
+		2AE8C9C61F4345DA00F70A7F /* ShiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9C51F4345DA00F70A7F /* ShiftViewModel.swift */; };
 		2AF3B3C31F1F5A7D00AB752A /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3B3C21F1F5A7D00AB752A /* CalendarHeaderView.swift */; };
 		6D0B5C94BFCEA0029E048C87 /* Pods_ShiftManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B505A5093617F2F673C392 /* Pods_ShiftManager.framework */; };
 		85E9501F8B1E3E48D3CEA7D7 /* Pods_ShiftManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46462C769EDFC89CE54BAAB5 /* Pods_ShiftManagerTests.framework */; };
@@ -109,6 +114,11 @@
 		2AA400271F1E09C400712B19 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		2AA4FFEE1F177A0C00712B19 /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
+		2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftView.swift; sourceTree = "<group>"; };
+		2AE8C9BD1F43279A00F70A7F /* ExtraShiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftTableViewCell.swift; sourceTree = "<group>"; };
+		2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftDataSource.swift; sourceTree = "<group>"; };
+		2AE8C9C21F43370C00F70A7F /* ExtraShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftViewController.swift; sourceTree = "<group>"; };
+		2AE8C9C51F4345DA00F70A7F /* ShiftViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftViewModel.swift; sourceTree = "<group>"; };
 		2AF3B3C21F1F5A7D00AB752A /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		41B505A5093617F2F673C392 /* Pods_ShiftManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46462C769EDFC89CE54BAAB5 /* Pods_ShiftManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				2A9E68AF1F306B4100CE6541 /* EditShift */,
+				2AE8C9B81F4326F900F70A7F /* ExtraShift */,
 				183AF5AD1F18F1F00033CFD7 /* Settings */,
 				18C92B731F05198B00F29A1B /* NewShift */,
 				183AF5AE1F18F2020033CFD7 /* ColorSelect */,
@@ -262,6 +273,7 @@
 				18CDAB791F39AE3500FA1CF8 /* EditCallendarDay */,
 				188974C71F25D49A00E4CE92 /* User */,
 				18D8469A1F1F65EB004264D8 /* Models */,
+				2AE8C9C41F4345A800F70A7F /* ViewModel */,
 				18D8469E1F1F6A25004264D8 /* Managers */,
 				183AF5A81F18F0C90033CFD7 /* Cellendar */,
 				183AF5A71F18F0720033CFD7 /* Settings */,
@@ -393,6 +405,49 @@
 				2A9E68B01F306BA600CE6541 /* EditShiftViewController.swift */,
 			);
 			name = EditShift;
+			sourceTree = "<group>";
+		};
+		2AE8C9B81F4326F900F70A7F /* ExtraShift */ = {
+			isa = PBXGroup;
+			children = (
+				2AE8C9C11F4336C400F70A7F /* Controller */,
+				2AE8C9B91F43272B00F70A7F /* DataSource */,
+				2AE8C9BA1F43273A00F70A7F /* View */,
+			);
+			name = ExtraShift;
+			sourceTree = "<group>";
+		};
+		2AE8C9B91F43272B00F70A7F /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		2AE8C9BA1F43273A00F70A7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2AE8C9BD1F43279A00F70A7F /* ExtraShiftTableViewCell.swift */,
+				2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2AE8C9C11F4336C400F70A7F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2AE8C9C21F43370C00F70A7F /* ExtraShiftViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		2AE8C9C41F4345A800F70A7F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2AE8C9C51F4345DA00F70A7F /* ShiftViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		544C7C9C385207CDA315669A /* Frameworks */ = {
@@ -622,6 +677,7 @@
 			files = (
 				18014A961F41D91600980414 /* UserBarView.swift in Sources */,
 				188974CA1F25D4C400E4CE92 /* NewUserViewController.swift in Sources */,
+				2AE8C9C01F4327B900F70A7F /* ExtraShiftDataSource.swift in Sources */,
 				18CDAB781F39933D00FA1CF8 /* NewUserValidator.swift in Sources */,
 				18C92B751F0519AE00F29A1B /* CalendarCollectionViewCell.swift in Sources */,
 				2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */,
@@ -632,6 +688,7 @@
 				18DCD4E61F3DCFD400442DAE /* UserBarCollectionCell.swift in Sources */,
 				18CDAB7D1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift in Sources */,
 				18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */,
+				2AE8C9BC1F43275F00F70A7F /* ExtraShiftView.swift in Sources */,
 				183AF59F1F18B1030033CFD7 /* ColorSelectViewController.swift in Sources */,
 				18C92B511F05170F00F29A1B /* CalendarViewController.swift in Sources */,
 				18CDAB7B1F39AE7200FA1CF8 /* EditCallendarDayView.swift in Sources */,
@@ -643,8 +700,11 @@
 				183AF59A1F18B0F60033CFD7 /* ColorSelectView.swift in Sources */,
 				2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */,
 				185078E81F3B2F57004C4F49 /* UserModel.swift in Sources */,
+				2AE8C9C61F4345DA00F70A7F /* ShiftViewModel.swift in Sources */,
 				185078EA1F3B314A004C4F49 /* UserManager.swift in Sources */,
+				2AE8C9C31F43370C00F70A7F /* ExtraShiftViewController.swift in Sources */,
 				2AA4FFED1F1779D400712B19 /* SettingsTableViewCell.swift in Sources */,
+				2AE8C9BE1F43279A00F70A7F /* ExtraShiftTableViewCell.swift in Sources */,
 				183AF5A21F18B10E0033CFD7 /* ColorSelectDataSource.swift in Sources */,
 				18014A931F41D50200980414 /* UserView.swift in Sources */,
 				2AF3B3C31F1F5A7D00AB752A /* CalendarHeaderView.swift in Sources */,
