@@ -19,12 +19,19 @@ final class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = NSLocalizedString("Calendar_loc001", comment: "")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(settingsButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(newUserDidRegisterNotificationHandler), name: newUserDidRegisterNotification, object: nil)
+        
+        let newUserDidRegister = NotificationCenter.default
+        newUserDidRegister.addObserver(self, selector: #selector(newUserDidRegisterNotificationHandler), name: newUserDidRegisterNotification, object: nil)
+        
+        let updateUser = NotificationCenter.default
+        updateUser.addObserver(self, selector: #selector(updateUserNotificationHandler), name: updateUserNotification, object: nil)
+        
+        let deleteUser = NotificationCenter.default
+        deleteUser.addObserver(self, selector: #selector(deleteUserNotificationHandler), name: deleteUserNotification, object: nil)
+
         calendarView.calendarCollectionView.dataSource = calendarDataSource
         calendarView.calendarCollectionView.delegate = self
         calendarView.calendarCollectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: CalendarCollectionViewCell.self))
@@ -36,6 +43,14 @@ final class CalendarViewController: UIViewController {
 
     func settingsButtonDidPress() {
         navigationController?.pushViewController(SettingsViewController(), animated: true)
+    }
+    
+    func updateUserNotificationHandler(){
+        calendarView.userBarView.reloadData()
+    }
+    
+    func deleteUserNotificationHandler(){
+        calendarView.userBarView.reloadData()
     }
     
     func newUserDidRegisterNotificationHandler() {

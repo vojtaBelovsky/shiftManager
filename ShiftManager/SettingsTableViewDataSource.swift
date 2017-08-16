@@ -18,14 +18,9 @@ final class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
             return UITableViewCell()
         }
 
-<<<<<<< HEAD
-        let shiftModel = ShiftManager.sharedInstance.shiftForIndex(indexPath.row)
-        let formatString = String(format: NSLocalizedString("GeneralShiftName_loc001", comment: ""), shiftModel.name, (shiftModel.shortcut))
-=======
+
         let shiftModel = UserManager.sharedInstance.shiftForIndex(indexPath.row)
-        // \(shiftModel.name) (\(shiftModel.shortcut))
         let formatString = String(format: NSLocalizedString("GeneralShiftName_loc001", comment: ""), shiftModel.name, shiftModel.shortcut)
->>>>>>> 9b946ce58acbf13c9986955aba98bce9ac1fd98e
         let viewModel = ShiftViewModel(title: formatString)
         cell.setup(with: viewModel)
 
