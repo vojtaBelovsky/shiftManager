@@ -8,12 +8,10 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
+final class CalendarViewController: UIViewController {
     
-    let callendarViewControllerIdentifier = "callendarViewControllerIdentifier"
-    let calendarView = CalendarView()
-    let calendarDataSource = CalendarDataSource()
-    let userBarView = UserBarView()
+    fileprivate let calendarView = CalendarView()
+    fileprivate let calendarDataSource = CalendarDataSource()
 
     override func loadView() {
         view = calendarView
@@ -35,22 +33,14 @@ class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
                                              forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                                              withReuseIdentifier: String(describing: CalendarHeaderView.self))
     }
-    
-    func newUserViewController(_ controller: NewUserViewController, didRegisterUser: UserModel) {
-        controller.dismiss(animated: true, completion: nil)
-    }
 
     func settingsButtonDidPress() {
         navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
-    func newUserDidRegisterNotificationHandler(){
+    func newUserDidRegisterNotificationHandler() {
         calendarView.userBarView.reloadData()
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
 }
 
 extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -63,3 +53,8 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDele
     }
 }
 
+extension CalendarViewController: NewUserViewControllerDelegate {
+    func newUserViewController(_ controller: NewUserViewController, didRegisterUser: UserModel) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
