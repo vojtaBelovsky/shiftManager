@@ -11,7 +11,7 @@ import UIKit
 class UserModel: NSObject, NSCoding {
         
     var uniqueID: String = ""
-    var userPhoto: UIImage?
+    var userPhotoImage: UIImage?
     var firstName: String = ""
     var lastName: String = ""
 

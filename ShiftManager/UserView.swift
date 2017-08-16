@@ -9,25 +9,16 @@
 import UIKit
 
 class UserView: UIButton {
-
-    var user: UserModel? {
-        didSet {
-            userPhotoImageView.image = user?.userPhoto
-            userFirstNameLabel.text = user?.firstName
-            userLastNameLabel.text = user?.lastName
-        }
-    }
     
     let userPhotoImageView = UIImageView()
     let userFirstNameLabel = UILabel()
     let userLastNameLabel = UILabel()
-   // let userBar = BarView()
-   // let settingsView = SettingsView()
     
     init() {
-       super.init(frame: .zero)
-       initializeViewsAndAddThemAsSubviews()
+        super.init(frame: .zero)
+        initializeViewsAndAddThemAsSubviews()
         setupConstraints()
+        reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -68,5 +59,11 @@ class UserView: UIButton {
         userLastNameLabel.autoPinEdge(.leading, to: .trailing, of: userPhotoImageView, withOffset: 10)
 
         }
+    
+    public func reloadData(){
+        userPhotoImageView.image = UserManager.sharedInstance.selectedUser?.userPhotoImage
+        userFirstNameLabel.text = UserManager.sharedInstance.selectedUser?.firstName
+        userLastNameLabel.text = UserManager.sharedInstance.selectedUser?.lastName
+    }
 }
     

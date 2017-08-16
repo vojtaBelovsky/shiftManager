@@ -8,6 +8,8 @@
 
 import UIKit
 
+let updateUserNotification = Notification.Name(rawValue:"UpdateUserProfil")
+
 class EditUserViewController: NewUserViewController {
     
     fileprivate let user: UserModel
@@ -23,12 +25,27 @@ class EditUserViewController: NewUserViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newUserView.registerButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
         title = NSLocalizedString("CreateNewShift_loc009", comment: "")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteButtonDidPress))
         setupView()
     }
     
     fileprivate func setupView() {
         newUserView.editUserSetupView(with: user)
+    }
+    
+    func deleteButtonDidPress(){
+        UserManager.sharedInstance.deleteUser(at: 0)
+        // TODO: poslat notku
+        navigationController?.popViewController(animated:true)
+        //  userView.reloadData()
+        
+    }
+    
+    override func sendNotification() {
+        let nic = NotificationCenter.default
+        nic.post(name: updateUserNotification, object: nil)
     }
     
     override func registerButtonDidPress() {

@@ -11,10 +11,11 @@ protocol NewUserViewControllerDelegate {
     func newUserViewController(_ controller: NewUserViewController, didRegisterUser: UserModel)
 }
 
-let reloadNotification = Notification.Name(rawValue:"ReloadNewUserController")
+let newUserDidRegisterNotification = Notification.Name(rawValue:"newUserDidRegisterNotification")
 
 class NewUserViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     let newUserView = NewUserView()
+    let userView = UserView()
     var delegate: NewUserViewControllerDelegate?
 
     override func loadView() {
@@ -75,7 +76,7 @@ class NewUserViewController: UIViewController, UINavigationControllerDelegate, U
     
     func sendNotification() {
         let nc = NotificationCenter.default
-        nc.post(name: reloadNotification, object: nil)
+        nc.post(name: newUserDidRegisterNotification, object: nil)
     }
     
     func registerButtonDidPress() {
@@ -94,8 +95,6 @@ class NewUserViewController: UIViewController, UINavigationControllerDelegate, U
             UserManager.sharedInstance.saveUser(user: user)
             sendNotification()
             navigationController?.popViewController(animated: true)
-            
-            //TODO: vystřelit notifikaci která upozorní, že se mají refreshnout collection view z uživateli
         }
     }
     

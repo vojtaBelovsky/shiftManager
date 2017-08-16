@@ -13,13 +13,18 @@ class UserManager: NSObject {
     let defaults = UserDefaults.standard
     private var users = [UserModel]()
     let usersKey = "usersKey"
+    var selectedUser: UserModel? {
+        didSet {
+            // post notification - selectedUserChanged
+        }
+    }
     
     static let sharedInstance = UserManager()
     
     private override init() {
         super.init()
-        self.loadUsersFromUserDefaults()
-        saveUsersToPersistentStorage()
+        loadUsersFromUserDefaults()
+        selectDefaultUser()
     }
     
      private func saveUsersToPersistentStorage() {
@@ -43,6 +48,7 @@ class UserManager: NSObject {
     public func saveUser(user: UserModel) {
         if user.uniqueID.isEmpty {
             addNewUser(user: user)
+            selectNewUser()
         } else {
             update(User: user)
         }
@@ -60,6 +66,7 @@ class UserManager: NSObject {
 
     public func deleteUser(at index: Int) {
         users.remove(at: index)
+        selectDefaultUser()
         saveUsersToPersistentStorage()
     }
     
@@ -73,6 +80,22 @@ class UserManager: NSObject {
     
     public func userForIndex(_ index: Int) -> UserModel {
         return users[index]
+    }
+    
+    private func selectDefaultUser() {
+        if users.count > 0 {
+            self.selectedUser = users[0]
+        } else {
+            self.selectedUser = nil
+        }
+    }
+    
+    private func selectNewUser() {
+        if users.count > 0 {
+            self.selectedUser = users[users.count-1]
+        } else {
+            self.selectedUser = nil
+        }
     }
     
 //    func isUserRegistered() -> Bool {

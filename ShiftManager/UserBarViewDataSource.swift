@@ -10,16 +10,9 @@ import UIKit
 
 class UserBarViewDataSource: NSObject {
     
-    fileprivate let users: [UserModel]
-    
-    override init() {
-        self.users = UserManager.sharedInstance.getUsers()
-        super.init()
-    }
-    
     func getDefaultUser() -> UserModel? {
-        if self.users.count > 0 {
-            return self.users[0]
+        if UserManager.sharedInstance.getUsers().count > 0 {
+            return UserManager.sharedInstance.getUsers()[0]
         } else {
             return nil
         }
@@ -33,7 +26,7 @@ extension UserBarViewDataSource: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return users.count
+        return UserManager.sharedInstance.getUsers().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

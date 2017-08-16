@@ -13,7 +13,6 @@ class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
     let callendarViewControllerIdentifier = "callendarViewControllerIdentifier"
     let calendarView = CalendarView()
     let calendarDataSource = CalendarDataSource()
-    let settingsView = SettingsView()
     let userBarView = UserBarView()
 
     override func loadView() {
@@ -27,7 +26,7 @@ class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(settingsButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(loadList), name: reloadNotification, object: nil)
+        nc.addObserver(self, selector: #selector(newUserDidRegisterNotificationHandler), name: newUserDidRegisterNotification, object: nil)
         calendarView.calendarCollectionView.dataSource = calendarDataSource
         calendarView.calendarCollectionView.delegate = self
         calendarView.calendarCollectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier:calendarCollectionViewCellReuseIdentifier)
@@ -35,15 +34,6 @@ class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
         calendarView.calendarCollectionView.register(CalendarHeaderView.self,
                                              forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                                              withReuseIdentifier: CalendarHeaderView.calendarHeaderIdentifier)
-        
-        //IF isUserRegistered
-        /*
-        if (!UserManager.sharedInstance.isUserRegistered()) {
-            let newUserViewController = NewUserViewController()
-            newUserViewController.delegate = self
-            navigationController?.present(newUserViewController, animated: true, completion: nil)
-        }
- */
     }
     
     func newUserViewController(_ controller: NewUserViewController, didRegisterUser: UserModel) {
@@ -54,8 +44,8 @@ class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
         navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
-    func loadList(){
-        settingsView.userBarView.reloadInputViews()
+    func newUserDidRegisterNotificationHandler(){
+        calendarView.userBarView.reloadData()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

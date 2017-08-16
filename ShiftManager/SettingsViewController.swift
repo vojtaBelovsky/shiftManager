@@ -21,8 +21,8 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         settingsView.userView.addTarget(self, action: #selector(userViewButtonDidPress), for: .touchUpInside)
-        settingsView.userView.user = settingsView.userBarView.selectedUser
         title = NSLocalizedString("Settings_loc002", comment: "")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
         settingsView.tableView.dataSource = dataSource
@@ -33,7 +33,10 @@ class SettingsViewController: UIViewController {
         nc.addObserver(self, selector: #selector(loadList), name: myNotification, object: nil)
         
         let ncd = NotificationCenter.default
-        ncd.addObserver(self, selector: #selector(reloadlist), name: reloadNotification, object: nil)
+        ncd.addObserver(self, selector: #selector(newUserDidRegisterNotificationHandler), name: newUserDidRegisterNotification, object: nil)
+        
+        let nic = NotificationCenter.default
+        nic.addObserver(self, selector: #selector(updateUserNotificationHandler), name: updateUserNotification, object: nil)
 
         ShiftManager.sharedInstance.getShifts().forEach { shiftModel in
            // print("shift name: \(shiftModel.name)")
@@ -44,9 +47,17 @@ class SettingsViewController: UIViewController {
         settingsView.tableView.reloadData()
     }
     
-    func reloadlist(){
-        settingsView.userBarView.reloadInputViews()
+    func newUserDidRegisterNotificationHandler(){
+        settingsView.userView.reloadData()
+        settingsView.userBarView.reloadData()
     }
+    
+    func updateUserNotificationHandler(){
+        settingsView.userView.reloadData()
+        settingsView.userBarView.reloadData()
+    }
+    
+   
     
     func settingsButtonDidPress() {
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
@@ -57,7 +68,7 @@ class SettingsViewController: UIViewController {
     }
     
     func userViewButtonDidPress(){
-        if let selectedUser = userBarView.selectedUser {
+        if let selectedUser = UserManager.sharedInstance.selectedUser {
             self.navigationController?.pushViewController(EditUserViewController(user: selectedUser), animated: true)
         }
     }

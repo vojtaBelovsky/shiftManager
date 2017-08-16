@@ -11,7 +11,6 @@ import UIKit
 
 
 class UserBarView: UIView {
-    var selectedUser: UserModel?
     let addButton = UIButton()
     var isAddUserButtonHidden = false {
         didSet {
@@ -38,7 +37,6 @@ class UserBarView: UIView {
     
     init() {
         super.init(frame: .zero)
-        selectedUser = userBarViewDataSource.getDefaultUser()
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
     }
@@ -74,8 +72,12 @@ class UserBarView: UIView {
         addButton.autoMatch(.width, to: .height, of: addButton)
     }
     
-    public func setActionForAddButton(_ target: Any?, action: Selector){
+    public func setActionForAddButton(_ target: Any?, action: Selector) {
         addButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    public func reloadData() {
+        self.collectionView.reloadData()
     }
     
 }
