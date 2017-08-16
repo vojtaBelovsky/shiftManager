@@ -43,36 +43,3 @@ final class ShiftManager: NSObject {
         shifts = shiftsArray
     }
 }
-
-extension ShiftManager {
-    public func saveShift(shift: ShiftModel) {
-        shift.uniqueID.isEmpty ? addNewShift(shift: shift) : update(Shift: shift)
-    }
-    
-    public func addNewShift(shift: ShiftModel) {
-        shift.uniqueID = UUID().uuidString
-        shifts.append(shift)
-        saveShiftsToPersistentStorage()
-    }
-    
-    public func update(Shift: ShiftModel) {
-        saveShiftsToPersistentStorage()
-    }
-    
-    public func deleteShift(at index: Int) {
-        shifts.remove(at: index)
-        saveShiftsToPersistentStorage()
-    }
-    
-    public func getShifts() -> [ShiftModel] {
-        return shifts
-    }
-    
-    public func numberOfShifts() -> Int {
-        return shifts.count
-    }
-    
-    public func shiftForIndex(_ index: Int) -> ShiftModel {
-        return shifts[index]
-    }
-}

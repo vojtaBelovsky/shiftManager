@@ -80,7 +80,7 @@ final class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UITableViewDelegate  {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let shift = ShiftManager.sharedInstance.shiftForIndex(indexPath.row)
+        let shift = UserManager.sharedInstance.shiftForIndex(indexPath.row)
         navigationController?.pushViewController(EditShiftViewController(shift: shift), animated: true)
     }
 }
