@@ -69,7 +69,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
     
     func colorSelectViewController(_ controller: ColorSelectViewController, didSelectColor: UIColor) {
         newShiftColor = didSelectColor
-        newShiftView.selectShiftColorButton.backgroundColor = didSelectColor
+        newShiftView.setSelectShiftColorButtonBackground(didSelectColor)
         controller.dismiss(animated: true, completion: nil)
     }
 }

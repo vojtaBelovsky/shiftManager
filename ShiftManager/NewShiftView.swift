@@ -9,27 +9,29 @@
 import UIKit
 import PureLayout
 
-public let horizontalSpacing: CGFloat = 16
-
-class NewShiftView: UIView {
+final class NewShiftView: UIView {
     
-    fileprivate var nameLabel = UILabel()
-    fileprivate var nameTextField = UITextField()
-    fileprivate var selectFirstShiftDateLabel = UILabel()
+    fileprivate let nameLabel = UILabel()
+    fileprivate let nameTextField = UITextField()
+    fileprivate let selectFirstShiftDateLabel = UILabel()
     fileprivate let datePicker = UIDatePicker()
-    fileprivate var intervalLabel = UILabel()
-    var intervalTextField = UITextField()
-     var shortcutTextField = UITextField()
-    let selectShiftColorButton = UIButton()
-
+    fileprivate let intervalLabel = UILabel()
+    fileprivate let intervalTextField = UITextField()
+    fileprivate let shortcutTextField = UITextField()
+    fileprivate let selectShiftColorButton = UIButton()
+    
     init() {
         super.init(frame: .zero)
         initializeViewsAndAddThemAsSubviews()
         shiftFirstDate()
         setupConstraints()
-        }
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
-    func initializeViewsAndAddThemAsSubviews() {
+    fileprivate func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
         nameLabel.text = NSLocalizedString("CreateNewShift_loc003", comment: "")
         nameLabel.textColor = .black
@@ -46,7 +48,7 @@ class NewShiftView: UIView {
         intervalLabel.text = NSLocalizedString("CreateNewShift_loc005", comment: "")
         intervalLabel.textColor = .black
         addSubview(intervalLabel)
-
+        
         intervalTextField.layer.borderColor = UIColor.black.cgColor
         intervalTextField.layer.borderWidth = 1
         intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
@@ -56,20 +58,17 @@ class NewShiftView: UIView {
         shortcutTextField.layer.borderColor = UIColor.black.cgColor
         shortcutTextField.layer.borderWidth = 1
         shortcutTextField.placeholder = NSLocalizedString("CreateNewShift_loc008", comment: "")
-      //  shortCutTextField.keyboardType = UIKeyboardType.numberPad
         addSubview(shortcutTextField)
- 
+        
         selectShiftColorButton.backgroundColor = .white
         selectShiftColorButton.setTitle(NSLocalizedString("CreateNewShift_loc007", comment: ""), for: .normal)
         selectShiftColorButton.setTitleColor(.black, for: UIControlState.normal)
         selectShiftColorButton.layer.borderColor = UIColor.black.cgColor
         selectShiftColorButton.layer.borderWidth = 1
-        
         addSubview(selectShiftColorButton)
     }
     
     fileprivate func setupConstraints() {
-        
         nameLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         nameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         nameLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.1)
@@ -99,30 +98,29 @@ class NewShiftView: UIView {
         intervalTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         intervalTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.4)
         intervalTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
-
+        
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.65)
         selectShiftColorButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.1)
-        }
+    }
     
-    func shiftFirstDate() {
+    fileprivate func shiftFirstDate() {
         datePicker.datePickerMode = .date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
-
+        
         addSubview(datePicker)
         
         datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         datePicker.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         datePicker.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.9)
         datePicker.autoMatch(.height, to: .height, of: self, withMultiplier: 0.3)
-        }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+extension NewShiftView {
+
     public func setActionForColorButton(_ target: Any?, action: Selector) {
         selectShiftColorButton.addTarget(target, action: action, for: .touchUpInside)
     }
@@ -134,16 +132,16 @@ class NewShiftView: UIView {
     public func shortcut() -> String {
         return self.shortcutTextField.text ?? ""
     }
-
+    
     
     public func interval() -> String {
-       return self.intervalTextField.text ?? ""
+        return self.intervalTextField.text ?? ""
     }
     
     public func date() -> Date {
         return self.datePicker.date
     }
-   
+    
     public func setupView(with shift: ShiftModel) {
         nameTextField.text = shift.name
         shortcutTextField.text = shift.shortcut
@@ -153,5 +151,9 @@ class NewShiftView: UIView {
         if let date = shift.date {
             datePicker.date = date
         }
+    }
+    
+    public func setSelectShiftColorButtonBackground(_ color: UIColor?) {
+        selectShiftColorButton.backgroundColor = color
     }
 }
