@@ -9,14 +9,24 @@
 import UIKit
 import PureLayout
 
-class SettingsView: UIView, UITableViewDelegate {
+final class SettingsView: UIView, UITableViewDelegate {
     
-    let userView = UserView()
-    let tableView = UITableView()
     let userBarView = UserBarView()
+    let tableView = UITableView()
+    let userView = UserView()
     
     init() {
         super.init(frame: .zero)
+
+        setupViewItems()
+        setupConstraints()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func setupViewItems() {
         backgroundColor = .white
         addSubview(userView)
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
@@ -24,10 +34,9 @@ class SettingsView: UIView, UITableViewDelegate {
         tableView.delegate = self
         addSubview(tableView)
         addSubview(userBarView)
-        setupConstraints()
     }
 
-    func setupConstraints() {
+    fileprivate func setupConstraints() {
         userView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         
         tableView.autoPinEdge(.top, to: .bottom, of: userView)
@@ -36,9 +45,5 @@ class SettingsView: UIView, UITableViewDelegate {
 
         userBarView.autoPinEdge(.top, to: .bottom, of: tableView)
         userBarView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

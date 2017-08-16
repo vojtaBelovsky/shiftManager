@@ -62,7 +62,7 @@ final class UserView: UIButton {
 }
     
 extension UserView {
-    public func reloadData(){
+    public func reloadData() {
         userPhotoImageView.image = UserManager.sharedInstance.selectedUser?.userPhotoImage
         userFirstNameLabel.text = UserManager.sharedInstance.selectedUser?.firstName
         userLastNameLabel.text = UserManager.sharedInstance.selectedUser?.lastName
