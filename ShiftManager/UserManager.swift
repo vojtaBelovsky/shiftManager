@@ -10,6 +10,10 @@ import UIKit
 
 final class UserManager: NSObject {
     
+            ///////////////////////////////ShiftManager//////////////////////////////////////
+    fileprivate let shiftsKey = "shiftsKey"
+    fileprivate var shifts = [ShiftModel]()
+    
     fileprivate let defaults = UserDefaults.standard
     fileprivate  var users = [UserModel]()
     fileprivate let usersKey = "usersKey"
@@ -20,12 +24,38 @@ final class UserManager: NSObject {
     }
     
     static let sharedInstance = UserManager()
-    
+
+            ///////////////////////////////ShiftManager//////////////////////////////////////
     fileprivate override init() {
         super.init()
         loadUsersFromUserDefaults()
         selectDefaultUser()
+        loadShiftsFromUserDefaults()
+
     }
+    
+    deinit {
+        saveShiftsToPersistentStorage()
+    }
+    
+    fileprivate func saveShiftsToPersistentStorage() {
+        let shiftsAsData = shifts.map { (shift) -> Data in
+            NSKeyedArchiver.archivedData(withRootObject: shift)
+        }
+        defaults.set(shiftsAsData, forKey: shiftsKey)
+        defaults.synchronize()
+    }
+    
+    fileprivate func loadShiftsFromUserDefaults() {
+        var shiftsArray = [ShiftModel]()
+        if let shiftModelsAsData = defaults.object(forKey: shiftsKey) as? [Data] {
+            shiftModelsAsData.forEach({ shiftModelData in
+                shiftsArray.append(NSKeyedUnarchiver.unarchiveObject(with:shiftModelData) as! ShiftModel)
+            })
+        }
+        shifts = shiftsArray
+    }
+                ///////////////////////////////EndShiftManager//////////////////////////////////////
     
     fileprivate func saveUsersToPersistentStorage() {
         let usersAsData = users.map { (user) -> Data in
@@ -90,5 +120,35 @@ extension UserManager {
     
     public func userForIndex(_ index: Int) -> UserModel {
         return users[index]
+    }
+}
+
+///////////////////////////////ShiftManager//////////////////////////////////////
+extension UserManager {
+    public func saveShift(shift: ShiftModel) {
+        shift.uniqueID.isEmpty ? addNewShift(shift: shift) : update(Shift: shift)
+    }
+
+    public func addNewShift(shift: ShiftModel) {
+        shift.uniqueID = UUID().uuidString
+        shifts.append(shift)
+        saveShiftsToPersistentStorage()
+    }
+
+    public func update(Shift: ShiftModel) {
+        saveShiftsToPersistentStorage()
+    }
+
+    public func deleteShift(at index: Int) {
+        shifts.remove(at: index)
+        saveShiftsToPersistentStorage()
+    }
+
+    public func numberOfShifts() -> Int {
+        return shifts.count
+    }
+
+    public func shiftForIndex(_ index: Int) -> ShiftModel {
+        return shifts[index]
     }
 }

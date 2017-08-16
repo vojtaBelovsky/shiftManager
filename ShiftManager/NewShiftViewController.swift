@@ -45,7 +45,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
             present(alertController, animated: true, completion: nil)
             return
         } else {
-            ShiftManager.sharedInstance.saveShift(shift: shift)
+            UserManager.sharedInstance.saveShift(shift: shift)
             sendNotification()
             _ = navigationController?.popViewController(animated:true)
         }

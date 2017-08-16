@@ -19,7 +19,7 @@ final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let shiftModel = ShiftManager.sharedInstance.shiftForIndex(indexPath.row)
+        let shiftModel = UserManager.sharedInstance.shiftForIndex(indexPath.row)
         let formatString = String(format: NSLocalizedString("GeneralShiftName_loc001", comment: ""), shiftModel.name, shiftModel.shortcut)
         let viewModel = ShiftViewModel(title: formatString)
         cell.setup(with: viewModel)
@@ -28,6 +28,6 @@ final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ShiftManager.sharedInstance.numberOfShifts()
+        return UserManager.sharedInstance.numberOfShifts()
     }
 }

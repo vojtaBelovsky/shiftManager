@@ -18,7 +18,7 @@ final class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let shiftModel = ShiftManager.sharedInstance.shiftForIndex(indexPath.row)
+        let shiftModel = UserManager.sharedInstance.shiftForIndex(indexPath.row)
         // \(shiftModel.name) (\(shiftModel.shortcut))
         let formatString = String(format: NSLocalizedString("GeneralShiftName_loc001", comment: ""), shiftModel.name, shiftModel.shortcut)
         let viewModel = ShiftViewModel(title: formatString)
@@ -33,12 +33,12 @@ final class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete {
-            ShiftManager.sharedInstance.deleteShift(at: indexPath.row)
+            UserManager.sharedInstance.deleteShift(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
     }
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ShiftManager.sharedInstance.numberOfShifts()
+        return UserManager.sharedInstance.numberOfShifts()
     }
 }
