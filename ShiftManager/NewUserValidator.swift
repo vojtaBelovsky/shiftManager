@@ -8,32 +8,29 @@
 
 import UIKit
 
-class NewUserValidator: NSObject {
+final class NewUserValidator: NSObject {
     
     static func validateNewUser(_ name: UserModel) -> NSError? {
         
         var error : NSError? = nil
         
         if name.firstName.isEmpty {
-            let userInfo: [AnyHashable : Any] =
-                [
-                    NSLocalizedDescriptionKey :  NSLocalizedString("RegisterAllert_loc001", comment: "") , 
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("RegisterAllert_loc002", comment: "")
+            let userInfo: [AnyHashable : Any] = [
+                NSLocalizedDescriptionKey :  NSLocalizedString("RegisterAllert_loc001", comment: "") ,
+                NSLocalizedFailureReasonErrorKey : NSLocalizedString("RegisterAllert_loc002", comment: "")
             ]
             error = NSError.init(domain: "ShiftModelDomain", code: 0, userInfo: userInfo)
             return error
         }
         
         if name.lastName.isEmpty {
-            let userInfo: [AnyHashable : Any] =
-                [
-                    NSLocalizedDescriptionKey :  NSLocalizedString("RegisterAllert_loc001", comment: "") ,
-                    NSLocalizedFailureReasonErrorKey : NSLocalizedString("RegisterAllert_loc003", comment: "")
+            let userInfo: [AnyHashable : Any] = [
+                NSLocalizedDescriptionKey :  NSLocalizedString("RegisterAllert_loc001", comment: "") ,
+                NSLocalizedFailureReasonErrorKey : NSLocalizedString("RegisterAllert_loc003", comment: "")
             ]
             error = NSError.init(domain: "ShiftModelDomain", code: 0, userInfo: userInfo)
             return error
         }
         return nil
     }
-    
 }
