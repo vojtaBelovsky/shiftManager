@@ -8,11 +8,11 @@
 
 import UIKit
 
-class UserManager: NSObject {
+final class UserManager: NSObject {
     
-    let defaults = UserDefaults.standard
-    private var users = [UserModel]()
-    let usersKey = "usersKey"
+    fileprivate let defaults = UserDefaults.standard
+    fileprivate  var users = [UserModel]()
+    fileprivate let usersKey = "usersKey"
     var selectedUser: UserModel? {
         didSet {
             // post notification - selectedUserChanged
@@ -21,13 +21,13 @@ class UserManager: NSObject {
     
     static let sharedInstance = UserManager()
     
-    private override init() {
+    fileprivate override init() {
         super.init()
         loadUsersFromUserDefaults()
         selectDefaultUser()
     }
     
-     private func saveUsersToPersistentStorage() {
+    fileprivate func saveUsersToPersistentStorage() {
         let usersAsData = users.map { (user) -> Data in
             NSKeyedArchiver.archivedData(withRootObject: user)
         }
@@ -35,7 +35,7 @@ class UserManager: NSObject {
         defaults.synchronize()
     }
     
-    private func loadUsersFromUserDefaults() {
+    fileprivate func loadUsersFromUserDefaults() {
         var usersArray = [UserModel]()
         if let userModelsAsData = defaults.object(forKey: usersKey) as? [Data] {
             userModelsAsData.forEach({ userModelData in
@@ -45,6 +45,16 @@ class UserManager: NSObject {
         users = usersArray
     }
     
+    fileprivate func selectDefaultUser() {
+        selectedUser =  users.count > 0 ? users[0] : nil
+    }
+    
+    fileprivate func selectNewUser() {
+        selectedUser = users.count > 0 ? users[users.count-1] : nil
+    }
+}
+
+extension UserManager {
     public func saveUser(user: UserModel) {
         if user.uniqueID.isEmpty {
             addNewUser(user: user)
@@ -54,7 +64,7 @@ class UserManager: NSObject {
         }
     }
     
-    func addNewUser(user: UserModel) {
+    public func addNewUser(user: UserModel) {
         user.uniqueID = UUID().uuidString
         users.append(user)
         saveUsersToPersistentStorage()
@@ -63,7 +73,7 @@ class UserManager: NSObject {
     public func update(User: UserModel) {
         saveUsersToPersistentStorage()
     }
-
+    
     public func deleteUser(at index: Int) {
         users.remove(at: index)
         selectDefaultUser()
@@ -81,24 +91,4 @@ class UserManager: NSObject {
     public func userForIndex(_ index: Int) -> UserModel {
         return users[index]
     }
-    
-    private func selectDefaultUser() {
-        if users.count > 0 {
-            self.selectedUser = users[0]
-        } else {
-            self.selectedUser = nil
-        }
-    }
-    
-    private func selectNewUser() {
-        if users.count > 0 {
-            self.selectedUser = users[users.count-1]
-        } else {
-            self.selectedUser = nil
-        }
-    }
-    
-//    func isUserRegistered() -> Bool {
-//        return true
-//    }
 }

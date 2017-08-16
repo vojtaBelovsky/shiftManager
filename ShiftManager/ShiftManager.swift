@@ -8,24 +8,24 @@
 
 import UIKit
 
-class ShiftManager: NSObject {
+final class ShiftManager: NSObject {
     
-    let defaults = UserDefaults.standard
-    private var shifts = [ShiftModel]()
-    let shiftsKey = "shiftsKey"
+    fileprivate let defaults = UserDefaults.standard
+    fileprivate let shiftsKey = "shiftsKey"
+    fileprivate var shifts = [ShiftModel]()
     
     static let sharedInstance = ShiftManager()
     
     private override init() {
         super.init()
-        self.loadShiftsFromUserDefaults()
+        loadShiftsFromUserDefaults()
     }
     
     deinit {
         saveShiftsToPersistentStorage()
     }
     
-    private func saveShiftsToPersistentStorage() {
+    fileprivate func saveShiftsToPersistentStorage() {
         let shiftsAsData = shifts.map { (shift) -> Data in
             NSKeyedArchiver.archivedData(withRootObject: shift)
         }
@@ -33,7 +33,7 @@ class ShiftManager: NSObject {
         defaults.synchronize()
     }
     
-    private func loadShiftsFromUserDefaults() {
+    fileprivate func loadShiftsFromUserDefaults() {
         var shiftsArray = [ShiftModel]()
         if let shiftModelsAsData = defaults.object(forKey: shiftsKey) as? [Data] {
             shiftModelsAsData.forEach({ shiftModelData in
@@ -42,16 +42,14 @@ class ShiftManager: NSObject {
         }
         shifts = shiftsArray
     }
-    
+}
+
+extension ShiftManager {
     public func saveShift(shift: ShiftModel) {
-        if shift.uniqueID.isEmpty {
-            addNewShift(shift: shift)
-        } else {
-            update(Shift: shift)
-        }
+        shift.uniqueID.isEmpty ? addNewShift(shift: shift) : update(Shift: shift)
     }
     
-    func addNewShift(shift: ShiftModel) {
+    public func addNewShift(shift: ShiftModel) {
         shift.uniqueID = UUID().uuidString
         shifts.append(shift)
         saveShiftsToPersistentStorage()
@@ -78,4 +76,3 @@ class ShiftManager: NSObject {
         return shifts[index]
     }
 }
-
