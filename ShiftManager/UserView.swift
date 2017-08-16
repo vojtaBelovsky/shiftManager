@@ -8,14 +8,15 @@
 
 import UIKit
 
-class UserView: UIButton {
+final class UserView: UIButton {
     
-    let userPhotoImageView = UIImageView()
-    let userFirstNameLabel = UILabel()
-    let userLastNameLabel = UILabel()
+    fileprivate let userPhotoImageView = UIImageView()
+    fileprivate let userFirstNameLabel = UILabel()
+    fileprivate let userLastNameLabel = UILabel()
     
     init() {
         super.init(frame: .zero)
+
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
         reloadData()
@@ -25,7 +26,7 @@ class UserView: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initializeViewsAndAddThemAsSubviews() {
+    fileprivate func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
         userPhotoImageView.layer.borderWidth = 4
         userPhotoImageView.layer.borderColor = UIColor.black.cgColor
@@ -46,7 +47,6 @@ class UserView: UIButton {
     }
 
     fileprivate func setupConstraints() {
-        
         userPhotoImageView.autoPinEdge(toSuperviewEdge: .top, withInset: 74)
         userPhotoImageView.autoPinEdge(toSuperviewEdge: .leading, withInset: 20)
         userPhotoImageView.autoSetDimensions(to: CGSize(width: 50, height:50))
@@ -59,11 +59,12 @@ class UserView: UIButton {
         userLastNameLabel.autoPinEdge(.leading, to: .trailing, of: userPhotoImageView, withOffset: 10)
 
         }
+}
     
+extension UserView {
     public func reloadData(){
         userPhotoImageView.image = UserManager.sharedInstance.selectedUser?.userPhotoImage
         userFirstNameLabel.text = UserManager.sharedInstance.selectedUser?.firstName
         userLastNameLabel.text = UserManager.sharedInstance.selectedUser?.lastName
     }
 }
-    
