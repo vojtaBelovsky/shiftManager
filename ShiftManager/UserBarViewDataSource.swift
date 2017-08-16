@@ -40,8 +40,6 @@ extension UserBarViewDataSource: UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         cell.set(image: UserManager.sharedInstance.userForIndex(indexPath.row).userPhotoImage)
-        
-        //TODO: Set photo of User
         return cell
     }
 }
