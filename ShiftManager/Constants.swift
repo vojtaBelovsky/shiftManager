@@ -8,6 +8,6 @@
 import UIKit
 
 public struct Spacing {
-       public static let HorizontalSpacing: CGFloat = 16
+    public static let HorizontalSpacing: CGFloat = 16
 }
 
