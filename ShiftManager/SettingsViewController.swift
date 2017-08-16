@@ -31,21 +31,20 @@ final class SettingsViewController: UIViewController {
         settingsView.tableView.delegate = self
         settingsView.userBarView.setActionForAddButton(self, action: #selector(addButtonDidPress))
         
-        //TODO: Přejmenovat!
-        let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(loadList), name: myNotification, object: nil)
+        let tableViewReloadDataNotification = NotificationCenter.default
+        tableViewReloadDataNotification.addObserver(self, selector: #selector(tableViewReloadData), name: NewShiftViewControllerHandler, object: nil)
         
-        let ncd = NotificationCenter.default
-        ncd.addObserver(self, selector: #selector(newUserDidRegisterNotificationHandler), name: newUserDidRegisterNotification, object: nil)
+        let newUserDidRegister = NotificationCenter.default
+        newUserDidRegister.addObserver(self, selector: #selector(newUserDidRegisterNotificationHandler), name: newUserDidRegisterNotification, object: nil)
         
-        let nic = NotificationCenter.default
-        nic.addObserver(self, selector: #selector(updateUserNotificationHandler), name: updateUserNotification, object: nil)
+        let updateUser = NotificationCenter.default
+        updateUser.addObserver(self, selector: #selector(updateUserNotificationHandler), name: updateUserNotification, object: nil)
         
-        let nec = NotificationCenter.default
-        nec.addObserver(self, selector: #selector(deleteUserNotificationHandler), name: deleteUserNotification, object: nil)
+        let deleteUser = NotificationCenter.default
+        deleteUser.addObserver(self, selector: #selector(deleteUserNotificationHandler), name: deleteUserNotification, object: nil)
     }
     
-    func loadList(){
+    func tableViewReloadData(){
         settingsView.tableView.reloadData()
     }
     

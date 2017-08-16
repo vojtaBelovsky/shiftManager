@@ -9,7 +9,7 @@
 import UIKit
 
 // TODO: prejmenovat myNotification na neco normalniho
-let myNotification = Notification.Name(rawValue:"ReloadNewShiftController")
+let NewShiftViewControllerHandler = Notification.Name(rawValue:"ReloadNewShiftController")
 
 class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegate {
     
@@ -56,7 +56,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
     
     func sendNotification() {
         let nc = NotificationCenter.default
-        nc.post(name: myNotification, object: nil)
+        nc.post(name: NewShiftViewControllerHandler, object: nil)
     }
     
     func selectShiftColorButtonDidPress() {
