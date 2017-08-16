@@ -10,6 +10,8 @@ import UIKit
 
 final class UserBarViewDataSource: NSObject {
     
+    let newUserView = NewUserView()
+    
     func getDefaultUser() -> UserModel? {
         return UserManager.sharedInstance.getUsers().count > 0 ? UserManager.sharedInstance.getUsers()[0] : nil
     }
@@ -29,7 +31,6 @@ extension UserBarViewDataSource: UICollectionViewDataSource {
         //TODO: SELECT USER
     }
 
-    //SELECT USER FINITO
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: UserBarCollectionCell.self), for: indexPath)
@@ -38,6 +39,7 @@ extension UserBarViewDataSource: UICollectionViewDataSource {
                 assertionFailure("Non existing cell")
                 return UICollectionViewCell()
         }
+        cell.set(image: UserManager.sharedInstance.userForIndex(indexPath.row).userPhotoImage)
         
         //TODO: Set photo of User
         return cell

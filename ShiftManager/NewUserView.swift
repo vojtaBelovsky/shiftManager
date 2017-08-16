@@ -11,8 +11,8 @@ import PureLayout
 
 final class NewUserView: UIView {
     
-    fileprivate let selectImage = UIImageView()
-    fileprivate let registerButton = UIButton()
+    fileprivate let selectImageView = UIImageView()
+    let registerButton = UIButton()
     fileprivate let cameraButton = UIButton()
     fileprivate let firstNameTextField = UITextField()
     fileprivate let lastNameTextField = UITextField()
@@ -30,12 +30,12 @@ final class NewUserView: UIView {
     func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
         
-        selectImage.layer.borderWidth = 4
-        selectImage.layer.borderColor = UIColor.black.cgColor
-        selectImage.layer.cornerRadius = 75.0
-        selectImage.layer.masksToBounds = true
-        selectImage.isUserInteractionEnabled = true
-        addSubview(selectImage)
+        selectImageView.layer.borderWidth = 4
+        selectImageView.layer.borderColor = UIColor.black.cgColor
+        selectImageView.layer.cornerRadius = 75.0
+        selectImageView.layer.masksToBounds = true
+        selectImageView.isUserInteractionEnabled = true
+        addSubview(selectImageView)
         
         firstNameTextField.layer.borderColor = UIColor.black.cgColor
         firstNameTextField.layer.borderWidth = 1
@@ -56,11 +56,11 @@ final class NewUserView: UIView {
         addSubview(cameraButton)
     }
     
-    fileprivate func setupConstraints() {
-        selectImage.autoPinEdge(toSuperviewEdge: .leading, withInset: 130)
-        selectImage.autoPinEdge(toSuperviewEdge: .trailing, withInset: 130)
-        selectImage.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.4)
-        selectImage.autoMatch(.height, to: .height, of: self, withMultiplier: 0.2)
+    func setupConstraints() {
+        selectImageView.autoPinEdge(toSuperviewEdge: .leading, withInset: 130)
+        selectImageView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 130)
+        selectImageView.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.4)
+        selectImageView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.2)
         
         cameraButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 130)
         cameraButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 130)
@@ -94,7 +94,7 @@ extension NewUserView {
     }
     
     public func addGestureRecognizerToSelectedImageView(_ gestureRecognizer: UITapGestureRecognizer) {
-        selectImage.addGestureRecognizer(gestureRecognizer)
+        selectImageView.addGestureRecognizer(gestureRecognizer)
     }
     
     public func firstName() -> String {
@@ -105,12 +105,17 @@ extension NewUserView {
         return lastNameTextField.text ?? ""
     }
     
+    public func userPhoto() -> UIImage? {
+        return selectImageView.image
+    }
+    
     public func editUserSetupView(with user: UserModel) {
         firstNameTextField.text = user.firstName
         lastNameTextField.text = user.lastName
+        selectImageView.image = user.userPhotoImage
     }
     
     public func setImage(_ image: UIImage) {
-        selectImage.image = image
+        selectImageView.image = image
     }
 }

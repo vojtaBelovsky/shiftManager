@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "CalendarDataSource.numberOfEmptyDays(date : Date) -&gt; Int:CalendarDataSource.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dateFormatter.date(from: &quot;01-\(date.component(.month) ?? 1)-\(date.component(.year) ?? 2017)&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "NewShiftView.date() -&gt; Date:NewShiftView.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,7 +19,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NewShiftViewController.saveButtonDidPress() -&gt; ():NewShiftViewController.swift">
+         contextName = "EditUserViewController.registerButtonDidPress() -&gt; ():EditUserViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ColorSelectViewController.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():ColorSelectViewController.swift">
       </ContextState>
       <ContextState
          contextName = "CalendarCollectionViewCell.layoutSubviews() -&gt; ():CalendarCollectionViewCell.swift">
@@ -28,12 +39,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CalendarDataSource.numberOfEmptyDays(date : Date) -&gt; Int:CalendarDataSource.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "dateFormatter.date(from: &quot;01-\(date.component(.month) ?? 1)-\(date.component(.year) ?? 2017)&quot;)">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "NewUserViewController.registerButtonDidPress() -&gt; ():NewUserViewController.swift">
       </ContextState>
       <ContextState
          contextName = "CalendarView.initializeViewsAndAddThemAsSubviews() -&gt; ():CalendarView.swift">
@@ -45,6 +51,9 @@
                value = "getCellWidth()">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewShiftViewController.saveButtonDidPress() -&gt; ():NewShiftViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

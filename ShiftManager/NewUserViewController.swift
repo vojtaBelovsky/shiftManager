@@ -56,14 +56,15 @@ class NewUserViewController: UIViewController {
     }
     
     func sendNotification() {
-        let nc = NotificationCenter.default
-        nc.post(name: newUserDidRegisterNotification, object: nil)
+        let newUserDidRegister = NotificationCenter.default
+        newUserDidRegister.post(name: newUserDidRegisterNotification, object: nil)
     }
     
     func registerButtonDidPress() {
         let user = UserModel()
         user.firstName = newUserView.firstName()
         user.lastName = newUserView.lastName()
+        user.userPhotoImage = newUserView.userPhoto()
         
         if let validationError = NewUserValidator.validateNewUser(user) {
             let alertController = UIAlertController(title: validationError.localizedDescription, message: validationError.localizedFailureReason, preferredStyle: .alert)

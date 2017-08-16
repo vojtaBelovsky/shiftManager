@@ -25,7 +25,16 @@ final class UserBarCollectionCell: UICollectionViewCell {
     }
     
     fileprivate func setupViewItems() {
-        photoImageView.backgroundColor = .red //TODO: Remove after setting photo, color is just for test
+        
+        photoImageView.layer.borderWidth = 2
+        photoImageView.layer.borderColor = UIColor.black.cgColor
+        photoImageView.layer.cornerRadius = 100.0
+        photoImageView.layer.masksToBounds = true
+       // photoImageView.isUserInteractionEnabled = false
+        //addSubview(userPhotoImageView)
+        
+        
+        //photoImageView.layer.borderWidth
     }
     
     fileprivate func addSubviews() {
@@ -33,7 +42,7 @@ final class UserBarCollectionCell: UICollectionViewCell {
     }
 
     fileprivate func setupConstraints() {
-        photoImageView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
+        photoImageView.autoMatch(.height, to: .height, of: self, withMultiplier: 1.0)
         photoImageView.autoMatch(.width, to: .height, of: photoImageView)
         photoImageView.autoCenterInSuperview()
     }
@@ -41,5 +50,9 @@ final class UserBarCollectionCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         photoImageView.layer.cornerRadius = contentView.bounds.size.height/4;
+    }
+    
+    func set(image: UIImage?) {
+        photoImageView.image = image
     }
 }

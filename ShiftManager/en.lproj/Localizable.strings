@@ -39,4 +39,4 @@
 //SHARE
 "AddFriendButton_loc001" = "+";
 //General
-"GeneralShiftName_loc001" = "Shift %@ %@";
+"GeneralShiftName_loc001" = "Shift %@ (%@)";

@@ -8,7 +8,6 @@
 
 import UIKit
 
-// TODO: prejmenovat myNotification na neco normalniho
 let NewShiftViewControllerHandler = Notification.Name(rawValue:"ReloadNewShiftController")
 
 class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegate {
