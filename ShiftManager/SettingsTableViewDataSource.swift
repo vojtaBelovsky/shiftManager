@@ -12,16 +12,15 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: settingsTableViewCellReuseIdentifier, for: indexPath)
-            as? SettingsTableViewCell
-            else {
-                assertionFailure("Non existing cell")
-                return UITableViewCell()
+            withIdentifier: String(describing: ShiftTableViewCell.self), for: indexPath)
+        as? ShiftTableViewCell else {
+            assertionFailure("Non existing cell")
+            return UITableViewCell()
         }
 
         let shiftModel = ShiftManager.sharedInstance.shiftForIndex(indexPath.row)
         let viewModel = ShiftViewModel(title: "Směna \(shiftModel.name)")
-        cell.setupCell(viewModel: viewModel)
+        cell.setup(with: viewModel)
         return cell
         
     }

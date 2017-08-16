@@ -9,9 +9,9 @@
 import UIKit
 import PureLayout
 
-class ShiftTableViewCell: UITableViewCell {
+final class ShiftTableViewCell: UITableViewCell {
 
-    let titleLabel = UILabel()
+    fileprivate let titleLabel = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,7 +31,7 @@ class ShiftTableViewCell: UITableViewCell {
 }
 
 extension ShiftTableViewCell {
-    func extraShiftCell(viewModel: ShiftViewModel) {
+    func setup(with viewModel: ShiftViewModel) {
         titleLabel.text = viewModel.title
     }
 }

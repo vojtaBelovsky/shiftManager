@@ -45,10 +45,9 @@
 		2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A834CFB1F13AC170084F697 /* HeaderView.swift */; };
 		2A9E68B11F306BA600CE6541 /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9E68B01F306BA600CE6541 /* EditShiftViewController.swift */; };
 		2AA400241F1E09B300712B19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AA400261F1E09B300712B19 /* Localizable.strings */; };
-		2AA4FFED1F1779D400712B19 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */; };
 		2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4FFEE1F177A0C00712B19 /* SettingsTableViewDataSource.swift */; };
 		2AE8C9BC1F43275F00F70A7F /* ExtraShiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */; };
-		2AE8C9BE1F43279A00F70A7F /* ExtraShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BD1F43279A00F70A7F /* ExtraShiftTableViewCell.swift */; };
+		2AE8C9BE1F43279A00F70A7F /* ShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BD1F43279A00F70A7F /* ShiftTableViewCell.swift */; };
 		2AE8C9C01F4327B900F70A7F /* ExtraShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */; };
 		2AE8C9C31F43370C00F70A7F /* ExtraShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9C21F43370C00F70A7F /* ExtraShiftViewController.swift */; };
 		2AE8C9C61F4345DA00F70A7F /* ShiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9C51F4345DA00F70A7F /* ShiftViewModel.swift */; };
@@ -112,10 +111,9 @@
 		2A9E68B01F306BA600CE6541 /* EditShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditShiftViewController.swift; sourceTree = "<group>"; };
 		2AA400251F1E09B300712B19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2AA400271F1E09C400712B19 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		2AA4FFEE1F177A0C00712B19 /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftView.swift; sourceTree = "<group>"; };
-		2AE8C9BD1F43279A00F70A7F /* ExtraShiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftTableViewCell.swift; sourceTree = "<group>"; };
+		2AE8C9BD1F43279A00F70A7F /* ShiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewCell.swift; sourceTree = "<group>"; };
 		2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftDataSource.swift; sourceTree = "<group>"; };
 		2AE8C9C21F43370C00F70A7F /* ExtraShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftViewController.swift; sourceTree = "<group>"; };
 		2AE8C9C51F4345DA00F70A7F /* ShiftViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftViewModel.swift; sourceTree = "<group>"; };
@@ -154,6 +152,14 @@
 				18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */,
 			);
 			name = UserBarView;
+			sourceTree = "<group>";
+		};
+		18014A9C1F44428500980414 /* GenericViews */ = {
+			isa = PBXGroup;
+			children = (
+				2AE8C9BD1F43279A00F70A7F /* ShiftTableViewCell.swift */,
+			);
+			name = GenericViews;
 			sourceTree = "<group>";
 		};
 		183AF5A71F18F0720033CFD7 /* Settings */ = {
@@ -270,6 +276,7 @@
 		18C92B4D1F05170F00F29A1B /* ShiftManager */ = {
 			isa = PBXGroup;
 			children = (
+				18014A9C1F44428500980414 /* GenericViews */,
 				18CDAB791F39AE3500FA1CF8 /* EditCallendarDay */,
 				188974C71F25D49A00E4CE92 /* User */,
 				18D8469A1F1F65EB004264D8 /* Models */,
@@ -326,7 +333,6 @@
 		18D8468C1F18F580004264D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2AA4FFEC1F1779D400712B19 /* SettingsTableViewCell.swift */,
 				18C92B7D1F0633EF00F29A1B /* SettingsView.swift */,
 			);
 			name = View;
@@ -428,7 +434,6 @@
 		2AE8C9BA1F43273A00F70A7F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2AE8C9BD1F43279A00F70A7F /* ExtraShiftTableViewCell.swift */,
 				2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */,
 			);
 			name = View;
@@ -703,8 +708,7 @@
 				2AE8C9C61F4345DA00F70A7F /* ShiftViewModel.swift in Sources */,
 				185078EA1F3B314A004C4F49 /* UserManager.swift in Sources */,
 				2AE8C9C31F43370C00F70A7F /* ExtraShiftViewController.swift in Sources */,
-				2AA4FFED1F1779D400712B19 /* SettingsTableViewCell.swift in Sources */,
-				2AE8C9BE1F43279A00F70A7F /* ExtraShiftTableViewCell.swift in Sources */,
+				2AE8C9BE1F43279A00F70A7F /* ShiftTableViewCell.swift in Sources */,
 				183AF5A21F18B10E0033CFD7 /* ColorSelectDataSource.swift in Sources */,
 				18014A931F41D50200980414 /* UserView.swift in Sources */,
 				2AF3B3C31F1F5A7D00AB752A /* CalendarHeaderView.swift in Sources */,

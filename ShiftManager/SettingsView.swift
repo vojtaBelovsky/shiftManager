@@ -20,7 +20,7 @@ class SettingsView: UIView, UITableViewDelegate {
         backgroundColor = .white
         addSubview(userView)
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
-        tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: settingsTableViewCellReuseIdentifier)
+        tableView.register(ShiftTableViewCell.self, forCellReuseIdentifier: String(describing: ShiftTableViewCell.self))
         tableView.delegate = self
         addSubview(tableView)
         addSubview(userBarView)

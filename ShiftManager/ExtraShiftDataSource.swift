@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExtraShiftDataSource: NSObject, UITableViewDataSource {
+final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
@@ -20,8 +20,8 @@ class ExtraShiftDataSource: NSObject, UITableViewDataSource {
         }
         
         let shiftModel = ShiftManager.sharedInstance.shiftForIndex(indexPath.row)
-        let viewModel = ShiftViewModel(title: "Směna \(shiftModel.name)")
-        cell.extraShiftCell(viewModel: viewModel)
+        let viewModel = ShiftViewModel(title: "Směna \(shiftModel.name)") //TODO: Lokalizace!
+        cell.setup(with: viewModel)
 
         return cell
     }
