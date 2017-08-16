@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExtraShiftViewController: UIViewController {
+final class ExtraShiftViewController: UIViewController {
 
     fileprivate let extraShiftView = ExtraShiftView()
     fileprivate let dataSource = ExtraShiftDataSource()

@@ -30,9 +30,9 @@ final class EditShiftViewController: NewShiftViewController {
     fileprivate func setupView() {
         newShiftView.setupView(with: shift)
         
-        if newShiftColor == nil{
+        if newShiftColor == nil {
             newShiftView.selectShiftColorButton.backgroundColor = shift.color
-        } else{
+        } else {
             shift.color = newShiftColor
         }
     }
