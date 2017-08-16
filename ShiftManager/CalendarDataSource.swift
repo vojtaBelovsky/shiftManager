@@ -9,16 +9,10 @@
 import UIKit
 import AFDateHelper
 
-var firstMorningShiftOfYear: Date? {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd-mm-yyyy"
+final class CalendarDataSource: NSObject, UICollectionViewDataSource {
     
-    return dateFormatter.date(from: "01-01-2017")
-}
-
-class CalendarDataSource: NSObject, UICollectionViewDataSource {    
-    var numberOfEmptyCells: [Int] = []
-    let numberOfMonthsInCalendar = 24
+    fileprivate var numberOfEmptyCells: [Int] = []
+    fileprivate let numberOfMonthsInCalendar = 24
     
     var today: Date {
         return Date()
@@ -42,10 +36,10 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let dateMonth = today.component(.month) ?? 0
         let adjustedDate = today.adjust(hour: nil, minute: nil, second: nil, day: nil, month: dateMonth+section)
-
+        
         return adjustedDate.numberOfDaysInMonth() + numberOfEmptyCells[section]
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let numberOfEmptyCellsForSection = numberOfEmptyCells[indexPath.section]
@@ -82,20 +76,15 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
     }
     
     func numberOfEmptyDays(date: Date) -> Int {
-
-        let firstDayOfMonth = date.dateFor(.startOfMonth)
-        return NSCalendar.current.component(.weekday, from: firstDayOfMonth) - 1
+        return NSCalendar.current.component(.weekday, from: date.dateFor(.startOfMonth)) - 1
     }
     
-     static func Shift(_ shift: ShiftModel){
-        
-    func since(_ date:Date, in component:DateComponentType) -> Int64 {
-        let num = date.since(shift.date!, in: .day)
-        print(num)
-        return num
-            }
+    static func Shift(_ shift: ShiftModel) {
+        func since(_ date:Date, in component:DateComponentType) -> Int64 {
+            return date.since(shift.date!, in: .day)
         }
- 
+    }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let headerView = collectionView.dequeueReusableSupplementaryView(
             ofKind: UICollectionElementKindSectionHeader,
@@ -119,12 +108,3 @@ class CalendarDataSource: NSObject, UICollectionViewDataSource {
         return headerView
     }
 }
-
-extension Date {
-    func days(from date: Date) -> Int {
-        return Calendar.current.dateComponents([.day], from: date, to: self).day ?? 0
-    }
-}
-
-
-
