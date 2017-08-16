@@ -8,9 +8,9 @@
 import UIKit
 import PureLayout
 
-class UserBarCollectionCell: UICollectionViewCell {
+final class UserBarCollectionCell: UICollectionViewCell {
     
-    let photoImageView = UIImageView()
+    fileprivate let photoImageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,15 +20,19 @@ class UserBarCollectionCell: UICollectionViewCell {
         setupConstraints()
     }
     
-    func setupViewItems() {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func setupViewItems() {
         photoImageView.backgroundColor = .red //TODO: Remove after setting photo, color is just for test
     }
     
-    func addSubviews() {
+    fileprivate func addSubviews() {
         contentView.addSubview(photoImageView)
     }
 
-    func setupConstraints() {
+    fileprivate func setupConstraints() {
         photoImageView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
         photoImageView.autoMatch(.width, to: .height, of: photoImageView)
         photoImageView.autoCenterInSuperview()
@@ -37,9 +41,5 @@ class UserBarCollectionCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         photoImageView.layer.cornerRadius = contentView.bounds.size.height/4;
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
