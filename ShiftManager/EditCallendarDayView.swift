@@ -14,7 +14,7 @@ final class EditCallendarDayView: UIView {
     fileprivate let infoLabel = UILabel()
     fileprivate let dateLabel = UILabel()
     fileprivate let shiftName = UILabel()
-    fileprivate let extraShift = UIButton()
+    fileprivate let extraShiftButton = UIButton()
     fileprivate let dayOffLabel = UILabel()
     fileprivate let dayOffSwitch = UISwitch()
     fileprivate let noteLabel = UILabel()
@@ -45,9 +45,9 @@ final class EditCallendarDayView: UIView {
         shiftName.textColor = .black
         addSubview(shiftName)
         
-        extraShift.backgroundColor = .red
-        extraShift.setTitle(NSLocalizedString("ExtraShiftButton_loc001", comment: ""), for: .normal)
-        addSubview(extraShift)
+        extraShiftButton.backgroundColor = .red
+        extraShiftButton.setTitle(NSLocalizedString("ExtraShiftButton_loc001", comment: ""), for: .normal)
+        addSubview(extraShiftButton)
         
         dayOffLabel.text = NSLocalizedString("DayOffLabel_loc001", comment: "")
         dayOffLabel.textColor = .black
@@ -87,10 +87,10 @@ final class EditCallendarDayView: UIView {
         shiftName.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.3)
         shiftName.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
-        extraShift.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        extraShift.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        extraShift.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.6)
-        extraShift.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
+        extraShiftButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        extraShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        extraShiftButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.6)
+        extraShiftButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
         dayOffLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         dayOffLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
@@ -120,14 +120,22 @@ final class EditCallendarDayView: UIView {
     }
     
     func switchValueDidChange(sender: UISwitch) {
-        extraShift.isEnabled = !dayOffSwitch.isOn
-        extraShift.backgroundColor = dayOffSwitch.isOn ? UIColor.red.withAlphaComponent(0.3) : .red
+        extraShiftButton.isEnabled = !dayOffSwitch.isOn
+        extraShiftButton.backgroundColor = dayOffSwitch.isOn ? UIColor.red.withAlphaComponent(0.3) : .red
     }
 }
 
 extension EditCallendarDayView {
 
     public func setActionForShiftButton(_ target: Any?, action: Selector) {
-        extraShift.addTarget(target, action: action, for: .touchUpInside)
+        extraShiftButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    public func freeDay() -> Bool {
+        return true
+    }
+    
+    public func notes() -> String {
+        return self.note.text ?? ""
     }
 }

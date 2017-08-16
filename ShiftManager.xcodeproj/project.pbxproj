@@ -22,6 +22,7 @@
 		188974CA1F25D4C400E4CE92 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974C91F25D4C400E4CE92 /* NewUserViewController.swift */; };
 		188974CC1F25D54800E4CE92 /* NewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974CB1F25D54800E4CE92 /* NewUserView.swift */; };
 		188974D41F261A9D00E4CE92 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974D31F261A9D00E4CE92 /* Constants.swift */; };
+		18C473861F4491BA00E9F25F /* EditCalendarDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C473851F4491BA00E9F25F /* EditCalendarDayModel.swift */; };
 		18C8E4351F31CC14001D1AAD /* ShiftModelValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C8E4341F31CC14001D1AAD /* ShiftModelValidator.swift */; };
 		18C92B4F1F05170F00F29A1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B4E1F05170F00F29A1B /* AppDelegate.swift */; };
 		18C92B511F05170F00F29A1B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C92B501F05170F00F29A1B /* CalendarViewController.swift */; };
@@ -83,6 +84,7 @@
 		188974C91F25D4C400E4CE92 /* NewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		188974CB1F25D54800E4CE92 /* NewUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserView.swift; sourceTree = "<group>"; };
 		188974D31F261A9D00E4CE92 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		18C473851F4491BA00E9F25F /* EditCalendarDayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCalendarDayModel.swift; sourceTree = "<group>"; };
 		18C8E4341F31CC14001D1AAD /* ShiftModelValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftModelValidator.swift; sourceTree = "<group>"; };
 		18C92B4B1F05170F00F29A1B /* ShiftManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShiftManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C92B4E1F05170F00F29A1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 			children = (
 				18D8469B1F1F660F004264D8 /* ShiftModel.swift */,
 				185078E71F3B2F57004C4F49 /* UserModel.swift */,
+				18C473851F4491BA00E9F25F /* EditCalendarDayModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -692,6 +695,7 @@
 				18C8E4351F31CC14001D1AAD /* ShiftModelValidator.swift in Sources */,
 				18DCD4E61F3DCFD400442DAE /* UserBarCollectionCell.swift in Sources */,
 				18CDAB7D1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift in Sources */,
+				18C473861F4491BA00E9F25F /* EditCalendarDayModel.swift in Sources */,
 				18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */,
 				2AE8C9BC1F43275F00F70A7F /* ExtraShiftView.swift in Sources */,
 				183AF59F1F18B1030033CFD7 /* ColorSelectViewController.swift in Sources */,
