@@ -9,6 +9,7 @@
 import UIKit
 
 let updateUserNotification = Notification.Name(rawValue:"UpdateUserProfil")
+let deleteUserNotification = Notification.Name(rawValue:"DeleteUserProfil")
 
 class EditUserViewController: NewUserViewController {
     
@@ -38,10 +39,16 @@ class EditUserViewController: NewUserViewController {
     func deleteButtonDidPress(){
         UserManager.sharedInstance.deleteUser(at: 0)
         // TODO: poslat notku
+        sendDeleteNotification()
         navigationController?.popViewController(animated:true)
         //  userView.reloadData()
         
     }
+     func sendDeleteNotification() {
+        let nec = NotificationCenter.default
+        nec.post(name: updateUserNotification, object: nil)
+    }
+    
     
     override func sendNotification() {
         let nic = NotificationCenter.default

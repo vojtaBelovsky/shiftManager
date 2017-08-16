@@ -9,25 +9,29 @@
 import UIKit
 import PureLayout
 
-class EditCallendarDayView: UIView {
-   fileprivate var  infoLabel = UILabel()
-    fileprivate var dateLabel = UILabel()
-    fileprivate var shiftName = UILabel()
-    fileprivate var extraShift = UIButton()
-    fileprivate var dayOffLabel = UILabel()
-    fileprivate var dayOffSwitch = UISwitch()
-    fileprivate var noteLabel = UILabel()
-    fileprivate var note = UITextView()
+final class EditCallendarDayView: UIView {
     
+    fileprivate let infoLabel = UILabel()
+    fileprivate let dateLabel = UILabel()
+    fileprivate let shiftName = UILabel()
+    fileprivate let extraShift = UIButton()
+    fileprivate let dayOffLabel = UILabel()
+    fileprivate let dayOffSwitch = UISwitch()
+    fileprivate let noteLabel = UILabel()
+    fileprivate let note = UITextView()
     
     init() {
         super.init(frame: .zero)
         initializeViewsAndAddThemAsSubviews()
         todayDateForLabel()
         setupConstraints()
-}
+    }
     
-    func initializeViewsAndAddThemAsSubviews() {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
         
         infoLabel.text = NSLocalizedString("BasicInfo_loc001", comment: "")
@@ -82,7 +86,7 @@ class EditCallendarDayView: UIView {
         shiftName.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         shiftName.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.3)
         shiftName.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
-
+        
         extraShift.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         extraShift.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         extraShift.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.6)
@@ -92,7 +96,7 @@ class EditCallendarDayView: UIView {
         dayOffLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         dayOffLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.8)
         dayOffLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
-
+        
         dayOffSwitch.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         dayOffSwitch.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.8)
         dayOffSwitch.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
@@ -106,33 +110,24 @@ class EditCallendarDayView: UIView {
         note.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         note.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.3)
         note.autoMatch(.height, to: .height, of: self, withMultiplier: 0.2)
-
+        
     }
     
-    func todayDateForLabel(){
-        let date = Date()
+    fileprivate func todayDateForLabel() {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy, EEEE"
-        let result = formatter.string(from: date)
-        dateLabel.text = "\(result)"
-        }
-    
-    func switchValueDidChange(sender:UISwitch!) {
-        if dayOffSwitch.isOn {
-           extraShift.isEnabled = false
-            extraShift.backgroundColor = UIColor.red.withAlphaComponent(0.3)
-        }
-        else {
-            extraShift.isEnabled = true
-            extraShift.backgroundColor = .red
-        }
+        dateLabel.text = "\(formatter.string(from: Date()))"
     }
+    
+    func switchValueDidChange(sender: UISwitch) {
+        extraShift.isEnabled = !dayOffSwitch.isOn
+        extraShift.backgroundColor = dayOffSwitch.isOn ? UIColor.red.withAlphaComponent(0.3) : .red
+    }
+}
+
+extension EditCallendarDayView {
+
     public func setActionForShiftButton(_ target: Any?, action: Selector) {
         extraShift.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

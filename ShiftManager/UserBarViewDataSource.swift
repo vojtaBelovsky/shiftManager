@@ -29,6 +29,12 @@ extension UserBarViewDataSource: UICollectionViewDataSource {
         return UserManager.sharedInstance.getUsers().count
     }
     
+    // SELECT USER
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+      }
+    //SELECT USER FINITO
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: UserBarCollectionCell.self), for: indexPath)

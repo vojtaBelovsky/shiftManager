@@ -37,6 +37,9 @@ class SettingsViewController: UIViewController {
         
         let nic = NotificationCenter.default
         nic.addObserver(self, selector: #selector(updateUserNotificationHandler), name: updateUserNotification, object: nil)
+        
+        let nec = NotificationCenter.default
+        nec.addObserver(self, selector: #selector(deleteUserNotificationHandler), name: deleteUserNotification, object: nil)
 
         ShiftManager.sharedInstance.getShifts().forEach { shiftModel in
            // print("shift name: \(shiftModel.name)")
@@ -45,6 +48,11 @@ class SettingsViewController: UIViewController {
     
     func loadList(){
         settingsView.tableView.reloadData()
+    }
+    
+    func deleteUserNotificationHandler(){
+        settingsView.userView.reloadData()
+        settingsView.userBarView.reloadData()
     }
     
     func newUserDidRegisterNotificationHandler(){
