@@ -8,12 +8,10 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController {
     
-    let dataSource = SettingsTableViewDataSource()
-    let settingsView = SettingsView()
-    let userBarView = UserBarView()
-    let settingsViewController = UIViewController()
+    fileprivate let dataSource = SettingsTableViewDataSource()
+    fileprivate let settingsView = SettingsView()
     
     override func loadView() {
         self.view = settingsView
@@ -21,14 +19,19 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        settingsView.userView.addTarget(self, action: #selector(userViewButtonDidPress), for: .touchUpInside)
         title = NSLocalizedString("Settings_loc002", comment: "")
+        
+        setup()
+    }
+    
+    fileprivate func setup() {
+        settingsView.userView.addTarget(self, action: #selector(userViewButtonDidPress), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
         settingsView.tableView.dataSource = dataSource
         settingsView.tableView.delegate = self
         settingsView.userBarView.setActionForAddButton(self, action: #selector(addButtonDidPress))
         
+        //TODO: Přejmenovat!
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(loadList), name: myNotification, object: nil)
         
@@ -40,10 +43,6 @@ class SettingsViewController: UIViewController {
         
         let nec = NotificationCenter.default
         nec.addObserver(self, selector: #selector(deleteUserNotificationHandler), name: deleteUserNotification, object: nil)
-
-        ShiftManager.sharedInstance.getShifts().forEach { shiftModel in
-           // print("shift name: \(shiftModel.name)")
-        }
     }
     
     func loadList(){
@@ -64,8 +63,6 @@ class SettingsViewController: UIViewController {
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
     }
-    
-   
     
     func settingsButtonDidPress() {
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
