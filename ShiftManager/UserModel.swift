@@ -10,7 +10,8 @@ import Foundation
 import UIKit
     
 final class UserModel: NSObject, NSCoding {
-        
+    
+    var shifts: [ShiftModel] = [] 
     var uniqueID: String = ""
     var userPhotoImage: UIImage?
     var firstName: String = ""

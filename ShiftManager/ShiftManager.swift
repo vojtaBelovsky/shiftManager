@@ -6,14 +6,15 @@
 //  Copyright © 2017 Tadeusz Raszka. All rights reserved.
 //
 
+
+/*
 import UIKit
 
 final class ShiftManager: NSObject {
-    
+
+
     fileprivate let defaults = UserDefaults.standard
-    fileprivate let shiftsKey = "shiftsKey"
     fileprivate var shifts = [ShiftModel]()
-    
     static let sharedInstance = ShiftManager()
     
     private override init() {
@@ -29,7 +30,7 @@ final class ShiftManager: NSObject {
         let shiftsAsData = shifts.map { (shift) -> Data in
             NSKeyedArchiver.archivedData(withRootObject: shift)
         }
-        defaults.set(shiftsAsData, forKey: shiftsKey)
+            defaults.set(shiftsAsData, forKey: shiftsKey)
         defaults.synchronize()
     }
     
@@ -43,3 +44,4 @@ final class ShiftManager: NSObject {
         shifts = shiftsArray
     }
 }
+*/
