@@ -9,9 +9,7 @@
 import UIKit
 import PureLayout
 
-let colorSelectCollectionViewCellReuseIdentifier = "colorSelectCollectionViewCellReuseIdentifier"
-
-class ColorSelectCollectionViewCell: UICollectionViewCell {
+final class ColorSelectCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

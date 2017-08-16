@@ -25,7 +25,7 @@ class ColorSelectViewController: UIViewController, UICollectionViewDelegate{
         super.viewDidLoad()
         edgesForExtendedLayout = UIRectEdge.bottom
         
-        colorSelectView.collectionView.register(ColorSelectCollectionViewCell.self, forCellWithReuseIdentifier: colorSelectCollectionViewCellReuseIdentifier)
+        colorSelectView.collectionView.register(ColorSelectCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: ColorSelectCollectionViewCell.self))
         colorSelectView.collectionView.dataSource = dataSource
         colorSelectView.collectionView.delegate = self
     }
