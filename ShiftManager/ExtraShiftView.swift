@@ -9,7 +9,7 @@
 import UIKit
 import PureLayout
 
-class ExtraShiftView: UIView {
+final class ExtraShiftView: UIView {
 
     let tableView = UITableView()
     
