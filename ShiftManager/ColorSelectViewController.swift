@@ -12,10 +12,10 @@ protocol ColorSelectViewControllerDelegate {
     func colorSelectViewController(_ controller: ColorSelectViewController, didSelectColor: UIColor)
 }
 
-class ColorSelectViewController: UIViewController {
+final class ColorSelectViewController: UIViewController {
     
-    let colorSelectView: ColorSelectView = ColorSelectView()
-    let dataSource = ColorSelectDataSource()
+    fileprivate let colorSelectView: ColorSelectView = ColorSelectView()
+    fileprivate let dataSource = ColorSelectDataSource()
     var delegate: ColorSelectViewControllerDelegate?
     
     override func loadView() {
