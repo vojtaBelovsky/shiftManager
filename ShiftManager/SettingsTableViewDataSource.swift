@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsTableViewDataSource: NSObject, UITableViewDataSource {    
+final class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
@@ -19,10 +19,10 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
         }
 
         let shiftModel = ShiftManager.sharedInstance.shiftForIndex(indexPath.row)
-        let viewModel = ShiftViewModel(title: "Směna \(shiftModel.name)")
+        let viewModel = ShiftViewModel(title: "Směna \(shiftModel.name)") //TODO: Lokalizace!
         cell.setup(with: viewModel)
+
         return cell
-        
     }
    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -39,9 +39,4 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ShiftManager.sharedInstance.numberOfShifts()
     }
- 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
 }
