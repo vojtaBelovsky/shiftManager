@@ -88,7 +88,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let headerView = collectionView.dequeueReusableSupplementaryView(
             ofKind: UICollectionElementKindSectionHeader,
-            withReuseIdentifier:CalendarHeaderView.calendarHeaderIdentifier,
+            withReuseIdentifier: String(describing: CalendarHeaderView.self),
             for: indexPath
         ) as? CalendarHeaderView else {
             assertionFailure("Cannot deque CalendarHeaderView header")
@@ -102,7 +102,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         
         if let monthOrder = date.component(.month) {
             let monthName = DateFormatter().shortMonthSymbols[monthOrder - 1]
-            headerView.monthLabel.text = monthName
+            headerView.setMonthName(name: monthName)
         }
         
         return headerView

@@ -9,32 +9,37 @@
 import UIKit
 import PureLayout
 
-class CalendarHeaderView: UICollectionReusableView {
+final class CalendarHeaderView: UICollectionReusableView {
     
-    static let calendarHeaderIdentifier = "calendarHeaderIdentifier"
+    fileprivate let monthLabel = UILabel()
     
-    var monthLabel = UILabel()
-    
-    override init(frame: CGRect) {   
+    override init(frame: CGRect) {
         super.init(frame: frame)
         
         addSubviews()
         labelSettings()
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
-     func labelSettings() {
-        
+    fileprivate func labelSettings() {
         backgroundColor = UIColor.black.withAlphaComponent(0.02)
         monthLabel.textColor = .black
-     }
+    }
     
-    func addSubviews() {
+    fileprivate func addSubviews() {
         addSubview(monthLabel)
         
         monthLabel.autoAlignAxis(toSuperviewAxis: .vertical)
         monthLabel.autoAlignAxis(toSuperviewAxis: .horizontal)
     }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+}
+
+extension CalendarHeaderView {
+
+    func setMonthName(name: String) {
+        monthLabel.text = name
     }
 }

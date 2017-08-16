@@ -33,7 +33,7 @@ class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
         calendarView.calendarCollectionView.register(CalendarEmtpyCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: CalendarEmtpyCollectionViewCell.self))
         calendarView.calendarCollectionView.register(CalendarHeaderView.self,
                                              forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
-                                             withReuseIdentifier: CalendarHeaderView.calendarHeaderIdentifier)
+                                             withReuseIdentifier: String(describing: CalendarHeaderView.self))
     }
     
     func newUserViewController(_ controller: NewUserViewController, didRegisterUser: UserModel) {
