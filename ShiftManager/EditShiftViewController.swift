@@ -8,11 +8,10 @@
 
 import UIKit
 
-
-class EditShiftViewController: NewShiftViewController {
+final class EditShiftViewController: NewShiftViewController {
     
     fileprivate let shift: ShiftModel
-
+    
     init(shift: ShiftModel) {
         self.shift = shift
         super.init(nibName: nil, bundle: nil)
@@ -30,27 +29,21 @@ class EditShiftViewController: NewShiftViewController {
     
     fileprivate func setupView() {
         newShiftView.setupView(with: shift)
+        
+        if newShiftColor == nil{
+            newShiftView.selectShiftColorButton.backgroundColor = shift.color
+        } else{
+            shift.color = newShiftColor
+        }
     }
     
     override func saveButtonDidPress() {
         shift.name = newShiftView.name()
         shift.shortcut = newShiftView.shortcut()
         shift.date = newShiftView.date()
-       
-        // PODMÍNKA (PŘESUNOUT JINAM)
-        
-        if newShiftColor == nil{
-            newShiftView.selectShiftColorButton.backgroundColor = shift.color
-        }
-        else{
-        shift.color = newShiftColor
-        }
-        
-        // KONEC PODMÍNKY
         
         if let interval = Int(newShiftView.interval()) {
             shift.interval = interval
-            print (interval)
         }
         
         if let validationError = ShiftModelValidator.validateShift(shift) {
@@ -59,8 +52,7 @@ class EditShiftViewController: NewShiftViewController {
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
             return
-        }
-        else {
+        } else {
             ShiftManager.sharedInstance.saveShift(shift: shift)
             sendNotification()
             navigationController?.popViewController(animated:true)
