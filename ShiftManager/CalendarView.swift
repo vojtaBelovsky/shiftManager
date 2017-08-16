@@ -9,10 +9,10 @@
 import UIKit
 import PureLayout
 
-class CalendarView: UIView {
+final class CalendarView: UIView {
     
-    let headerView = HeaderView()
-    var daysLabel = UILabel()
+    fileprivate let headerView = HeaderView()
+    fileprivate let daysLabel = UILabel()
     let userBarView = UserBarView()
     
     lazy var calendarCollectionView: UICollectionView = {
