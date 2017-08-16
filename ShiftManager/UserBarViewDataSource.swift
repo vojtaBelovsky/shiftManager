@@ -8,14 +8,10 @@
 
 import UIKit
 
-class UserBarViewDataSource: NSObject {
+final class UserBarViewDataSource: NSObject {
     
     func getDefaultUser() -> UserModel? {
-        if UserManager.sharedInstance.getUsers().count > 0 {
-            return UserManager.sharedInstance.getUsers()[0]
-        } else {
-            return nil
-        }
+        return UserManager.sharedInstance.getUsers().count > 0 ? UserManager.sharedInstance.getUsers()[0] : nil
     }
 }
 
@@ -29,12 +25,11 @@ extension UserBarViewDataSource: UICollectionViewDataSource {
         return UserManager.sharedInstance.getUsers().count
     }
     
-    // SELECT USER
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-      }
+        //TODO: SELECT USER
+    }
+
     //SELECT USER FINITO
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: UserBarCollectionCell.self), for: indexPath)
