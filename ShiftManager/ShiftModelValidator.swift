@@ -32,6 +32,7 @@ final class ShiftModelValidator: NSObject {
             return error
         }
         
+        // TODO: nefunguje validace na interval, zadal jsem ý a sichta prosla validaci
         if shift.interval <= 1 {
             let userInfo: [AnyHashable : Any] = [
                 NSLocalizedDescriptionKey :  NSLocalizedString("NewShiftAllert_loc001", comment: "") ,

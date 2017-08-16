@@ -142,6 +142,10 @@ extension NewShiftView {
         return self.datePicker.date
     }
     
+    public func color() -> UIColor? {
+        return self.selectShiftColorButton.backgroundColor
+    }
+    
     public func setupView(with shift: ShiftModel) {
         nameTextField.text = shift.name
         shortcutTextField.text = shift.shortcut

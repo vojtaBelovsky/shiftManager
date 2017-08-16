@@ -8,12 +8,13 @@
 
 import UIKit
 
+// TODO: prejmenovat myNotification na neco normalniho
 let myNotification = Notification.Name(rawValue:"ReloadNewShiftController")
 
 class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegate {
     
     let newShiftView = NewShiftView()
-    var newShiftColor: UIColor?
+    internal var shift = ShiftModel()
     
     override func loadView() {
         view = newShiftView
@@ -31,11 +32,10 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
     }
     
     func saveButtonDidPress() {
-        let shift = ShiftModel()
         shift.name = newShiftView.name()
         shift.shortcut = newShiftView.shortcut()
         shift.date = newShiftView.date()
-        shift.color = newShiftColor
+        shift.color = newShiftView.color()
         
         if let interval = Int(newShiftView.interval()) {
             shift.interval = interval
@@ -67,7 +67,6 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
     }
     
     func colorSelectViewController(_ controller: ColorSelectViewController, didSelectColor: UIColor) {
-        newShiftColor = didSelectColor
         newShiftView.setSelectShiftColorButtonBackground(didSelectColor)
         controller.dismiss(animated: true, completion: nil)
     }
