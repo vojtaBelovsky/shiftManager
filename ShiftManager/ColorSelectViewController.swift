@@ -7,11 +7,12 @@
 //
 
 import UIKit
+
 protocol ColorSelectViewControllerDelegate {
     func colorSelectViewController(_ controller: ColorSelectViewController, didSelectColor: UIColor)
 }
 
-class ColorSelectViewController: UIViewController, UICollectionViewDelegate{
+class ColorSelectViewController: UIViewController {
     
     let colorSelectView: ColorSelectView = ColorSelectView()
     let dataSource = ColorSelectDataSource()
@@ -28,6 +29,14 @@ class ColorSelectViewController: UIViewController, UICollectionViewDelegate{
         colorSelectView.collectionView.register(ColorSelectCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: ColorSelectCollectionViewCell.self))
         colorSelectView.collectionView.dataSource = dataSource
         colorSelectView.collectionView.delegate = self
+    }
+}
+
+extension ColorSelectViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return colorSelectView.getCellSize()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

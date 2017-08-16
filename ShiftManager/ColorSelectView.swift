@@ -8,48 +8,49 @@
 
 import UIKit
 
-class ColorSelectView: UIView {
+final class ColorSelectView: UIView {
     
-    var collectionView: UICollectionView!
+    lazy var collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        let space: CGFloat = 10.0
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.backgroundColor = .clear
+
+        return collectionView
+    }()
     
     fileprivate let numberOfCellsInCollum: Int = 4
-
+    
     init() {
         super.init(frame: .zero)
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
     }
     
-    func initializeViewsAndAddThemAsSubviews() {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
-        let flowLayout = UICollectionViewFlowLayout()
-        
-        let space: CGFloat = 10.0
-        flowLayout.itemSize = getCellSize()
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = .clear
-        
         addSubview(collectionView)
     }
     
-    func setupConstraints() {
-    //  collectionView.autoPinEdge(toSuperviewEdge: .top)
+    fileprivate func setupConstraints() {
         collectionView.autoPinEdge(toSuperviewEdge: .top, withInset: 30)
         collectionView.autoPinEdge(toSuperviewEdge: .leading)
         collectionView.autoPinEdge(toSuperviewEdge: .trailing)
         collectionView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
     }
-    
-    fileprivate func getCellSize() -> CGSize {
+}
+
+extension ColorSelectView {
+
+    func getCellSize() -> CGSize {
         let size = (UIScreen.main.bounds.size.width / CGFloat(numberOfCellsInCollum)) - 10
         return CGSize(width: size, height: size)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
 }
