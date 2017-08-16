@@ -8,19 +8,11 @@
 
 import UIKit
 
+final class UserBarView: UIView {
 
-
-class UserBarView: UIView {
-    let addButton = UIButton()
-    var isAddUserButtonHidden = false {
-        didSet {
-            addButton.isHidden = isAddUserButtonHidden
-        }
-    }
-    
-    private let userBarViewDataSource = UserBarViewDataSource()
-    
-    lazy var collectionView: UICollectionView = {
+    fileprivate let stackView = UIStackView()
+    fileprivate let addButton = UIButton()
+    fileprivate lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 6
@@ -30,22 +22,28 @@ class UserBarView: UIView {
         return collectionView
     }()
     
-    fileprivate let stackView = UIStackView()
+    var isAddUserButtonHidden = false {
+        didSet {
+            addButton.isHidden = isAddUserButtonHidden
+        }
+    }
     
+    fileprivate let userBarViewDataSource = UserBarViewDataSource()
     fileprivate let viewHeight: CGFloat = 80.0
     fileprivate let cellDimension: CGFloat = 50.0
     
     init() {
         super.init(frame: .zero)
+
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
     }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
-    
         stackView.distribution = .fill
         stackView.axis = .horizontal
         addSubview(stackView)
@@ -71,7 +69,9 @@ class UserBarView: UIView {
         addButton.autoMatch(.height, to: .height, of: stackView)
         addButton.autoMatch(.width, to: .height, of: addButton)
     }
-    
+}
+
+extension UserBarView {
     public func setActionForAddButton(_ target: Any?, action: Selector) {
         addButton.addTarget(target, action: action, for: .touchUpInside)
     }
