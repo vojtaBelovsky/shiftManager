@@ -8,20 +8,24 @@
 
 import UIKit
 
-class EditCallendarDayViewController: UIViewController {
+final class EditCallendarDayViewController: UIViewController {
     
-    let editCallendarDayView = EditCallendarDayView()
+    fileprivate let editCallendarDayView = EditCallendarDayView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = editCallendarDayView
+
         title = NSLocalizedString("EditCallendarDayViewTitle", comment: "")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        self.editCallendarDayView.setActionForShiftButton(self, action: #selector(setActionForShiftButton))
+        editCallendarDayView.setActionForShiftButton(self, action: #selector(setActionForShiftButton))
+    }
+    
+    override func loadView() {
+        view = editCallendarDayView
     }
 
     func saveButtonDidPress() {
@@ -30,9 +34,5 @@ class EditCallendarDayViewController: UIViewController {
     
     func setActionForShiftButton() {
         navigationController?.pushViewController(ExtraShiftViewController(), animated: true)
-    }
-        
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
