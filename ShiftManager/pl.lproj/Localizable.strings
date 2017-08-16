@@ -26,7 +26,7 @@
 //New shift
 "NewShiftAllert_loc001" = "Błąd";
 "NewShiftAllert_loc002" = "Pole z imieniem jest puste";
-"NewShiftAllert_loc003" = "Pole z interwałem jest puste";
+"NewShiftAllert_loc003" = "Interwał musi być większy niż zero";
 "NewShiftAllert_loc004" = "Zamknij";
 "NewShiftAllert_loc005" = "Kolor nie został wybrany";
 "NewShiftAllert_loc006" = "Skrót jest za długi albo pole jest puste";

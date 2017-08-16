@@ -25,8 +25,8 @@
 "RegisterAllert_loc003" = "Last name field are empty";
 //New shift
 "NewShiftAllert_loc001" = "Error";
-"NewShiftAllert_loc002" = "First name field are empty";
-"NewShiftAllert_loc003" = "Interval field are empty";
+"NewShiftAllert_loc002" = "First name field is empty";
+"NewShiftAllert_loc003" = "Interval must be number greater than zero";
 "NewShiftAllert_loc004" = "Close";
 "NewShiftAllert_loc005" = "Please select color";
 "NewShiftAllert_loc006" = "Shortcut is too long or field are empty";

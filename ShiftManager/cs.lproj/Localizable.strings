@@ -28,7 +28,7 @@
 //New shift
 "NewShiftAllert_loc001" = "Chyba";
 "NewShiftAllert_loc002" = "Pole se jménem je prázdné";
-"NewShiftAllert_loc003" = "Pole s intervalem je prázdné";
+"NewShiftAllert_loc003" = "V intervalu musí být číslo větší než nula";
 "NewShiftAllert_loc004" = "Zavřít";
 "NewShiftAllert_loc005" = "Vyberte prosím barvu";
 "NewShiftAllert_loc006" = "Zkratka je příliš dlouha nebo pole je prázdné";

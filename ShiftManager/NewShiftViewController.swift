@@ -36,10 +36,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         shift.shortcut = newShiftView.shortcut()
         shift.date = newShiftView.date()
         shift.color = newShiftView.color()
-        
-        if let interval = Int(newShiftView.interval()) {
-            shift.interval = interval
-        }
+        shift.interval = newShiftView.interval()
         
         if let validationError = ShiftModelValidator.validateShift(shift) {
             let alertController = UIAlertController(title: validationError.localizedDescription, message: validationError.localizedFailureReason, preferredStyle: .alert)
@@ -50,7 +47,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         } else {
             ShiftManager.sharedInstance.saveShift(shift: shift)
             sendNotification()
-            navigationController?.popViewController(animated:true)
+            _ = navigationController?.popViewController(animated:true)
         }
     }
     
