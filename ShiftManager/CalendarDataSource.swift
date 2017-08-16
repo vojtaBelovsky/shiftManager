@@ -63,14 +63,14 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: calendarCollectionViewCellReuseIdentifier, for: indexPath)
+                withReuseIdentifier: String(describing: CalendarCollectionViewCell.self), for: indexPath)
                 as? CalendarCollectionViewCell
                 else {
                     assertionFailure("Non existing cell")
                     return UICollectionViewCell()
             }
             
-            cell.dayLabel.text = "\(indexPath.row - numberOfEmptyCellsForSection + 1)"
+            cell.setDayLabelTitle(title: "\(indexPath.row - numberOfEmptyCellsForSection + 1)")
             return cell
         }
     }

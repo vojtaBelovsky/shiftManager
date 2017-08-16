@@ -8,28 +8,31 @@
 import UIKit
 import PureLayout
 
-let calendarCollectionViewCellReuseIdentifier = "calendarCollectionViewCellReuseIdentifier"
+final class CalendarCollectionViewCell: UICollectionViewCell {
 
-class CalendarCollectionViewCell: UICollectionViewCell {
-
-    let dayLabel = UILabel()
-    let relayLabel = UILabel()
-    let cellView = UIView()
+    fileprivate let dayLabel = UILabel()
+    fileprivate let relayLabel = UILabel()
+    fileprivate let cellView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+
         setupViewItems()
         labelSettings()
         addSubviews()
         setupConstraints()
     }
     
-    func setupViewItems() {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func setupViewItems() {
         cellView.backgroundColor = .white
         dayLabel.textColor = .black
     }
     
-    func labelSettings() {
+    fileprivate func labelSettings() {
         backgroundColor = .white
         relayLabel.backgroundColor = .blue
         relayLabel.layer.masksToBounds = true
@@ -39,15 +42,13 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         relayLabel.adjustsFontSizeToFitWidth = true
     }
  
-    func addSubviews() {
+    fileprivate func addSubviews() {
         contentView.addSubview(cellView)
         cellView.addSubview(dayLabel)
         cellView.addSubview(relayLabel)
     }
     
-   
-    
-    func setupConstraints() {
+    fileprivate func setupConstraints() {
         cellView.autoPinEdgesToSuperviewEdges()
         
         dayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
@@ -64,8 +65,10 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         relayLabel.layer.cornerRadius = contentView.bounds.size.height/4;
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+}
+
+extension CalendarCollectionViewCell {
+    func setDayLabelTitle(title: String) {
+        dayLabel.text = title
     }
 }
