@@ -54,7 +54,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         
         if numberOfEmptyCellsForSection > indexPath.row {
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: calendarCollectionViewCellEmptyCellCount, for: indexPath)
+                withReuseIdentifier: String(describing: CalendarEmtpyCollectionViewCell.self), for: indexPath)
                 as? CalendarEmtpyCollectionViewCell
                 else {
                     assertionFailure("Non existing cell")

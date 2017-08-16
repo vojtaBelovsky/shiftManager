@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import AFDateHelper
 
-let calendarCollectionViewCellEmptyCellCount = "calendarCollectionViewCellEmptyCellIdentifier"
-
-class CalendarEmtpyCollectionViewCell: UICollectionViewCell {
+final class CalendarEmtpyCollectionViewCell: UICollectionViewCell {
     
-    let cellView = UIView()
+    fileprivate let cellView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,20 +20,19 @@ class CalendarEmtpyCollectionViewCell: UICollectionViewCell {
         setupConstraints()
     }
     
-    func emptyCell()  {
-        cellView.backgroundColor = .white
-    }
-    
-    func addSubviews() {
-        contentView.addSubview(cellView)
-    }
-    
-    func setupConstraints() {
-        cellView.autoPinEdgesToSuperviewEdges()
-    }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-   }
+    fileprivate func emptyCell()  {
+        cellView.backgroundColor = .white
+    }
+    
+    fileprivate func addSubviews() {
+        contentView.addSubview(cellView)
+    }
+    
+    fileprivate func setupConstraints() {
+        cellView.autoPinEdgesToSuperviewEdges()
+    }
+}

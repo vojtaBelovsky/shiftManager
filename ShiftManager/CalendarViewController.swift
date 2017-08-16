@@ -30,7 +30,7 @@ class CalendarViewController: UIViewController, NewUserViewControllerDelegate {
         calendarView.calendarCollectionView.dataSource = calendarDataSource
         calendarView.calendarCollectionView.delegate = self
         calendarView.calendarCollectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier:calendarCollectionViewCellReuseIdentifier)
-        calendarView.calendarCollectionView.register(CalendarEmtpyCollectionViewCell.self, forCellWithReuseIdentifier:calendarCollectionViewCellEmptyCellCount)
+        calendarView.calendarCollectionView.register(CalendarEmtpyCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: CalendarEmtpyCollectionViewCell.self))
         calendarView.calendarCollectionView.register(CalendarHeaderView.self,
                                              forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                                              withReuseIdentifier: CalendarHeaderView.calendarHeaderIdentifier)
