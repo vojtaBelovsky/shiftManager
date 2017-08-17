@@ -51,6 +51,7 @@ final class SettingsViewController: UIViewController {
     func deleteUserNotificationHandler(){
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
+        tableViewReloadData()
     }
     
     func newUserDidRegisterNotificationHandler(){

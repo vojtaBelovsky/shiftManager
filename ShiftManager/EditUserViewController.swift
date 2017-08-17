@@ -43,9 +43,8 @@ final class EditUserViewController: NewUserViewController {
     }
     func sendDeleteNotification() {
         let deleteUser = NotificationCenter.default
-        deleteUser.post(name: updateUserNotification, object: nil)
+        deleteUser.post(name: deleteUserNotification, object: nil)
     }
-    
     
     override func sendNotification() {
         let updateUser = NotificationCenter.default
