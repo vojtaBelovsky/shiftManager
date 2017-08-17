@@ -16,6 +16,8 @@ final class ExtraShiftViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = NSLocalizedString("EditCallendarDayViewTitle_loc002", comment: "")
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

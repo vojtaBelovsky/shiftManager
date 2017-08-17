@@ -15,7 +15,7 @@ final class EditCallendarDayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = NSLocalizedString("EditCallendarDayViewTitle", comment: "")
+        title = NSLocalizedString("EditCallendarDayViewTitle_loc001", comment: "")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
