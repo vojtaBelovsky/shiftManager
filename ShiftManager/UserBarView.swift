@@ -87,4 +87,8 @@ extension UserBarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLay
         
         return CGSize(width: cellDimension, height: cellDimension)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      // UserManager.sharedInstance.selectedUser =
+    }
 }

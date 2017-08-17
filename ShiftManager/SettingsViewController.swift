@@ -57,11 +57,13 @@ final class SettingsViewController: UIViewController {
     func newUserDidRegisterNotificationHandler(){
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
+        tableViewReloadData()
     }
     
     func updateUserNotificationHandler(){
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
+        tableViewReloadData()
     }
     
     func settingsButtonDidPress() {

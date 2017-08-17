@@ -12,6 +12,12 @@ final class UserBarCollectionCell: UICollectionViewCell {
     
     fileprivate let photoImageView = UIImageView()
     
+    override var isSelected: Bool {
+        didSet {
+            photoImageView.layer.borderColor = isSelected ? UIColor.green.cgColor : UIColor.black.cgColor
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -30,12 +36,8 @@ final class UserBarCollectionCell: UICollectionViewCell {
         photoImageView.layer.borderColor = UIColor.black.cgColor
         photoImageView.layer.cornerRadius = 100.0
         photoImageView.layer.masksToBounds = true
-       // photoImageView.isUserInteractionEnabled = false
-        //addSubview(userPhotoImageView)
         
-        
-        //photoImageView.layer.borderWidth
-    }
+          }
     
     fileprivate func addSubviews() {
         contentView.addSubview(photoImageView)
@@ -55,4 +57,5 @@ final class UserBarCollectionCell: UICollectionViewCell {
     func set(image: UIImage?) {
         photoImageView.image = image
     }
+    
 }

@@ -40,4 +40,6 @@ final class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return UserManager.sharedInstance.numberOfShifts()
     }
+    
+    
 }

@@ -16,6 +16,8 @@ final class ExtraShiftViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         extraShiftView.tableView.dataSource = dataSource
+        extraShiftView.tableView.allowsMultipleSelectionDuringEditing = true
+        extraShiftView.tableView.isEditing = true
     }
     
     override func loadView() {
