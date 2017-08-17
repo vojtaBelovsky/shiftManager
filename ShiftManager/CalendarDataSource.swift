@@ -52,6 +52,8 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
             month: (today.component(.month) ?? 0) + indexPath.section
         )
         
+     //   let shiftForCell = UserManager.sharedInstance.shiftForDate(dateForCell)
+        
         if numberOfEmptyCellsForSection > indexPath.row {
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: String(describing: CalendarEmtpyCollectionViewCell.self), for: indexPath)

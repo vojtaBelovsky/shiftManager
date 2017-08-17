@@ -42,7 +42,7 @@ final class EditCalendarDayModel: NSObject, NSCoding {
         if let userID = aDecoder.decodeObject(forKey: userIDKey) as? String {
             self.uniqueID = userID
         }
-        
+
     }
     
     func encode(with aCoder: NSCoder) {

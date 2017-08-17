@@ -16,6 +16,7 @@
 
 //Register
 "RegisterTitle_loc001" = "Nový uživatel";
+"RegisterTitle_loc002" = "Úprava uživatele";
 "RegisterPlaceholder_loc001" = "Jméno";
 "RegisterPlaceholder_loc002" = "Příjmení";
 "RegisterButton_loc003" = "Vytvořit";

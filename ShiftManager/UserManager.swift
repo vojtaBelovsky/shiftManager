@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFDateHelper
 
 final class UserManager: NSObject {
     
@@ -120,4 +121,19 @@ extension UserManager {
     public func shiftForIndex(_ index: Int) -> ShiftModel? {
         return selectedUser?.shifts[index]
     }
+    /*
+    public func shiftForDate(_ date: Date) -> ShiftModel? {
+        var i = 0
+        for (var j = 0, j < 100, j++) {
+            selectedUser?.shifts.forEach({ shiftModel in
+                if shiftModel.date!.compare(.isEarlier(than: date)) {
+                    var adjustedDate = shiftModel.date!.adjust(.day, offset: i*shiftModel.interval)
+                } else {
+                    
+                }
+            })
+            i++
+        }
+    }
+ */
 }

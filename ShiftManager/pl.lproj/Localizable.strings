@@ -15,6 +15,7 @@
 "CreateNewShift_loc009" = "Edytacja zmiany";
 //Register
 "RegisterTitle_loc001" = "Nowy użytkownik";
+"RegisterTitle_loc002" = "Edytacja użytkownika";
 "RegisterPlaceholder_loc001" = "Imię";
 "RegisterPlaceholder_loc002" = "Nazkisko";
 "RegisterButton_loc003" = "Stwórz";
