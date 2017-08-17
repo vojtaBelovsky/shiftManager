@@ -21,6 +21,7 @@ final class UserModel: NSObject, NSCoding {
     fileprivate let firstNamePropertyKey = "firstNamePropertyKey"
     fileprivate let lastNamePropertyKey = "lastNamePropertyKey"
     fileprivate let userIDKey = "userIDKey"
+    fileprivate let shitsPropertyKey = "shitsPropertyKey"
 
     override init() {
         super.init()
@@ -44,6 +45,9 @@ final class UserModel: NSObject, NSCoding {
             self.uniqueID = userID
         }
         
+        if let shifts = aDecoder.decodeObject(forKey: shitsPropertyKey) as? [ShiftModel] {
+            self.shifts = shifts
+        }
     }
     
     func encode(with aCoder: NSCoder) {
@@ -52,6 +56,6 @@ final class UserModel: NSObject, NSCoding {
         aCoder.encode(firstName, forKey: firstNamePropertyKey)
         aCoder.encode(lastName, forKey: lastNamePropertyKey)
         aCoder.encode(uniqueID, forKey: userIDKey)
-        
+        aCoder.encode(shifts, forKey: shitsPropertyKey)
     }
 }

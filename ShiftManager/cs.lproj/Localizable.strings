@@ -36,7 +36,8 @@
 //Edit Callendar Day
 "BasicInfo_loc001" = "Základní informace:";
 "ExtraShiftButton_loc001" = "Vytvořit extra šichta";
-"EditCallendarDayViewTitle" = "Úprava dne";
+"EditCallendarDayViewTitle_loc001" = "Úprava dne";
+"EditCallendarDayViewTitle_loc002" = "Vyberte šichtu";
 "DayOffLabel_loc001" = "Dovolená";
 "NoteLabel_loc001" = "Vaše poznámky";
 //SHARE

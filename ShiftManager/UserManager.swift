@@ -81,6 +81,11 @@ extension UserManager {
         saveUsersToPersistentStorage()
     }
     
+    public func deleteSelectedUser() {
+        guard let user = UserManager.sharedInstance.selectedUser, let index = users.index(of: user) else { return }
+        deleteUser(at: index)
+    }
+    
     public func getUsers() -> [UserModel] {
         return users
     }
@@ -98,12 +103,17 @@ extension UserManager {
 extension UserManager {
     public func saveShift(shift: ShiftModel) {
         addNewShift(shift: shift)
+        shift.uniqueID.isEmpty ? addNewShift(shift: shift) : update()
         saveUsersToPersistentStorage()
     }
 
     public func addNewShift(shift: ShiftModel) {
         shift.uniqueID = UUID().uuidString
         selectedUser?.shifts.append(shift)
+    }
+
+    public func update() {
+        //TODO: Not implemented in this version
     }
 
     public func deleteShift(at index: Int) {
@@ -117,6 +127,7 @@ extension UserManager {
     public func shiftForIndex(_ index: Int) -> ShiftModel? {
         return selectedUser?.shifts[index]
     }
+    
     /*
     public func shiftForDate(_ date: Date) -> ShiftModel? {
         var i = 0
