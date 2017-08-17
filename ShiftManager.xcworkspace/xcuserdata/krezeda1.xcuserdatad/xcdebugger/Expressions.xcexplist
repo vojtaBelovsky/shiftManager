@@ -23,6 +23,11 @@
       </ContextState>
       <ContextState
          contextName = "UserManager.saveShift(shift : ShiftModel) -&gt; ():UserManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "shift.uniqueID.isEmpty">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "UserBarView.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():UserBarView.swift">

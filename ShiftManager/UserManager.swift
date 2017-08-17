@@ -102,7 +102,6 @@ extension UserManager {
 ///////////////////////////////ShiftManager//////////////////////////////////////
 extension UserManager {
     public func saveShift(shift: ShiftModel) {
-        addNewShift(shift: shift)
         shift.uniqueID.isEmpty ? addNewShift(shift: shift) : update()
         saveUsersToPersistentStorage()
     }
