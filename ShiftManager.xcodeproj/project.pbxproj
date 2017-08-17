@@ -165,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				2A9E68AF1F306B4100CE6541 /* EditShift */,
-				2AE8C9B81F4326F900F70A7F /* ExtraShift */,
 				183AF5AD1F18F1F00033CFD7 /* Settings */,
 				18C92B731F05198B00F29A1B /* NewShift */,
 				183AF5AE1F18F2020033CFD7 /* ColorSelect */,
@@ -315,6 +314,7 @@
 		18CDAB791F39AE3500FA1CF8 /* EditCallendarDay */ = {
 			isa = PBXGroup;
 			children = (
+				2AE8C9B81F4326F900F70A7F /* ExtraShift */,
 				18CDAB7A1F39AE7200FA1CF8 /* EditCallendarDayView.swift */,
 				18CDAB7C1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift */,
 			);
