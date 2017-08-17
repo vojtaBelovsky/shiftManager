@@ -12,6 +12,7 @@ final class ExtraShiftViewController: UIViewController {
 
     fileprivate let extraShiftView = ExtraShiftView()
     fileprivate let dataSource = ExtraShiftDataSource()
+    let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
