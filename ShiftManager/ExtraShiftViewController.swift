@@ -16,6 +16,11 @@ final class ExtraShiftViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonDidPress))
+        edgesForExtendedLayout = UIRectEdge.bottom
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
         extraShiftView.tableView.dataSource = dataSource
         extraShiftView.tableView.allowsMultipleSelectionDuringEditing = true
         extraShiftView.tableView.isEditing = true
@@ -23,6 +28,10 @@ final class ExtraShiftViewController: UIViewController {
     
     override func loadView() {
         view = extraShiftView
+    }
+    
+    func doneButtonDidPress(){
+     _ = navigationController?.popViewController(animated: true)
     }
     
     override func didReceiveMemoryWarning() {
