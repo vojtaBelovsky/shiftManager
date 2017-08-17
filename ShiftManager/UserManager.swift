@@ -97,7 +97,8 @@ extension UserManager {
 ///////////////////////////////ShiftManager//////////////////////////////////////
 extension UserManager {
     public func saveShift(shift: ShiftModel) {
-        shift.uniqueID.isEmpty ? addNewShift(shift: shift) : update()
+        addNewShift(shift: shift)
+        saveUsersToPersistentStorage()
     }
 
     public func addNewShift(shift: ShiftModel) {
@@ -105,13 +106,8 @@ extension UserManager {
         selectedUser?.shifts.append(shift)
     }
 
-    public func update() {
-        saveUsersToPersistentStorage()
-    }
-
     public func deleteShift(at index: Int) {
         selectedUser?.shifts.remove(at: index)
-        saveUsersToPersistentStorage()
     }
 
     public func numberOfShifts() -> Int {
