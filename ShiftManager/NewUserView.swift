@@ -14,6 +14,7 @@ final class NewUserView: UIView {
     fileprivate let selectImageView = UIImageView()
     let registerButton = UIButton()
     fileprivate let cameraButton = UIButton()
+    fileprivate let contactsButton = UIButton()
     fileprivate let firstNameTextField = UITextField()
     fileprivate let lastNameTextField = UITextField()
     
@@ -54,6 +55,10 @@ final class NewUserView: UIView {
         cameraButton.backgroundColor = .red
         cameraButton.setTitle(NSLocalizedString("RegisterButton_loc004", comment: ""), for: .normal)
         addSubview(cameraButton)
+        
+        contactsButton.backgroundColor = .red
+        contactsButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
+        addSubview(contactsButton)
     }
     
     func setupConstraints() {
@@ -77,9 +82,14 @@ final class NewUserView: UIView {
         lastNameTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.1)
         lastNameTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
+        contactsButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        contactsButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        contactsButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.4)
+        contactsButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
+        
         registerButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         registerButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        registerButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.4)
+        registerButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.6)
         registerButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
     }
 }
@@ -91,6 +101,10 @@ extension NewUserView {
     
     public func cameraButtonDidPress(_ target: Any?, action: Selector) {
         cameraButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    public func contactsButtonDidPress(_ target: Any?, action: Selector) {
+        contactsButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     public func addGestureRecognizerToSelectedImageView(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -107,6 +121,11 @@ extension NewUserView {
     
     public func userPhoto() -> UIImage? {
         return selectImageView.image
+    }
+    
+    public func setName(contactFirstName: String, contactLastName: String) {
+       firstNameTextField.text = contactFirstName
+        lastNameTextField.text = contactLastName
     }
     
     public func editUserSetupView(with user: UserModel) {

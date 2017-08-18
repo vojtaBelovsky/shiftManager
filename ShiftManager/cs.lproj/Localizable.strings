@@ -22,6 +22,7 @@
 "RegisterButton_loc003" = "Vytvořit";
 "RegisterButton_loc004" = "FOTO";
 "RegisterButton_loc005" = "Update";
+"RegisterButton_loc006" = "Kontakty";
 "RegisterAllert_loc001" = "Chyba";
 "RegisterAllert_loc002" = "Pole se jménem je prázdné";
 "RegisterAllert_loc003" = "Pole s příjmením je prázdné";

@@ -40,7 +40,15 @@ extension UserBarViewDataSource: UICollectionViewDataSource {
         } else {
             cell.isSelected = false
         }
-        cell.set(image: UserManager.sharedInstance.userForIndex(indexPath.row).userPhotoImage)
+        
+        let selectedUser = UserManager.sharedInstance.userForIndex(indexPath.row)
+        var initials: String
+        if let firstNameInicial = selectedUser.firstName.characters.first, let lastNameInicial = selectedUser.lastName.characters.first {
+            initials = "\(firstNameInicial)\(lastNameInicial)"
+        } else {
+            initials = ""
+        }
+        cell.set(with: UserManager.sharedInstance.userForIndex(indexPath.row).userPhotoImage, initials: initials)
         return cell
     }
 }

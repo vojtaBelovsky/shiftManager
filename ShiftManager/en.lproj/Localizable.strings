@@ -21,6 +21,7 @@
 "RegisterButton_loc003" = "Create";
 "RegisterButton_loc004" = "Camera";
 "RegisterButton_loc005" = "Update";
+"RegisterButton_loc006" = "Contacts";
 "RegisterAllert_loc001" = "Error";
 "RegisterAllert_loc002" = "First name field are empty";
 "RegisterAllert_loc003" = "Last name field are empty";
