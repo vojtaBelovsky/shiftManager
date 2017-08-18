@@ -35,6 +35,11 @@ extension UserBarViewDataSource: UICollectionViewDataSource {
                 assertionFailure("Non existing cell")
                 return UICollectionViewCell()
         }
+        if let selectedUserIndex = UserManager.sharedInstance.selectedUserIndex(), selectedUserIndex == indexPath.row  {
+            cell.isSelected = true
+        } else {
+            cell.isSelected = false
+        }
         cell.set(image: UserManager.sharedInstance.userForIndex(indexPath.row).userPhotoImage)
         return cell
     }

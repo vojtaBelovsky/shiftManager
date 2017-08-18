@@ -31,6 +31,8 @@ final class CalendarViewController: UIViewController {
         
         let deleteUser = NotificationCenter.default
         deleteUser.addObserver(self, selector: #selector(deleteUserNotificationHandler), name: deleteUserNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUserNotificationHandler), name: refreshUserViewNotification, object: nil)
 
         calendarView.calendarCollectionView.dataSource = calendarDataSource
         calendarView.calendarCollectionView.delegate = self

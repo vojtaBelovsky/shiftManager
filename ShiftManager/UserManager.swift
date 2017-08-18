@@ -82,7 +82,7 @@ extension UserManager {
     }
     
     public func deleteSelectedUser() {
-        guard let user = UserManager.sharedInstance.selectedUser, let index = users.index(of: user) else { return }
+        guard let user = selectedUser, let index = users.index(of: user) else { return }
         deleteUser(at: index)
     }
     
@@ -96,6 +96,13 @@ extension UserManager {
     
     public func userForIndex(_ index: Int) -> UserModel {
         return users[index]
+    }
+    
+    public func selectedUserIndex() -> Int? {
+        guard let user = selectedUser else {
+            return nil
+        }
+        return users.index(of: user)
     }
 }
 

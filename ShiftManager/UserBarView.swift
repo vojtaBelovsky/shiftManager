@@ -93,6 +93,7 @@ extension UserBarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLay
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         UserManager.sharedInstance.selectedUser = UserManager.sharedInstance.userForIndex(indexPath.row)
+        reloadData()
         NotificationCenter.default.post(name: refreshUserViewNotification, object: nil)
     }
 }
