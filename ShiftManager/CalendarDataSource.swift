@@ -62,6 +62,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
                     assertionFailure("Non existing cell")
                     return UICollectionViewCell()
             }
+            cell.isUserInteractionEnabled = false
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(
