@@ -113,7 +113,10 @@ extension NewUserViewController: UINavigationControllerDelegate, UIImagePickerCo
 extension NewUserViewController: CNContactPickerDelegate {
 
      public func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
-        let contactImage = contact.imageData
+        if let data = contact.imageData, let image = UIImage(data: data) {
+            newUserView.setImage(image)
+        }
+        
         newUserView.setName(contactFirstName: contact.familyName, contactLastName: contact.givenName)
     }
 }
