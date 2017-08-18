@@ -37,7 +37,7 @@ final class UserBarCollectionCell: UICollectionViewCell {
         photoImageView.layer.cornerRadius = 100.0
         photoImageView.layer.masksToBounds = true
         
-          }
+    }
     
     fileprivate func addSubviews() {
         contentView.addSubview(photoImageView)

@@ -81,6 +81,11 @@ extension UserManager {
         saveUsersToPersistentStorage()
     }
     
+    public func deleteSelectedUser() {
+        guard let user = UserManager.sharedInstance.selectedUser, let index = users.index(of: user) else { return }
+        deleteUser(at: index)
+    }
+    
     public func getUsers() -> [UserModel] {
         return users
     }
@@ -107,12 +112,11 @@ extension UserManager {
     }
 
     public func update() {
-        
+        //TODO: Not implemented in this version
     }
 
     public func deleteShift(at index: Int) {
         selectedUser?.shifts.remove(at: index)
-        saveUsersToPersistentStorage()
     }
 
     public func numberOfShifts() -> Int {

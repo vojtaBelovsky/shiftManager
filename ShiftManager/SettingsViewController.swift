@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 final class SettingsViewController: UIViewController {
     
     fileprivate let dataSource = SettingsTableViewDataSource()
@@ -42,30 +43,39 @@ final class SettingsViewController: UIViewController {
         
         let deleteUser = NotificationCenter.default
         deleteUser.addObserver(self, selector: #selector(deleteUserNotificationHandler), name: deleteUserNotification, object: nil)
+        
+        let refreshUserView = NotificationCenter.default
+        refreshUserView.addObserver(self, selector: #selector(refreshScreen), name: refreshUserViewNotification, object: nil)
     }
     
     func tableViewReloadData(){
         settingsView.tableView.reloadData()
     }
     
-    func deleteUserNotificationHandler(){
+    func deleteUserNotificationHandler() {
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
         tableViewReloadData()
     }
     
-    func newUserDidRegisterNotificationHandler(){
+    func newUserDidRegisterNotificationHandler() {
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
         tableViewReloadData()
     }
     
-    func updateUserNotificationHandler(){
+    func updateUserNotificationHandler() {
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
         tableViewReloadData()
     }
     
+    func refreshScreen() {
+        settingsView.userView.reloadData()
+        settingsView.userBarView.reloadData()
+        tableViewReloadData()
+    }
+
     func settingsButtonDidPress() {
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }

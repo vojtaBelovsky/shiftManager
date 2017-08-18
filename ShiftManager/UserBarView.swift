@@ -8,6 +8,8 @@
 
 import UIKit
 
+let refreshUserViewNotification = Notification.Name(rawValue:"RefreshUserViewProfil")
+
 final class UserBarView: UIView {
 
     fileprivate let stackView = UIStackView()
@@ -90,5 +92,6 @@ extension UserBarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLay
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         UserManager.sharedInstance.selectedUser = UserManager.sharedInstance.userForIndex(indexPath.row)
+        NotificationCenter.default.post(name: refreshUserViewNotification, object: nil)
     }
 }
