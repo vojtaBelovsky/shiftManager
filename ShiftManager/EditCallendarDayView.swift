@@ -41,7 +41,7 @@ final class EditCallendarDayView: UIView {
         dateLabel.textColor = .black
         addSubview(dateLabel)
         
-        shiftName.text = "Název vybrané šichty"
+        shiftName.text = "//TODO: Název vybrané šichty"
         shiftName.textColor = .black
         addSubview(shiftName)
         

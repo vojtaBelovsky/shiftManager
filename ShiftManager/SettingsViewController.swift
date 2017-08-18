@@ -39,10 +39,10 @@ final class SettingsViewController: UIViewController {
         newUserDidRegister.addObserver(self, selector: #selector(newUserDidRegisterNotificationHandler), name: newUserDidRegisterNotification, object: nil)
         
         let updateUser = NotificationCenter.default
-        updateUser.addObserver(self, selector: #selector(updateUserNotificationHandler), name: updateUserNotification, object: nil)
+        updateUser.addObserver(self, selector: #selector(deleteAndUpdateUserNotificationHandler), name: updateUserNotification, object: nil)
         
         let deleteUser = NotificationCenter.default
-        deleteUser.addObserver(self, selector: #selector(deleteUserNotificationHandler), name: deleteUserNotification, object: nil)
+        deleteUser.addObserver(self, selector: #selector(deleteAndUpdateUserNotificationHandler), name: deleteUserNotification, object: nil)
         
         let refreshUserView = NotificationCenter.default
         refreshUserView.addObserver(self, selector: #selector(refreshScreen), name: refreshUserViewNotification, object: nil)
@@ -52,7 +52,7 @@ final class SettingsViewController: UIViewController {
         settingsView.tableView.reloadData()
     }
     
-    func deleteUserNotificationHandler() {
+    func deleteAndUpdateUserNotificationHandler() {
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
         tableViewReloadData()
@@ -64,15 +64,8 @@ final class SettingsViewController: UIViewController {
         tableViewReloadData()
     }
     
-    func updateUserNotificationHandler() {
-        settingsView.userView.reloadData()
-        settingsView.userBarView.reloadData()
-        tableViewReloadData()
-    }
-    
     func refreshScreen() {
         settingsView.userView.reloadData()
-        settingsView.userBarView.reloadData()
         tableViewReloadData()
     }
 

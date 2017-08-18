@@ -39,6 +39,7 @@ final class UserBarView: UIView {
 
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
