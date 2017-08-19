@@ -10,7 +10,16 @@ import UIKit
 
 final class EditCallendarDayViewController: UIViewController {
     
-    fileprivate let editCallendarDayView = EditCallendarDayView()
+    fileprivate let editCallendarDayView: EditCallendarDayView
+    
+    init(with day: Date) {
+        editCallendarDayView = EditCallendarDayView(with: day)
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

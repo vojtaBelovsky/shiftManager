@@ -62,6 +62,7 @@ final class CalendarViewController: UIViewController {
 
 extension CalendarViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //TODO: zjistit den který odpovída selectnutemu cellu 
         navigationController?.pushViewController(EditCallendarDayViewController(), animated: true)
     }
     

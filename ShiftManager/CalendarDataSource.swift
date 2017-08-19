@@ -111,3 +111,11 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         return headerView
     }
 }
+
+extension CalendarDataSource {
+    convenience init(dateString:String) {
+        var date = Date()
+        date = date.adjust(.month, offset: IndexPath.init(row: Int, section: Int))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MMM-yyyy"
+}

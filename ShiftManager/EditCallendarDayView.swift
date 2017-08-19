@@ -22,6 +22,16 @@ final class EditCallendarDayView: UIView {
     
     init() {
         super.init(frame: .zero)
+        setup()
+    }
+    
+    init(with day: Date) {
+        super.init(frame: .zero)
+        setup()
+        // TODO: nastavit datum do labelu
+    }
+    
+    fileprivate func setup() {
         initializeViewsAndAddThemAsSubviews()
         todayDateForLabel()
         setupConstraints()
