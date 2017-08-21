@@ -28,7 +28,6 @@ final class EditCallendarDayView: UIView {
     init(with day: Date) {
         super.init(frame: .zero)
         setup()
-        // TODO: nastavit datum do labelu
         dateLabel.text = String(describing: day)
     }
     
