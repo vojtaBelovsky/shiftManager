@@ -12,12 +12,12 @@ import PureLayout
 final class NewShiftView: UIView {
     
     fileprivate let nameLabel = UILabel()
-    fileprivate let nameTextField = UITextField()
+    fileprivate let nameTextField = BoundedTextField()
+    fileprivate let shortcutTextField = BoundedTextField()
     fileprivate let selectFirstShiftDateLabel = UILabel()
     fileprivate let datePicker = UIDatePicker()
     fileprivate let intervalLabel = UILabel()
-    fileprivate let intervalTextField = UITextField()
-    fileprivate let shortcutTextField = UITextField()
+    fileprivate let intervalTextField = BoundedTextField()
     fileprivate let selectShiftColorButton = UIButton()
     
     init() {
@@ -37,9 +37,10 @@ final class NewShiftView: UIView {
         nameLabel.textColor = .black
         addSubview(nameLabel)
         
-        nameTextField.layer.borderColor = UIColor.black.cgColor
-        nameTextField.layer.borderWidth = 1
         addSubview(nameTextField)
+        
+        shortcutTextField.placeholder = NSLocalizedString("CreateNewShift_loc008", comment: "")
+        addSubview(shortcutTextField)
         
         selectFirstShiftDateLabel.text = NSLocalizedString("CreateNewShift_loc004", comment: "")
         selectFirstShiftDateLabel.textColor = .black
@@ -49,16 +50,9 @@ final class NewShiftView: UIView {
         intervalLabel.textColor = .black
         addSubview(intervalLabel)
         
-        intervalTextField.layer.borderColor = UIColor.black.cgColor
-        intervalTextField.layer.borderWidth = 1
         intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
         intervalTextField.keyboardType = UIKeyboardType.numberPad
         addSubview(intervalTextField)
-        
-        shortcutTextField.layer.borderColor = UIColor.black.cgColor
-        shortcutTextField.layer.borderWidth = 1
-        shortcutTextField.placeholder = NSLocalizedString("CreateNewShift_loc008", comment: "")
-        addSubview(shortcutTextField)
         
         selectShiftColorButton.backgroundColor = .white
         selectShiftColorButton.setTitle(NSLocalizedString("CreateNewShift_loc007", comment: ""), for: .normal)
