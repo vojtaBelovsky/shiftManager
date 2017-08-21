@@ -15,8 +15,8 @@ final class NewUserView: UIView {
     let registerButton = UIButton()
     fileprivate let cameraButton = UIButton()
     fileprivate let contactsButton = UIButton()
-    fileprivate let firstNameTextField = UITextField()
-    fileprivate let lastNameTextField = UITextField()
+    fileprivate let firstNameTextField = UpgradedTextField()
+    fileprivate let lastNameTextField = UpgradedTextField()
     
     init() {
         super.init(frame: .zero)
@@ -38,13 +38,11 @@ final class NewUserView: UIView {
         selectImageView.isUserInteractionEnabled = true
         addSubview(selectImageView)
         
-        firstNameTextField.layer.borderColor = UIColor.black.cgColor
-        firstNameTextField.layer.borderWidth = 1
+        firstNameTextField.awakeFromNib()
         firstNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc001", comment: "")
         addSubview(firstNameTextField)
         
-        lastNameTextField.layer.borderColor = UIColor.black.cgColor
-        lastNameTextField.layer.borderWidth = 1
+        lastNameTextField.awakeFromNib()
         lastNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc002", comment: "")
         addSubview(lastNameTextField)
         
