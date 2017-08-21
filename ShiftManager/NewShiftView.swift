@@ -41,6 +41,11 @@ final class NewShiftView: UIView {
         nameTextField.layer.borderWidth = 1
         addSubview(nameTextField)
         
+        shortcutTextField.layer.borderColor = UIColor.black.cgColor
+        shortcutTextField.layer.borderWidth = 1
+        shortcutTextField.placeholder = NSLocalizedString("CreateNewShift_loc008", comment: "")
+        addSubview(shortcutTextField)
+        
         selectFirstShiftDateLabel.text = NSLocalizedString("CreateNewShift_loc004", comment: "")
         selectFirstShiftDateLabel.textColor = .black
         addSubview(selectFirstShiftDateLabel)
@@ -54,11 +59,6 @@ final class NewShiftView: UIView {
         intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
         intervalTextField.keyboardType = UIKeyboardType.numberPad
         addSubview(intervalTextField)
-        
-        shortcutTextField.layer.borderColor = UIColor.black.cgColor
-        shortcutTextField.layer.borderWidth = 1
-        shortcutTextField.placeholder = NSLocalizedString("CreateNewShift_loc008", comment: "")
-        addSubview(shortcutTextField)
         
         selectShiftColorButton.backgroundColor = .white
         selectShiftColorButton.setTitle(NSLocalizedString("CreateNewShift_loc007", comment: ""), for: .normal)
