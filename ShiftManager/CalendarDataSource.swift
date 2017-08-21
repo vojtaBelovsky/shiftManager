@@ -44,16 +44,6 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         
         let numberOfEmptyCellsForSection = numberOfEmptyCells[indexPath.section]
         
-        _ = today.adjust(
-            hour: nil,
-            minute: nil,
-            second: nil,
-            day: (today.component(.day) ?? 0) + indexPath.row - numberOfEmptyCellsForSection,
-            month: (today.component(.month) ?? 0) + indexPath.section
-        )
-        
-     //   let shiftForCell = UserManager.sharedInstance.shiftForDate(dateForCell)
-        
         if numberOfEmptyCellsForSection > indexPath.row {
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: String(describing: CalendarEmtpyCollectionViewCell.self), for: indexPath)
@@ -78,7 +68,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         }
     }
     
-    func numberOfEmptyDays(date: Date) -> Int {
+    fileprivate func numberOfEmptyDays(date: Date) -> Int {
         return NSCalendar.current.component(.weekday, from: date.dateFor(.startOfMonth)) - 1
     }
     
@@ -113,9 +103,15 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
 }
 
 extension CalendarDataSource {
-    convenience init(dateString:String) {
-        var date = Date()
-        date = date.adjust(.month, offset: IndexPath.init(row: Int, section: Int))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MMM-yyyy"
+    func getDateForCell(at indexPath: IndexPath) -> Date? {
+        let dayIndex = indexPath.row - numberOfEmptyCells[indexPath.section] + 1
+        let monthIndex = ((today.component(.month) ?? 0) + indexPath.section)
+        
+        var components = DateComponents()
+        components.year = today.component(.year)
+        components.month = monthIndex
+        components.day = dayIndex
+
+        return Calendar(identifier: .gregorian).date(from: components)
+    }
 }
