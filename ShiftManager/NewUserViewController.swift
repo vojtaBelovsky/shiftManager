@@ -117,6 +117,6 @@ extension NewUserViewController: CNContactPickerDelegate {
             newUserView.setImage(image)
         }
         
-        newUserView.setName(contactFirstName: contact.familyName, contactLastName: contact.givenName)
+        newUserView.setName(contactLastName: contact.familyName, contactFirstName: contact.givenName)
     }
 }

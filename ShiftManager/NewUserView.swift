@@ -123,8 +123,8 @@ extension NewUserView {
         return selectImageView.image
     }
     
-    public func setName(contactFirstName: String, contactLastName: String) {
-       firstNameTextField.text = contactFirstName
+    public func setName(contactLastName: String, contactFirstName: String) {
+        firstNameTextField.text = contactFirstName
         lastNameTextField.text = contactLastName
     }
     
