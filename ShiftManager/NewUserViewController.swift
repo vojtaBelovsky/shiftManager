@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ContactsUI
 
 protocol NewUserViewControllerDelegate {
     func newUserViewController(_ controller: NewUserViewController, didRegisterUser: UserModel)
@@ -32,6 +33,7 @@ class NewUserViewController: UIViewController {
         newUserView.addGestureRecognizerToSelectedImageView(singleTap)
         newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
         newUserView.cameraButtonDidPress(self, action: #selector(cameraButtonDidPress))
+        newUserView.contactsButtonDidPress(self, action: #selector(contactsButtonDidPress))
     }
     
     func tapDetected() {
@@ -53,6 +55,12 @@ class NewUserViewController: UIViewController {
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    func contactsButtonDidPress(){
+        let contactPicker = CNContactPickerViewController()
+        contactPicker.delegate = self
+        self.present(contactPicker, animated: true, completion: nil)
     }
     
     func sendNotification() {
@@ -99,5 +107,16 @@ extension NewUserViewController: UINavigationControllerDelegate, UIImagePickerCo
         newUserView.setImage(newImage)
         
         dismiss(animated: true)
+    }
+}
+
+extension NewUserViewController: CNContactPickerDelegate {
+
+     public func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+        if let data = contact.imageData, let image = UIImage(data: data) {
+            newUserView.setImage(image)
+        }
+        
+        newUserView.setName(contactFirstName: contact.familyName, contactLastName: contact.givenName)
     }
 }

@@ -58,7 +58,7 @@ final class UserView: UIButton {
         userLastNameLabel.autoPinEdge(.top, to: .bottom, of: userFirstNameLabel)
         userLastNameLabel.autoPinEdge(.leading, to: .trailing, of: userPhotoImageView, withOffset: 10)
 
-        }
+    }
 }
     
 extension UserView {
