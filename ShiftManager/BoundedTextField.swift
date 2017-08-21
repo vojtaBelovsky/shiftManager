@@ -1,5 +1,5 @@
 //
-//  UpgradedTextField.swift
+//  BoundedTextField.swift
 //  ShiftManager
 //
 //  Created by Jiří Tomis on 21.08.17.
@@ -8,13 +8,17 @@
 
 import UIKit
 
-class UpgradedTextField: UITextField {
+class BoundedTextField: UITextField {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {

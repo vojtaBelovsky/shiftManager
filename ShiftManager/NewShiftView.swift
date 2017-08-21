@@ -12,12 +12,12 @@ import PureLayout
 final class NewShiftView: UIView {
     
     fileprivate let nameLabel = UILabel()
-    fileprivate let nameTextField = UpgradedTextField()
-    fileprivate let shortcutTextField = UpgradedTextField()
+    fileprivate let nameTextField = BoundedTextField()
+    fileprivate let shortcutTextField = BoundedTextField()
     fileprivate let selectFirstShiftDateLabel = UILabel()
     fileprivate let datePicker = UIDatePicker()
     fileprivate let intervalLabel = UILabel()
-    fileprivate let intervalTextField = UpgradedTextField()
+    fileprivate let intervalTextField = BoundedTextField()
     fileprivate let selectShiftColorButton = UIButton()
     
     init() {
@@ -37,10 +37,8 @@ final class NewShiftView: UIView {
         nameLabel.textColor = .black
         addSubview(nameLabel)
         
-        nameTextField.awakeFromNib()
         addSubview(nameTextField)
         
-        shortcutTextField.awakeFromNib()
         shortcutTextField.placeholder = NSLocalizedString("CreateNewShift_loc008", comment: "")
         addSubview(shortcutTextField)
         
@@ -52,7 +50,6 @@ final class NewShiftView: UIView {
         intervalLabel.textColor = .black
         addSubview(intervalLabel)
         
-        intervalTextField.awakeFromNib()
         intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
         intervalTextField.keyboardType = UIKeyboardType.numberPad
         addSubview(intervalTextField)
