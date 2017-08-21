@@ -10,16 +10,17 @@ import Foundation
 import UIKit
 
 final class EditCalendarDayModel: NSObject, NSCoding {
-    
-    var uniqueID: String = ""
+
     var freeDay : Bool = false
     var extraShifts : [ShiftModel] = []
     var note : String = ""
+    var date : Date?
+    
     
     fileprivate let freeDayPropertyKey = "freeDayPropertyKey"
     fileprivate let extraShiftPropertyKey = "extraShiftPropertyKey"
     fileprivate let notePropertyKey = "notePropertyKey"
-    fileprivate let userIDKey = "userIDKey"
+    fileprivate let datePropertyKey = "datePropertyKey"
     
     override init() {
         super.init()
@@ -39,10 +40,9 @@ final class EditCalendarDayModel: NSObject, NSCoding {
             self.note = note
         }
         
-        if let userID = aDecoder.decodeObject(forKey: userIDKey) as? String {
-            self.uniqueID = userID
+        if let date = aDecoder.decodeObject(forKey: datePropertyKey) as? Date {
+            self.date = date
         }
-
     }
     
     func encode(with aCoder: NSCoder) {
@@ -50,7 +50,9 @@ final class EditCalendarDayModel: NSObject, NSCoding {
         aCoder.encode(freeDayPropertyKey, forKey: freeDayPropertyKey)
         aCoder.encode(extraShifts, forKey: extraShiftPropertyKey)
         aCoder.encode(note, forKey: notePropertyKey)
-        aCoder.encode(uniqueID, forKey: userIDKey)
         
+        if let date = self.date{
+            aCoder.encode(date, forKey: datePropertyKey)
+        }        
     }
 }

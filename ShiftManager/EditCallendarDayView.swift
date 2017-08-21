@@ -142,7 +142,7 @@ extension EditCallendarDayView {
     }
     
     public func freeDay() -> Bool {
-        return true
+        return dayOffSwitch.isOn
     }
     
     public func notes() -> String {

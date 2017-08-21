@@ -11,7 +11,7 @@ import UIKit
 class EditDayManager: NSObject {
     
     fileprivate let defaults = UserDefaults.standard
-    fileprivate var editDay = [EditCalendarDayModel]()
+    fileprivate var editDays: [EditCalendarDayModel] = []
     fileprivate let editingDayKey = "editingDayKey"
     
     static let sharedInstance = EditDayManager()
@@ -23,7 +23,7 @@ class EditDayManager: NSObject {
         }
     
     fileprivate func saveEditingDayToPersistentStorage() {
-        let editAsData = editDay.map { (edit) -> Data in
+        let editAsData = editDays.map { (edit) -> Data in
             NSKeyedArchiver.archivedData(withRootObject: edit)
         }
         defaults.set(editAsData, forKey: editingDayKey)
@@ -31,12 +31,12 @@ class EditDayManager: NSObject {
     }
     
     fileprivate func loadEditingDayFromUserDefaults() {
-        var editDayArray = [EditCalendarDayModel]()
+        var editDayArray: [EditCalendarDayModel] = []
         if let EditCalendarDayModelsAsData = defaults.object(forKey: editingDayKey) as? [Data] {
             EditCalendarDayModelsAsData.forEach({ editModelData in
                 editDayArray.append(NSKeyedUnarchiver.unarchiveObject(with:editModelData) as! EditCalendarDayModel)
             })
         }
-        editDay = editDayArray
+        editDays = editDayArray
     }
 }

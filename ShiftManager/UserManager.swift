@@ -55,6 +55,7 @@ final class UserManager: NSObject {
     }
 }
 
+// MARK: UserManager
 extension UserManager {
     public func saveUser(user: UserModel) {
         if user.uniqueID.isEmpty {
@@ -106,7 +107,7 @@ extension UserManager {
     }
 }
 
-///////////////////////////////ShiftManager//////////////////////////////////////
+// MARK: ShiftManager
 extension UserManager {
     public func saveShift(shift: ShiftModel) {
         shift.uniqueID.isEmpty ? addNewShift(shift: shift) : update()
@@ -133,7 +134,7 @@ extension UserManager {
     public func shiftForIndex(_ index: Int) -> ShiftModel? {
         return selectedUser?.shifts[index]
     }
-    
+}
     /*
     public func shiftForDate(_ date: Date) -> ShiftModel? {
         var i = 0
@@ -149,4 +150,4 @@ extension UserManager {
         }
     }
  */
-}
+

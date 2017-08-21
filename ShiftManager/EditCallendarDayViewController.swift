@@ -11,6 +11,7 @@ import UIKit
 final class EditCallendarDayViewController: UIViewController {
     
     fileprivate let editCallendarDayView: EditCallendarDayView
+    fileprivate var extraShifts: [ShiftModel] = []
     
     init(with day: Date) {
         editCallendarDayView = EditCallendarDayView(with: day)
@@ -38,10 +39,28 @@ final class EditCallendarDayViewController: UIViewController {
     }
 
     func saveButtonDidPress() {
+        if let user = UserManager.sharedInstance.selectedUser {
+            let editCalendarDay = EditCalendarDayModel()
+            editCalendarDay.freeDay = editCallendarDayView.freeDay()
+            editCalendarDay.extraShifts = extraShifts
+            editCalendarDay.note = editCallendarDayView.notes()
+            user.editCalendarDay = editCalendarDay
+            //editCalendarDay.date = //TODO
+            UserManager.sharedInstance.update(User: user)
+        }
+
         _ = navigationController?.popViewController(animated: true)
     }
     
     func setActionForShiftButton() {
-        navigationController?.pushViewController(ExtraShiftViewController(), animated: true)
+        let extraShiftViewController = ExtraShiftViewController()
+        extraShiftViewController.delegate = self
+        navigationController?.pushViewController(extraShiftViewController, animated: true)
+    }
+}
+
+extension EditCallendarDayViewController: ExtraShiftViewControllerDelegate {
+    func setExtraShifts(extraShifts: [ShiftModel]) {
+        self.extraShifts = extraShifts
     }
 }

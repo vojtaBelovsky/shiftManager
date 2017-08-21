@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol ExtraShiftViewControllerDelegate: class {
+    func setExtraShifts(extraShifts: [ShiftModel])
+}
+
 final class ExtraShiftViewController: UIViewController {
 
     fileprivate let extraShiftView = ExtraShiftView()
     fileprivate let dataSource = ExtraShiftDataSource()
-    let tableView = UITableView()
+    
+    public weak var delegate: ExtraShiftViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +38,13 @@ final class ExtraShiftViewController: UIViewController {
     }
     
     func doneButtonDidPress(){
-     _ = navigationController?.popViewController(animated: true)
+        let extraShifts = extraShiftView.tableView.indexPathsForSelectedRows?.flatMap {
+            UserManager.sharedInstance.shiftForIndex($0.row)
+        }
+
+        delegate?.setExtraShifts(extraShifts: extraShifts ?? [])
+        
+        _ = navigationController?.popViewController(animated: true)
     }
     
     override func didReceiveMemoryWarning() {
