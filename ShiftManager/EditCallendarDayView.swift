@@ -3,7 +3,7 @@
 //  ShiftManager
 //
 //  Created by Tadeusz Raszka on 08.08.17.
-//  Copyright © 2017 Tadeusz Raszka. All rights reserved.
+//  Copyright © 2017 iDevBand. All rights reserved.
 //
 
 import UIKit
@@ -125,7 +125,7 @@ final class EditCallendarDayView: UIView {
     
     fileprivate func todayDateForLabel() {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy, EEEE"
+        formatter.dateFormat = "dd.MM.yyyy"
         dateLabel.text = "\(formatter.string(from: Date()))"
     }
     

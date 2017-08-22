@@ -3,7 +3,7 @@
 //  ShiftManager
 //
 //  Created by Tadeusz Raszka on 16.08.17.
-//  Copyright © 2017 Tadeusz Raszka. All rights reserved.
+//  Copyright © 2017 iDevBand. All rights reserved.
 //
 
 import Foundation

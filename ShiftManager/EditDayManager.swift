@@ -3,7 +3,7 @@
 //  ShiftManager
 //
 //  Created by Daniel Krezelok on 21/08/2017.
-//  Copyright © 2017 Tadeusz Raszka. All rights reserved.
+//  Copyright © 2017 iDevBand. All rights reserved.
 //
 
 import UIKit
