@@ -16,8 +16,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     
     fileprivate var date: Date? {
         didSet {
-            //Naformatuješ Date na string a nastavíš ten text dayLabelu
-            print("Nastavil se den!!")
+            setDayTitle()
         }
     }
     
@@ -71,6 +70,11 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         relayLabel.layer.cornerRadius = contentView.bounds.size.height/4;
+    }
+    
+    fileprivate func setDayTitle() {
+        guard let date = date, let dayIndex = date.component(.day) else { return }
+        dayLabel.text = String(dayIndex)
     }
 }
 

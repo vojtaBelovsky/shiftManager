@@ -36,7 +36,7 @@
 "NewShiftAllert_loc006" = "Zkratka je příliš dlouha nebo pole je prázdné";
 //Edit Callendar Day
 "BasicInfo_loc001" = "Základní informace:";
-"ExtraShiftButton_loc001" = "Vytvořit extra šichta";
+"ExtraShiftButton_loc001" = "Upravit extra šichta";
 "EditCallendarDayViewTitle_loc001" = "Úprava dne";
 "EditCallendarDayViewTitle_loc002" = "Vyberte šichtu";
 "DayOffLabel_loc001" = "Dovolená";

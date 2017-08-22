@@ -34,7 +34,7 @@
 "NewShiftAllert_loc006" = "Shortcut is too long or field are empty";
 //Edit Callendar Day
 "BasicInfo_loc001" = "Basic info:";
-"ExtraShiftButton_loc001" = "Create extra shift";
+"ExtraShiftButton_loc001" = "Manage extra shift";
 "EditCallendarDayViewTitle_loc001" = "Edit day";
 "EditCallendarDayViewTitle_loc002" = "Select shift";
 "DayOffLabel_loc001" = "Holiday";

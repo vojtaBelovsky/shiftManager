@@ -85,6 +85,14 @@
          contextName = "UserManager.update(User : UserModel) -&gt; ():UserManager.swift">
       </ContextState>
       <ContextState
+         contextName = "CalendarCollectionViewCell.setDayTitle() -&gt; ():CalendarCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dateFormatter.string(from: date)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CalendarDataSource.getDateForCell(at : IndexPath) -&gt; Date?:CalendarDataSource.swift">
          <PersistentStrings>
             <PersistentString
