@@ -26,6 +26,7 @@ class NewUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgesForExtendedLayout = .bottom
         title = NSLocalizedString("RegisterTitle_loc001", comment: "")
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(NewUserViewController.tapDetected))

@@ -11,12 +11,16 @@ import PureLayout
 
 final class NewUserView: UIView {
     
+    fileprivate let selectImageViewContainer = UIView()
     fileprivate let selectImageView = UIImageView()
     let registerButton = UIButton()
     fileprivate let cameraButton = UIButton()
     fileprivate let contactsButton = UIButton()
     fileprivate let firstNameTextField = BoundedTextField()
     fileprivate let lastNameTextField = BoundedTextField()
+    fileprivate let stackView = UIStackView()
+    
+    let profileImgSize: CGFloat = 100.0
     
     init() {
         super.init(frame: .zero)
@@ -31,62 +35,59 @@ final class NewUserView: UIView {
     func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
         
+        stackView.axis = .vertical
+        stackView.distribution = .equalCentering
+        addSubviewToStackView()
+        addSubview(stackView)
+        
         selectImageView.layer.borderWidth = 4
         selectImageView.layer.borderColor = UIColor.black.cgColor
-        selectImageView.layer.cornerRadius = 75.0
+        selectImageView.layer.cornerRadius = profileImgSize / 2
+        selectImageView.clipsToBounds = true
         selectImageView.layer.masksToBounds = true
         selectImageView.isUserInteractionEnabled = true
-        addSubview(selectImageView)
         
         firstNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc001", comment: "")
-        addSubview(firstNameTextField)
         
         lastNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc002", comment: "")
-        addSubview(lastNameTextField)
         
         registerButton.backgroundColor = .red
         registerButton.setTitle(NSLocalizedString("RegisterButton_loc003", comment: ""), for: .normal)
-        addSubview(registerButton)
         
         cameraButton.backgroundColor = .red
         cameraButton.setTitle(NSLocalizedString("RegisterButton_loc004", comment: ""), for: .normal)
-        addSubview(cameraButton)
         
         contactsButton.backgroundColor = .red
         contactsButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
-        addSubview(contactsButton)
+    }
+    
+    fileprivate func addSubviewToStackView() {
+        selectImageViewContainer.addSubview(selectImageView)
+        [
+            selectImageViewContainer, getSpaceView(), cameraButton, firstNameTextField, lastNameTextField, getSpaceView(), registerButton, contactsButton
+        ].forEach { subview in
+            stackView.addArrangedSubview(subview)
+        }
     }
     
     func setupConstraints() {
-        selectImageView.autoPinEdge(toSuperviewEdge: .leading, withInset: 130)
-        selectImageView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 130)
-        selectImageView.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.4)
-        selectImageView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.2)
         
-        cameraButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 130)
-        cameraButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 130)
-        cameraButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.68)
-        cameraButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
+        stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        stackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        stackView.autoPinEdge(toSuperviewEdge: .top, withInset: 10)
         
-        firstNameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        firstNameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        firstNameTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.9)
-        firstNameTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
+        selectImageView.autoSetDimension(.width, toSize: profileImgSize)
+        selectImageView.autoSetDimension(.height, toSize: profileImgSize)
+        selectImageView.autoPinEdge(toSuperviewEdge: .top)
+        selectImageView.autoPinEdge(toSuperviewEdge: .bottom)
+        selectImageView.autoAlignAxis(toSuperviewAxis: .vertical)
+    }
+    
+    fileprivate func getSpaceView() -> UIView {
+        let spaceView = UIView()
+        spaceView.autoSetDimension(.height, toSize: 5)
         
-        lastNameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        lastNameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        lastNameTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.1)
-        lastNameTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
-        
-        contactsButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        contactsButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        contactsButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.4)
-        contactsButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
-        
-        registerButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        registerButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        registerButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.6)
-        registerButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
+        return spaceView
     }
 }
 
