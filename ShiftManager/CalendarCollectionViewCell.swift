@@ -14,6 +14,12 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     fileprivate let relayLabel = UILabel()
     fileprivate let cellView = UIView()
     
+    fileprivate var date: Date? {
+        didSet {
+            setDayTitle()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -65,10 +71,16 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         relayLabel.layer.cornerRadius = contentView.bounds.size.height/4;
     }
+    
+    fileprivate func setDayTitle() {
+        guard let date = date, let dayIndex = date.component(.day) else { return }
+        dayLabel.text = String(dayIndex)
+    }
 }
 
 extension CalendarCollectionViewCell {
-    func setDayLabelTitle(title: String) {
-        dayLabel.text = title
+
+    func setDate(date: Date?) {
+        self.date = date
     }
 }

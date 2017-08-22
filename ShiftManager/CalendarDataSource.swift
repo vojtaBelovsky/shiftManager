@@ -63,7 +63,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
                     return UICollectionViewCell()
             }
             
-            cell.setDayLabelTitle(title: "\(indexPath.row - numberOfEmptyCellsForSection + 1)")
+            cell.setDate(date: getDateForCell(at: indexPath))
             return cell
         }
     }
