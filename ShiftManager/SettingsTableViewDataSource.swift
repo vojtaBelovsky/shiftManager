@@ -17,10 +17,11 @@ final class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
             assertionFailure("Non existing cell")
             return UITableViewCell()
         }
-
+        
         let shiftModel = UserManager.sharedInstance.shiftForIndex(indexPath.row)
         let formatString = String(format: NSLocalizedString("GeneralShiftName_loc001", comment: ""), shiftModel?.name ?? "", shiftModel?.shortcut ?? "")
-        let viewModel = ShiftViewModel(title: formatString)
+        let viewModel = ShiftViewModel(title: formatString, color: shiftModel?.color)
+        
         cell.setup(with: viewModel)
 
         return cell
@@ -40,6 +41,4 @@ final class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return UserManager.sharedInstance.numberOfShifts()
     }
-    
-    
 }

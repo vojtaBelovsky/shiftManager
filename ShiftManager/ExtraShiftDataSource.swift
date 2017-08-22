@@ -20,10 +20,10 @@ final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
         }
         
         let shiftModel = UserManager.sharedInstance.shiftForIndex(indexPath.row)
-        let formatString = String(format: NSLocalizedString("GeneralShiftName_loc001", comment: ""), shiftModel?.name ?? "", shiftModel?.shortcut ?? "")
-        let viewModel = ShiftViewModel(title: formatString)
+        let formatString = String(format: NSLocalizedString("GeneralShiftName_loc001", comment: ""), shiftModel?.name ?? "", shiftModel?.shortcut ?? "", shiftModel?.color ?? cell)
+        let viewModel = ShiftViewModel(title: formatString, color: shiftModel?.color)
         cell.setup(with: viewModel)
-
+        
         return cell
     }
     

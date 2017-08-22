@@ -14,6 +14,13 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     fileprivate let relayLabel = UILabel()
     fileprivate let cellView = UIView()
     
+    fileprivate var date: Date? {
+        didSet {
+            //Naformatuješ Date na string a nastavíš ten text dayLabelu
+            print("Nastavil se den!!")
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -68,7 +75,8 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
 }
 
 extension CalendarCollectionViewCell {
-    func setDayLabelTitle(title: String) {
-        dayLabel.text = title
+
+    func setDate(date: Date?) {
+        self.date = date
     }
 }

@@ -30,7 +30,7 @@ final class UserView: UIButton {
         backgroundColor = .white
         userPhotoImageView.layer.borderWidth = 2
         userPhotoImageView.layer.borderColor = UIColor.black.cgColor
-        userPhotoImageView.layer.cornerRadius = 75.0
+        userPhotoImageView.layer.cornerRadius = 50.0
         userPhotoImageView.layer.masksToBounds = true
         userPhotoImageView.isUserInteractionEnabled = false
         addSubview(userPhotoImageView)
