@@ -145,11 +145,8 @@ extension EditCallendarDayView {
         shiftNameLabel.text = name
     }
     
-    public func setNote(value: String) {
-        return note.text = value
-    }
-    
-    public func setSwitchValue(value: Bool) {
-        return dayOffSwitch.isOn = value
+    public func setupView(with model: EditCalendarDayModel) {
+        note.text = model.note
+        dayOffSwitch.isOn = model.freeDay
     }
 }

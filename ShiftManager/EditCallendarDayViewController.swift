@@ -47,9 +47,8 @@ final class EditCallendarDayViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         
         editCallendarDayView.setActionForShiftButton(self, action: #selector(setActionForShiftButton))
-     
-        editCallendarDayView.setSwitchValue(value: UserManager.sharedInstance.selectedUser?.editCalendarDays[date]?.freeDay ?? false)
-        editCallendarDayView.setNote(value: UserManager.sharedInstance.selectedUser?.editCalendarDays[date]?.note ?? "")
+        
+        setupViewData()
     }
     
     override func loadView() {
@@ -66,7 +65,10 @@ final class EditCallendarDayViewController: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
     
-    
+    fileprivate func setupViewData() {
+        guard let model = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] else { return }
+        editCallendarDayView.setupView(with: model)
+    }
     
     func setActionForShiftButton() {
         let extraShiftViewController = ExtraShiftViewController()
