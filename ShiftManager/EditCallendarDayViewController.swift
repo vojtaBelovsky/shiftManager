@@ -22,14 +22,14 @@ final class EditCallendarDayViewController: UIViewController {
         }
         set(newValue) {
             _date = newValue
-            editCallendarDayView.setDate(date: _date)
+            editCallendarDayView.setDate(date: newValue)
         }
     }
     
     init(with day: Date) {
         _date = day
         super.init(nibName: nil, bundle: nil)
-        self.date = day
+        date = day
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -58,8 +58,8 @@ final class EditCallendarDayViewController: UIViewController {
             editCalendarDay.freeDay = editCallendarDayView.freeDay()
             editCalendarDay.extraShifts = extraShifts
             editCalendarDay.note = editCallendarDayView.notes()
+            editCalendarDay.date = date
             user.editCalendarDay = [editCalendarDay]
-//            editCalendarDay.date = //TODO
             UserManager.sharedInstance.update(User: user)
         }
 
