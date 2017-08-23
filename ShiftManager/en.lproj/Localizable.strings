@@ -36,10 +36,12 @@
 "BasicInfo_loc001" = "Basic info:";
 "ExtraShiftButton_loc001" = "Manage extra shift";
 "EditCallendarDayViewTitle_loc001" = "Edit day";
-"EditCallendarDayViewTitle_loc002" = "Select shift";
+"EditCallendarDayViewTitle_loc002" = "Select extra shift";
 "DayOffLabel_loc001" = "Holiday";
 "NoteLabel_loc001" = "Your notes";
 //SHARE
 "AddFriendButton_loc001" = "+";
-//General
-"GeneralShiftName_loc001" = "Shift %@ (%@)";
+//ShiftName
+"ShiftName_loc001" = "Shift %@ (%@)";
+//ExtraShiftName
+"ExtraShiftName_loc001" = "ExtraShift %@ (%@)";

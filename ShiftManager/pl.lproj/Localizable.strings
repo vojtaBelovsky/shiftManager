@@ -36,10 +36,12 @@
 "BasicInfo_loc001" = "Podstawowe info:";
 "ExtraShiftButton_loc001" = "Stwórz ekstra zmiana";
 "EditCallendarDayViewTitle_loc001" = "Edytacja dnia";
-"EditCallendarDayViewTitle_loc002" = "Wybierz zmiane";
+"EditCallendarDayViewTitle_loc002" = "Wybierz extra zmiane";
 "DayOffLabel_loc001" = "Urlop";
 "NoteLabel_loc001" = "Twoje notatki";
 //SHARE
 "AddFriendButton_loc001" = "+";
-//General
-"GeneralShiftName_loc001" = "Zmiana %@ (%@)";
+//ShiftName
+"ShiftName_loc001" = "Zmiana %@ (%@)";
+//ExtraShiftName
+"ExtraShiftName_loc001" = "Extra Zmiana %@ (%@)";

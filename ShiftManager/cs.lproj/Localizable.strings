@@ -38,10 +38,12 @@
 "BasicInfo_loc001" = "Základní informace:";
 "ExtraShiftButton_loc001" = "Upravit extra šichta";
 "EditCallendarDayViewTitle_loc001" = "Úprava dne";
-"EditCallendarDayViewTitle_loc002" = "Vyberte šichtu";
+"EditCallendarDayViewTitle_loc002" = "Vyberte extra šichtu";
 "DayOffLabel_loc001" = "Dovolená";
 "NoteLabel_loc001" = "Vaše poznámky";
 //SHARE
 "AddFriendButton_loc001" = "+";
-//General
-"GeneralShiftName_loc001" = "Směna %@ (%@)";
+//ShiftName
+"ShiftName_loc001" = "Směna %@ (%@)";
+//ExtraShiftName
+"ExtraShiftName_loc001" = "Extra Směna %@ (%@)";
