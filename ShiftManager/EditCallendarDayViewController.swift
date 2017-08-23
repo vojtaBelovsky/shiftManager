@@ -3,7 +3,7 @@
 //  ShiftManager
 //
 //  Created by Tadeusz Raszka on 08.08.17.
-//  Copyright © 2017 Tadeusz Raszka. All rights reserved.
+//  Copyright © 2017 iDevBand. All rights reserved.
 //
 
 import UIKit
@@ -12,6 +12,12 @@ final class EditCallendarDayViewController: UIViewController {
     
     fileprivate let editCallendarDayView: EditCallendarDayView
     fileprivate var extraShifts: [ShiftModel] = []
+    
+    fileprivate var date: Date? {
+        didSet{
+            
+        }
+    }
     
     init(with day: Date) {
         editCallendarDayView = EditCallendarDayView(with: day)
@@ -45,7 +51,7 @@ final class EditCallendarDayViewController: UIViewController {
             editCalendarDay.extraShifts = extraShifts
             editCalendarDay.note = editCallendarDayView.notes()
             user.editCalendarDay = editCalendarDay
-            //editCalendarDay.date = //TODO
+//            editCalendarDay.date = 
             UserManager.sharedInstance.update(User: user)
         }
 

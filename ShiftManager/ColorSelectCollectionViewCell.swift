@@ -3,7 +3,7 @@
 //  
 //
 //  Created by Tadeusz Raszka on 13.07.17.
-//
+//  Copyright © 2017 iDevBand. All rights reserved.
 //
 
 import UIKit
