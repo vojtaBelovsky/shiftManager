@@ -15,7 +15,6 @@ class BoundedTextField: UITextField, UITextFieldDelegate {
         
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1
-        delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,11 +27,5 @@ class BoundedTextField: UITextField, UITextFieldDelegate {
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: 10, dy: 5)
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return true }
-        let newLength = text.characters.count + string.characters.count - range.length
-        return newLength <= 20 // Bool
     }
 }

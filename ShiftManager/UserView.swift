@@ -38,11 +38,13 @@ final class UserView: UIButton {
         userFirstNameLabel.textColor = .black
         userFirstNameLabel.backgroundColor = .red
         userFirstNameLabel.isUserInteractionEnabled = false
+        userFirstNameLabel.numberOfLines = 2
         addSubview(userFirstNameLabel)
         
         userLastNameLabel.textColor = .black
         userLastNameLabel.backgroundColor = .red
         userLastNameLabel.isUserInteractionEnabled = false
+        userLastNameLabel.numberOfLines = 2
         addSubview(userLastNameLabel)
     }
 
@@ -54,9 +56,11 @@ final class UserView: UIButton {
         
         userFirstNameLabel.autoPinEdge(.top, to: .top, of: userPhotoImageView)
         userFirstNameLabel.autoPinEdge(.leading, to: .trailing, of: userPhotoImageView, withOffset: 10)
+        userFirstNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
-        userLastNameLabel.autoPinEdge(.top, to: .bottom, of: userFirstNameLabel)
+        userLastNameLabel.autoPinEdge(.top, to: .bottom, of: userFirstNameLabel, withOffset: Spacing.VerticalSpacing/2)
         userLastNameLabel.autoPinEdge(.leading, to: .trailing, of: userPhotoImageView, withOffset: 10)
+        userLastNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
 
     }
 }
