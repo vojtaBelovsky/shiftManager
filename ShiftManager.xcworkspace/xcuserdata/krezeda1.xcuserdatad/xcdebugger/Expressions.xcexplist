@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "EditCallendarDayViewController.viewDidLoad() -&gt; ():EditCallendarDayViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserManager.sharedInstance.selectedUser?.editCalendarDays[date]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserBarView.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():UserBarView.swift">
          <PersistentStrings>
             <PersistentString

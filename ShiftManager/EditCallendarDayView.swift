@@ -16,7 +16,7 @@ final class EditCallendarDayView: UIView {
     fileprivate let shiftNameLabel = UILabel()
     fileprivate let extraShiftButton = UIButton()
     fileprivate let dayOffLabel = UILabel()
-    fileprivate let dayOffSwitch = UISwitch()
+    fileprivate var dayOffSwitch = UISwitch()
     fileprivate let noteLabel = UILabel()
     fileprivate let note = UITextView()
     
@@ -143,5 +143,13 @@ extension EditCallendarDayView {
     
     public func setShiftName(_ name: String) {
         shiftNameLabel.text = name
+    }
+    
+    public func setNote(value: String) {
+        return note.text = value
+    }
+    
+    public func setSwitchValue(value: Bool) {
+        return dayOffSwitch.isOn = value
     }
 }

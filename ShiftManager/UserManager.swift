@@ -107,7 +107,7 @@ extension UserManager {
     }
 }
 
-// MARK: ShiftManager
+// MARK: Shift manament
 extension UserManager {
     public func saveShift(shift: ShiftModel) {
         shift.uniqueID.isEmpty ? addNewShift(shift: shift) : update()
@@ -134,20 +134,31 @@ extension UserManager {
     public func shiftForIndex(_ index: Int) -> ShiftModel? {
         return selectedUser?.shifts[index]
     }
+    
+//    public func shiftForDate(_ date: Date) -> ShiftModel? {
+//        var i = 0
+//        for (var j = 0, j < 100, j++) {
+//            selectedUser?.shifts.forEach({ shiftModel in
+//                if shiftModel.date!.compare(.isEarlier(than: date)) {
+//                    var adjustedDate = shiftModel.date!.adjust(.day, offset: i*shiftModel.interval)
+//                } else {
+//                    
+//                }
+//            })
+//            i++
+//        }
+//    }
 }
-    /*
-    public func shiftForDate(_ date: Date) -> ShiftModel? {
-        var i = 0
-        for (var j = 0, j < 100, j++) {
-            selectedUser?.shifts.forEach({ shiftModel in
-                if shiftModel.date!.compare(.isEarlier(than: date)) {
-                    var adjustedDate = shiftModel.date!.adjust(.day, offset: i*shiftModel.interval)
-                } else {
-                    
-                }
-            })
-            i++
-        }
+
+// MARK: EditCalendarDay managment
+extension UserManager {
+    public func saveEditCalendarDayModel(_ editCalendarDay: EditCalendarDayModel) {
+        guard let selectedUser = selectedUser, let date = editCalendarDay.date else { return }
+        selectedUser.editCalendarDays[date] = editCalendarDay
+        saveUsersToPersistentStorage()
     }
- */
+}
+
+
+
 

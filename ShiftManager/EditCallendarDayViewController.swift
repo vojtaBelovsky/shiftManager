@@ -11,6 +11,7 @@ import UIKit
 final class EditCallendarDayViewController: UIViewController {
     
     fileprivate let editCallendarDayView = EditCallendarDayView()
+    fileprivate var editCalendarDay = EditCalendarDayModel()
     fileprivate var extraShifts: [ShiftModel] = []
     
     // WARNING: DIRTY HACK - because DidSet was not called in this case, so Get and Set func was implemented!!!
@@ -46,6 +47,9 @@ final class EditCallendarDayViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         
         editCallendarDayView.setActionForShiftButton(self, action: #selector(setActionForShiftButton))
+     
+        editCallendarDayView.setSwitchValue(value: UserManager.sharedInstance.selectedUser?.editCalendarDays[date]?.freeDay ?? false)
+        editCallendarDayView.setNote(value: UserManager.sharedInstance.selectedUser?.editCalendarDays[date]?.note ?? "")
     }
     
     override func loadView() {
@@ -53,18 +57,16 @@ final class EditCallendarDayViewController: UIViewController {
     }
 
     func saveButtonDidPress() {
-        if let user = UserManager.sharedInstance.selectedUser {
-            let editCalendarDay = EditCalendarDayModel()
-            editCalendarDay.freeDay = editCallendarDayView.freeDay()
-            editCalendarDay.extraShifts = extraShifts
-            editCalendarDay.note = editCallendarDayView.notes()
-            editCalendarDay.date = date
-            user.editCalendarDay = [editCalendarDay]
-            UserManager.sharedInstance.update(User: user)
-        }
+        editCalendarDay.freeDay = editCallendarDayView.freeDay()
+        editCalendarDay.extraShifts = extraShifts
+        editCalendarDay.note = editCallendarDayView.notes()
+        editCalendarDay.date = date
+        UserManager.sharedInstance.saveEditCalendarDayModel(editCalendarDay)
 
         _ = navigationController?.popViewController(animated: true)
     }
+    
+    
     
     func setActionForShiftButton() {
         let extraShiftViewController = ExtraShiftViewController()

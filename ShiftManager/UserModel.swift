@@ -12,18 +12,18 @@ import UIKit
 final class UserModel: NSObject, NSCoding {
     
     var shifts: [ShiftModel] = []
-    var editCalendarDay: [EditCalendarDayModel] = []
+    var editCalendarDays: [Date: EditCalendarDayModel] = [:]
     var uniqueID: String = ""
     var userPhotoImage: UIImage?
     var firstName: String = ""
     var lastName: String = ""
-
+    
     fileprivate let userPhotoImagePropertyKey = "userPhotoImagePropertyKey"
     fileprivate let firstNamePropertyKey = "firstNamePropertyKey"
     fileprivate let lastNamePropertyKey = "lastNamePropertyKey"
     fileprivate let userIDKey = "userIDKey"
     fileprivate let shitsPropertyKey = "shitsPropertyKey"
-    fileprivate let extraShiftsPropertyKey = "extraShiftsPropertyKey"
+    fileprivate let editCalendarDaysPropertyKey = "editCalendarDaysPropertyKey"
 
     override init() {
         super.init()
@@ -51,8 +51,8 @@ final class UserModel: NSObject, NSCoding {
             self.shifts = shifts
         }
         
-        if let editCalendarDay = aDecoder.decodeObject(forKey: extraShiftsPropertyKey) as? [EditCalendarDayModel] {
-            self.editCalendarDay = editCalendarDay
+        if let editCalendarDays = aDecoder.decodeObject(forKey: editCalendarDaysPropertyKey) as? [Date: EditCalendarDayModel] {
+            self.editCalendarDays = editCalendarDays
         }
     }
     
@@ -63,6 +63,6 @@ final class UserModel: NSObject, NSCoding {
         aCoder.encode(lastName, forKey: lastNamePropertyKey)
         aCoder.encode(uniqueID, forKey: userIDKey)
         aCoder.encode(shifts, forKey: shitsPropertyKey)
-        aCoder.encode(editCalendarDay, forKey: extraShiftsPropertyKey)
+        aCoder.encode(editCalendarDays, forKey: editCalendarDaysPropertyKey)
     }
 }
