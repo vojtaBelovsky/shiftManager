@@ -12,7 +12,7 @@ import UIKit
 final class UserModel: NSObject, NSCoding {
     
     var shifts: [ShiftModel] = []
-    var editCalendarDay: EditCalendarDayModel?
+    var editCalendarDay: [EditCalendarDayModel] = []
     var uniqueID: String = ""
     var userPhotoImage: UIImage?
     var firstName: String = ""
@@ -51,7 +51,7 @@ final class UserModel: NSObject, NSCoding {
             self.shifts = shifts
         }
         
-        if let editCalendarDay = aDecoder.decodeObject(forKey: extraShiftsPropertyKey) as? EditCalendarDayModel? {
+        if let editCalendarDay = aDecoder.decodeObject(forKey: extraShiftsPropertyKey) as? [EditCalendarDayModel] {
             self.editCalendarDay = editCalendarDay
         }
     }

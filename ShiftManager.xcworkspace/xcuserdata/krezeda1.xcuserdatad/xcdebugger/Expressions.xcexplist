@@ -38,7 +38,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NewUserViewController.registerButtonDidPress() -&gt; ():NewUserViewController.swift">
+         contextName = "EditCallendarDayViewController.saveButtonDidPress() -&gt; ():EditCallendarDayViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserManager.sharedInstance.selectedUser">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "ExtraShiftDataSource.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:ExtraShiftDataSource.swift">
@@ -49,12 +54,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "EditCallendarDayViewController.saveButtonDidPress() -&gt; ():EditCallendarDayViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UserManager.sharedInstance.selectedUser">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "NewUserViewController.registerButtonDidPress() -&gt; ():NewUserViewController.swift">
       </ContextState>
       <ContextState
          contextName = "CalendarDataSource.getDateForCell(at : IndexPath) -&gt; Date:CalendarDataSource.swift">

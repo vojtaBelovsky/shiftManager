@@ -25,15 +25,8 @@ final class EditCallendarDayView: UIView {
         setup()
     }
     
-    init(with day: Date) {
-        super.init(frame: .zero)
-        setup()
-        dateLabel.text = String(describing: day)
-    }
-    
     fileprivate func setup() {
         initializeViewsAndAddThemAsSubviews()
-        todayDateForLabel()
         setupConstraints()
     }
     
@@ -122,13 +115,7 @@ final class EditCallendarDayView: UIView {
         note.autoMatch(.height, to: .height, of: self, withMultiplier: 0.2)
         
     }
-    
-    fileprivate func todayDateForLabel() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        dateLabel.text = "\(formatter.string(from: Date()))"
-    }
-    
+ 
     func switchValueDidChange(sender: UISwitch) {
         extraShiftButton.isEnabled = !dayOffSwitch.isOn
         extraShiftButton.backgroundColor = dayOffSwitch.isOn ? UIColor.red.withAlphaComponent(0.3) : .red
@@ -147,5 +134,11 @@ extension EditCallendarDayView {
     
     public func notes() -> String {
         return self.note.text ?? ""
+    }
+    
+    public func setDate(date: Date) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d.M.yyyy"
+        dateLabel.text = "\(formatter.string(from: date))"
     }
 }

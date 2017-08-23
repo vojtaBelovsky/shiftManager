@@ -10,18 +10,26 @@ import UIKit
 
 final class EditCallendarDayViewController: UIViewController {
     
-    fileprivate let editCallendarDayView: EditCallendarDayView
+    fileprivate let editCallendarDayView = EditCallendarDayView()
     fileprivate var extraShifts: [ShiftModel] = []
     
-    fileprivate var date: Date? {
-        didSet{
-            
+    // WARNING: DIRTY HACK - because DidSet was not called in this case, so Get and Set func was implemented!!!
+    // Probably would be better to get rid of it
+    fileprivate var _date: Date
+    fileprivate var date: Date {
+        get {
+            return _date
+        }
+        set(newValue) {
+            _date = newValue
+            editCallendarDayView.setDate(date: _date)
         }
     }
     
     init(with day: Date) {
-        editCallendarDayView = EditCallendarDayView(with: day)
+        _date = day
         super.init(nibName: nil, bundle: nil)
+        self.date = day
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -50,8 +58,8 @@ final class EditCallendarDayViewController: UIViewController {
             editCalendarDay.freeDay = editCallendarDayView.freeDay()
             editCalendarDay.extraShifts = extraShifts
             editCalendarDay.note = editCallendarDayView.notes()
-            user.editCalendarDay = editCalendarDay
-//            editCalendarDay.date = 
+            user.editCalendarDay = [editCalendarDay]
+//            editCalendarDay.date = //TODO
             UserManager.sharedInstance.update(User: user)
         }
 
