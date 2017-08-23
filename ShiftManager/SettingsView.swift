@@ -34,6 +34,8 @@ final class SettingsView: UIView, UITableViewDelegate {
         tableView.delegate = self
         addSubview(tableView)
         addSubview(userBarView)
+        tableView.separatorStyle = UITableViewCellSeparatorStyle(rawValue: 0)!
+        
     }
 
     fileprivate func setupConstraints() {
