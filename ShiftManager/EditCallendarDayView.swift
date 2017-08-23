@@ -13,7 +13,7 @@ final class EditCallendarDayView: UIView {
     
     fileprivate let infoLabel = UILabel()
     fileprivate let dateLabel = UILabel()
-    fileprivate let shiftName = UILabel()
+    fileprivate let shiftNameLabel = UILabel()
     fileprivate let extraShiftButton = UIButton()
     fileprivate let dayOffLabel = UILabel()
     fileprivate let dayOffSwitch = UISwitch()
@@ -44,9 +44,8 @@ final class EditCallendarDayView: UIView {
         dateLabel.textColor = .black
         addSubview(dateLabel)
         
-        shiftName.text = "//TODO: Název vybrané šichty"
-        shiftName.textColor = .black
-        addSubview(shiftName)
+        shiftNameLabel.textColor = .black
+        addSubview(shiftNameLabel)
         
         extraShiftButton.backgroundColor = .red
         extraShiftButton.setTitle(NSLocalizedString("ExtraShiftButton_loc001", comment: ""), for: .normal)
@@ -85,10 +84,10 @@ final class EditCallendarDayView: UIView {
         dateLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.2)
         dateLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
-        shiftName.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        shiftName.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        shiftName.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.3)
-        shiftName.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
+        shiftNameLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        shiftNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        shiftNameLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.3)
+        shiftNameLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
         extraShiftButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
@@ -140,5 +139,9 @@ extension EditCallendarDayView {
         let formatter = DateFormatter()
         formatter.dateFormat = "d.M.yyyy"
         dateLabel.text = "\(formatter.string(from: date))"
+    }
+    
+    public func setShiftName(_ name: String) {
+        shiftNameLabel.text = name
     }
 }

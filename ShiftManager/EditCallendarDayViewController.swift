@@ -22,14 +22,14 @@ final class EditCallendarDayViewController: UIViewController {
         }
         set(newValue) {
             _date = newValue
-            editCallendarDayView.setDate(date: _date)
+            editCallendarDayView.setDate(date: newValue)
         }
     }
     
     init(with day: Date) {
         _date = day
         super.init(nibName: nil, bundle: nil)
-        self.date = day
+        date = day
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -58,8 +58,8 @@ final class EditCallendarDayViewController: UIViewController {
             editCalendarDay.freeDay = editCallendarDayView.freeDay()
             editCalendarDay.extraShifts = extraShifts
             editCalendarDay.note = editCallendarDayView.notes()
+            editCalendarDay.date = date
             user.editCalendarDay = [editCalendarDay]
-//            editCalendarDay.date = //TODO
             UserManager.sharedInstance.update(User: user)
         }
 
@@ -76,5 +76,10 @@ final class EditCallendarDayViewController: UIViewController {
 extension EditCallendarDayViewController: ExtraShiftViewControllerDelegate {
     func setExtraShifts(extraShifts: [ShiftModel]) {
         self.extraShifts = extraShifts
+        
+        // TODO: This block of code is just for test, delete this when EditCallendarDayView will be preparet to show multiple shift names!!!
+        if let firstExtraShift = extraShifts.first {
+            editCallendarDayView.setShiftName(firstExtraShift.name)
+        }
     }
 }
