@@ -23,7 +23,11 @@ final class ShiftTableViewCell: UITableViewCell {
     }
     
     fileprivate func setupConstraints() {
-        titleLabel.autoCenterInSuperview()
+        titleLabel.autoPinEdge(toSuperviewEdge: .top, withInset: Spacing.VerticalSpacing)
+        titleLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        titleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing)
+        titleLabel.numberOfLines = 0
     }
     
     required init?(coder aDecoder: NSCoder) {

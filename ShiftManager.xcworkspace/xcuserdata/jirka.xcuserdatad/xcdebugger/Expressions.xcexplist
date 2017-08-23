@@ -18,5 +18,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "NewShiftView.setupConstraints() -&gt; ():NewShiftView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIScreen.main.bounds.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

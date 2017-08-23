@@ -19,6 +19,8 @@ final class NewShiftView: UIView {
     fileprivate let intervalLabel = UILabel()
     fileprivate let intervalTextField = BoundedTextField()
     fileprivate let selectShiftColorButton = UIButton()
+    fileprivate let scrollView = UIScrollView()
+    fileprivate let contentHolder = UIView()
     
     init() {
         super.init(frame: .zero)
@@ -33,83 +35,85 @@ final class NewShiftView: UIView {
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
+
         nameLabel.text = NSLocalizedString("CreateNewShift_loc003", comment: "")
         nameLabel.textColor = .black
-        addSubview(nameLabel)
-        
-        addSubview(nameTextField)
         
         shortcutTextField.placeholder = NSLocalizedString("CreateNewShift_loc008", comment: "")
-        addSubview(shortcutTextField)
         
         selectFirstShiftDateLabel.text = NSLocalizedString("CreateNewShift_loc004", comment: "")
         selectFirstShiftDateLabel.textColor = .black
-        addSubview(selectFirstShiftDateLabel)
         
         intervalLabel.text = NSLocalizedString("CreateNewShift_loc005", comment: "")
         intervalLabel.textColor = .black
-        addSubview(intervalLabel)
         
         intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
         intervalTextField.keyboardType = UIKeyboardType.numberPad
-        addSubview(intervalTextField)
         
         selectShiftColorButton.backgroundColor = .white
         selectShiftColorButton.setTitle(NSLocalizedString("CreateNewShift_loc007", comment: ""), for: .normal)
         selectShiftColorButton.setTitleColor(.black, for: UIControlState.normal)
         selectShiftColorButton.layer.borderColor = UIColor.black.cgColor
         selectShiftColorButton.layer.borderWidth = 1
-        addSubview(selectShiftColorButton)
+        
+        addSubview(scrollView)
+        addSubviewToScrollView()
+    }
+    
+    fileprivate func addSubviewToScrollView() {
+        scrollView.addSubview(contentHolder)
+
+        [nameLabel, nameTextField, shortcutTextField, selectFirstShiftDateLabel, datePicker, intervalLabel, intervalTextField, selectShiftColorButton
+        ].forEach { subview in
+            contentHolder.addSubview(subview)
+        }
     }
     
     fileprivate func setupConstraints() {
+        scrollView.autoPinEdgesToSuperviewEdges()
+        
+        contentHolder.autoMatch(.width, to: .width, of: self)
+        contentHolder.autoPinEdgesToSuperviewEdges()
+        
+        nameLabel.autoPinEdge(toSuperviewEdge: .top, withInset: Spacing.VerticalSpacing)
         nameLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         nameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        nameLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.1)
-        nameLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
         
+        nameTextField.autoPinEdge(.top, to: .bottom, of: nameLabel, withOffset: Spacing.VerticalSpacing)
         nameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         nameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        nameTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.2)
-        nameTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
+        shortcutTextField.autoPinEdge(.top, to: .bottom, of: nameTextField, withOffset: Spacing.VerticalSpacing)
         shortcutTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         shortcutTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        shortcutTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.35)
-        shortcutTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
+        selectFirstShiftDateLabel.autoPinEdge(.top, to: .bottom, of: shortcutTextField, withOffset: Spacing.VerticalSpacing)
         selectFirstShiftDateLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         selectFirstShiftDateLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        selectFirstShiftDateLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.55)
-        selectFirstShiftDateLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.6)
         
+        datePicker.autoPinEdge(.top, to: .bottom, of: selectFirstShiftDateLabel, withOffset: Spacing.VerticalSpacing)
+        datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing, relation: .greaterThanOrEqual)
+        datePicker.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing, relation: .greaterThanOrEqual)
+        datePicker.autoAlignAxis(toSuperviewAxis: .vertical)
+        
+        intervalLabel.autoPinEdge(.top, to: .bottom, of: datePicker, withOffset: Spacing.VerticalSpacing)
         intervalLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         intervalLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        intervalLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.3)
-        intervalLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
         
+        intervalTextField.autoPinEdge(.top, to: .bottom, of: intervalLabel, withOffset: Spacing.VerticalSpacing)
         intervalTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         intervalTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        intervalTextField.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.4)
-        intervalTextField.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
+        selectShiftColorButton.autoPinEdge(.top, to: .bottom, of: intervalTextField, withOffset: Spacing.VerticalSpacing)
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        selectShiftColorButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.65)
-        selectShiftColorButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.1)
+        selectShiftColorButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing)
     }
     
     fileprivate func shiftFirstDate() {
         datePicker.datePickerMode = .date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy"
-        
-        addSubview(datePicker)
-        
-        datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        datePicker.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        datePicker.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.9)
-        datePicker.autoMatch(.height, to: .height, of: self, withMultiplier: 0.3)
     }
 }
 

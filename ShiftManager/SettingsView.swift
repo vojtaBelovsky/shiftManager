@@ -29,13 +29,13 @@ final class SettingsView: UIView, UITableViewDelegate {
     fileprivate func setupViewItems() {
         backgroundColor = .white
         addSubview(userView)
-        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44.0
         tableView.register(ShiftTableViewCell.self, forCellReuseIdentifier: String(describing: ShiftTableViewCell.self))
         tableView.delegate = self
+        tableView.separatorStyle = .none
         addSubview(tableView)
         addSubview(userBarView)
-        tableView.separatorStyle = UITableViewCellSeparatorStyle(rawValue: 0)!
-        
     }
 
     fileprivate func setupConstraints() {
