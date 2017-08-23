@@ -23,6 +23,7 @@ final class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
         let viewModel = ShiftViewModel(title: formatString, color: shiftModel?.color)
         
         cell.setup(with: viewModel)
+        cell.selectionStyle = .none
 
         return cell
     }
