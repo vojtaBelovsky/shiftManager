@@ -24,9 +24,10 @@ final class ShiftTableViewCell: UITableViewCell {
     }
     
     fileprivate func setupConstraints() {
+        let inset = CGFloat(40.0)
         titleLabel.autoPinEdge(toSuperviewEdge: .top, withInset: Spacing.VerticalSpacing)
-        titleLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        titleLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: inset)
+         titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: inset)
         titleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing)
     }
     
