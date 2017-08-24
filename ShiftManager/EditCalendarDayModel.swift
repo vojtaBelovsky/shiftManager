@@ -11,10 +11,10 @@ import UIKit
 
 final class EditCalendarDayModel: NSObject, NSCoding {
 
-    var freeDay : Bool = false
-    var extraShifts : [ShiftModel] = []
-    var note : String = ""
-    var date : Date?
+    var freeDay: Bool = false
+    var extraShifts: [ShiftModel] = []
+    var note: String = ""
+    var date: Date?
     
     
     fileprivate let freeDayPropertyKey = "freeDayPropertyKey"
@@ -28,9 +28,8 @@ final class EditCalendarDayModel: NSObject, NSCoding {
     
     required init?(coder aDecoder: NSCoder) {
         
-        if let freeDay = aDecoder.decodeObject(forKey: freeDayPropertyKey) as? Bool {
-            self.freeDay = freeDay
-        }
+        // MARK: Saving freeDaySwtich bool
+        self.freeDay = aDecoder.decodeBool(forKey: freeDayPropertyKey)
         
         if let extraShifts = aDecoder.decodeObject(forKey: extraShiftPropertyKey) as? Array<ShiftModel> {
             self.extraShifts = extraShifts
@@ -47,7 +46,7 @@ final class EditCalendarDayModel: NSObject, NSCoding {
     
     func encode(with aCoder: NSCoder) {
         
-        aCoder.encode(freeDayPropertyKey, forKey: freeDayPropertyKey)
+        aCoder.encode(freeDay as Bool, forKey: freeDayPropertyKey)
         aCoder.encode(extraShifts, forKey: extraShiftPropertyKey)
         aCoder.encode(note, forKey: notePropertyKey)
         
