@@ -23,10 +23,10 @@ final class ExtraShiftView: UIView {
     fileprivate func setupViewItems() {
         backgroundColor = .white
         
-        tableView.estimatedRowHeight = UITableViewAutomaticDimension
-        tableView.register(
-            ShiftTableViewCell.self, forCellReuseIdentifier: String(describing: ShiftTableViewCell.self)
-        )
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44.0
+        tableView.register(ShiftTableViewCell.self, forCellReuseIdentifier: String(describing: ShiftTableViewCell.self))
+        tableView.separatorStyle = .none
         addSubview(tableView)
     }
     

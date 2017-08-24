@@ -18,6 +18,7 @@ final class ShiftTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         titleLabel.textColor = .black
+        titleLabel.numberOfLines = 0
         addSubview(titleLabel)
         setupConstraints()
     }
@@ -27,7 +28,6 @@ final class ShiftTableViewCell: UITableViewCell {
         titleLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         titleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing)
-        titleLabel.numberOfLines = 0
     }
     
     required init?(coder aDecoder: NSCoder) {
