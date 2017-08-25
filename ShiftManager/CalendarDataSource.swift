@@ -12,7 +12,7 @@ import AFDateHelper
 final class CalendarDataSource: NSObject, UICollectionViewDataSource {
     
     fileprivate var numberOfEmptyCells: [Int] = []
-    fileprivate let numberOfMonthsInCalendar = 24
+    fileprivate let numberOfMonthsInCalendar = 12
     
     var today: Date {
         return Date()

@@ -8,12 +8,14 @@
 
 import UIKit
 import AFDateHelper
+import PureLayout
 
 final class UserManager: NSObject {
     
     fileprivate let defaults = UserDefaults.standard
     fileprivate var users = [UserModel]()
     fileprivate let usersKey = "usersKey"
+    var maxDate = Date()
     var selectedUser: UserModel? {
         didSet {
             // post notification - selectedUserChanged
@@ -135,19 +137,30 @@ extension UserManager {
         return selectedUser?.shifts[index]
     }
     
-//    public func shiftForDate(_ date: Date) -> ShiftModel? {
-//        var i = 0
-//        for (var j = 0, j < 100, j++) {
-//            selectedUser?.shifts.forEach({ shiftModel in
-//                if shiftModel.date!.compare(.isEarlier(than: date)) {
-//                    var adjustedDate = shiftModel.date!.adjust(.day, offset: i*shiftModel.interval)
-//                } else {
-//                    
-//                }
-//            })
-//            i++
-//        }
-//    }
+    public func oneYearOffset() -> Date {
+        let date = Date()
+        date.adjust(.year, offset: 1)
+        return date
+    }
+    
+    public func maxDate() {
+        if UserManager.maxDate(nil) {
+            maxDate.adjust(.year, offset: 1)
+        }
+    }
+    
+    public func shiftForDate(_ date: Date) -> ShiftModel? {
+        var i = 0
+        let j = Int()
+        for j in j..<100 {
+            selectedUser?.shifts.forEach({ shiftModel in
+                if shiftModel.date!.compare(.isEarlier(than: date)) {
+                    var adjustedDate = shiftModel.date!.adjust(.day, offset: i * shiftModel.interval)
+                } else { return }
+            })
+            i += 1
+        }
+    return shiftForDate(date) }
 }
 
 // MARK: EditCalendarDay managment
