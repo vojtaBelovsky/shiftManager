@@ -15,7 +15,7 @@ final class UserManager: NSObject {
     fileprivate let defaults = UserDefaults.standard
     fileprivate var users = [UserModel]()
     fileprivate let usersKey = "usersKey"
-    var maxDate = Date()
+    var maximumDate: Date?
     var selectedUser: UserModel? {
         didSet {
             // post notification - selectedUserChanged
@@ -143,16 +143,17 @@ extension UserManager {
         return date
     }
     
-    public func maxDate() {
-        if UserManager.maxDate(nil) {
-            maxDate.adjust(.year, offset: 1)
+    public func getMaxDate() -> Date? {
+        if maximumDate == nil {
+            maximumDate?.adjust(.year, offset: 1)
         }
+        return maximumDate
     }
     
     public func shiftForDate(_ date: Date) -> ShiftModel? {
         var i = 0
         let j = Int()
-        for j in j..<100 {
+        for j in j...maximumDate {
             selectedUser?.shifts.forEach({ shiftModel in
                 if shiftModel.date!.compare(.isEarlier(than: date)) {
                     var adjustedDate = shiftModel.date!.adjust(.day, offset: i * shiftModel.interval)
