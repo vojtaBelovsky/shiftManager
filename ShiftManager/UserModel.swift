@@ -13,6 +13,7 @@ final class UserModel: NSObject, NSCoding {
     
     var shifts: [ShiftModel] = []
     var editCalendarDays: [Date: EditCalendarDayModel] = [:]
+    var shiftForDateDictionary: [Date: ShiftModel] = [:]
     var uniqueID: String = ""
     var userPhotoImage: UIImage?
     var firstName: String = ""
@@ -24,6 +25,7 @@ final class UserModel: NSObject, NSCoding {
     fileprivate let userIDKey = "userIDKey"
     fileprivate let shitsPropertyKey = "shitsPropertyKey"
     fileprivate let editCalendarDaysPropertyKey = "editCalendarDaysPropertyKey"
+    fileprivate let shiftForDateDictionaryPropertyKey = "shiftForDateDictionaryPropertyKey"
 
     override init() {
         super.init()
@@ -54,6 +56,10 @@ final class UserModel: NSObject, NSCoding {
         if let editCalendarDays = aDecoder.decodeObject(forKey: editCalendarDaysPropertyKey) as? [Date: EditCalendarDayModel] {
             self.editCalendarDays = editCalendarDays
         }
+        
+        if let shiftForDateDictionary = aDecoder.decodeObject(forKey: shiftForDateDictionaryPropertyKey) as? [Date: ShiftModel] {
+            self .shiftForDateDictionary = shiftForDateDictionary
+        }
     }
     
     func encode(with aCoder: NSCoder) {
@@ -64,5 +70,6 @@ final class UserModel: NSObject, NSCoding {
         aCoder.encode(uniqueID, forKey: userIDKey)
         aCoder.encode(shifts, forKey: shitsPropertyKey)
         aCoder.encode(editCalendarDays, forKey: editCalendarDaysPropertyKey)
+        aCoder.encode(shiftForDateDictionary, forKey: shiftForDateDictionaryPropertyKey)
     }
 }

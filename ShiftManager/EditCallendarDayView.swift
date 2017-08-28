@@ -16,7 +16,7 @@ final class EditCallendarDayView: UIView {
     fileprivate let shiftNameLabel = UILabel()
     fileprivate let extraShiftButton = UIButton()
     fileprivate let dayOffLabel = UILabel()
-    fileprivate var dayOffSwitch = UISwitch()
+    fileprivate let dayOffSwitch = UISwitch()
     fileprivate let noteLabel = UILabel()
     fileprivate let note = UITextView()
     

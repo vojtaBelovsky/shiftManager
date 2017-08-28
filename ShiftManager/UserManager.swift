@@ -138,21 +138,23 @@ extension UserManager {
     }
     
     public func oneYearOffset() -> Date {
-        let date = Date()
-        date.adjust(.year, offset: 1)
-        return date
+        return Date().adjust(.year, offset: 1)
     }
     
     public func getMaxDate() -> Date? {
         if maximumDate == nil {
-            maximumDate?.adjust(.year, offset: 1)
+            maximumDate = maximumDate?.adjust(.year, offset: 1)
         }
         return maximumDate
     }
     
+    public func shiftForDateDictionary() {
+        
+    }
+    
     public func shiftForDate(_ date: Date) -> ShiftModel? {
         var i = 0
-        let j = Int()
+        let j = 0
         for j in j...maximumDate {
             selectedUser?.shifts.forEach({ shiftModel in
                 if shiftModel.date!.compare(.isEarlier(than: date)) {
@@ -161,7 +163,8 @@ extension UserManager {
             })
             i += 1
         }
-    return shiftForDate(date) }
+    return shiftForDate(date)
+    }
 }
 
 // MARK: EditCalendarDay managment
