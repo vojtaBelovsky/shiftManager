@@ -137,25 +137,21 @@ extension UserManager {
         return selectedUser?.shifts[index]
     }
     
-    public func oneYearOffset() -> Date {
-        return Date().adjust(.year, offset: 1)
-    }
-    
-    public func getMaxDate() -> Date? {
+    public func getMaxDate() -> Date {
         if maximumDate == nil {
-            maximumDate = maximumDate?.adjust(.year, offset: 1)
+            maximumDate = Date().adjust(.year, offset: 1)
         }
-        return maximumDate
+        return maximumDate!
     }
     
-    public func shiftForDateDictionary() {
+    public func shiftForDateDictionary(with shift: ShiftModel) {
         
     }
     
     public func shiftForDate(_ date: Date) -> ShiftModel? {
         var i = 0
         let j = 0
-        for j in j...maximumDate {
+        for j in j...getMaxDate() {
             selectedUser?.shifts.forEach({ shiftModel in
                 if shiftModel.date!.compare(.isEarlier(than: date)) {
                     var adjustedDate = shiftModel.date!.adjust(.day, offset: i * shiftModel.interval)
