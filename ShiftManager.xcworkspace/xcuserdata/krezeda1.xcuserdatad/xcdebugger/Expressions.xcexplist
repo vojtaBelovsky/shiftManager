@@ -71,6 +71,20 @@
          contextName = "CalendarViewController.init(nibName : String?, bundle : Bundle?) -&gt; CalendarViewController:CalendarViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "UserModel.generateShifts() -&gt; ():UserModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserManager.sharedInstance">
+            </PersistentString>
+            <PersistentString
+               value = "date.compare(.isSameDay(as: UserManager.sharedInstance.getMaxDate()))">
+            </PersistentString>
+            <PersistentString
+               value = "UserManager.sharedInstance.getMaxDate()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CalendarDataSource.collectionView(UICollectionView, viewForSupplementaryElementOfKind : String, at : IndexPath) -&gt; UICollectionReusableView:CalendarDataSource.swift">
          <PersistentStrings>
             <PersistentString
@@ -82,7 +96,23 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CalendarDataSource.collectionView(UICollectionView, cellForItemAt : IndexPath) -&gt; UICollectionViewCell:CalendarDataSource.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserManager.sharedInstance.shiftForDate(date)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserManager.update(User : UserModel) -&gt; ():UserManager.swift">
+      </ContextState>
+      <ContextState
+         contextName = "UserManager.shiftForDate(Date) -&gt; ShiftModel?:UserManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "users.first?.shiftForDateDictionary">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "CalendarCollectionViewCell.setDayTitle() -&gt; ():CalendarCollectionViewCell.swift">

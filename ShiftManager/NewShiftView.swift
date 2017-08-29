@@ -154,7 +154,7 @@ extension NewShiftView {
         intervalTextField.text = String(shift.interval)
         selectShiftColorButton.backgroundColor = shift.color
         
-        if let date = shift.date {
+        if let date = shift.firstDateOfShift {
             datePicker.date = date
         }
     }

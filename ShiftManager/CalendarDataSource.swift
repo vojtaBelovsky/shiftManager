@@ -63,7 +63,15 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
                     return UICollectionViewCell()
             }
             
-            cell.setDate(date: getDateForCell(at: indexPath))
+            let dateOfCell = getDateForCell(at: indexPath)?.normalizedDate()
+            cell.setDate(date: dateOfCell)
+            
+            if let date = dateOfCell, let shiftForDate = UserManager.sharedInstance.shiftForDate(date) {
+                cell.setShiftShortcut(shiftForDate.shortcut)
+            } else {
+                cell.setShiftShortcut("")
+            }
+
             return cell
         }
     }
@@ -74,7 +82,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
     
     static func Shift(_ shift: ShiftModel) {
         func since(_ date:Date, in component:DateComponentType) -> Int64 {
-            return date.since(shift.date!, in: .day)
+            return date.since(shift.firstDateOfShift!, in: .day)
         }
     }
     

@@ -22,6 +22,8 @@ final class UserManager: NSObject {
         }
     }
     
+    var flag = false //TODO: vymazat, pouze pro test
+    
     static let sharedInstance = UserManager()
 
     fileprivate override init() {
@@ -144,22 +146,26 @@ extension UserManager {
         return maximumDate!
     }
     
-    public func shiftForDateDictionary(with shift: ShiftModel) {
-        
-    }
-    
     public func shiftForDate(_ date: Date) -> ShiftModel? {
-        var i = 0
-        let j = 0
-        for j in j...getMaxDate() {
-            selectedUser?.shifts.forEach({ shiftModel in
-                if shiftModel.date!.compare(.isEarlier(than: date)) {
-                    var adjustedDate = shiftModel.date!.adjust(.day, offset: i * shiftModel.interval)
-                } else { return }
-            })
-            i += 1
+        
+        if !flag {
+            users.first?.generateShifts()
+            flag = true
         }
-    return shiftForDate(date)
+        
+        return users.first?.shiftForDateDictionary[date]
+        
+//        var i = 0
+//        let j = 0
+//        for j in j...getMaxDate() {
+//            selectedUser?.shifts.forEach({ shiftModel in
+//                if shiftModel.date!.compare(.isEarlier(than: date)) {
+//                    var adjustedDate = shiftModel.date!.adjust(.day, offset: i * shiftModel.interval)
+//                } else { return }
+//            })
+//            i += 1
+//        }
+//        return shiftForDate(date)
     }
 }
 
