@@ -24,15 +24,15 @@ final class CalendarViewController: UIViewController {
         edgesForExtendedLayout = UIRectEdge.bottom
         
         let newUserDidRegister = NotificationCenter.default
-        newUserDidRegister.addObserver(self, selector: #selector(newUserDidRegisterNotificationHandler), name: newUserDidRegisterNotification, object: nil)
+        newUserDidRegister.addObserver(self, selector: #selector(deleteUpdateAndNewUserRegisterUserNotificationHandler), name: newUserDidRegisterNotification, object: nil)
         
         let updateUser = NotificationCenter.default
-        updateUser.addObserver(self, selector: #selector(updateUserNotificationHandler), name: updateUserNotification, object: nil)
+        updateUser.addObserver(self, selector: #selector(deleteUpdateAndNewUserRegisterUserNotificationHandler), name: updateUserNotification, object: nil)
         
         let deleteUser = NotificationCenter.default
-        deleteUser.addObserver(self, selector: #selector(deleteUserNotificationHandler), name: deleteUserNotification, object: nil)
+        deleteUser.addObserver(self, selector: #selector(deleteUpdateAndNewUserRegisterUserNotificationHandler), name: deleteUserNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUserNotificationHandler), name: refreshUserViewNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteUpdateAndNewUserRegisterUserNotificationHandler), name: refreshUserViewNotification, object: nil)
 
         calendarView.calendarCollectionView.dataSource = calendarDataSource
         calendarView.calendarCollectionView.delegate = self
@@ -47,15 +47,7 @@ final class CalendarViewController: UIViewController {
         navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
-    func updateUserNotificationHandler(){
-        calendarView.userBarView.reloadData()
-    }
-    
-    func deleteUserNotificationHandler(){
-        calendarView.userBarView.reloadData()
-    }
-    
-    func newUserDidRegisterNotificationHandler() {
+    func deleteUpdateAndNewUserRegisterUserNotificationHandler(){
         calendarView.userBarView.reloadData()
     }
 }

@@ -36,13 +36,13 @@ final class SettingsViewController: UIViewController {
         tableViewReloadDataNotification.addObserver(self, selector: #selector(tableViewReloadData), name: NewShiftViewControllerHandler, object: nil)
         
         let newUserDidRegister = NotificationCenter.default
-        newUserDidRegister.addObserver(self, selector: #selector(newUserDidRegisterNotificationHandler), name: newUserDidRegisterNotification, object: nil)
+        newUserDidRegister.addObserver(self, selector: #selector(deleteUpdateAndNewUserRegisterUserNotificationHandler), name: newUserDidRegisterNotification, object: nil)
         
         let updateUser = NotificationCenter.default
-        updateUser.addObserver(self, selector: #selector(deleteAndUpdateUserNotificationHandler), name: updateUserNotification, object: nil)
+        updateUser.addObserver(self, selector: #selector(deleteUpdateAndNewUserRegisterUserNotificationHandler), name: updateUserNotification, object: nil)
         
         let deleteUser = NotificationCenter.default
-        deleteUser.addObserver(self, selector: #selector(deleteAndUpdateUserNotificationHandler), name: deleteUserNotification, object: nil)
+        deleteUser.addObserver(self, selector: #selector(deleteUpdateAndNewUserRegisterUserNotificationHandler), name: deleteUserNotification, object: nil)
         
         let refreshUserView = NotificationCenter.default
         refreshUserView.addObserver(self, selector: #selector(refreshScreen), name: refreshUserViewNotification, object: nil)
@@ -52,13 +52,7 @@ final class SettingsViewController: UIViewController {
         settingsView.tableView.reloadData()
     }
     
-    func deleteAndUpdateUserNotificationHandler() {
-        settingsView.userView.reloadData()
-        settingsView.userBarView.reloadData()
-        tableViewReloadData()
-    }
-    
-    func newUserDidRegisterNotificationHandler() {
+    func deleteUpdateAndNewUserRegisterUserNotificationHandler() {
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
         tableViewReloadData()
