@@ -68,22 +68,21 @@ final class UserModel: NSObject, NSCoding {
         aCoder.encode(editCalendarDays, forKey: editCalendarDaysPropertyKey)
     }
     
-    func generateShiftForDate(date: Date) {
-        let shift = shifts.first
-        shiftForDateDictionary[date] = shift
+    func generateShiftForDateDictionary() {
+        shifts.forEach { shift in
+            fillShifForDateDictionary(with: shift)
+        }
+        
     }
     
-    func generateShifts() { //generuje prozatím pouze pro první šichtu v poli
-        guard
-            let firstShift = shifts.first,
-            let firstDateOfShift = firstShift.firstDateOfShift
-        else { return }
+    fileprivate func fillShifForDateDictionary(with shift: ShiftModel) {
+        guard let firstDateOfShift = shift.firstDateOfShift else { return }
 
         var date = firstDateOfShift.normalizedDate()
         
         while date.compare(.isEarlier(than: UserManager.sharedInstance.getMaxDate())) {
-            shiftForDateDictionary[date] = firstShift
-            date = date.adjust(.day, offset: firstShift.interval)
+            shiftForDateDictionary[date] = shift
+            date = date.adjust(.day, offset: shift.interval)
         }
     }
 }

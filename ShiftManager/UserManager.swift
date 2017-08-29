@@ -21,6 +21,8 @@ final class UserManager: NSObject {
             // post notification - selectedUserChanged
         }
     }
+    
+    var flag = true
         
     static let sharedInstance = UserManager()
 
@@ -145,7 +147,12 @@ extension UserManager {
     }
     
     public func shiftForDate(_ date: Date) -> ShiftModel? {
-        
+
+        if flag {
+            users.first?.generateShiftForDateDictionary()
+            flag = false
+        }
+
         return users.first?.shiftForDateDictionary[date]
 
 //        var i = 0
