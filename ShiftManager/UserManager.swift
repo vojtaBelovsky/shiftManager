@@ -21,9 +21,7 @@ final class UserManager: NSObject {
             // post notification - selectedUserChanged
         }
     }
-    
-    var flag = false //TODO: vymazat, pouze pro test
-    
+        
     static let sharedInstance = UserManager()
 
     fileprivate override init() {
@@ -148,13 +146,8 @@ extension UserManager {
     
     public func shiftForDate(_ date: Date) -> ShiftModel? {
         
-        if !flag {
-            users.first?.generateShifts()
-            flag = true
-        }
-        
         return users.first?.shiftForDateDictionary[date]
-        
+
 //        var i = 0
 //        let j = 0
 //        for j in j...getMaxDate() {
