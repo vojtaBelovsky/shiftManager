@@ -72,7 +72,6 @@ final class UserModel: NSObject, NSCoding {
         shifts.forEach { shift in
             fillShifForDateDictionary(with: shift)
         }
-        
     }
     
     fileprivate func fillShifForDateDictionary(with shift: ShiftModel) {

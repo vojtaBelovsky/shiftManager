@@ -154,18 +154,6 @@ extension UserManager {
         }
 
         return users.first?.shiftForDateDictionary[date]
-
-//        var i = 0
-//        let j = 0
-//        for j in j...getMaxDate() {
-//            selectedUser?.shifts.forEach({ shiftModel in
-//                if shiftModel.date!.compare(.isEarlier(than: date)) {
-//                    var adjustedDate = shiftModel.date!.adjust(.day, offset: i * shiftModel.interval)
-//                } else { return }
-//            })
-//            i += 1
-//        }
-//        return shiftForDate(date)
     }
 }
 
@@ -177,7 +165,3 @@ extension UserManager {
         saveUsersToPersistentStorage()
     }
 }
-
-
-
-
