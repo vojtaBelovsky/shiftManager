@@ -22,7 +22,7 @@ final class UserManager: NSObject {
         }
     }
     
-    var flag = true
+    fileprivate var shouldGenerateShiftForDateDictionary = true
         
     static let sharedInstance = UserManager()
 
@@ -116,6 +116,7 @@ extension UserManager {
     public func saveShift(shift: ShiftModel) {
         shift.uniqueID.isEmpty ? addNewShift(shift: shift) : update()
         saveUsersToPersistentStorage()
+        shiftForDateDictionaryShouldReloadData()
     }
 
     public func addNewShift(shift: ShiftModel) {
@@ -148,12 +149,17 @@ extension UserManager {
     
     public func shiftForDate(_ date: Date) -> ShiftModel? {
 
-        if flag {
-            users.first?.generateShiftForDateDictionary()
-            flag = false
+        if shouldGenerateShiftForDateDictionary {
+            selectedUser?.generateShiftForDateDictionary()
+            shouldGenerateShiftForDateDictionary = false
         }
 
-        return users.first?.shiftForDateDictionary[date]
+        return selectedUser?.shiftForDateDictionary[date]
+    }
+    
+    public func shiftForDateDictionaryShouldReloadData() {
+        selectedUser?.resetShiftForDateDictionary()
+        shouldGenerateShiftForDateDictionary = true
     }
 }
 

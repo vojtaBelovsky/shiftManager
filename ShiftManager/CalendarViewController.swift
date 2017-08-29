@@ -24,15 +24,18 @@ final class CalendarViewController: UIViewController {
         edgesForExtendedLayout = UIRectEdge.bottom
         
         let newUserDidRegister = NotificationCenter.default
-        newUserDidRegister.addObserver(self, selector: #selector(deleteUpdateAndNewUserRegisterUserNotificationHandler), name: newUserDidRegisterNotification, object: nil)
+        newUserDidRegister.addObserver(self, selector: #selector(reloadUserBarDataHandler), name: newUserDidRegisterNotification, object: nil)
         
         let updateUser = NotificationCenter.default
-        updateUser.addObserver(self, selector: #selector(deleteUpdateAndNewUserRegisterUserNotificationHandler), name: updateUserNotification, object: nil)
+        updateUser.addObserver(self, selector: #selector(reloadUserBarDataHandler), name: updateUserNotification, object: nil)
         
         let deleteUser = NotificationCenter.default
-        deleteUser.addObserver(self, selector: #selector(deleteUpdateAndNewUserRegisterUserNotificationHandler), name: deleteUserNotification, object: nil)
+        deleteUser.addObserver(self, selector: #selector(reloadUserBarDataHandler), name: deleteUserNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(deleteUpdateAndNewUserRegisterUserNotificationHandler), name: refreshUserViewNotification, object: nil)
+        let collectionViewReloadDataNotification = NotificationCenter.default
+        collectionViewReloadDataNotification.addObserver(self, selector: #selector(reloadCollectionViewDataHandler), name: NewShiftViewControllerHandler, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadUserBarDataHandler), name: refreshUserViewNotification, object: nil)
 
         calendarView.calendarCollectionView.dataSource = calendarDataSource
         calendarView.calendarCollectionView.delegate = self
@@ -47,7 +50,11 @@ final class CalendarViewController: UIViewController {
         navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
-    func deleteUpdateAndNewUserRegisterUserNotificationHandler(){
+    func reloadCollectionViewDataHandler() {
+        calendarView.calendarCollectionView.reloadData()
+    }
+    
+    func reloadUserBarDataHandler() {
         calendarView.userBarView.reloadData()
     }
 }

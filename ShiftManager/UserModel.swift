@@ -74,6 +74,10 @@ final class UserModel: NSObject, NSCoding {
         }
     }
     
+    func resetShiftForDateDictionary() {
+        shiftForDateDictionary.removeAll()
+    }
+    
     fileprivate func fillShifForDateDictionary(with shift: ShiftModel) {
         guard let firstDateOfShift = shift.firstDateOfShift else { return }
 
