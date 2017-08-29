@@ -40,9 +40,8 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     
     fileprivate func labelSettings() {
         backgroundColor = .white
-        relayLabel.backgroundColor = .blue
         relayLabel.layer.masksToBounds = true
-        relayLabel.textColor = .red
+        relayLabel.textColor = .black
         relayLabel.textAlignment = .center
         relayLabel.adjustsFontSizeToFitWidth = true
     }
@@ -83,7 +82,8 @@ extension CalendarCollectionViewCell {
         self.date = date
     }
     
-    func setShiftShortcut(_ shortcut: String) {
-        relayLabel.text = shortcut
+    func setup(with shift: ShiftModel?) {
+        relayLabel.text = shift?.shortcut ?? ""
+        relayLabel.backgroundColor = shift?.color ?? .clear
     }
 }

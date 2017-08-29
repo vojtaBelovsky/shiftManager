@@ -67,9 +67,9 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
             cell.setDate(date: dateOfCell)
             
             if let date = dateOfCell, let shiftForDate = UserManager.sharedInstance.shiftForDate(date) {
-                cell.setShiftShortcut(shiftForDate.shortcut)
+                cell.setup(with: shiftForDate)
             } else {
-                cell.setShiftShortcut("")
+                cell.setup(with: nil)
             }
 
             return cell
