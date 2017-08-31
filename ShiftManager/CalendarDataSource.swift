@@ -22,10 +22,8 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         super.init()
         
         for index in 0...numberOfMonthsInCalendar {
-            let dateMonth = today.component(.month) ?? 0
-            let adjustedDate = today.adjust(hour: nil, minute: nil, second: nil, day: nil, month: dateMonth+index)
+            let adjustedDate = today.adjust(.month, offset: index)
             numberOfEmptyCells.append(numberOfEmptyDays(date: adjustedDate))
-            
         }
     }
     
@@ -35,7 +33,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let dateMonth = today.component(.month) ?? 0
-        let adjustedDate = today.adjust(hour: nil, minute: nil, second: nil, day: nil, month: dateMonth+section)
+        let adjustedDate = today.adjust(hour: nil, minute: nil, second: nil, day: 1, month: dateMonth+section)
         
         return adjustedDate.numberOfDaysInMonth() + numberOfEmptyCells[section]
     }

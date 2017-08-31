@@ -11,18 +11,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NewUserView.layoutSubviews() -&gt; ():NewUserView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "frame.width">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "NewShiftView.setupConstraints() -&gt; ():NewShiftView.swift">
          <PersistentStrings>
             <PersistentString
                value = "UIScreen.main.bounds.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CalendarDataSource.collectionView(UICollectionView, numberOfItemsInSection : Int) -&gt; Int:CalendarDataSource.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "today">
+            </PersistentString>
+            <PersistentString
+               value = "adjustedDate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewUserView.layoutSubviews() -&gt; ():NewUserView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "frame.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
