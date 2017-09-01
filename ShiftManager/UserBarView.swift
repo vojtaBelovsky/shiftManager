@@ -67,7 +67,7 @@ final class UserBarView: UIView {
     
     fileprivate func setupConstraints() {
         stackView.autoSetDimension(.height, toSize: viewHeight)
-        stackView.autoPinEdgesToSuperviewEdges()
+        stackView.autoPinEdgesToSuperviewMargins()
         
         addButton.autoMatch(.height, to: .height, of: stackView)
         addButton.autoMatch(.width, to: .height, of: addButton)

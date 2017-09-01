@@ -62,7 +62,10 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     }
     
     fileprivate func setupConstraints() {
-        cellView.autoPinEdgesToSuperviewEdges()
+        cellView.autoPinEdge(toSuperviewEdge: .top)
+        cellView.autoPinEdge(toSuperviewEdge: .bottom)
+        cellView.autoPinEdge(toSuperviewEdge: .leading, withInset: 5)
+        cellView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 5)
         
         dayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
         dayLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
@@ -76,34 +79,34 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         if extraThirdLabel.text != "" {
             
             relayLabel.autoPinEdge(toSuperviewEdge: .top)
-            relayLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: -18)
-            relayLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.7)
+            relayLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: -16)
+            relayLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.6)
             relayLabel.autoMatch(.width, to: .height, of: relayLabel)
             
             extraFirstLabel.autoPinEdge(toSuperviewEdge: .top)
-            extraFirstLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: 6)
-            extraFirstLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.7)
+            extraFirstLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: 5)
+            extraFirstLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.6)
             extraFirstLabel.autoMatch(.width, to: .height, of: extraFirstLabel)
             
-            extraSecondLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: -6)
+            extraSecondLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: -5)
             extraSecondLabel.autoPinEdge(toSuperviewEdge: .bottom)
-            extraSecondLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.7)
+            extraSecondLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.6)
             extraSecondLabel.autoMatch(.width, to: .height, of: extraSecondLabel)
             
-            extraThirdLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: 18)
+            extraThirdLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: 16)
             extraThirdLabel.autoPinEdge(toSuperviewEdge: .bottom)
-            extraThirdLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.7)
+            extraThirdLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.6)
             extraThirdLabel.autoMatch(.width, to: .height, of: extraThirdLabel)
             
         } else if extraSecondLabel.text != "" {
             
             relayLabel.autoPinEdge(toSuperviewEdge: .top)
-            relayLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: -16)
+            relayLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: -13)
             relayLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.7)
             relayLabel.autoMatch(.width, to: .height, of: relayLabel)
             
             extraFirstLabel.autoPinEdge(toSuperviewEdge: .top)
-            extraFirstLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: 16)
+            extraFirstLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: 13)
             extraFirstLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.7)
             extraFirstLabel.autoMatch(.width, to: .height, of: extraFirstLabel)
             

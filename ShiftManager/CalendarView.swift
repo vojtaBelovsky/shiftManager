@@ -64,7 +64,7 @@ final class CalendarView: UIView {
 
 extension CalendarView {
     func getCalendarCellSize() -> CGSize {
-        let size = UIScreen.main.bounds.size.width / CGFloat(numberOfCalendarCellsInCollum)
+        let size = UIScreen.main.bounds.size.width / CGFloat(numberOfCalendarCellsInCollum + 1)
         return CGSize(width: size, height: size)
     }
 }
