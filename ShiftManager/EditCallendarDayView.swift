@@ -74,44 +74,37 @@ final class EditCallendarDayView: UIView {
     }
     
     fileprivate func setupConstraints() {
-        
+        infoLabel.autoPinEdge(toSuperviewEdge: .top, withInset: Spacing.VerticalSpacing)
         infoLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         infoLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        infoLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.1)
-        infoLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
-        
+
+        dateLabel.autoPinEdge(.top, to: .bottom, of: infoLabel, withOffset: Spacing.VerticalSpacing/2)
         dateLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         dateLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        dateLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.2)
-        dateLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
+        shiftNameLabel.autoPinEdge(.top, to: .bottom, of: dateLabel, withOffset: Spacing.VerticalSpacing/2)
         shiftNameLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         shiftNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        shiftNameLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.3)
-        shiftNameLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
+        extraShiftButton.autoPinEdge(.top, to: .bottom, of: shiftNameLabel, withOffset: Spacing.VerticalSpacing/2)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        extraShiftButton.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.6)
         extraShiftButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
+        dayOffLabel.autoPinEdge(.top, to: .bottom, of: extraShiftButton, withOffset: Spacing.VerticalSpacing/2)
         dayOffLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        dayOffLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        dayOffLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.8)
-        dayOffLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
+        dayOffSwitch.autoPinEdge(.leading, to: .trailing, of: dayOffLabel, withOffset: Spacing.HorizontalSpacing)
         dayOffSwitch.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        dayOffSwitch.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 0.8)
-        dayOffSwitch.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
+        dayOffSwitch.autoAlignAxis(.horizontal, toSameAxisOf: dayOffLabel)
         
+        noteLabel.autoPinEdge(.top, to: .bottom, of: dayOffLabel, withOffset: Spacing.VerticalSpacing*2)
         noteLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         noteLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        noteLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.0)
-        noteLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
+        noteTextView.autoPinEdge(.top, to: .bottom, of: noteLabel, withOffset: Spacing.VerticalSpacing)
         noteTextView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         noteTextView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        noteTextView.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.3)
         noteTextView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.2)
         
     }
