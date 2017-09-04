@@ -43,7 +43,7 @@ final class ColorSelectView: UIView {
         collectionView.autoPinEdge(toSuperviewEdge: .top, withInset: 30)
         collectionView.autoPinEdge(toSuperviewEdge: .leading, withInset: 5)
         collectionView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 5)
-        collectionView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
+        collectionView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 5)
     }
 }
 

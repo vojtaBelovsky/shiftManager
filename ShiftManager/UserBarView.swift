@@ -13,7 +13,8 @@ let refreshUserViewNotification = Notification.Name(rawValue:"RefreshUserViewPro
 final class UserBarView: UIView {
 
     fileprivate let stackView = UIStackView()
-    fileprivate let addButton = UIButton()
+    fileprivate let addUserCircleLbl = CalendarCircleLabel()
+    fileprivate let addUserLbl = UILabel()
     fileprivate lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 0
@@ -26,13 +27,14 @@ final class UserBarView: UIView {
     
     var isAddUserButtonHidden = false {
         didSet {
-            addButton.isHidden = isAddUserButtonHidden
+            addUserCircleLbl.isHidden = isAddUserButtonHidden
+            addUserLbl.isHidden = isAddUserButtonHidden
         }
     }
     
     fileprivate let userBarViewDataSource = UserBarViewDataSource()
-    fileprivate let viewHeight: CGFloat = 80.0
-    fileprivate let cellDimension: CGFloat = 50.0
+    fileprivate let viewHeight: CGFloat = 50.0
+    fileprivate let cellDimension: CGFloat = 45.0
     
     init() {
         super.init(frame: .zero)
@@ -57,32 +59,42 @@ final class UserBarView: UIView {
         collectionView.register(UserBarCollectionCell.self, forCellWithReuseIdentifier: String(describing: UserBarCollectionCell.self))
         stackView.addArrangedSubview(collectionView)
 
-        addButton.backgroundColor = .white
-        addButton.setTitle(NSLocalizedString("AddFriendButton_loc001", comment: ""), for: .normal)
-        addButton.setTitleColor(.black, for: UIControlState.normal)
-        addButton.layer.borderColor = UIColor.black.cgColor
-        addButton.layer.borderWidth = 1
-        stackView.addArrangedSubview(addButton)
+        addUserCircleLbl.backgroundColor = Colors.softRedClr
+        addUserCircleLbl.layer.borderColor = UIColor.black.cgColor
+        addUserCircleLbl.layer.borderWidth = 2
+        addUserCircleLbl.isUserInteractionEnabled = true
+        addSubview(addUserCircleLbl)
+        
+        addUserLbl.backgroundColor = .clear
+        addUserLbl.font = UIFont.boldSystemFont(ofSize: 42)
+        addUserLbl.text = "+"
+        addSubview(addUserLbl)
     }
     
     fileprivate func setupConstraints() {
         stackView.autoSetDimension(.height, toSize: viewHeight)
         stackView.autoPinEdgesToSuperviewMargins()
         
-        addButton.autoMatch(.height, to: .height, of: stackView)
-        addButton.autoMatch(.width, to: .height, of: addButton)
+        addUserCircleLbl.autoPinEdge(.bottom, to: .bottom, of: stackView, withOffset: 62)
+        addUserCircleLbl.autoPinEdge(.trailing, to: .trailing, of: stackView, withOffset: 62)
+        addUserCircleLbl.autoSetDimension(.height, toSize: 120)
+        addUserCircleLbl.autoMatch(.width, to: .height, of: addUserCircleLbl)
+        
+        addUserLbl.autoMatch(.height, to: .height, of: stackView)
+        addUserLbl.autoMatch(.width, to: .width, of: addUserLbl)
+        addUserLbl.autoPinEdge(.trailing, to: .trailing, of: stackView, withOffset: -5)
+        addUserLbl.autoPinEdge(.bottom, to: .bottom, of: stackView)
     }
 }
 
 extension UserBarView {
-    public func setActionForAddButton(_ target: Any?, action: Selector) {
-        addButton.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
     public func reloadData() {
         self.collectionView.reloadData()
     }
     
+    public func addGestureRecognizerToAddUserCircleLabel(_ gestureRecognizer: UIGestureRecognizer) {
+        addUserCircleLbl.addGestureRecognizer(gestureRecognizer)
+    }
 }
 
 extension UserBarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
