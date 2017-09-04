@@ -55,6 +55,7 @@ final class CalendarViewController: UIViewController {
     }
     
     func reloadUserBarDataHandler() {
+        calendarView.calendarCollectionView.reloadData()
         calendarView.userBarView.reloadData()
     }
 }

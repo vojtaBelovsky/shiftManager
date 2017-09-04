@@ -22,7 +22,6 @@ final class UserManager: NSObject {
         }
     }
     
-    fileprivate var shouldGenerateShiftForDateDictionary = true
         
     static let sharedInstance = UserManager()
 
@@ -148,10 +147,10 @@ extension UserManager {
     }
     
     public func shiftForDate(_ date: Date) -> ShiftModel? {
-
-        if shouldGenerateShiftForDateDictionary {
+        
+        if selectedUser?.shouldGenerateShiftForDateDictionary ?? false {
             selectedUser?.generateShiftForDateDictionary()
-            shouldGenerateShiftForDateDictionary = false
+            selectedUser?.shouldGenerateShiftForDateDictionary = false
         }
 
         return selectedUser?.shiftForDateDictionary[date]
@@ -159,7 +158,7 @@ extension UserManager {
     
     public func shiftForDateDictionaryShouldReloadData() {
         selectedUser?.resetShiftForDateDictionary()
-        shouldGenerateShiftForDateDictionary = true
+        selectedUser?.shouldGenerateShiftForDateDictionary = true
     }
 }
 
