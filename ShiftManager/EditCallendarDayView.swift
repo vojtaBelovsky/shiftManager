@@ -45,6 +45,7 @@ final class EditCallendarDayView: UIView {
         addSubview(dateLabel)
         
         shiftNameLabel.textColor = .black
+        shiftNameLabel.numberOfLines = 0
         addSubview(shiftNameLabel)
         
         extraShiftButton.backgroundColor = .red
@@ -141,19 +142,20 @@ extension EditCallendarDayView {
         dateLabel.text = "\(formatter.string(from: date))"
     }
     
-//    public func setShiftName(_ name: String) {
-//        shiftNameLabel.text = name
-//    }
-
-    public func setShiftName(_ name: ShiftModel) {
-        shiftNameLabel.text = name.name
+    public func setShiftName(_ name: String) {
+        shiftNameLabel.text = name
     }
     
     public func setupView(with model: EditCalendarDayModel) {
         note.text = model.note
         dayOffSwitch.isOn = model.freeDay
         
-// Tady nacitam ulozene nazvy sichet dulezite to tady napsat
-//        shiftNameLabel.text = model.extraShifts
+        var finalShiftNamesText: String = ""
+        model.extraShifts.forEach { shiftName in
+            finalShiftNamesText = finalShiftNamesText.isEmpty
+                ? "\(shiftName.name)"
+                : "\(finalShiftNamesText)\n\(shiftName.name)"
+        }
+        shiftNameLabel.text = finalShiftNamesText
     }
 }
