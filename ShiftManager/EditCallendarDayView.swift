@@ -18,7 +18,7 @@ final class EditCallendarDayView: UIView {
     fileprivate let dayOffLabel = UILabel()
     fileprivate let dayOffSwitch = UISwitch()
     fileprivate let noteLabel = UILabel()
-    fileprivate let note = UITextView()
+    fileprivate let noteTextView = UITextView()
     
     init() {
         super.init(frame: .zero)
@@ -65,12 +65,12 @@ final class EditCallendarDayView: UIView {
         noteLabel.textColor = .black
         addSubview(noteLabel)
         
-        note.textAlignment = NSTextAlignment.justified
-        note.textColor = UIColor.black
-        note.backgroundColor = UIColor.white
-        note.layer.borderColor = UIColor.black.cgColor
-        note.layer.borderWidth = 1
-        addSubview(note)
+        noteTextView.textAlignment = NSTextAlignment.justified
+        noteTextView.textColor = UIColor.black
+        noteTextView.backgroundColor = UIColor.white
+        noteTextView.layer.borderColor = UIColor.black.cgColor
+        noteTextView.layer.borderWidth = 1
+        addSubview(noteTextView)
     }
     
     fileprivate func setupConstraints() {
@@ -109,10 +109,10 @@ final class EditCallendarDayView: UIView {
         noteLabel.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.0)
         noteLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
-        note.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        note.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        note.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.3)
-        note.autoMatch(.height, to: .height, of: self, withMultiplier: 0.2)
+        noteTextView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        noteTextView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        noteTextView.autoAlignAxis(.horizontal, toSameAxisOf: self, withMultiplier: 1.3)
+        noteTextView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.2)
         
     }
  
@@ -133,7 +133,7 @@ extension EditCallendarDayView {
     }
     
     public func notes() -> String {
-        return self.note.text ?? ""
+        return self.noteTextView.text ?? ""
     }
     
     public func setDate(date: Date) {
@@ -147,7 +147,7 @@ extension EditCallendarDayView {
     }
     
     public func setupView(with model: EditCalendarDayModel) {
-        note.text = model.note
+        noteTextView.text = model.note
         dayOffSwitch.isOn = model.freeDay
         
         var finalShiftNamesText: String = ""
