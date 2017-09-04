@@ -27,6 +27,8 @@ final class UserModel: NSObject, NSCoding {
     fileprivate let shitsPropertyKey = "shitsPropertyKey"
     fileprivate let editCalendarDaysPropertyKey = "editCalendarDaysPropertyKey"
 
+    var shouldGenerateShiftForDateDictionary = true
+    
     override init() {
         super.init()
     }
