@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShiftManager/EditCallendarDayView.swift"
-            timestampString = "526224881.626566"
+            timestampString = "526284250.327001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "setShiftName(_:)"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "setupView(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShiftManager/EditCallendarDayView.swift"
-            timestampString = "526224881.626566"
+            timestampString = "526284254.902697"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "setupView(with:)"
             landmarkType = "7">
          </BreakpointContent>
