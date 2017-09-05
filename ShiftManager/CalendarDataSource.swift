@@ -64,12 +64,24 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
             let dateOfCell = getDateForCell(at: indexPath)?.normalizedDate()
             cell.setDate(date: dateOfCell)
             
-            if let date = dateOfCell, let shiftForDate = UserManager.sharedInstance.shiftForDate(date) {
+            guard let date = dateOfCell else {
+                cell.setup(with: nil)
+                return cell
+            }
+            if let shiftForDate = UserManager.sharedInstance.shiftForDate(date),
+                let extraShifts = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] {
                 cell.setup(with: shiftForDate)
+                cell.setupHoliday(with: extraShifts)
+
+            } else if let shiftForDate = UserManager.sharedInstance.shiftForDate(date) {
+                cell.setup(with: shiftForDate)
+               
+//            } else if let extraShifts = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] {
+//                cell.setupHoliday(with: extraShifts)
             } else {
                 cell.setup(with: nil)
             }
-
+            
             return cell
         }
     }
