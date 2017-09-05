@@ -15,9 +15,21 @@ protocol ExtraShiftViewControllerDelegate: class {
 final class ExtraShiftViewController: UIViewController {
 
     fileprivate let extraShiftView = ExtraShiftView()
-    fileprivate let dataSource = ExtraShiftDataSource()
     
     public weak var delegate: ExtraShiftViewControllerDelegate?
+    
+    fileprivate let date: Date
+    fileprivate let dataSource: ExtraShiftDataSource
+    
+    init(date: Date) {
+        self.date = date
+        dataSource = ExtraShiftDataSource(date: date)
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +41,17 @@ final class ExtraShiftViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         
         extraShiftView.tableView.dataSource = dataSource
-        extraShiftView.tableView.allowsMultipleSelectionDuringEditing = true
-        extraShiftView.tableView.isEditing = true
     }
     
     override func loadView() {
         view = extraShiftView
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        for indexPath in dataSource.preselectedIndexPaths {
+            extraShiftView.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
     }
     
     func doneButtonDidPress(){

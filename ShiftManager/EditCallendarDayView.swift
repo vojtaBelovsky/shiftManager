@@ -86,12 +86,12 @@ final class EditCallendarDayView: UIView {
         shiftNameLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         shiftNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
-        extraShiftButton.autoPinEdge(.top, to: .bottom, of: shiftNameLabel, withOffset: Spacing.VerticalSpacing/2)
+        extraShiftButton.autoPinEdge(.top, to: .bottom, of: shiftNameLabel, withOffset: Spacing.VerticalSpacing*2)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         extraShiftButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
-        dayOffLabel.autoPinEdge(.top, to: .bottom, of: extraShiftButton, withOffset: Spacing.VerticalSpacing/2)
+        dayOffLabel.autoPinEdge(.top, to: .bottom, of: extraShiftButton, withOffset: Spacing.VerticalSpacing*2)
         dayOffLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         
         dayOffSwitch.autoPinEdge(.leading, to: .trailing, of: dayOffLabel, withOffset: Spacing.HorizontalSpacing)
@@ -106,6 +106,7 @@ final class EditCallendarDayView: UIView {
         noteTextView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         noteTextView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         noteTextView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.2)
+        noteTextView.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing, relation: .greaterThanOrEqual)
         
     }
  
@@ -135,20 +136,19 @@ extension EditCallendarDayView {
         dateLabel.text = "\(formatter.string(from: date))"
     }
     
-    public func setShiftName(_ name: String) {
-        shiftNameLabel.text = name
-    }
-    
-    public func setupView(with model: EditCalendarDayModel) {
-        noteTextView.text = model.note
-        dayOffSwitch.isOn = model.freeDay
-        
+    public func setExtraShifts(extraShifts: [ShiftModel]) {
         var finalShiftNamesText: String = ""
-        model.extraShifts.forEach { shiftName in
+        extraShifts.forEach { shiftName in
             finalShiftNamesText = finalShiftNamesText.isEmpty
                 ? "\(shiftName.name)"
                 : "\(finalShiftNamesText)\n\(shiftName.name)"
         }
         shiftNameLabel.text = finalShiftNamesText
+    }
+    
+    public func setupView(with model: EditCalendarDayModel) {
+        noteTextView.text = model.note
+        dayOffSwitch.isOn = model.freeDay
+        setExtraShifts(extraShifts: model.extraShifts)
     }
 }
