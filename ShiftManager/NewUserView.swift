@@ -12,13 +12,15 @@ import PureLayout
 final class NewUserView: UIView {
     
     fileprivate let selectImageViewContainer = UIView()
-    fileprivate let selectImageView = UIImageView()
-    let registerButton = UIButton()
+    fileprivate var selectImageView = UIImageView()
+    let createButton = UIButton()
     fileprivate let cameraButton = UIButton()
     fileprivate let contactsButton = UIButton()
-    fileprivate let firstNameTextField = BoundedTextField()
-    fileprivate let lastNameTextField = BoundedTextField()
+     let firstNameTextField = BoundedTextField()
+     let lastNameTextField = BoundedTextField()
     fileprivate let stackView = UIStackView()
+    
+    fileprivate let toolBar = UIToolbar()
     
     let profileImgSize: CGFloat = 100.0
     
@@ -35,6 +37,10 @@ final class NewUserView: UIView {
     func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
         
+        toolBar.alpha = 0.6
+        
+        addSubview(toolBar)
+        
         stackView.axis = .vertical
         stackView.distribution = .equalCentering
         addSubviewToStackView()
@@ -46,31 +52,38 @@ final class NewUserView: UIView {
         selectImageView.clipsToBounds = true
         selectImageView.layer.masksToBounds = true
         selectImageView.isUserInteractionEnabled = true
+        selectImageView.backgroundColor = UIColor(patternImage: UIImage(named:"addImageButton.png")!)
         
         firstNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc001", comment: "")
-        
+       
         lastNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc002", comment: "")
-        
-        registerButton.backgroundColor = .red
-        registerButton.setTitle(NSLocalizedString("RegisterButton_loc003", comment: ""), for: .normal)
         
         cameraButton.backgroundColor = .red
         cameraButton.setTitle(NSLocalizedString("RegisterButton_loc004", comment: ""), for: .normal)
         
         contactsButton.backgroundColor = .red
+        contactsButton.layer.cornerRadius = 17
+        contactsButton.layer.borderWidth = 1
         contactsButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
+        
+        createButton.backgroundColor = .red
+        createButton.layer.cornerRadius = 17
+        createButton.layer.borderWidth = 1
+        createButton.setTitle(NSLocalizedString("RegisterButton_loc003", comment: ""), for: .normal)
     }
     
     fileprivate func addSubviewToStackView() {
         selectImageViewContainer.addSubview(selectImageView)
         [
-            selectImageViewContainer, getSpaceView(), cameraButton, firstNameTextField, lastNameTextField, getSpaceView(), registerButton, contactsButton
+            selectImageViewContainer, getSpaceView(), cameraButton, firstNameTextField, lastNameTextField, getSpaceView(), createButton, contactsButton
         ].forEach { subview in
             stackView.addArrangedSubview(subview)
         }
     }
     
     func setupConstraints() {
+        
+        toolBar.autoPinEdgesToSuperviewEdges()
         
         stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         stackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
@@ -93,7 +106,7 @@ final class NewUserView: UIView {
 
 extension NewUserView {
     public func registerButtonDidPress(_ target: Any?, action: Selector) {
-        registerButton.addTarget(target, action: action, for: .touchUpInside)
+        createButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     public func cameraButtonDidPress(_ target: Any?, action: Selector) {

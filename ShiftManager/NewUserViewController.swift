@@ -26,6 +26,9 @@ class NewUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "bcg")
+        self.view.insertSubview(backgroundImage, at: 0)
         edgesForExtendedLayout = .bottom
         title = NSLocalizedString("RegisterTitle_loc001", comment: "")
         
@@ -36,6 +39,16 @@ class NewUserViewController: UIViewController {
         newUserView.cameraButtonDidPress(self, action: #selector(cameraButtonDidPress))
         newUserView.contactsButtonDidPress(self, action: #selector(contactsButtonDidPress))
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        navigationController?.setNavigationBarHidden(true, animated: false)
+//        super.viewWillAppear(animated)
+//    }
+//    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        navigationController?.setNavigationBarHidden(false, animated: true)
+//        super.viewWillAppear(animated)
+//    }
     
     func tapDetected() {
         selectPicture()
@@ -81,6 +94,7 @@ class NewUserViewController: UIViewController {
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
             return
+        
         } else {
             UserManager.sharedInstance.saveUser(user: user)
             sendNotification()

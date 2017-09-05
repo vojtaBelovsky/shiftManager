@@ -14,14 +14,14 @@
 "CreateNewShift_loc008" = "Shortcut for shift (max. 2 symbols)";
 "CreateNewShift_loc009" = "Edit shift";
 //Register
-"RegisterTitle_loc001" = "New user";
+"RegisterTitle_loc001" = "Create new user";
 "RegisterTitle_loc002" = "Edit user";
 "RegisterPlaceholder_loc001" = "First name";
 "RegisterPlaceholder_loc002" = "Last name";
-"RegisterButton_loc003" = "Create";
+"RegisterButton_loc003" = "CREATE";
 "RegisterButton_loc004" = "Camera";
 "RegisterButton_loc005" = "Update";
-"RegisterButton_loc006" = "Contacts";
+"RegisterButton_loc006" = "IMPORT";
 "RegisterAllert_loc001" = "Error";
 "RegisterAllert_loc002" = "First name field is empty";
 "RegisterAllert_loc003" = "Last name field is empty";

@@ -71,7 +71,7 @@ final class EditCallendarDayViewController: UIViewController {
     }
     
     func setActionForShiftButton() {
-        let extraShiftViewController = ExtraShiftViewController()
+        let extraShiftViewController = ExtraShiftViewController(date: date)
         extraShiftViewController.delegate = self
         navigationController?.pushViewController(extraShiftViewController, animated: true)
     }
@@ -81,9 +81,6 @@ extension EditCallendarDayViewController: ExtraShiftViewControllerDelegate {
     public func setExtraShifts(extraShifts: [ShiftModel]) {
         self.extraShifts = extraShifts
         
-        // TODO: This block of code is just for test, delete this when EditCallendarDayView will be preparet to show multiple shift names!!!
-        if let firstExtraShift = extraShifts.first {
-            editCallendarDayView.setShiftName(firstExtraShift)
-        }
+        editCallendarDayView.setExtraShifts(extraShifts: extraShifts)
     }
 }
