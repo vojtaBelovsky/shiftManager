@@ -8,7 +8,12 @@
 
 import UIKit
 
+public enum userErrorType: Int {
+    case userErrorTypeFirstName = 0, userErrorTypeLastName = 1
+}
+
 final class NewUserValidator: NSObject {
+    let newUserView = NewUserView()
     
     static func validateNewUser(_ name: UserModel) -> NSError? {
         
@@ -18,8 +23,9 @@ final class NewUserValidator: NSObject {
             let userInfo: [AnyHashable : Any] = [
                 NSLocalizedDescriptionKey :  NSLocalizedString("RegisterAllert_loc001", comment: "") ,
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("RegisterAllert_loc002", comment: "")
+                
             ]
-            error = NSError.init(domain: "ShiftModelDomain", code: 0, userInfo: userInfo)
+            error = NSError.init(domain: "ShiftModelDomain", code: userErrorType.userErrorTypeFirstName.rawValue, userInfo: userInfo)
             return error
         }
         
@@ -28,7 +34,7 @@ final class NewUserValidator: NSObject {
                 NSLocalizedDescriptionKey :  NSLocalizedString("RegisterAllert_loc001", comment: "") ,
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("RegisterAllert_loc003", comment: "")
             ]
-            error = NSError.init(domain: "ShiftModelDomain", code: 0, userInfo: userInfo)
+            error = NSError.init(domain: "ShiftModelDomain", code: userErrorType.userErrorTypeLastName.rawValue, userInfo: userInfo)
             return error
         }
         return nil

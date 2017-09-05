@@ -26,7 +26,7 @@ final class EditUserViewController: NewUserViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("RegisterTitle_loc002", comment: "")
-        newUserView.registerButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
+        newUserView.createButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteButtonDidPress))
         setupView()
     }
