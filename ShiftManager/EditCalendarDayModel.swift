@@ -55,9 +55,3 @@ final class EditCalendarDayModel: NSObject, NSCoding {
         }        
     }
 }
-
-//extension EditCalendarDayModel {
-//    public func showShiftsName(_ extraShiftsName: ShiftModel) {
-//        let extraShiftName = extraShiftsName.name
-//    }
-//}

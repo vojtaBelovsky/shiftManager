@@ -45,7 +45,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     }
     
     fileprivate func setupViewItems() {
-        cellView.backgroundColor = .clear
+        cellView.backgroundColor = UIColor(red: 50.0/255, green: 150.0/255, blue: 65.0/255, alpha: 1.0)
         dayLabel.textColor = .black
         
         relayView.backgroundColor = .clear
@@ -64,8 +64,8 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     fileprivate func setupConstraints() {
         cellView.autoPinEdge(toSuperviewEdge: .top)
         cellView.autoPinEdge(toSuperviewEdge: .bottom)
-        cellView.autoPinEdge(toSuperviewEdge: .leading, withInset: 5)
-        cellView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 5)
+        cellView.autoPinEdge(toSuperviewEdge: .leading, withInset: 3)
+        cellView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 3)
         
         dayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
         dayLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)

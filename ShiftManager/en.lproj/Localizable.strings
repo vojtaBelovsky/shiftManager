@@ -14,7 +14,7 @@
 "CreateNewShift_loc008" = "Shortcut for shift (max. 2 symbols)";
 "CreateNewShift_loc009" = "Edit shift";
 //Register
-"RegisterTitle_loc001" = "New user";
+"RegisterTitle_loc001" = "Create new user";
 "RegisterTitle_loc002" = "Edit user";
 "RegisterPlaceholder_loc001" = "First name";
 "RegisterPlaceholder_loc002" = "Last name";

@@ -17,7 +17,7 @@ final class CalendarView: UIView {
     
     lazy var calendarCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumInteritemSpacing = 1
+        flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 10.0
         flowLayout.headerReferenceSize = CGSize(width: 400, height: 30)
 
@@ -64,7 +64,7 @@ final class CalendarView: UIView {
 
 extension CalendarView {
     func getCalendarCellSize() -> CGSize {
-        let size = UIScreen.main.bounds.size.width / CGFloat(numberOfCalendarCellsInCollum + 1)
+        let size = UIScreen.main.bounds.size.width / CGFloat(numberOfCalendarCellsInCollum)
         return CGSize(width: size, height: size)
     }
 }

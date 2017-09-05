@@ -30,7 +30,8 @@ final class SettingsViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
         settingsView.tableView.dataSource = dataSource
         settingsView.tableView.delegate = self
-        settingsView.userBarView.setActionForAddButton(self, action: #selector(addButtonDidPress))
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.addUserCircleLblDidPress))
+        settingsView.userBarView.addGestureRecognizerToAddUserCircleLabel(singleTap)
         
         let tableViewReloadDataNotification = NotificationCenter.default
         tableViewReloadDataNotification.addObserver(self, selector: #selector(tableViewReloadData), name: NewShiftViewControllerHandler, object: nil)
@@ -67,7 +68,7 @@ final class SettingsViewController: UIViewController {
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
     
-    func addButtonDidPress(){
+    func addUserCircleLblDidPress() {
         self.navigationController?.pushViewController(NewUserViewController(), animated: true)
     }
     

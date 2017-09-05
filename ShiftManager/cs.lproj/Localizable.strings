@@ -15,7 +15,7 @@
 "CreateNewShift_loc009" = "Úprava šichty";
 
 //Register
-"RegisterTitle_loc001" = "Nový uživatel";
+"RegisterTitle_loc001" = "Nový uživatele";
 "RegisterTitle_loc002" = "Úprava uživatele";
 "RegisterPlaceholder_loc001" = "Jméno";
 "RegisterPlaceholder_loc002" = "Příjmení";
