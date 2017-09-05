@@ -27,7 +27,7 @@ final class ShiftTableViewCell: UITableViewCell {
         let inset = CGFloat(40.0)
         titleLabel.autoPinEdge(toSuperviewEdge: .top, withInset: Spacing.VerticalSpacing)
         titleLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: inset)
-         titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: inset)
+        titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: inset)
         titleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing)
     }
     

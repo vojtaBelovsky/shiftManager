@@ -71,7 +71,7 @@ final class EditCallendarDayViewController: UIViewController {
     }
     
     func setActionForShiftButton() {
-        let extraShiftViewController = ExtraShiftViewController()
+        let extraShiftViewController = ExtraShiftViewController(date: date)
         extraShiftViewController.delegate = self
         navigationController?.pushViewController(extraShiftViewController, animated: true)
     }
