@@ -135,20 +135,19 @@ extension EditCallendarDayView {
         dateLabel.text = "\(formatter.string(from: date))"
     }
     
-    public func setShiftName(_ name: String) {
-        shiftNameLabel.text = name
-    }
-    
-    public func setupView(with model: EditCalendarDayModel) {
-        noteTextView.text = model.note
-        dayOffSwitch.isOn = model.freeDay
-        
+    public func setExtraShifts(extraShifts: [ShiftModel]) {
         var finalShiftNamesText: String = ""
-        model.extraShifts.forEach { shiftName in
+        extraShifts.forEach { shiftName in
             finalShiftNamesText = finalShiftNamesText.isEmpty
                 ? "\(shiftName.name)"
                 : "\(finalShiftNamesText)\n\(shiftName.name)"
         }
         shiftNameLabel.text = finalShiftNamesText
+    }
+    
+    public func setupView(with model: EditCalendarDayModel) {
+        noteTextView.text = model.note
+        dayOffSwitch.isOn = model.freeDay
+        setExtraShifts(extraShifts: model.extraShifts)
     }
 }

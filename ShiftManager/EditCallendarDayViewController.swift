@@ -81,11 +81,6 @@ extension EditCallendarDayViewController: ExtraShiftViewControllerDelegate {
     public func setExtraShifts(extraShifts: [ShiftModel]) {
         self.extraShifts = extraShifts
         
-//        if let firstExtraShift = extraShifts.first {
-//            editCallendarDayView.setShiftName(firstExtraShift.name)
-//        }
-        for extraShift in extraShifts {
-            editCallendarDayView.setShiftName(extraShift.name)
-        }
+        editCallendarDayView.setExtraShifts(extraShifts: extraShifts)
     }
 }
