@@ -26,6 +26,8 @@
 "RegisterAllert_loc001" = "Chyba";
 "RegisterAllert_loc002" = "Pole se jménem je prázdné";
 "RegisterAllert_loc003" = "Pole s příjmením je prázdné";
+"NewShiftAlertController_loc001" = "Vyfotit se";
+"NewShiftAlertController_loc002" = "Vybrat z galerie";
 
 //New shift
 "NewShiftAllert_loc001" = "Chyba";
