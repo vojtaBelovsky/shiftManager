@@ -13,7 +13,7 @@ final class EditCallendarDayView: UIView {
     
     fileprivate let infoLabel = UILabel()
     fileprivate let dateLabel = UILabel()
-    fileprivate let shiftNameLabel = UILabel()
+    fileprivate let extraShiftStackView = UIStackView()
     fileprivate let extraShiftButton = UIButton()
     fileprivate let dayOffLabel = UILabel()
     fileprivate let dayOffSwitch = UISwitch()
@@ -44,9 +44,9 @@ final class EditCallendarDayView: UIView {
         dateLabel.textColor = .black
         addSubview(dateLabel)
         
-        shiftNameLabel.textColor = .black
-        shiftNameLabel.numberOfLines = 0
-        addSubview(shiftNameLabel)
+        extraShiftStackView.axis = .vertical
+        extraShiftStackView.spacing = 10.0
+        addSubview(extraShiftStackView)
         
         extraShiftButton.backgroundColor = .red
         extraShiftButton.setTitle(NSLocalizedString("ExtraShiftButton_loc001", comment: ""), for: .normal)
@@ -56,7 +56,7 @@ final class EditCallendarDayView: UIView {
         dayOffLabel.textColor = .black
         addSubview(dayOffLabel)
         
-        dayOffSwitch.addTarget(self, action: #selector(switchValueDidChange), for: .valueChanged)
+        dayOffSwitch.addTarget(self, action: #selector(freeDay), for: .valueChanged)
         addSubview(dayOffSwitch)
 
         
@@ -81,11 +81,11 @@ final class EditCallendarDayView: UIView {
         dateLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         dateLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
-        shiftNameLabel.autoPinEdge(.top, to: .bottom, of: dateLabel, withOffset: Spacing.VerticalSpacing/2)
-        shiftNameLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        shiftNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        extraShiftStackView.autoPinEdge(.top, to: .bottom, of: dateLabel, withOffset: Spacing.VerticalSpacing/2)
+        extraShiftStackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        extraShiftStackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
-        extraShiftButton.autoPinEdge(.top, to: .bottom, of: shiftNameLabel, withOffset: Spacing.VerticalSpacing*2)
+        extraShiftButton.autoPinEdge(.top, to: .bottom, of: extraShiftStackView, withOffset: Spacing.VerticalSpacing*2)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         extraShiftButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
@@ -109,12 +109,19 @@ final class EditCallendarDayView: UIView {
         
     }
     
-    func setSwitch(switchIsOn: Bool) {
-        extraShiftButton.isEnabled = !switchIsOn
+    func setSwitch() {
+        extraShiftButton.isEnabled = !dayOffSwitch.isOn
     }
     
     func switchValueDidChange(sender: UISwitch) {
-        setSwitch(switchIsOn: sender.isOn)
+        setSwitch()
+    }
+    
+    fileprivate func removeSubviewsFromStackView() {
+        extraShiftStackView.subviews.forEach { subview in
+            extraShiftStackView.removeArrangedSubview(subview)
+            subview.removeFromSuperview()
+        }
     }
 }
 
@@ -139,13 +146,11 @@ extension EditCallendarDayView {
     }
     
     public func setExtraShifts(extraShifts: [ShiftModel]) {
-        var finalShiftNamesText: String = ""
-        extraShifts.forEach { shiftName in
-            finalShiftNamesText = finalShiftNamesText.isEmpty
-                ? "\(shiftName.name)"
-                : "\(finalShiftNamesText)\n\(shiftName.name)"
+        removeSubviewsFromStackView()
+        extraShifts.forEach { shiftModel in
+            let extraShiftView = LabelWithButtonView(with: shiftModel.name)
+            extraShiftStackView.addArrangedSubview(extraShiftView)
         }
-        shiftNameLabel.text = finalShiftNamesText
     }
     
     public func setupView(with model: EditCalendarDayModel) {
