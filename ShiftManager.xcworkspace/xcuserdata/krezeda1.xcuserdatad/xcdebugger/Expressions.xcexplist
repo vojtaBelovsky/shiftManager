@@ -38,7 +38,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ExtraShiftViewController.(doneButtonDidPress() -&gt; ()).(closure #1):ExtraShiftViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "UserManager.update(User : UserModel) -&gt; ():UserManager.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ExtraShiftDataSource.init(date : Date) -&gt; ExtraShiftDataSource:ExtraShiftDataSource.swift">
       </ContextState>
       <ContextState
          contextName = "ExtraShiftDataSource.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:ExtraShiftDataSource.swift">
@@ -53,17 +59,6 @@
                value = "extraShiftsForDate?.extraShifts.contains(model)">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "CalendarCollectionViewCell.setDayTitle() -&gt; ():CalendarCollectionViewCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "dateFormatter.string(from: date)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ExtraShiftViewController.(doneButtonDidPress() -&gt; ()).(closure #1):ExtraShiftViewController.swift">
       </ContextState>
       <ContextState
          contextName = "CalendarDataSource.getDateForCell(at : IndexPath) -&gt; Date:CalendarDataSource.swift">
@@ -90,7 +85,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ExtraShiftDataSource.init(date : Date) -&gt; ExtraShiftDataSource:ExtraShiftDataSource.swift">
+         contextName = "CalendarCollectionViewCell.setDayTitle() -&gt; ():CalendarCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dateFormatter.string(from: date)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "EditCallendarDayViewController.setExtraShifts(extraShifts : [ShiftModel]) -&gt; ():EditCallendarDayViewController.swift">
@@ -99,13 +99,13 @@
          contextName = "UserModel.generateShifts() -&gt; ():UserModel.swift">
          <PersistentStrings>
             <PersistentString
+               value = "UserManager.sharedInstance">
+            </PersistentString>
+            <PersistentString
                value = "UserManager.sharedInstance.getMaxDate()">
             </PersistentString>
             <PersistentString
                value = "date.compare(.isSameDay(as: UserManager.sharedInstance.getMaxDate()))">
-            </PersistentString>
-            <PersistentString
-               value = "UserManager.sharedInstance">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -157,6 +157,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "EditCallendarDayView.buttonStateChange() -&gt; ():EditCallendarDayView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "extraShiftButton.isEnabled">
+            </PersistentString>
+            <PersistentString
+               value = "dayOffSwitch.isOn">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserManager.saveShift(shift : ShiftModel) -&gt; ():UserManager.swift">
          <PersistentStrings>
             <PersistentString
@@ -169,6 +180,14 @@
       </ContextState>
       <ContextState
          contextName = "CalendarViewController.init(nibName : String?, bundle : Bundle?) -&gt; CalendarViewController:CalendarViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "EditCallendarDayView.initializeViewsAndAddThemAsSubviews() -&gt; ():EditCallendarDayView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dayOffSwitch">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "UserManager.addNewUser(user : UserModel) -&gt; ():UserManager.swift">

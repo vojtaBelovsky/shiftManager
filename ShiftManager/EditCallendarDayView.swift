@@ -56,10 +56,10 @@ final class EditCallendarDayView: UIView {
         dayOffLabel.textColor = .black
         addSubview(dayOffLabel)
         
-        dayOffSwitch.setOn(false, animated: true)
+        dayOffSwitch.setOn(false, animated: false)
         dayOffSwitch.addTarget(self, action: #selector(switchValueDidChange), for: .valueChanged)
         addSubview(dayOffSwitch)
-        
+
         
         noteLabel.text = NSLocalizedString("NoteLabel_loc001", comment: "")
         noteLabel.textColor = .black
@@ -86,12 +86,12 @@ final class EditCallendarDayView: UIView {
         shiftNameLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         shiftNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
-        extraShiftButton.autoPinEdge(.top, to: .bottom, of: shiftNameLabel, withOffset: Spacing.VerticalSpacing/2)
+        extraShiftButton.autoPinEdge(.top, to: .bottom, of: shiftNameLabel, withOffset: Spacing.VerticalSpacing*2)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         extraShiftButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
-        dayOffLabel.autoPinEdge(.top, to: .bottom, of: extraShiftButton, withOffset: Spacing.VerticalSpacing/2)
+        dayOffLabel.autoPinEdge(.top, to: .bottom, of: extraShiftButton, withOffset: Spacing.VerticalSpacing*2)
         dayOffLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         
         dayOffSwitch.autoPinEdge(.leading, to: .trailing, of: dayOffLabel, withOffset: Spacing.HorizontalSpacing)
@@ -106,12 +106,16 @@ final class EditCallendarDayView: UIView {
         noteTextView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         noteTextView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         noteTextView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.2)
+        noteTextView.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing, relation: .greaterThanOrEqual)
         
     }
- 
+    
+    func setSwitch(switchIsOn: Bool) {
+        extraShiftButton.isEnabled = !switchIsOn
+    }
+    
     func switchValueDidChange(sender: UISwitch) {
-        extraShiftButton.isEnabled = !dayOffSwitch.isOn
-        extraShiftButton.backgroundColor = dayOffSwitch.isOn ? UIColor.red.withAlphaComponent(0.3) : .red
+        setSwitch(switchIsOn: sender.isOn)
     }
 }
 
@@ -148,6 +152,7 @@ extension EditCallendarDayView {
     public func setupView(with model: EditCalendarDayModel) {
         noteTextView.text = model.note
         dayOffSwitch.isOn = model.freeDay
+        setSwitch(switchIsOn: model.freeDay)
         setExtraShifts(extraShifts: model.extraShifts)
     }
 }

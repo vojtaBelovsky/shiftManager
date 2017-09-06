@@ -27,17 +27,19 @@ final class EditUserViewController: NewUserViewController {
         super.viewDidLoad()
         title = NSLocalizedString("RegisterTitle_loc002", comment: "")
         newUserView.createButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteButtonDidPress))
         setupView()
+          newUserView.trashButtonDidPress(self, action: #selector(deleteButtonDidPress))
     }
     
     fileprivate func setupView() {
         newUserView.editUserSetupView(with: user)
+        newUserView.setDeleteButtonVisible(true)
     }
     
     func deleteButtonDidPress(){
         UserManager.sharedInstance.deleteSelectedUser()
         sendDeleteNotification()
+        navigationController?.isNavigationBarHidden = false
         _ = navigationController?.popViewController(animated:true)
         
     }
@@ -65,7 +67,10 @@ final class EditUserViewController: NewUserViewController {
         } else {
             UserManager.sharedInstance.saveUser(user: user)
             sendNotification()
+            navigationController?.isNavigationBarHidden = false
             _ = navigationController?.popViewController(animated:true)
         }
     }
 }
+
+

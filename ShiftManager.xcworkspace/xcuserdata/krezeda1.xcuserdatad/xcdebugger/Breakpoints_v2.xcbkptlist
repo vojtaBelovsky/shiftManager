@@ -9,78 +9,30 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShiftManager/ExtraShiftDataSource.swift"
-            timestampString = "526304561.923178"
+            filePath = "ShiftManager/EditCallendarDayView.swift"
+            timestampString = "526385658.512824"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "setSwitch(switchIsOn:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShiftManager/ExtraShiftDataSource.swift"
-            timestampString = "526305147.377631"
+            filePath = "ShiftManager/EditCallendarDayView.swift"
+            timestampString = "526385584.885928"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "ExtraShiftDataSource"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShiftManager/ExtraShiftDataSource.swift"
-            timestampString = "526305717.337372"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "ExtraShiftDataSource"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ShiftManager.ExtraShiftDataSource.init (date : Foundation.Date) -&gt; ShiftManager.ExtraShiftDataSource"
-                  moduleName = "ShiftManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krezeda1/Documents/Workspaces/idevband/shiftManager/ShiftManager/ExtraShiftDataSource.swift"
-                  timestampString = "526305730.599331"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ShiftManager.ExtraShiftDataSource.preselectedIndexPaths.getter : Swift.Array&lt;Foundation.IndexPath&gt;"
-                  moduleName = "ShiftManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/krezeda1/Documents/Workspaces/idevband/shiftManager/ShiftManager/ExtraShiftDataSource.swift"
-                  timestampString = "526305730.601269"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "35">
-               </Location>
-            </Locations>
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "setupView(with:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

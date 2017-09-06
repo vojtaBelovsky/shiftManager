@@ -14,15 +14,17 @@ final class NewUserView: UIView {
     fileprivate let selectImageViewContainer = UIView()
     fileprivate var selectImageView = UIImageView()
     let createButton = UIButton()
-    fileprivate let cameraButton = UIButton()
     fileprivate let contactsButton = UIButton()
-     let firstNameTextField = BoundedTextField()
-     let lastNameTextField = BoundedTextField()
+    fileprivate let backButton = UIButton()
+    fileprivate let trashButton = UIButton()
+    let firstNameTextField = BoundedTextField()
+    let lastNameTextField = BoundedTextField()
     fileprivate let stackView = UIStackView()
     
     fileprivate let toolBar = UIToolbar()
     
-    let profileImgSize: CGFloat = 100.0
+    let profileImgSize: CGFloat = 125.0
+    fileprivate let userPlaceholderImage = #imageLiteral(resourceName: "addImageIcon")
     
     init() {
         super.init(frame: .zero)
@@ -41,25 +43,32 @@ final class NewUserView: UIView {
         
         addSubview(toolBar)
         
+        trashButton.backgroundColor = .clear
+        trashButton.setImage( UIImage.init(named: "trashIcon.png"), for: .normal)
+        addSubview(trashButton)
+        
+        backButton.backgroundColor = .clear
+        backButton.setImage( UIImage.init(named: "backIcon.png"), for: .normal)
+        addSubview(backButton)
+        
         stackView.axis = .vertical
         stackView.distribution = .equalCentering
         addSubviewToStackView()
         addSubview(stackView)
         
         selectImageView.layer.borderWidth = 4
+        
         selectImageView.layer.borderColor = UIColor.black.cgColor
         selectImageView.layer.cornerRadius = profileImgSize / 2
         selectImageView.clipsToBounds = true
+        selectImageView.contentMode = .center
         selectImageView.layer.masksToBounds = true
         selectImageView.isUserInteractionEnabled = true
-        selectImageView.backgroundColor = UIColor(patternImage: UIImage(named:"addImageButton.png")!)
+        selectImageView.image = userPlaceholderImage
         
         firstNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc001", comment: "")
        
         lastNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc002", comment: "")
-        
-        cameraButton.backgroundColor = .red
-        cameraButton.setTitle(NSLocalizedString("RegisterButton_loc004", comment: ""), for: .normal)
         
         contactsButton.backgroundColor = .red
         contactsButton.layer.cornerRadius = 17
@@ -75,19 +84,30 @@ final class NewUserView: UIView {
     fileprivate func addSubviewToStackView() {
         selectImageViewContainer.addSubview(selectImageView)
         [
-            selectImageViewContainer, getSpaceView(), cameraButton, firstNameTextField, lastNameTextField, getSpaceView(), createButton, contactsButton
+            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField,contactsButton, createButton
         ].forEach { subview in
             stackView.addArrangedSubview(subview)
         }
     }
     
     func setupConstraints() {
+        backButton.autoPinEdge(toSuperviewEdge: .top, withInset: 21)
+        backButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 8)
+        backButton.autoSetDimensions(to: CGSize(width: 100, height: 100))
+        backButton.autoPinEdge(.bottom, to: .top, of: stackView)
+        backButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 320)
+        
+        trashButton.autoPinEdge(toSuperviewEdge: .top, withInset: 21)
+        trashButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 8)
+        trashButton.autoSetDimensions(to: CGSize(width: 100, height: 100))
+        trashButton.autoPinEdge(.bottom, to: .top, of: stackView)
+        trashButton.autoPinEdge(.leading, to: .trailing, of: backButton, withOffset: 270)
         
         toolBar.autoPinEdgesToSuperviewEdges()
         
         stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         stackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        stackView.autoPinEdge(toSuperviewEdge: .top, withInset: 10)
+        stackView.autoPinEdge(toSuperviewEdge: .top, withInset: 60)
         
         selectImageView.autoSetDimension(.width, toSize: profileImgSize)
         selectImageView.autoSetDimension(.height, toSize: profileImgSize)
@@ -105,12 +125,17 @@ final class NewUserView: UIView {
 }
 
 extension NewUserView {
-    public func registerButtonDidPress(_ target: Any?, action: Selector) {
-        createButton.addTarget(target, action: action, for: .touchUpInside)
+    
+    public func backButtonDidPress(_ target: Any?, action: Selector) {
+        backButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
-    public func cameraButtonDidPress(_ target: Any?, action: Selector) {
-        cameraButton.addTarget(target, action: action, for: .touchUpInside)
+    public func trashButtonDidPress(_ target: Any?, action: Selector) {
+        trashButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    public func registerButtonDidPress(_ target: Any?, action: Selector) {
+        createButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     public func contactsButtonDidPress(_ target: Any?, action: Selector) {
@@ -141,10 +166,15 @@ extension NewUserView {
     public func editUserSetupView(with user: UserModel) {
         firstNameTextField.text = user.firstName
         lastNameTextField.text = user.lastName
-        selectImageView.image = user.userPhotoImage
+        setImage(user.userPhotoImage ?? userPlaceholderImage)
     }
     
     public func setImage(_ image: UIImage) {
         selectImageView.image = image
+        selectImageView.contentMode = UIViewContentMode.scaleAspectFill
+    }
+    
+    public func setDeleteButtonVisible(_ visible: Bool) {
+        trashButton.isHidden = !visible
     }
 }
