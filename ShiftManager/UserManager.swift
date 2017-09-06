@@ -129,6 +129,8 @@ extension UserManager {
 
     public func deleteShift(at index: Int) {
         selectedUser?.shifts.remove(at: index)
+        NotificationCenter.default.post(name: reloadCalendarView, object: nil)
+        saveUsersToPersistentStorage()
     }
 
     public func numberOfShifts() -> Int {

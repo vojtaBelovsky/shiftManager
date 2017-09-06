@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 final class EditCallendarDayViewController: UIViewController {
     
     fileprivate let editCallendarDayView = EditCallendarDayView()
@@ -61,7 +63,8 @@ final class EditCallendarDayViewController: UIViewController {
         editCalendarDay.note = editCallendarDayView.notes()
         editCalendarDay.date = date
         UserManager.sharedInstance.saveEditCalendarDayModel(editCalendarDay)
-
+        
+        NotificationCenter.default.post(name: reloadCalendarView, object: nil)
         _ = navigationController?.popViewController(animated: true)
     }
     

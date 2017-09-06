@@ -8,6 +8,8 @@
 
 import UIKit
 
+let reloadCalendarView = Notification.Name(rawValue: "ReloadCalendarView")
+
 final class CalendarViewController: UIViewController {
     
     fileprivate let calendarView = CalendarView()
@@ -35,6 +37,9 @@ final class CalendarViewController: UIViewController {
         let collectionViewReloadDataNotification = NotificationCenter.default
         collectionViewReloadDataNotification.addObserver(self, selector: #selector(reloadCollectionViewDataHandler), name: NewShiftViewControllerHandler, object: nil)
         
+        let reloadColectionView = NotificationCenter.default
+        reloadColectionView.addObserver(self, selector: #selector(reloadCalendarViewHandler), name: reloadCalendarView, object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reloadUserBarDataHandler), name: refreshUserViewNotification, object: nil)
 
         calendarView.calendarCollectionView.dataSource = calendarDataSource
@@ -45,12 +50,17 @@ final class CalendarViewController: UIViewController {
                                              forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                                              withReuseIdentifier: String(describing: CalendarHeaderView.self))
     }
-
+    
     func settingsButtonDidPress() {
         navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
     func reloadCollectionViewDataHandler() {
+        calendarView.calendarCollectionView.reloadData()
+    }
+    
+    func reloadCalendarViewHandler() {
+        UserManager.sharedInstance.shiftForDateDictionaryShouldReloadData()
         calendarView.calendarCollectionView.reloadData()
     }
     
