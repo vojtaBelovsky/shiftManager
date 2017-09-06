@@ -60,6 +60,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
                     assertionFailure("Non existing cell")
                     return UICollectionViewCell()
             }
+            cell.setDefaultStateToLabels()
             
             let dateOfCell = getDateForCell(at: indexPath)?.normalizedDate()
             cell.setDate(date: dateOfCell)
@@ -76,12 +77,12 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
             } else if let shiftForDate = UserManager.sharedInstance.shiftForDate(date) {
                 cell.setup(with: shiftForDate)
                
-//            } else if let extraShifts = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] {
-//                cell.setupHoliday(with: extraShifts)
+            } else if let extraShifts = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] {
+                cell.setupHoliday(with: extraShifts)
+                
             } else {
                 cell.setup(with: nil)
             }
-            
             return cell
         }
     }
