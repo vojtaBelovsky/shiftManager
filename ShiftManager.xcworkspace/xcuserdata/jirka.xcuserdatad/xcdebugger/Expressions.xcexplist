@@ -3,6 +3,41 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "CalendarDataSource.collectionView(UICollectionView, cellForItemAt : IndexPath) -&gt; UICollectionViewCell:CalendarDataSource.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserManager.sharedInstance.selectedUser">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewUserView.layoutSubviews() -&gt; ():NewUserView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "frame.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CalendarCollectionViewCell.setupHoliday(with : EditCalendarDayModel?) -&gt; ():CalendarCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "holidayShift?.extraShifts">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CalendarDataSource.collectionView(UICollectionView, numberOfItemsInSection : Int) -&gt; Int:CalendarDataSource.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "today">
+            </PersistentString>
+            <PersistentString
+               value = "adjustedDate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "NewUserView.initializeViewsAndAddThemAsSubviews() -&gt; ():NewUserView.swift">
          <PersistentStrings>
             <PersistentString
@@ -19,23 +54,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CalendarDataSource.collectionView(UICollectionView, numberOfItemsInSection : Int) -&gt; Int:CalendarDataSource.swift">
+         contextName = "CalendarCollectionViewCell.setup(with : ShiftModel?) -&gt; ():CalendarCollectionViewCell.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CalendarCollectionViewCell.(setupHoliday(with : EditCalendarDayModel?) -&gt; ()).(implicit closure #1):CalendarCollectionViewCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "today">
+               value = "UserManager.sharedInstance.selectedUser">
             </PersistentString>
             <PersistentString
-               value = "adjustedDate">
+               value = "UserManager.sharedInstance.selectedUser?.editCalendarDays">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NewUserView.layoutSubviews() -&gt; ():NewUserView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "frame.width">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "CalendarCollectionViewCell.setupConstraints() -&gt; ():CalendarCollectionViewCell.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

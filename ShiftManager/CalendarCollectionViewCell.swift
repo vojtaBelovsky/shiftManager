@@ -11,12 +11,13 @@ import PureLayout
 final class CalendarCollectionViewCell: UICollectionViewCell {
 
     fileprivate let dayLabel = UILabel()
-    fileprivate let relayLabel = CalendarCircleLabel()
+    fileprivate let relayLabel = UILabel()
     fileprivate let relayView = UIView()
     fileprivate let cellView = UIView()
-    fileprivate let extraFirstLabel = CalendarCircleLabel()
-    fileprivate let extraSecondLabel = CalendarCircleLabel()
-    fileprivate let extraThirdLabel = CalendarCircleLabel()
+    fileprivate let extraFirstLabel = UILabel()
+    fileprivate let extraSecondLabel = UILabel()
+    fileprivate let extraThirdLabel = UILabel()
+    fileprivate var model: EditCalendarDayModel?
     
     fileprivate var date: Date? {
         didSet {
@@ -26,14 +27,6 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        extraFirstLabel.text = ""
-        extraSecondLabel.text = ""
-        extraThirdLabel.text = ""
-        
-        extraFirstLabel.backgroundColor = .green
-        extraSecondLabel.backgroundColor = .blue
-        extraThirdLabel.backgroundColor = .red
 
         setupViewItems()
         addSubviews()
@@ -44,21 +37,37 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func refreshCell() {
+        contentView.removeConstraints(contentView.constraints)
+        contentView.subviews.forEach { view in
+            view.removeFromSuperview()
+        }
+        
+        addSubviews()
+        setupConstraints()
+    }
+    
     fileprivate func setupViewItems() {
         cellView.backgroundColor = UIColor(red: 50.0/255, green: 150.0/255, blue: 65.0/255, alpha: 1.0)
         dayLabel.textColor = .black
+        dayLabel.font = UIFont.boldSystemFont(ofSize: 20)
         
         relayView.backgroundColor = .clear
+        
+        relayLabel.textAlignment = .center
+        extraFirstLabel.textAlignment = .center
+        extraSecondLabel.textAlignment = .center
+        extraThirdLabel.textAlignment = .center
     }
  
     fileprivate func addSubviews() {
         contentView.addSubview(cellView)
-        cellView.addSubview(dayLabel)
         cellView.addSubview(relayView)
         relayView.addSubview(extraThirdLabel)
         relayView.addSubview(extraSecondLabel)
         relayView.addSubview(extraFirstLabel)
         relayView.addSubview(relayLabel)
+        cellView.addSubview(dayLabel)
     }
     
     fileprivate func setupConstraints() {
@@ -68,71 +77,49 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         cellView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 3)
         
         dayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
-        dayLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
-        dayLabel.autoPinEdge(toSuperviewEdge: .top)
+        dayLabel.autoMatch(.height, to: .height, of: self)
+        dayLabel.autoAlignAxis(toSuperviewAxis: .horizontal)
       
-        relayView.autoMatch(.height, to: .height, of: self.cellView, withMultiplier: 0.5)
-        relayView.autoPinEdge(toSuperviewEdge: .bottom)
-        relayView.autoPinEdge(toSuperviewEdge: .leading)
-        relayView.autoPinEdge(toSuperviewEdge: .trailing)
+        relayView.autoPinEdge(.top, to: .top, of: cellView)
+        relayView.autoPinEdge(.bottom, to: .bottom, of: cellView)
+        relayView.autoPinEdge(.leading, to: .leading, of: cellView)
+        relayView.autoPinEdge(.trailing, to: .trailing, of: cellView)
         
-        if extraThirdLabel.text != "" {
-            
-            relayLabel.autoPinEdge(toSuperviewEdge: .top)
-            relayLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: -16)
-            relayLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.6)
-            relayLabel.autoMatch(.width, to: .height, of: relayLabel)
-            
-            extraFirstLabel.autoPinEdge(toSuperviewEdge: .top)
-            extraFirstLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: 5)
-            extraFirstLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.6)
-            extraFirstLabel.autoMatch(.width, to: .height, of: extraFirstLabel)
-            
-            extraSecondLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: -5)
-            extraSecondLabel.autoPinEdge(toSuperviewEdge: .bottom)
-            extraSecondLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.6)
-            extraSecondLabel.autoMatch(.width, to: .height, of: extraSecondLabel)
-            
-            extraThirdLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: 16)
-            extraThirdLabel.autoPinEdge(toSuperviewEdge: .bottom)
-            extraThirdLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.6)
-            extraThirdLabel.autoMatch(.width, to: .height, of: extraThirdLabel)
-            
-        } else if extraSecondLabel.text != "" {
-            
-            relayLabel.autoPinEdge(toSuperviewEdge: .top)
-            relayLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: -13)
-            relayLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.7)
-            relayLabel.autoMatch(.width, to: .height, of: relayLabel)
-            
-            extraFirstLabel.autoPinEdge(toSuperviewEdge: .top)
-            extraFirstLabel.autoAlignAxis(.vertical, toSameAxisOf: relayView, withOffset: 13)
-            extraFirstLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.7)
-            extraFirstLabel.autoMatch(.width, to: .height, of: extraFirstLabel)
-            
-            extraSecondLabel.autoPinEdge(toSuperviewEdge: .bottom)
-            extraSecondLabel.autoAlignAxis(toSuperviewAxis: .vertical)
-            extraSecondLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.7)
-            extraSecondLabel.autoMatch(.width, to: .height, of: extraSecondLabel)
-            
-        } else if extraFirstLabel.text != "" {
-            
-            relayLabel.autoPinEdge(toSuperviewEdge: .leading)
-            relayLabel.autoMatch(.height, to: .height, of: relayView)
-            relayLabel.autoMatch(.width, to: .height, of: relayLabel)
-            relayLabel.autoAlignAxis(toSuperviewAxis: .horizontal)
-            
-            extraFirstLabel.autoPinEdge(toSuperviewEdge: .trailing)
-            extraFirstLabel.autoMatch(.height, to: .height, of: relayView)
-            extraFirstLabel.autoMatch(.width, to: .height, of: extraFirstLabel)
-            extraFirstLabel.autoAlignAxis(toSuperviewAxis: .horizontal)
-            
-        } else {
-            relayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
-            relayLabel.autoMatch(.height, to: .height, of: relayView)
-            relayLabel.autoMatch(.width, to: .height, of: relayView)
-            relayLabel.autoPinEdge(toSuperviewEdge: .bottom)
-        }
+        relayLabel.autoPinEdge(toSuperviewEdge: .top)
+        relayLabel.autoPinEdge(toSuperviewEdge: .leading)
+        relayLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.5)
+        relayLabel.autoMatch(.width, to: .width, of: relayView, withMultiplier: 0.5)
+        
+        extraFirstLabel.autoPinEdge(toSuperviewEdge: .top)
+        extraFirstLabel.autoPinEdge(toSuperviewEdge: .trailing)
+        extraFirstLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.5)
+        extraFirstLabel.autoMatch(.width, to: .width, of: relayView, withMultiplier: 0.5)
+        
+        extraSecondLabel.autoPinEdge(toSuperviewEdge: .leading)
+        extraSecondLabel.autoPinEdge(toSuperviewEdge: .bottom)
+        extraSecondLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.5)
+        extraSecondLabel.autoMatch(.width, to: .width, of: relayView, withMultiplier: 0.5)
+        
+        extraThirdLabel.autoPinEdge(toSuperviewEdge: .trailing)
+        extraThirdLabel.autoPinEdge(toSuperviewEdge: .bottom)
+        extraThirdLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.5)
+        extraThirdLabel.autoMatch(.width, to: .width, of: relayView, withMultiplier: 0.5)
+
+    }
+    
+    public func setDefaultStateToLabels() {
+        
+        extraFirstLabel.isHidden = true
+        extraSecondLabel.isHidden = true
+        extraThirdLabel.isHidden = true
+        
+        extraFirstLabel.text = ""
+        extraSecondLabel.text = ""
+        extraThirdLabel.text = ""
+        
+        extraFirstLabel.backgroundColor = .black
+        extraSecondLabel.backgroundColor = .black
+        extraThirdLabel.backgroundColor = .black
     }
     
     fileprivate func setDayTitle() {
@@ -150,5 +137,33 @@ extension CalendarCollectionViewCell {
     func setup(with shift: ShiftModel?) {
         relayLabel.text = shift?.shortcut ?? ""
         relayLabel.backgroundColor = shift?.color ?? .clear
+    }
+    
+    func setupHoliday(with holidayShift: EditCalendarDayModel?) {
+        model = holidayShift
+        if holidayShift?.freeDay == true {
+            relayLabel.text = "D"
+            relayLabel.backgroundColor = Colors.holidayClr
+        }
+        if holidayShift?.extraShifts != nil {
+            
+            var i = 0
+            holidayShift?.extraShifts.forEach({ shiftModel in
+                if(i == 0) {
+                    extraFirstLabel.isHidden = false
+                    extraFirstLabel.text = shiftModel.shortcut
+                    extraFirstLabel.backgroundColor = shiftModel.color
+                } else if (i == 1) {
+                    extraSecondLabel.isHidden = false
+                    extraSecondLabel.text = shiftModel.shortcut
+                    extraSecondLabel.backgroundColor = shiftModel.color
+                } else if (i == 2) {
+                    extraThirdLabel.isHidden = false
+                    extraThirdLabel.text = shiftModel.shortcut
+                    extraThirdLabel.backgroundColor = shiftModel.color
+                }
+                i += 1
+            })
+        }
     }
 }
