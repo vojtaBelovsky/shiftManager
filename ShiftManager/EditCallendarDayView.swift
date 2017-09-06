@@ -56,7 +56,6 @@ final class EditCallendarDayView: UIView {
         dayOffLabel.textColor = .black
         addSubview(dayOffLabel)
         
-        dayOffSwitch.setOn(false, animated: false)
         dayOffSwitch.addTarget(self, action: #selector(switchValueDidChange), for: .valueChanged)
         addSubview(dayOffSwitch)
 
@@ -152,7 +151,6 @@ extension EditCallendarDayView {
     public func setupView(with model: EditCalendarDayModel) {
         noteTextView.text = model.note
         dayOffSwitch.isOn = model.freeDay
-        setSwitch(switchIsOn: model.freeDay)
         setExtraShifts(extraShifts: model.extraShifts)
     }
 }
