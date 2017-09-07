@@ -52,8 +52,6 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         dayLabel.textColor = .black
         dayLabel.font = UIFont.boldSystemFont(ofSize: 20)
         
-        relayView.backgroundColor = .clear
-        
         relayLabel.textAlignment = .center
         extraFirstLabel.textAlignment = .center
         extraSecondLabel.textAlignment = .center
@@ -113,10 +111,12 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         extraSecondLabel.isHidden = true
         extraThirdLabel.isHidden = true
         
+        relayLabel.text = ""
         extraFirstLabel.text = ""
         extraSecondLabel.text = ""
         extraThirdLabel.text = ""
         
+        relayLabel.backgroundColor = .clear
         extraFirstLabel.backgroundColor = .black
         extraSecondLabel.backgroundColor = .black
         extraThirdLabel.backgroundColor = .black
