@@ -13,8 +13,7 @@ import UIKit
 final class EditCallendarDayViewController: UIViewController {
     
     fileprivate let editCallendarDayView = EditCallendarDayView()
-    fileprivate var editCalendarDay = EditCalendarDayModel()
-    fileprivate var extraShifts: [ShiftModel] = []
+    fileprivate var editCalendarDayModel = EditCalendarDayModel()
     
     // WARNING: DIRTY HACK - because DidSet was not called in this case, so Get and Set func was implemented!!!
     // Probably would be better to get rid of it
@@ -58,11 +57,11 @@ final class EditCallendarDayViewController: UIViewController {
     }
 
     func saveButtonDidPress() {
-        editCalendarDay.freeDay = editCallendarDayView.freeDay()
-        editCalendarDay.extraShifts = extraShifts
-        editCalendarDay.note = editCallendarDayView.notes()
-        editCalendarDay.date = date
-        UserManager.sharedInstance.saveEditCalendarDayModel(editCalendarDay)
+        editCalendarDayModel.freeDay = editCallendarDayView.freeDay()
+        editCalendarDayModel.extraShifts = editCallendarDayView.extraShifts
+        editCalendarDayModel.note = editCallendarDayView.notes()
+        editCalendarDayModel.date = date
+        UserManager.sharedInstance.saveEditCalendarDayModel(editCalendarDayModel)
         
         NotificationCenter.default.post(name: reloadCalendarView, object: nil)
         _ = navigationController?.popViewController(animated: true)
@@ -70,6 +69,7 @@ final class EditCallendarDayViewController: UIViewController {
     
     fileprivate func setupViewData() {
         guard let model = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] else { return }
+        editCalendarDayModel = model
         editCallendarDayView.setupView(with: model)
     }
     
@@ -82,8 +82,6 @@ final class EditCallendarDayViewController: UIViewController {
 
 extension EditCallendarDayViewController: ExtraShiftViewControllerDelegate {
     public func setExtraShifts(extraShifts: [ShiftModel]) {
-        self.extraShifts = extraShifts
-        
-        editCallendarDayView.setExtraShifts(extraShifts: extraShifts)
+        editCallendarDayView.extraShifts = extraShifts
     }
 }
