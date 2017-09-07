@@ -43,8 +43,8 @@ final class EditUserViewController: NewUserViewController {
         UserManager.sharedInstance.deleteSelectedUser()
         sendDeleteNotification()
         _ = navigationController?.popViewController(animated:true)
-        
     }
+    
     func sendDeleteNotification() {
         let deleteUser = NotificationCenter.default
         deleteUser.post(name: deleteUserNotification, object: nil)

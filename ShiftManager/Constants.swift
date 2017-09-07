@@ -25,6 +25,8 @@ public struct Colors {
     public static let midGreenClr = UIColor(red: 26.0/255, green: 255.0/255, blue: 0.0/255, alpha: 1.0)
     public static let midPurpleClr = UIColor(red: 163.0/255, green: 11.0/255, blue: 196.0/255, alpha: 1.0)
     public static let darkYellowClr = UIColor(red: 255.0/255, green: 206.0/255, blue: 22.0/255, alpha: 1.0)
+    
+    public static let holidayClr = UIColor(red: 204.0/255, green: 255.0/255, blue: 0.0/255, alpha: 1.0)
 }
 
 

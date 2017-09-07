@@ -13,12 +13,21 @@ final class EditCallendarDayView: UIView {
     
     fileprivate let infoLabel = UILabel()
     fileprivate let dateLabel = UILabel()
-    fileprivate let shiftNameLabel = UILabel()
+    fileprivate let extraShiftStackView = UIStackView()
     fileprivate let extraShiftButton = UIButton()
     fileprivate let dayOffLabel = UILabel()
     fileprivate let dayOffSwitch = UISwitch()
     fileprivate let noteLabel = UILabel()
     fileprivate let noteTextView = UITextView()
+    var extraShifts: [ShiftModel] = [] {
+        didSet {
+            removeSubviewsFromStackView()
+            extraShifts.forEach { shiftModel in
+                let extraShiftView = LabelWithButtonView(with: shiftModel.name)
+                extraShiftStackView.addArrangedSubview(extraShiftView)
+            }
+        }
+    }
     
     init() {
         super.init(frame: .zero)
@@ -44,9 +53,9 @@ final class EditCallendarDayView: UIView {
         dateLabel.textColor = .black
         addSubview(dateLabel)
         
-        shiftNameLabel.textColor = .black
-        shiftNameLabel.numberOfLines = 0
-        addSubview(shiftNameLabel)
+        extraShiftStackView.axis = .vertical
+        extraShiftStackView.spacing = 10.0
+        addSubview(extraShiftStackView)
         
         extraShiftButton.backgroundColor = .red
         extraShiftButton.setTitle(NSLocalizedString("ExtraShiftButton_loc001", comment: ""), for: .normal)
@@ -56,17 +65,17 @@ final class EditCallendarDayView: UIView {
         dayOffLabel.textColor = .black
         addSubview(dayOffLabel)
         
-        dayOffSwitch.setOn(false, animated: true)
-        dayOffSwitch.addTarget(self, action: #selector(switchValueDidChange), for: .valueChanged)
+        dayOffSwitch.addTarget(self, action: #selector(freeDay), for: .valueChanged)
         addSubview(dayOffSwitch)
-        
+
         
         noteLabel.text = NSLocalizedString("NoteLabel_loc001", comment: "")
         noteLabel.textColor = .black
         addSubview(noteLabel)
         
-        noteTextView.textAlignment = NSTextAlignment.justified
+        noteTextView.textAlignment = NSTextAlignment.natural
         noteTextView.textColor = UIColor.black
+        noteTextView.font = UIFont.systemFont(ofSize: 18)
         noteTextView.backgroundColor = UIColor.white
         noteTextView.layer.borderColor = UIColor.black.cgColor
         noteTextView.layer.borderWidth = 1
@@ -82,11 +91,11 @@ final class EditCallendarDayView: UIView {
         dateLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         dateLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
-        shiftNameLabel.autoPinEdge(.top, to: .bottom, of: dateLabel, withOffset: Spacing.VerticalSpacing/2)
-        shiftNameLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        shiftNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        extraShiftStackView.autoPinEdge(.top, to: .bottom, of: dateLabel, withOffset: Spacing.VerticalSpacing/2)
+        extraShiftStackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        extraShiftStackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
-        extraShiftButton.autoPinEdge(.top, to: .bottom, of: shiftNameLabel, withOffset: Spacing.VerticalSpacing*2)
+        extraShiftButton.autoPinEdge(.top, to: .bottom, of: extraShiftStackView, withOffset: Spacing.VerticalSpacing*2)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         extraShiftButton.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
@@ -109,10 +118,20 @@ final class EditCallendarDayView: UIView {
         noteTextView.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing, relation: .greaterThanOrEqual)
         
     }
- 
-    func switchValueDidChange(sender: UISwitch) {
+    
+    func setSwitch() {
         extraShiftButton.isEnabled = !dayOffSwitch.isOn
-        extraShiftButton.backgroundColor = dayOffSwitch.isOn ? UIColor.red.withAlphaComponent(0.3) : .red
+    }
+    
+    func switchValueDidChange(sender: UISwitch) {
+        setSwitch()
+    }
+    
+    fileprivate func removeSubviewsFromStackView() {
+        extraShiftStackView.subviews.forEach { subview in
+            extraShiftStackView.removeArrangedSubview(subview)
+            subview.removeFromSuperview()
+        }
     }
 }
 
@@ -136,19 +155,9 @@ extension EditCallendarDayView {
         dateLabel.text = "\(formatter.string(from: date))"
     }
     
-    public func setExtraShifts(extraShifts: [ShiftModel]) {
-        var finalShiftNamesText: String = ""
-        extraShifts.forEach { shiftName in
-            finalShiftNamesText = finalShiftNamesText.isEmpty
-                ? "\(shiftName.name)"
-                : "\(finalShiftNamesText)\n\(shiftName.name)"
-        }
-        shiftNameLabel.text = finalShiftNamesText
-    }
-    
     public func setupView(with model: EditCalendarDayModel) {
         noteTextView.text = model.note
         dayOffSwitch.isOn = model.freeDay
-        setExtraShifts(extraShifts: model.extraShifts)
+        extraShifts = model.extraShifts
     }
 }

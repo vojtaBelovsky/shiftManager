@@ -47,6 +47,7 @@
 		2A9E68B11F306BA600CE6541 /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9E68B01F306BA600CE6541 /* EditShiftViewController.swift */; };
 		2AA400241F1E09B300712B19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AA400261F1E09B300712B19 /* Localizable.strings */; };
 		2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4FFEE1F177A0C00712B19 /* SettingsTableViewDataSource.swift */; };
+		2AC926601F6023B80092266F /* LabelWithButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC9265F1F6023B80092266F /* LabelWithButtonView.swift */; };
 		2AE8C9BC1F43275F00F70A7F /* ExtraShiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */; };
 		2AE8C9BE1F43279A00F70A7F /* ShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BD1F43279A00F70A7F /* ShiftTableViewCell.swift */; };
 		2AE8C9C01F4327B900F70A7F /* ExtraShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */; };
@@ -117,6 +118,7 @@
 		2AA400251F1E09B300712B19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2AA400271F1E09C400712B19 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2AA4FFEE1F177A0C00712B19 /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
+		2AC9265F1F6023B80092266F /* LabelWithButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithButtonView.swift; sourceTree = "<group>"; };
 		2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftView.swift; sourceTree = "<group>"; };
 		2AE8C9BD1F43279A00F70A7F /* ShiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewCell.swift; sourceTree = "<group>"; };
 		2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftDataSource.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */,
+				2AC9265F1F6023B80092266F /* LabelWithButtonView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				18CDAB781F39933D00FA1CF8 /* NewUserValidator.swift in Sources */,
 				18C92B751F0519AE00F29A1B /* CalendarCollectionViewCell.swift in Sources */,
 				2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */,
+				2AC926601F6023B80092266F /* LabelWithButtonView.swift in Sources */,
 				183AF5A41F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift in Sources */,
 				18D8469C1F1F660F004264D8 /* ShiftModel.swift in Sources */,
 				188974CC1F25D54800E4CE92 /* NewUserView.swift in Sources */,
