@@ -41,8 +41,8 @@ final class EditUserViewController: NewUserViewController {
         sendDeleteNotification()
         navigationController?.isNavigationBarHidden = false
         _ = navigationController?.popViewController(animated:true)
-        
     }
+    
     func sendDeleteNotification() {
         let deleteUser = NotificationCenter.default
         deleteUser.post(name: deleteUserNotification, object: nil)
