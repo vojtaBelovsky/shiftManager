@@ -20,18 +20,24 @@ final class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("Settings_loc002", comment: "")
+        navigationController?.isNavigationBarHidden = true
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "bcg")
+        self.view.insertSubview(backgroundImage, at: 0)
+        //title = NSLocalizedString("Settings_loc002", comment: "")
         
         setup()
     }
     
     fileprivate func setup() {
         settingsView.userView.addTarget(self, action: #selector(userViewButtonDidPress), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
         settingsView.tableView.dataSource = dataSource
         settingsView.tableView.delegate = self
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.addUserCircleLblDidPress))
-        settingsView.userBarView.addGestureRecognizerToAddUserCircleLabel(singleTap)
+       
+        settingsView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
+        settingsView.addNewUserButtonDidPress(self, action: #selector(addNewUserDidPress))
+        settingsView.addNewShiftButtonDidPress(self, action: #selector(settingsButtonDidPress))
         
         let tableViewReloadDataNotification = NotificationCenter.default
         tableViewReloadDataNotification.addObserver(self, selector: #selector(tableViewReloadData), name: NewShiftViewControllerHandler, object: nil)
@@ -64,11 +70,17 @@ final class SettingsViewController: UIViewController {
         tableViewReloadData()
     }
 
+    func backButtonDidPress(){
+        navigationController?.isNavigationBarHidden = false
+         _ = navigationController?.popViewController(animated: true)
+    }
+    
     func settingsButtonDidPress() {
+        navigationController?.isNavigationBarHidden = false
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
     
-    func addUserCircleLblDidPress() {
+    func addNewUserDidPress() {
         self.navigationController?.pushViewController(NewUserViewController(), animated: true)
     }
     

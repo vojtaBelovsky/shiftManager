@@ -15,7 +15,7 @@ final class UserBarCollectionCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            photoImageView.layer.borderColor = isSelected ? UIColor.green.cgColor : UIColor.black.cgColor
+            photoImageView.layer.borderColor = isSelected ? UIColor.green.cgColor : UIColor.clear.cgColor
             initialsNameLabel.layer.borderColor = isSelected ? UIColor.green.cgColor : UIColor.black.cgColor
         }
     }
@@ -35,12 +35,12 @@ final class UserBarCollectionCell: UICollectionViewCell {
     fileprivate func setupViewItems() {
 
         initialsNameLabel.textColor = .black
-        initialsNameLabel.layer.borderWidth = 2
+        initialsNameLabel.layer.borderWidth = 1
         initialsNameLabel.layer.borderColor = UIColor.black.cgColor
         initialsNameLabel.textAlignment = .center
         
         photoImageView.layer.borderWidth = 2
-        photoImageView.layer.borderColor = UIColor.black.cgColor
+        photoImageView.layer.borderColor = UIColor.clear.cgColor
         photoImageView.clipsToBounds = true
         
     }

@@ -20,6 +20,7 @@ final class ShiftTableViewCell: UITableViewCell {
         titleLabel.textColor = .black
         titleLabel.numberOfLines = 0
         addSubview(titleLabel)
+        
         setupConstraints()
     }
     
@@ -39,6 +40,7 @@ final class ShiftTableViewCell: UITableViewCell {
 extension ShiftTableViewCell {
     func setup(with viewModel: ShiftViewModel) {
         titleLabel.text = viewModel.title
-        backgroundColor = viewModel.color
+        //backgroundColor = viewModel.color
+        backgroundColor = UIColor.white.withAlphaComponent(0.6)
     }
 }

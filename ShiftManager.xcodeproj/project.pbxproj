@@ -41,6 +41,7 @@
 		18D8469C1F1F660F004264D8 /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* ShiftModel.swift */; };
 		18D8469D1F1F660F004264D8 /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* ShiftModel.swift */; };
 		18DCD4E61F3DCFD400442DAE /* UserBarCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */; };
+		18F914B21F602754008A43B6 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F914B11F602754008A43B6 /* NavigationBar.swift */; };
 		2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A834CFB1F13AC170084F697 /* HeaderView.swift */; };
 		2A96BD741F5476AD00260959 /* Date+normalizedDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96BD731F5476AD00260959 /* Date+normalizedDay.swift */; };
 		2A9E68B11F306BA600CE6541 /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9E68B01F306BA600CE6541 /* EditShiftViewController.swift */; };
@@ -107,6 +108,7 @@
 		18CDAB7C1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCallendarDayViewController.swift; sourceTree = "<group>"; };
 		18D8469B1F1F660F004264D8 /* ShiftModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftModel.swift; sourceTree = "<group>"; };
 		18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBarCollectionCell.swift; sourceTree = "<group>"; };
+		18F914B11F602754008A43B6 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		29C811EC97CC96244BD29BFD /* Pods-ShiftManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManager/Pods-ShiftManager.release.xcconfig"; sourceTree = "<group>"; };
 		2A2C5D641F1E204D001BA754 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A834CFB1F13AC170084F697 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				2A96BD731F5476AD00260959 /* Date+normalizedDay.swift */,
+				18F914B11F602754008A43B6 /* NavigationBar.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				18C92B7C1F06106A00F29A1B /* SettingsViewController.swift in Sources */,
 				18C92B7A1F0519EB00F29A1B /* CalendarDataSource.swift in Sources */,
 				2A9E68B11F306BA600CE6541 /* EditShiftViewController.swift in Sources */,
+				18F914B21F602754008A43B6 /* NavigationBar.swift in Sources */,
 				183AF59A1F18B0F60033CFD7 /* ColorSelectView.swift in Sources */,
 				2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */,
 				185078E81F3B2F57004C4F49 /* UserModel.swift in Sources */,

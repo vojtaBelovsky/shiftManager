@@ -58,32 +58,12 @@ final class UserBarView: UIView {
         collectionView.delegate = self
         collectionView.register(UserBarCollectionCell.self, forCellWithReuseIdentifier: String(describing: UserBarCollectionCell.self))
         stackView.addArrangedSubview(collectionView)
-
-        addUserCircleLbl.backgroundColor = Colors.softRedClr
-        addUserCircleLbl.layer.borderColor = UIColor.black.cgColor
-        addUserCircleLbl.layer.borderWidth = 2
-        addUserCircleLbl.isUserInteractionEnabled = true
-        addSubview(addUserCircleLbl)
         
-        addUserLbl.backgroundColor = .clear
-        addUserLbl.font = UIFont.boldSystemFont(ofSize: 42)
-        addUserLbl.text = "+"
-        addSubview(addUserLbl)
     }
     
     fileprivate func setupConstraints() {
         stackView.autoSetDimension(.height, toSize: viewHeight)
         stackView.autoPinEdgesToSuperviewMargins()
-        
-        addUserCircleLbl.autoPinEdge(.bottom, to: .bottom, of: stackView, withOffset: 62)
-        addUserCircleLbl.autoPinEdge(.trailing, to: .trailing, of: stackView, withOffset: 62)
-        addUserCircleLbl.autoSetDimension(.height, toSize: 120)
-        addUserCircleLbl.autoMatch(.width, to: .height, of: addUserCircleLbl)
-        
-        addUserLbl.autoMatch(.height, to: .height, of: stackView)
-        addUserLbl.autoMatch(.width, to: .width, of: addUserLbl)
-        addUserLbl.autoPinEdge(.trailing, to: .trailing, of: stackView, withOffset: -5)
-        addUserLbl.autoPinEdge(.bottom, to: .bottom, of: stackView)
     }
 }
 
@@ -91,11 +71,7 @@ extension UserBarView {
     public func reloadData() {
         self.collectionView.reloadData()
     }
-    
-    public func addGestureRecognizerToAddUserCircleLabel(_ gestureRecognizer: UIGestureRecognizer) {
-        addUserCircleLbl.addGestureRecognizer(gestureRecognizer)
-    }
-}
+  }
 
 extension UserBarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
