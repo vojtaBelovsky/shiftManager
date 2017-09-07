@@ -47,8 +47,7 @@ final class EditCallendarDayViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        editCallendarDayView.setActionForShiftButton(self, action: #selector(setActionForShiftButton))
-        
+        editCallendarDayView.setActionForShiftButton(self, action: #selector(setActionForShiftButton))        
         setupViewData()
     }
     
