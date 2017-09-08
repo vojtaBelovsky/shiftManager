@@ -16,6 +16,7 @@ final class ExtraShiftViewController: UIViewController {
 
     fileprivate let extraShiftView = ExtraShiftView()
     
+    
     public weak var delegate: ExtraShiftViewControllerDelegate?
     
     fileprivate let date: Date
@@ -33,13 +34,20 @@ final class ExtraShiftViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("EditCallendarDayViewTitle_loc002", comment: "")
+        navigationController?.isNavigationBarHidden = true
+       // title = NSLocalizedString("EditCallendarDayViewTitle_loc002", comment: "")
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "bcg")
+        self.view.insertSubview(backgroundImage, at: 0)
+
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonDidPress))
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
+        extraShiftView.navigationBar.actionButtonSetAction(self, action: #selector(doneButtonDidPress))
+        extraShiftView.navigationBar.backButtonSetAction(self, action: #selector(backButton))
         extraShiftView.tableView.dataSource = dataSource
     }
     
@@ -52,6 +60,10 @@ final class ExtraShiftViewController: UIViewController {
         for indexPath in dataSource.preselectedIndexPaths {
             extraShiftView.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         }
+    }
+    
+    func backButton(){
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func doneButtonDidPress(){

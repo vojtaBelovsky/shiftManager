@@ -12,16 +12,21 @@ import PureLayout
 final class ExtraShiftView: UIView {
 
     let tableView = UITableView()
+    let navigationBar = NavigationBar()
     
     init() {
         super.init(frame: .zero)
 
         setupViewItems()
         setupConstraints()
+        navigationBar.setTitle(NSLocalizedString("EditCallendarDayViewTitle_loc002", comment: ""))
+        navigationBar.setImage(#imageLiteral(resourceName: "doneIcon"))
     }
     
     fileprivate func setupViewItems() {
-        backgroundColor = .white
+        backgroundColor = .clear
+        
+        addSubview(navigationBar)
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
@@ -29,11 +34,22 @@ final class ExtraShiftView: UIView {
         tableView.separatorStyle = .none
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.isEditing = true
+        tableView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         addSubview(tableView)
     }
     
     fileprivate func setupConstraints() {
-        tableView.autoPinEdgesToSuperviewEdges()
+       // tableView.autoPinEdgesToSuperviewEdges()
+        
+        navigationBar.autoPinEdge(.bottom, to: .top, of: tableView)
+        navigationBar.autoPinEdge(toSuperviewEdge: .leading)
+        navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
+        navigationBar.autoPinEdge(toSuperviewEdge: .top)
+        
+        //tableView.autoPinEdge(.bottom, to: .top, of: tableView)
+        tableView.autoPinEdge(toSuperviewEdge: .leading)
+        tableView.autoPinEdge(toSuperviewEdge: .trailing)
+        tableView.autoPinEdge(toSuperviewEdge: .bottom)
     }
     
     required init?(coder aDecoder: NSCoder) {

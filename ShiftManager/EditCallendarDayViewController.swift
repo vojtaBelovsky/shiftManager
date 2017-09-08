@@ -53,7 +53,9 @@ final class EditCallendarDayViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        editCallendarDayView.setActionForShiftButton(self, action: #selector(setActionForShiftButton))        
+        editCallendarDayView.setActionForShiftButton(self, action: #selector(setActionForShiftButton))
+        editCallendarDayView.navigationBar.backButtonSetAction(self, action: #selector(setActionForBackButton))
+        editCallendarDayView.navigationBar.actionButtonSetAction(self, action: #selector(saveButtonDidPress))
         setupViewData()
     }
     
@@ -69,6 +71,7 @@ final class EditCallendarDayViewController: UIViewController {
         UserManager.sharedInstance.saveEditCalendarDayModel(editCalendarDayModel)
         
         NotificationCenter.default.post(name: reloadCalendarView, object: nil)
+        navigationController?.isNavigationBarHidden = false
         _ = navigationController?.popViewController(animated: true)
     }
     
@@ -76,6 +79,11 @@ final class EditCallendarDayViewController: UIViewController {
         guard let model = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] else { return }
         editCalendarDayModel = model
         editCallendarDayView.setupView(with: model)
+    }
+    
+    func setActionForBackButton(){
+        navigationController?.isNavigationBarHidden = false
+         _ = navigationController?.popViewController(animated: true)
     }
     
     func setActionForShiftButton() {
