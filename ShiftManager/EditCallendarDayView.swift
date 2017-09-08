@@ -133,6 +133,16 @@ final class EditCallendarDayView: UIView {
             subview.removeFromSuperview()
         }
     }
+    
+    fileprivate func deleteShift(at index: Int) {
+        let subviewForDelete = extraShiftStackView.subviews[index]
+        extraShiftStackView.removeArrangedSubview(subviewForDelete)
+        subviewForDelete.removeFromSuperview()
+    }
+    
+    func extraShiftTitleWithButtonPressed(sender: UIButton) {
+        deleteShift(at: sender.tag)
+    }
 }
 
 extension EditCallendarDayView {
@@ -155,6 +165,16 @@ extension EditCallendarDayView {
         dateLabel.text = "\(formatter.string(from: date))"
     }
     
+    public func setExtraShifts(extraShifts: [ShiftModel]) {
+        removeSubviewsFromStackView()
+        for (index, element) in extraShifts.enumerated() {
+            let titleWithButton = LabelWithButtonView(with: element.name)
+            extraShiftStackView.addArrangedSubview(titleWithButton)
+            titleWithButton.button.addTarget(self, action: #selector(extraShiftTitleWithButtonPressed), for: .touchUpInside)
+            titleWithButton.button.tag = index
+        }
+    }
+
     public func setupView(with model: EditCalendarDayModel) {
         noteTextView.text = model.note
         dayOffSwitch.isOn = model.freeDay
