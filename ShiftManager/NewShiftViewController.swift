@@ -22,12 +22,17 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        title = NSLocalizedString("CreateNewShift_loc002", comment: "")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidPress))
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "bcg")
+        self.view.insertSubview(backgroundImage, at: 0)
+       // title = NSLocalizedString("CreateNewShift_loc002", comment: "")
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
+        newShiftView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
+        newShiftView.navigationBar.actionButtonSetAction(self, action: #selector(saveButtonDidPress))
         newShiftView.setActionForColorButton(self, action: #selector(selectShiftColorButtonDidPress))
     }
     
@@ -50,6 +55,12 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
             _ = navigationController?.popViewController(animated:true)
         }
     }
+    
+    func backButtonDidPress(){
+       // navigationController?.isNavigationBarHidden = false
+        _ = navigationController?.popViewController(animated: true)
+    }
+
     
     func sendNotification() {
         let nc = NotificationCenter.default

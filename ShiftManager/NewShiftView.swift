@@ -21,12 +21,16 @@ final class NewShiftView: UIView {
     fileprivate let selectShiftColorButton = UIButton()
     fileprivate let scrollView = UIScrollView()
     fileprivate let contentHolder = UIView()
+    let navigationBar = NavigationBar()
     
     init() {
         super.init(frame: .zero)
         initializeViewsAndAddThemAsSubviews()
         shiftFirstDate()
         setupConstraints()
+        navigationBar.setTitle(NSLocalizedString("CreateNewShift_loc002", comment: ""))
+        navigationBar.setImage(#imageLiteral(resourceName: "saveIcon"))
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -35,11 +39,13 @@ final class NewShiftView: UIView {
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .white
+        nameTextField.backgroundColor = UIColor.white.withAlphaComponent(0.4)
 
         nameLabel.text = NSLocalizedString("CreateNewShift_loc003", comment: "")
         nameLabel.textColor = .black
         
         shortcutTextField.placeholder = NSLocalizedString("CreateNewShift_loc008", comment: "")
+        shortcutTextField.backgroundColor = UIColor.white.withAlphaComponent(0.4)
         
         selectFirstShiftDateLabel.text = NSLocalizedString("CreateNewShift_loc004", comment: "")
         selectFirstShiftDateLabel.textColor = .black
@@ -48,6 +54,7 @@ final class NewShiftView: UIView {
         intervalLabel.textColor = .black
         
         intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
+        intervalTextField.backgroundColor = UIColor.white.withAlphaComponent(0.4)
         intervalTextField.keyboardType = UIKeyboardType.numberPad
         
         selectShiftColorButton.backgroundColor = .white
@@ -56,7 +63,9 @@ final class NewShiftView: UIView {
         selectShiftColorButton.layer.borderColor = UIColor.black.cgColor
         selectShiftColorButton.layer.borderWidth = 1
         
+        datePicker.backgroundColor = UIColor.white.withAlphaComponent(0.4)
         addSubview(scrollView)
+        addSubview(navigationBar)
         addSubviewToScrollView()
     }
     
@@ -71,6 +80,11 @@ final class NewShiftView: UIView {
     
     fileprivate func setupConstraints() {
         scrollView.autoPinEdgesToSuperviewEdges()
+        
+        navigationBar.autoPinEdge(.bottom, to: .top, of: nameLabel)
+        navigationBar.autoPinEdge(toSuperviewEdge: .leading)
+        navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
+        navigationBar.autoPinEdge(toSuperviewEdge: .top)
         
         contentHolder.autoMatch(.width, to: .width, of: self)
         contentHolder.autoPinEdgesToSuperviewEdges()
