@@ -82,14 +82,13 @@ final class EditCallendarDayViewController: UIViewController {
     }
     
     func setActionForBackButton(){
-        navigationController?.isNavigationBarHidden = false
          _ = navigationController?.popViewController(animated: true)
     }
     
     func setActionForShiftButton() {
         let extraShiftViewController = ExtraShiftViewController(date: date)
         extraShiftViewController.delegate = self
-        navigationController?.isNavigationBarHidden = false
+       
         navigationController?.pushViewController(extraShiftViewController, animated: true)
     }
 }
