@@ -32,8 +32,8 @@ final class HeaderView: UIView {
     
     fileprivate func stackViewInitilizer() {
         stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .equalCentering
+//        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
         
         var i = 0
         [dayMon, dayTues, dayWedn, dayThur, dayFri, daySat, daySun].forEach { daysLabel in
@@ -48,6 +48,8 @@ final class HeaderView: UIView {
         
         [dayMon, dayTues, dayWedn, dayThur, dayFri, daySat, daySun].forEach { daysLabel in
             daysLabel.textColor = .black
+            daysLabel.textAlignment = .center
+            daysLabel.autoSetDimension(.width, toSize: 40)
             backgroundColor = UIColor.black.withAlphaComponent(0.02)
         }
         [dayMon, dayTues, dayWedn, dayThur, dayFri, daySat, daySun].forEach { label in
@@ -56,10 +58,18 @@ final class HeaderView: UIView {
     }
     
     fileprivate func setupConstraints() {
-        stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: 15)
+        stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: 10)
         stackView.autoPinEdge(toSuperviewEdge: .top)
-        stackView.autoMatch(.width, to: .width, of: self, withMultiplier: 0.9)
+        stackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 10)
         stackView.autoPinEdge(toSuperviewEdge: .bottom)
+        
+//        dayMon.autoSetDimension(.width, toSize: 40)
+//        dayTues.autoSetDimension(.width, toSize: 40)
+//        dayWedn.autoSetDimension(.width, toSize: 40)
+//        dayThur.autoSetDimension(.width, toSize: 40)
+//        dayFri.autoSetDimension(.width, toSize: 40)
+//        daySat.autoSetDimension(.width, toSize: 40)
+//        daySun.autoSetDimension(.width, toSize: 40)
     }
 }
 
