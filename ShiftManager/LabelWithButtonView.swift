@@ -11,10 +11,11 @@ import UIKit
 final class LabelWithButtonView: UIView {
 
     fileprivate let label = UILabel()
-    fileprivate let button = UIButton()
+    let button = UIButton()
     
     init(with title: String) {
         super.init(frame: .zero)
+        setupViewItems()
         addSubviewsForSuperview()
         setupConstraints()
         label.text = title
@@ -22,6 +23,10 @@ final class LabelWithButtonView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func setupViewItems() {
+        button.setImage(#imageLiteral(resourceName: "trashIcon"), for: .normal)
     }
     
     fileprivate func addSubviewsForSuperview() {

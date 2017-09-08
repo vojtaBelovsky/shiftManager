@@ -14,8 +14,6 @@ final class EditCallendarDayViewController: UIViewController {
     
     fileprivate let editCallendarDayView = EditCallendarDayView()
     fileprivate var editCalendarDay = EditCalendarDayModel()
-    fileprivate var labelWithButtonView = LabelWithButtonView(with: "")
-    fileprivate var indexPath = IndexPath()
     fileprivate var extraShifts: [ShiftModel] = []
     
     // WARNING: DIRTY HACK - because DidSet was not called in this case, so Get and Set func was implemented!!!
