@@ -13,12 +13,10 @@ import UIKit
 final class EditCallendarDayViewController: UIViewController {
     
     fileprivate let editCallendarDayView = EditCallendarDayView()
-<<<<<<< HEAD
     fileprivate var editCalendarDay = EditCalendarDayModel()
     fileprivate var extraShifts: [ShiftModel] = []
-=======
     fileprivate var editCalendarDayModel = EditCalendarDayModel()
->>>>>>> 89b33afb3b4246d3e9fb43602c7a82a24767fc3b
+
     
     // WARNING: DIRTY HACK - because DidSet was not called in this case, so Get and Set func was implemented!!!
     // Probably would be better to get rid of it
@@ -45,9 +43,12 @@ final class EditCallendarDayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = NSLocalizedString("EditCallendarDayViewTitle_loc001", comment: "")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidPress))
+        navigationController?.isNavigationBarHidden = true
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "bcg")
+        self.view.insertSubview(backgroundImage, at: 0)
+       // title = NSLocalizedString("EditCallendarDayViewTitle_loc001", comment: "")
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -80,6 +81,7 @@ final class EditCallendarDayViewController: UIViewController {
     func setActionForShiftButton() {
         let extraShiftViewController = ExtraShiftViewController(date: date)
         extraShiftViewController.delegate = self
+        navigationController?.isNavigationBarHidden = false
         navigationController?.pushViewController(extraShiftViewController, animated: true)
     }
 }

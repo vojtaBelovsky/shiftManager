@@ -37,7 +37,7 @@
 //Edit Callendar Day
 "BasicInfo_loc001" = "Basic info:";
 "ExtraShiftButton_loc001" = "Manage extra shift";
-"EditCallendarDayViewTitle_loc001" = "Edit day";
+"EditCallendarDayViewTitle_loc001" = "Edit day %@";
 "EditCallendarDayViewTitle_loc002" = "Select extra shift";
 "DayOffLabel_loc001" = "Holiday";
 "NoteLabel_loc001" = "Your notes";

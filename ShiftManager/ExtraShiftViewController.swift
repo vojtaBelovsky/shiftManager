@@ -60,7 +60,7 @@ final class ExtraShiftViewController: UIViewController {
         }
 
         delegate?.setExtraShifts(extraShifts: extraShifts ?? [])
-        
+        navigationController?.isNavigationBarHidden = true
         _ = navigationController?.popViewController(animated: true)
     }
     
