@@ -69,7 +69,7 @@ final class SettingsView: UIView, UITableViewDelegate {
         tableView.autoPinEdge(.top, to: .bottom, of: userView)
         tableView.autoPinEdge(toSuperviewEdge: .leading)
         tableView.autoPinEdge(toSuperviewEdge: .trailing)
-        
+       
         addNewShiftButton.autoPinEdge(.bottom, to: .top, of: userBarView, withOffset: -15)
         addNewShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 17)
         addNewShiftButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 350)

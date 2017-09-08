@@ -13,6 +13,7 @@ final class ColorSelectView: UIView {
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let space: CGFloat = 10.0
+        
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         
@@ -35,7 +36,8 @@ final class ColorSelectView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
-        backgroundColor = .white
+       // backgroundColor = .white
+        
         addSubview(collectionView)
     }
     
