@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
             endingLineNumber = "134"
-            landmarkName = "extraShiftTitleWithButtonPressed(sender:)"
+            landmarkName = "removeSubviewsFromStackView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
             endingLineNumber = "128"
-            landmarkName = "deleteShift(at:)"
+            landmarkName = "switchValueDidChange(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

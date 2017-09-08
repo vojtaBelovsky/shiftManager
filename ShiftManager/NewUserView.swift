@@ -15,13 +15,14 @@ final class NewUserView: UIView {
     fileprivate var selectImageView = UIImageView()
     let createButton = UIButton()
     fileprivate let contactsButton = UIButton()
-    fileprivate let backButton = UIButton()
-    fileprivate let trashButton = UIButton()
+    //fileprivate let backButton = UIButton()
+    //fileprivate let trashButton = UIButton()
     let firstNameTextField = BoundedTextField()
     let lastNameTextField = BoundedTextField()
     fileprivate let stackView = UIStackView()
     
     fileprivate let toolBar = UIToolbar()
+     let navigationBar = NavigationBar()
     
     let profileImgSize: CGFloat = 125.0
     fileprivate let userPlaceholderImage = #imageLiteral(resourceName: "addImageIcon")
@@ -37,12 +38,12 @@ final class NewUserView: UIView {
     }
     
     func initializeViewsAndAddThemAsSubviews() {
-        backgroundColor = .white
+        backgroundColor = .clear
         
         toolBar.alpha = 0.6
-        
         addSubview(toolBar)
-        
+        addSubview(navigationBar)
+        /*
         trashButton.backgroundColor = .clear
         trashButton.setImage( UIImage.init(named: "trashIcon.png"), for: .normal)
         addSubview(trashButton)
@@ -50,7 +51,7 @@ final class NewUserView: UIView {
         backButton.backgroundColor = .clear
         backButton.setImage( UIImage.init(named: "backIcon.png"), for: .normal)
         addSubview(backButton)
-        
+        */
         stackView.axis = .vertical
         stackView.distribution = .equalCentering
         addSubviewToStackView()
@@ -91,18 +92,11 @@ final class NewUserView: UIView {
     }
     
     func setupConstraints() {
-        backButton.autoPinEdge(toSuperviewEdge: .top, withInset: 21)
-        backButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 8)
-        backButton.autoSetDimensions(to: CGSize(width: 100, height: 100))
-        backButton.autoPinEdge(.bottom, to: .top, of: stackView)
-        backButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 320)
-        
-        trashButton.autoPinEdge(toSuperviewEdge: .top, withInset: 21)
-        trashButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 8)
-        trashButton.autoSetDimensions(to: CGSize(width: 100, height: 100))
-        trashButton.autoPinEdge(.bottom, to: .top, of: stackView)
-        trashButton.autoPinEdge(.leading, to: .trailing, of: backButton, withOffset: 270)
-        
+        navigationBar.autoPinEdge(.bottom, to: .top, of: stackView)
+        navigationBar.autoPinEdge(toSuperviewEdge: .leading)
+        navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
+        navigationBar.autoPinEdge(toSuperviewEdge: .top)
+
         toolBar.autoPinEdgesToSuperviewEdges()
         
         stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
@@ -125,14 +119,6 @@ final class NewUserView: UIView {
 }
 
 extension NewUserView {
-    
-    public func backButtonDidPress(_ target: Any?, action: Selector) {
-        backButton.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
-    public func trashButtonDidPress(_ target: Any?, action: Selector) {
-        trashButton.addTarget(target, action: action, for: .touchUpInside)
-    }
     
     public func registerButtonDidPress(_ target: Any?, action: Selector) {
         createButton.addTarget(target, action: action, for: .touchUpInside)
@@ -173,8 +159,9 @@ extension NewUserView {
         selectImageView.image = image
         selectImageView.contentMode = UIViewContentMode.scaleAspectFill
     }
-    
+    /*
     public func setDeleteButtonVisible(_ visible: Bool) {
         trashButton.isHidden = !visible
     }
+ */
 }

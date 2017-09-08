@@ -27,21 +27,24 @@ class NewUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
+        
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "bcg")
         self.view.insertSubview(backgroundImage, at: 0)
         edgesForExtendedLayout = .bottom
-        title = NSLocalizedString("RegisterTitle_loc001", comment: "")
+        
+        newUserView.navigationBar.setTitle(NSLocalizedString("RegisterTitle_loc001", comment: ""))
+        //title = NSLocalizedString("RegisterTitle_loc001", comment: "")
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(NewUserViewController.tapDetected))
         singleTap.numberOfTapsRequired = 1
         newUserView.addGestureRecognizerToSelectedImageView(singleTap)
-        newUserView.backButtonDidPress(self, action: #selector(backButtonDidPress))
+       newUserView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
         newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
         //newUserView.cameraButtonDidPress(self, action: #selector(cameraButtonDidPress))
         newUserView.contactsButtonDidPress(self, action: #selector(contactsButtonDidPress))
         
-        newUserView.setDeleteButtonVisible(false)
+        //newUserView.setDeleteButtonVisible(false)
     }
     
     func tapDetected() {
@@ -49,9 +52,7 @@ class NewUserViewController: UIViewController {
     }
     
     func backButtonDidPress(){
-       
    _ = navigationController?.popViewController(animated: true)
-    navigationController?.isNavigationBarHidden = false
  
     }
     
@@ -111,7 +112,7 @@ class NewUserViewController: UIViewController {
         } else {
             UserManager.sharedInstance.saveUser(user: user)
             sendNotification()
-            navigationController?.isNavigationBarHidden = false
+            
             _ = navigationController?.popViewController(animated: true)
         }
     }

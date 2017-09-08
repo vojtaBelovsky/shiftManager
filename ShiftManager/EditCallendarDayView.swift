@@ -19,6 +19,15 @@ final class EditCallendarDayView: UIView {
     fileprivate let dayOffSwitch = UISwitch()
     fileprivate let noteLabel = UILabel()
     fileprivate let noteTextView = UITextView()
+    var extraShifts: [ShiftModel] = [] {
+        didSet {
+            removeSubviewsFromStackView()
+            extraShifts.forEach { shiftModel in
+                let extraShiftView = LabelWithButtonView(with: shiftModel.name)
+                extraShiftStackView.addArrangedSubview(extraShiftView)
+            }
+        }
+    }
     
     init() {
         super.init(frame: .zero)
@@ -64,8 +73,9 @@ final class EditCallendarDayView: UIView {
         noteLabel.textColor = .black
         addSubview(noteLabel)
         
-        noteTextView.textAlignment = NSTextAlignment.justified
+        noteTextView.textAlignment = NSTextAlignment.natural
         noteTextView.textColor = UIColor.black
+        noteTextView.font = UIFont.systemFont(ofSize: 18)
         noteTextView.backgroundColor = UIColor.white
         noteTextView.layer.borderColor = UIColor.black.cgColor
         noteTextView.layer.borderWidth = 1
@@ -164,10 +174,10 @@ extension EditCallendarDayView {
             titleWithButton.button.tag = index
         }
     }
-    
+
     public func setupView(with model: EditCalendarDayModel) {
         noteTextView.text = model.note
         dayOffSwitch.isOn = model.freeDay
-        setExtraShifts(extraShifts: model.extraShifts)
+        extraShifts = model.extraShifts
     }
 }

@@ -31,10 +31,10 @@ final class UserView: UIButton {
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
         
-        backgroundColor = .white
+        backgroundColor = .clear
         
         userPhotoImageView.layer.borderWidth = 2
-        userPhotoImageView.layer.borderColor = UIColor.black.cgColor
+        userPhotoImageView.layer.borderColor = UIColor.clear.cgColor
         userPhotoImageView.layer.cornerRadius = userPhotoSize/2.0
         userPhotoImageView.layer.masksToBounds = true
         userPhotoImageView.image = userDefaultIcon
@@ -56,7 +56,7 @@ final class UserView: UIButton {
     
     fileprivate func setupConstraints() {
         
-        userPhotoImageView.autoPinEdge(toSuperviewEdge: .top, withInset: 74)
+        userPhotoImageView.autoPinEdge(toSuperviewEdge: .top, withInset: 10)
         userPhotoImageView.autoPinEdge(toSuperviewEdge: .leading, withInset: 20)
         userPhotoImageView.autoSetDimensions(to: CGSize(width: userPhotoSize, height: userPhotoSize))
         userPhotoImageView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)
@@ -70,6 +70,7 @@ final class UserView: UIButton {
         userLastNameLabel.autoPinEdge(.leading, to: .trailing, of: userFirstNameLabel, withOffset: 8)
         userLastNameLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 25)
         userLastNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 10)
+        
         
     }
 }
