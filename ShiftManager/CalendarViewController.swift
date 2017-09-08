@@ -8,6 +8,8 @@
 
 import UIKit
 
+let reloadCalendarView = Notification.Name(rawValue: "ReloadCalendarView")
+
 final class CalendarViewController: UIViewController {
     
     fileprivate let calendarView = CalendarView()
@@ -24,15 +26,21 @@ final class CalendarViewController: UIViewController {
         edgesForExtendedLayout = UIRectEdge.bottom
         
         let newUserDidRegister = NotificationCenter.default
-        newUserDidRegister.addObserver(self, selector: #selector(newUserDidRegisterNotificationHandler), name: newUserDidRegisterNotification, object: nil)
+        newUserDidRegister.addObserver(self, selector: #selector(reloadUserBarDataHandler), name: newUserDidRegisterNotification, object: nil)
         
         let updateUser = NotificationCenter.default
-        updateUser.addObserver(self, selector: #selector(updateUserNotificationHandler), name: updateUserNotification, object: nil)
+        updateUser.addObserver(self, selector: #selector(reloadUserBarDataHandler), name: updateUserNotification, object: nil)
         
         let deleteUser = NotificationCenter.default
-        deleteUser.addObserver(self, selector: #selector(deleteUserNotificationHandler), name: deleteUserNotification, object: nil)
+        deleteUser.addObserver(self, selector: #selector(reloadUserBarDataHandler), name: deleteUserNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUserNotificationHandler), name: refreshUserViewNotification, object: nil)
+        let collectionViewReloadDataNotification = NotificationCenter.default
+        collectionViewReloadDataNotification.addObserver(self, selector: #selector(reloadCollectionViewDataHandler), name: NewShiftViewControllerHandler, object: nil)
+        
+        let reloadColectionView = NotificationCenter.default
+        reloadColectionView.addObserver(self, selector: #selector(reloadCalendarViewHandler), name: reloadCalendarView, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadUserBarDataHandler), name: refreshUserViewNotification, object: nil)
 
         calendarView.calendarCollectionView.dataSource = calendarDataSource
         calendarView.calendarCollectionView.delegate = self
@@ -42,20 +50,22 @@ final class CalendarViewController: UIViewController {
                                              forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                                              withReuseIdentifier: String(describing: CalendarHeaderView.self))
     }
-
+    
     func settingsButtonDidPress() {
         navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
-    func updateUserNotificationHandler(){
-        calendarView.userBarView.reloadData()
+    func reloadCollectionViewDataHandler() {
+        calendarView.calendarCollectionView.reloadData()
     }
     
-    func deleteUserNotificationHandler(){
-        calendarView.userBarView.reloadData()
+    func reloadCalendarViewHandler() {
+        UserManager.sharedInstance.shiftForDateDictionaryShouldReloadData()
+        calendarView.calendarCollectionView.reloadData()
     }
     
-    func newUserDidRegisterNotificationHandler() {
+    func reloadUserBarDataHandler() {
+        calendarView.calendarCollectionView.reloadData()
         calendarView.userBarView.reloadData()
     }
 }

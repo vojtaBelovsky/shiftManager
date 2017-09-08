@@ -13,6 +13,7 @@ final class ColorSelectView: UIView {
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let space: CGFloat = 10.0
+        
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         
@@ -35,7 +36,8 @@ final class ColorSelectView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
-        backgroundColor = .white
+       // backgroundColor = .white
+        
         addSubview(collectionView)
     }
     
@@ -43,7 +45,7 @@ final class ColorSelectView: UIView {
         collectionView.autoPinEdge(toSuperviewEdge: .top, withInset: 30)
         collectionView.autoPinEdge(toSuperviewEdge: .leading, withInset: 5)
         collectionView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 5)
-        collectionView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
+        collectionView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 5)
     }
 }
 

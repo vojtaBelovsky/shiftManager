@@ -41,10 +41,13 @@
 		18D8469C1F1F660F004264D8 /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* ShiftModel.swift */; };
 		18D8469D1F1F660F004264D8 /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* ShiftModel.swift */; };
 		18DCD4E61F3DCFD400442DAE /* UserBarCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */; };
+		18F914B21F602754008A43B6 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F914B11F602754008A43B6 /* NavigationBar.swift */; };
 		2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A834CFB1F13AC170084F697 /* HeaderView.swift */; };
+		2A96BD741F5476AD00260959 /* Date+normalizedDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96BD731F5476AD00260959 /* Date+normalizedDay.swift */; };
 		2A9E68B11F306BA600CE6541 /* EditShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9E68B01F306BA600CE6541 /* EditShiftViewController.swift */; };
 		2AA400241F1E09B300712B19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AA400261F1E09B300712B19 /* Localizable.strings */; };
 		2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA4FFEE1F177A0C00712B19 /* SettingsTableViewDataSource.swift */; };
+		2AC926601F6023B80092266F /* LabelWithButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC9265F1F6023B80092266F /* LabelWithButtonView.swift */; };
 		2AE8C9BC1F43275F00F70A7F /* ExtraShiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */; };
 		2AE8C9BE1F43279A00F70A7F /* ShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BD1F43279A00F70A7F /* ShiftTableViewCell.swift */; };
 		2AE8C9C01F4327B900F70A7F /* ExtraShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */; };
@@ -52,6 +55,7 @@
 		2AE8C9C61F4345DA00F70A7F /* ShiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9C51F4345DA00F70A7F /* ShiftViewModel.swift */; };
 		2AF3B3C31F1F5A7D00AB752A /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3B3C21F1F5A7D00AB752A /* CalendarHeaderView.swift */; };
 		4902634A1F4B164F00E1CA19 /* BoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490263491F4B164F00E1CA19 /* BoundedTextField.swift */; };
+		492FE44F1F58629B0012243B /* CalendarCircleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492FE44E1F58629B0012243B /* CalendarCircleLabel.swift */; };
 		6D0B5C94BFCEA0029E048C87 /* Pods_ShiftManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B505A5093617F2F673C392 /* Pods_ShiftManager.framework */; };
 		85E9501F8B1E3E48D3CEA7D7 /* Pods_ShiftManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46462C769EDFC89CE54BAAB5 /* Pods_ShiftManagerTests.framework */; };
 /* End PBXBuildFile section */
@@ -105,13 +109,16 @@
 		18CDAB7C1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCallendarDayViewController.swift; sourceTree = "<group>"; };
 		18D8469B1F1F660F004264D8 /* ShiftModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftModel.swift; sourceTree = "<group>"; };
 		18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBarCollectionCell.swift; sourceTree = "<group>"; };
+		18F914B11F602754008A43B6 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		29C811EC97CC96244BD29BFD /* Pods-ShiftManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManager/Pods-ShiftManager.release.xcconfig"; sourceTree = "<group>"; };
 		2A2C5D641F1E204D001BA754 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A834CFB1F13AC170084F697 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		2A96BD731F5476AD00260959 /* Date+normalizedDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+normalizedDay.swift"; sourceTree = "<group>"; };
 		2A9E68B01F306BA600CE6541 /* EditShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditShiftViewController.swift; sourceTree = "<group>"; };
 		2AA400251F1E09B300712B19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2AA400271F1E09C400712B19 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2AA4FFEE1F177A0C00712B19 /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
+		2AC9265F1F6023B80092266F /* LabelWithButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithButtonView.swift; sourceTree = "<group>"; };
 		2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftView.swift; sourceTree = "<group>"; };
 		2AE8C9BD1F43279A00F70A7F /* ShiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewCell.swift; sourceTree = "<group>"; };
 		2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftDataSource.swift; sourceTree = "<group>"; };
@@ -121,6 +128,7 @@
 		41B505A5093617F2F673C392 /* Pods_ShiftManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46462C769EDFC89CE54BAAB5 /* Pods_ShiftManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		490263491F4B164F00E1CA19 /* BoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundedTextField.swift; sourceTree = "<group>"; };
+		492FE44E1F58629B0012243B /* CalendarCircleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCircleLabel.swift; sourceTree = "<group>"; };
 		5B24AEA32C6A1BD17EDB60E4 /* Pods-ShiftManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManager/Pods-ShiftManager.debug.xcconfig"; sourceTree = "<group>"; };
 		7BEEBBA40CCCF7B43F2C8A2E /* Pods-ShiftManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManagerTests/Pods-ShiftManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +168,7 @@
 			children = (
 				2AE8C9BD1F43279A00F70A7F /* ShiftTableViewCell.swift */,
 				490263491F4B164F00E1CA19 /* BoundedTextField.swift */,
+				492FE44E1F58629B0012243B /* CalendarCircleLabel.swift */,
 			);
 			name = GenericViews;
 			sourceTree = "<group>";
@@ -277,6 +286,7 @@
 		18C92B4D1F05170F00F29A1B /* ShiftManager */ = {
 			isa = PBXGroup;
 			children = (
+				2A96BD721F54769000260959 /* Extensions */,
 				18014A9C1F44428500980414 /* GenericViews */,
 				18CDAB791F39AE3500FA1CF8 /* EditCallendarDay */,
 				188974C71F25D49A00E4CE92 /* User */,
@@ -407,6 +417,15 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		2A96BD721F54769000260959 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2A96BD731F5476AD00260959 /* Date+normalizedDay.swift */,
+				18F914B11F602754008A43B6 /* NavigationBar.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		2A9E68AF1F306B4100CE6541 /* EditShift */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				2AE8C9BB1F43275F00F70A7F /* ExtraShiftView.swift */,
+				2AC9265F1F6023B80092266F /* LabelWithButtonView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -689,12 +709,15 @@
 				18CDAB781F39933D00FA1CF8 /* NewUserValidator.swift in Sources */,
 				18C92B751F0519AE00F29A1B /* CalendarCollectionViewCell.swift in Sources */,
 				2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */,
+				2AC926601F6023B80092266F /* LabelWithButtonView.swift in Sources */,
 				183AF5A41F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift in Sources */,
 				18D8469C1F1F660F004264D8 /* ShiftModel.swift in Sources */,
 				188974CC1F25D54800E4CE92 /* NewUserView.swift in Sources */,
 				18C8E4351F31CC14001D1AAD /* ShiftModelValidator.swift in Sources */,
 				18DCD4E61F3DCFD400442DAE /* UserBarCollectionCell.swift in Sources */,
 				18CDAB7D1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift in Sources */,
+				2A96BD741F5476AD00260959 /* Date+normalizedDay.swift in Sources */,
+				492FE44F1F58629B0012243B /* CalendarCircleLabel.swift in Sources */,
 				18C473861F4491BA00E9F25F /* EditCalendarDayModel.swift in Sources */,
 				18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */,
 				2AE8C9BC1F43275F00F70A7F /* ExtraShiftView.swift in Sources */,
@@ -705,6 +728,7 @@
 				18C92B7C1F06106A00F29A1B /* SettingsViewController.swift in Sources */,
 				18C92B7A1F0519EB00F29A1B /* CalendarDataSource.swift in Sources */,
 				2A9E68B11F306BA600CE6541 /* EditShiftViewController.swift in Sources */,
+				18F914B21F602754008A43B6 /* NavigationBar.swift in Sources */,
 				183AF59A1F18B0F60033CFD7 /* ColorSelectView.swift in Sources */,
 				2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */,
 				185078E81F3B2F57004C4F49 /* UserModel.swift in Sources */,

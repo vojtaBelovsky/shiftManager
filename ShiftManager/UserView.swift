@@ -13,6 +13,9 @@ final class UserView: UIButton {
     fileprivate let userPhotoImageView = UIImageView()
     fileprivate let userFirstNameLabel = UILabel()
     fileprivate let userLastNameLabel = UILabel()
+    fileprivate let userDefaultIcon = #imageLiteral(resourceName: "defaultIcon")
+    
+    let userPhotoSize: CGFloat = 50.0
     
     init() {
         super.init(frame: .zero)
@@ -27,47 +30,54 @@ final class UserView: UIButton {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
-        backgroundColor = .white
+        
+        backgroundColor = .clear
+        
         userPhotoImageView.layer.borderWidth = 2
-        userPhotoImageView.layer.borderColor = UIColor.black.cgColor
-        userPhotoImageView.layer.cornerRadius = 50.0
+        userPhotoImageView.layer.borderColor = UIColor.clear.cgColor
+        userPhotoImageView.layer.cornerRadius = userPhotoSize/2.0
         userPhotoImageView.layer.masksToBounds = true
+        userPhotoImageView.image = userDefaultIcon
         userPhotoImageView.isUserInteractionEnabled = false
         addSubview(userPhotoImageView)
         
         userFirstNameLabel.textColor = .black
-        userFirstNameLabel.backgroundColor = .red
+        userFirstNameLabel.font = .systemFont(ofSize: 20)
         userFirstNameLabel.isUserInteractionEnabled = false
         userFirstNameLabel.numberOfLines = 2
         addSubview(userFirstNameLabel)
         
         userLastNameLabel.textColor = .black
-        userLastNameLabel.backgroundColor = .red
+        userLastNameLabel.font = .systemFont(ofSize: 20)
         userLastNameLabel.isUserInteractionEnabled = false
         userLastNameLabel.numberOfLines = 2
         addSubview(userLastNameLabel)
     }
-
+    
     fileprivate func setupConstraints() {
-        userPhotoImageView.autoPinEdge(toSuperviewEdge: .top, withInset: 74)
+        
+        userPhotoImageView.autoPinEdge(toSuperviewEdge: .top, withInset: 10)
         userPhotoImageView.autoPinEdge(toSuperviewEdge: .leading, withInset: 20)
-        userPhotoImageView.autoSetDimensions(to: CGSize(width: 100, height: 100))
+        userPhotoImageView.autoSetDimensions(to: CGSize(width: userPhotoSize, height: userPhotoSize))
         userPhotoImageView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)
         
-        userFirstNameLabel.autoPinEdge(.top, to: .top, of: userPhotoImageView)
-        userFirstNameLabel.autoPinEdge(.leading, to: .trailing, of: userPhotoImageView, withOffset: 10)
-        userFirstNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        userFirstNameLabel.autoPinEdge(.top, to: .top, of: userPhotoImageView,withOffset: 14)
+        userFirstNameLabel.autoPinEdge(.leading, to: .trailing, of: userPhotoImageView,withOffset: 8)
+        userFirstNameLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 25)
+        userFirstNameLabel.setContentHuggingPriority(501, for: .horizontal)
         
-        userLastNameLabel.autoPinEdge(.top, to: .bottom, of: userFirstNameLabel, withOffset: Spacing.VerticalSpacing/2)
-        userLastNameLabel.autoPinEdge(.leading, to: .trailing, of: userPhotoImageView, withOffset: 10)
-        userLastNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-
+        userLastNameLabel.autoPinEdge(.top, to: .top, of: userPhotoImageView, withOffset: 14)
+        userLastNameLabel.autoPinEdge(.leading, to: .trailing, of: userFirstNameLabel, withOffset: 8)
+        userLastNameLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 25)
+        userLastNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 10)
+        
+        
     }
 }
     
 extension UserView {
     public func reloadData() {
-        userPhotoImageView.image = UserManager.sharedInstance.selectedUser?.userPhotoImage
+        userPhotoImageView.image = UserManager.sharedInstance.selectedUser?.userPhotoImage ?? userDefaultIcon
         userFirstNameLabel.text = UserManager.sharedInstance.selectedUser?.firstName
         userLastNameLabel.text = UserManager.sharedInstance.selectedUser?.lastName
     }

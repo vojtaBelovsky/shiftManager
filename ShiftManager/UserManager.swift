@@ -8,18 +8,21 @@
 
 import UIKit
 import AFDateHelper
+import PureLayout
 
 final class UserManager: NSObject {
     
     fileprivate let defaults = UserDefaults.standard
     fileprivate var users = [UserModel]()
     fileprivate let usersKey = "usersKey"
+    var maximumDate: Date?
     var selectedUser: UserModel? {
         didSet {
             // post notification - selectedUserChanged
         }
     }
     
+        
     static let sharedInstance = UserManager()
 
     fileprivate override init() {
@@ -112,6 +115,7 @@ extension UserManager {
     public func saveShift(shift: ShiftModel) {
         shift.uniqueID.isEmpty ? addNewShift(shift: shift) : update()
         saveUsersToPersistentStorage()
+        shiftForDateDictionaryShouldReloadData()
     }
 
     public func addNewShift(shift: ShiftModel) {
@@ -125,6 +129,8 @@ extension UserManager {
 
     public func deleteShift(at index: Int) {
         selectedUser?.shifts.remove(at: index)
+        NotificationCenter.default.post(name: reloadCalendarView, object: nil)
+        saveUsersToPersistentStorage()
     }
 
     public func numberOfShifts() -> Int {
@@ -135,19 +141,27 @@ extension UserManager {
         return selectedUser?.shifts[index]
     }
     
-//    public func shiftForDate(_ date: Date) -> ShiftModel? {
-//        var i = 0
-//        for (var j = 0, j < 100, j++) {
-//            selectedUser?.shifts.forEach({ shiftModel in
-//                if shiftModel.date!.compare(.isEarlier(than: date)) {
-//                    var adjustedDate = shiftModel.date!.adjust(.day, offset: i*shiftModel.interval)
-//                } else {
-//                    
-//                }
-//            })
-//            i++
-//        }
-//    }
+    public func getMaxDate() -> Date {
+        if maximumDate == nil {
+            maximumDate = Date().adjust(.year, offset: 1)
+        }
+        return maximumDate!
+    }
+    
+    public func shiftForDate(_ date: Date) -> ShiftModel? {
+        
+        if selectedUser?.shouldGenerateShiftForDateDictionary ?? false {
+            selectedUser?.generateShiftForDateDictionary()
+            selectedUser?.shouldGenerateShiftForDateDictionary = false
+        }
+
+        return selectedUser?.shiftForDateDictionary[date]
+    }
+    
+    public func shiftForDateDictionaryShouldReloadData() {
+        selectedUser?.resetShiftForDateDictionary()
+        selectedUser?.shouldGenerateShiftForDateDictionary = true
+    }
 }
 
 // MARK: EditCalendarDay managment
@@ -158,7 +172,3 @@ extension UserManager {
         saveUsersToPersistentStorage()
     }
 }
-
-
-
-

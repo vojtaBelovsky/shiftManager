@@ -25,22 +25,26 @@ final class EditUserViewController: NewUserViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("RegisterTitle_loc002", comment: "")
-        newUserView.registerButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteButtonDidPress))
+        newUserView.navigationBar.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""))
+        newUserView.navigationBar.setImage(#imageLiteral(resourceName: "trashIcon"))
+        navigationController?.isNavigationBarHidden = true
+        //title = NSLocalizedString("RegisterTitle_loc002", comment: "")
+        newUserView.createButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
         setupView()
+        newUserView.navigationBar.actionButtonSetAction(self, action: #selector(deleteButtonDidPress))
     }
     
     fileprivate func setupView() {
         newUserView.editUserSetupView(with: user)
+        //newUserView.setDeleteButtonVisible(true)
     }
     
     func deleteButtonDidPress(){
         UserManager.sharedInstance.deleteSelectedUser()
         sendDeleteNotification()
         _ = navigationController?.popViewController(animated:true)
-        
     }
+    
     func sendDeleteNotification() {
         let deleteUser = NotificationCenter.default
         deleteUser.post(name: deleteUserNotification, object: nil)

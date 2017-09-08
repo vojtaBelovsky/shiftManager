@@ -26,36 +26,63 @@ class NewUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "bcg")
+        self.view.insertSubview(backgroundImage, at: 0)
         edgesForExtendedLayout = .bottom
-        title = NSLocalizedString("RegisterTitle_loc001", comment: "")
+        
+        newUserView.navigationBar.setTitle(NSLocalizedString("RegisterTitle_loc001", comment: ""))
+        //title = NSLocalizedString("RegisterTitle_loc001", comment: "")
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(NewUserViewController.tapDetected))
         singleTap.numberOfTapsRequired = 1
         newUserView.addGestureRecognizerToSelectedImageView(singleTap)
+       newUserView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
         newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
-        newUserView.cameraButtonDidPress(self, action: #selector(cameraButtonDidPress))
+        //newUserView.cameraButtonDidPress(self, action: #selector(cameraButtonDidPress))
         newUserView.contactsButtonDidPress(self, action: #selector(contactsButtonDidPress))
+        
+        //newUserView.setDeleteButtonVisible(false)
     }
     
     func tapDetected() {
         selectPicture()
     }
     
-    func selectPicture() {
-        let picker = UIImagePickerController()
-        picker.allowsEditing = true
-        picker.delegate = self
-        present(picker, animated: true)
+    func backButtonDidPress(){
+   _ = navigationController?.popViewController(animated: true)
+ 
     }
     
-    func cameraButtonDidPress(){
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
-            imagePicker.allowsEditing = true
-            self.present(imagePicker, animated: true, completion: nil)
+    func selectPicture() {
+        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let firstAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("NewShiftAlertController_loc002", comment: ""), style: .default) { action -> Void in
+            
+            let picker = UIImagePickerController()
+            picker.allowsEditing = true
+            picker.delegate = self
+            self.present(picker, animated: true)
         }
+        
+        let secondAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("NewShiftAlertController_loc001", comment: ""), style: .default) { action -> Void in
+            
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+                imagePicker.allowsEditing = true
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
+        actionSheetController.addAction(firstAction)
+        actionSheetController.addAction(secondAction)
+        actionSheetController.addAction(cancelAction)
+        present(actionSheetController, animated: true, completion: nil)
+
     }
     
     func contactsButtonDidPress(){
@@ -81,9 +108,11 @@ class NewUserViewController: UIViewController {
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
             return
+        
         } else {
             UserManager.sharedInstance.saveUser(user: user)
             sendNotification()
+            
             _ = navigationController?.popViewController(animated: true)
         }
     }

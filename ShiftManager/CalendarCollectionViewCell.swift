@@ -12,7 +12,12 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
 
     fileprivate let dayLabel = UILabel()
     fileprivate let relayLabel = UILabel()
+    fileprivate let relayView = UIView()
     fileprivate let cellView = UIView()
+    fileprivate let extraFirstLabel = UILabel()
+    fileprivate let extraSecondLabel = UILabel()
+    fileprivate let extraThirdLabel = UILabel()
+    fileprivate var model: EditCalendarDayModel?
     
     fileprivate var date: Date? {
         didSet {
@@ -24,7 +29,6 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
 
         setupViewItems()
-        labelSettings()
         addSubviews()
         setupConstraints()
     }
@@ -33,43 +37,89 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    fileprivate func setupViewItems() {
-        cellView.backgroundColor = .white
-        dayLabel.textColor = .black
+    public func refreshCell() {
+        contentView.removeConstraints(contentView.constraints)
+        contentView.subviews.forEach { view in
+            view.removeFromSuperview()
+        }
+        
+        addSubviews()
+        setupConstraints()
     }
     
-    fileprivate func labelSettings() {
-        backgroundColor = .white
-        relayLabel.backgroundColor = .blue
-        relayLabel.layer.masksToBounds = true
-        relayLabel.text = "A"
-        relayLabel.textColor = .red
+    fileprivate func setupViewItems() {
+        cellView.backgroundColor = UIColor(red: 50.0/255, green: 150.0/255, blue: 65.0/255, alpha: 1.0)
+        dayLabel.textColor = .black
+        dayLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        
         relayLabel.textAlignment = .center
-        relayLabel.adjustsFontSizeToFitWidth = true
+        extraFirstLabel.textAlignment = .center
+        extraSecondLabel.textAlignment = .center
+        extraThirdLabel.textAlignment = .center
     }
  
     fileprivate func addSubviews() {
         contentView.addSubview(cellView)
+        cellView.addSubview(relayView)
+        relayView.addSubview(extraThirdLabel)
+        relayView.addSubview(extraSecondLabel)
+        relayView.addSubview(extraFirstLabel)
+        relayView.addSubview(relayLabel)
         cellView.addSubview(dayLabel)
-        cellView.addSubview(relayLabel)
     }
     
     fileprivate func setupConstraints() {
-        cellView.autoPinEdgesToSuperviewEdges()
+        cellView.autoPinEdge(toSuperviewEdge: .top)
+        cellView.autoPinEdge(toSuperviewEdge: .bottom)
+        cellView.autoPinEdge(toSuperviewEdge: .leading, withInset: 3)
+        cellView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 3)
         
         dayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
-        dayLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 0.5)
-        dayLabel.autoPinEdge(toSuperviewEdge: .top)
+        dayLabel.autoMatch(.height, to: .height, of: self)
+        dayLabel.autoAlignAxis(toSuperviewAxis: .horizontal)
       
-        relayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
-        relayLabel.autoMatch(.height, to: .height, of: self.cellView, withMultiplier: 0.5)
-        relayLabel.autoMatch(.width, to: .height, of: relayLabel)
-        relayLabel.autoPinEdge(toSuperviewEdge: .bottom)
+        relayView.autoPinEdge(.top, to: .top, of: cellView)
+        relayView.autoPinEdge(.bottom, to: .bottom, of: cellView)
+        relayView.autoPinEdge(.leading, to: .leading, of: cellView)
+        relayView.autoPinEdge(.trailing, to: .trailing, of: cellView)
+        
+        relayLabel.autoPinEdge(toSuperviewEdge: .top)
+        relayLabel.autoPinEdge(toSuperviewEdge: .leading)
+        relayLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.5)
+        relayLabel.autoMatch(.width, to: .width, of: relayView, withMultiplier: 0.5)
+        
+        extraFirstLabel.autoPinEdge(toSuperviewEdge: .top)
+        extraFirstLabel.autoPinEdge(toSuperviewEdge: .trailing)
+        extraFirstLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.5)
+        extraFirstLabel.autoMatch(.width, to: .width, of: relayView, withMultiplier: 0.5)
+        
+        extraSecondLabel.autoPinEdge(toSuperviewEdge: .leading)
+        extraSecondLabel.autoPinEdge(toSuperviewEdge: .bottom)
+        extraSecondLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.5)
+        extraSecondLabel.autoMatch(.width, to: .width, of: relayView, withMultiplier: 0.5)
+        
+        extraThirdLabel.autoPinEdge(toSuperviewEdge: .trailing)
+        extraThirdLabel.autoPinEdge(toSuperviewEdge: .bottom)
+        extraThirdLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.5)
+        extraThirdLabel.autoMatch(.width, to: .width, of: relayView, withMultiplier: 0.5)
+
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        relayLabel.layer.cornerRadius = contentView.bounds.size.height/4;
+    public func setDefaultStateToLabels() {
+        
+        extraFirstLabel.isHidden = true
+        extraSecondLabel.isHidden = true
+        extraThirdLabel.isHidden = true
+        
+        relayLabel.text = ""
+        extraFirstLabel.text = ""
+        extraSecondLabel.text = ""
+        extraThirdLabel.text = ""
+        
+        relayLabel.backgroundColor = .clear
+        extraFirstLabel.backgroundColor = .black
+        extraSecondLabel.backgroundColor = .black
+        extraThirdLabel.backgroundColor = .black
     }
     
     fileprivate func setDayTitle() {
@@ -82,5 +132,38 @@ extension CalendarCollectionViewCell {
 
     func setDate(date: Date?) {
         self.date = date
+    }
+    
+    func setup(with shift: ShiftModel?) {
+        relayLabel.text = shift?.shortcut ?? ""
+        relayLabel.backgroundColor = shift?.color ?? .clear
+    }
+    
+    func setupHoliday(with holidayShift: EditCalendarDayModel?) {
+        model = holidayShift
+        if holidayShift?.freeDay == true {
+            relayLabel.text = "D"
+            relayLabel.backgroundColor = Colors.holidayClr
+        }
+        if holidayShift?.extraShifts != nil {
+            
+            var i = 0
+            holidayShift?.extraShifts.forEach({ shiftModel in
+                if(i == 0) {
+                    extraFirstLabel.isHidden = false
+                    extraFirstLabel.text = shiftModel.shortcut
+                    extraFirstLabel.backgroundColor = shiftModel.color
+                } else if (i == 1) {
+                    extraSecondLabel.isHidden = false
+                    extraSecondLabel.text = shiftModel.shortcut
+                    extraSecondLabel.backgroundColor = shiftModel.color
+                } else if (i == 2) {
+                    extraThirdLabel.isHidden = false
+                    extraThirdLabel.text = shiftModel.shortcut
+                    extraThirdLabel.backgroundColor = shiftModel.color
+                }
+                i += 1
+            })
+        }
     }
 }

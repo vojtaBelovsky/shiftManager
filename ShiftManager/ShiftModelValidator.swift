@@ -41,7 +41,7 @@ final class ShiftModelValidator: NSObject {
             return error
         }
         
-        if shift.date == nil {
+        if shift.firstDateOfShift == nil {
             let userInfo: [AnyHashable : Any] = [
                 NSLocalizedDescriptionKey :  NSLocalizedString("NewShiftAllert_loc001", comment: "") ,
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("NewShiftAllert_loc006", comment: "")

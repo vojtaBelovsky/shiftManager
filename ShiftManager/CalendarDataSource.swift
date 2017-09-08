@@ -12,7 +12,7 @@ import AFDateHelper
 final class CalendarDataSource: NSObject, UICollectionViewDataSource {
     
     fileprivate var numberOfEmptyCells: [Int] = []
-    fileprivate let numberOfMonthsInCalendar = 24
+    fileprivate let numberOfMonthsInCalendar = 12
     
     var today: Date {
         return Date()
@@ -22,10 +22,8 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         super.init()
         
         for index in 0...numberOfMonthsInCalendar {
-            let dateMonth = today.component(.month) ?? 0
-            let adjustedDate = today.adjust(hour: nil, minute: nil, second: nil, day: nil, month: dateMonth+index)
+            let adjustedDate = today.adjust(.month, offset: index)
             numberOfEmptyCells.append(numberOfEmptyDays(date: adjustedDate))
-            
         }
     }
     
@@ -35,7 +33,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let dateMonth = today.component(.month) ?? 0
-        let adjustedDate = today.adjust(hour: nil, minute: nil, second: nil, day: nil, month: dateMonth+section)
+        let adjustedDate = today.adjust(hour: nil, minute: nil, second: nil, day: 1, month: dateMonth+section)
         
         return adjustedDate.numberOfDaysInMonth() + numberOfEmptyCells[section]
     }
@@ -62,8 +60,29 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
                     assertionFailure("Non existing cell")
                     return UICollectionViewCell()
             }
+            cell.setDefaultStateToLabels()
             
-            cell.setDate(date: getDateForCell(at: indexPath))
+            let dateOfCell = getDateForCell(at: indexPath)?.normalizedDate()
+            cell.setDate(date: dateOfCell)
+            
+            guard let date = dateOfCell else {
+                cell.setup(with: nil)
+                return cell
+            }
+            if let shiftForDate = UserManager.sharedInstance.shiftForDate(date),
+                let extraShifts = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] {
+                cell.setup(with: shiftForDate)
+                cell.setupHoliday(with: extraShifts)
+
+            } else if let shiftForDate = UserManager.sharedInstance.shiftForDate(date) {
+                cell.setup(with: shiftForDate)
+               
+            } else if let extraShifts = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] {
+                cell.setupHoliday(with: extraShifts)
+                
+            } else {
+                cell.setup(with: nil)
+            }
             return cell
         }
     }
@@ -74,7 +93,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
     
     static func Shift(_ shift: ShiftModel) {
         func since(_ date:Date, in component:DateComponentType) -> Int64 {
-            return date.since(shift.date!, in: .day)
+            return date.since(shift.firstDateOfShift!, in: .day)
         }
     }
     

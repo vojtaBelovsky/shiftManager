@@ -13,7 +13,8 @@ let refreshUserViewNotification = Notification.Name(rawValue:"RefreshUserViewPro
 final class UserBarView: UIView {
 
     fileprivate let stackView = UIStackView()
-    fileprivate let addButton = UIButton()
+    fileprivate let addUserCircleLbl = CalendarCircleLabel()
+    fileprivate let addUserLbl = UILabel()
     fileprivate lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 0
@@ -26,13 +27,14 @@ final class UserBarView: UIView {
     
     var isAddUserButtonHidden = false {
         didSet {
-            addButton.isHidden = isAddUserButtonHidden
+            addUserCircleLbl.isHidden = isAddUserButtonHidden
+            addUserLbl.isHidden = isAddUserButtonHidden
         }
     }
     
     fileprivate let userBarViewDataSource = UserBarViewDataSource()
-    fileprivate let viewHeight: CGFloat = 80.0
-    fileprivate let cellDimension: CGFloat = 50.0
+    fileprivate let viewHeight: CGFloat = 50.0
+    fileprivate let cellDimension: CGFloat = 45.0
     
     init() {
         super.init(frame: .zero)
@@ -56,34 +58,20 @@ final class UserBarView: UIView {
         collectionView.delegate = self
         collectionView.register(UserBarCollectionCell.self, forCellWithReuseIdentifier: String(describing: UserBarCollectionCell.self))
         stackView.addArrangedSubview(collectionView)
-
-        addButton.backgroundColor = .white
-        addButton.setTitle(NSLocalizedString("AddFriendButton_loc001", comment: ""), for: .normal)
-        addButton.setTitleColor(.black, for: UIControlState.normal)
-        addButton.layer.borderColor = UIColor.black.cgColor
-        addButton.layer.borderWidth = 1
-        stackView.addArrangedSubview(addButton)
+        
     }
     
     fileprivate func setupConstraints() {
         stackView.autoSetDimension(.height, toSize: viewHeight)
-        stackView.autoPinEdgesToSuperviewEdges()
-        
-        addButton.autoMatch(.height, to: .height, of: stackView)
-        addButton.autoMatch(.width, to: .height, of: addButton)
+        stackView.autoPinEdgesToSuperviewMargins()
     }
 }
 
 extension UserBarView {
-    public func setActionForAddButton(_ target: Any?, action: Selector) {
-        addButton.addTarget(target, action: action, for: .touchUpInside)
-    }
-    
     public func reloadData() {
         self.collectionView.reloadData()
     }
-    
-}
+  }
 
 extension UserBarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

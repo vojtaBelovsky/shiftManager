@@ -20,29 +20,36 @@ final class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("Settings_loc002", comment: "")
+        navigationController?.isNavigationBarHidden = true
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "bcg")
+        self.view.insertSubview(backgroundImage, at: 0)
+        //title = NSLocalizedString("Settings_loc002", comment: "")
         
         setup()
     }
     
     fileprivate func setup() {
         settingsView.userView.addTarget(self, action: #selector(userViewButtonDidPress), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
         settingsView.tableView.dataSource = dataSource
         settingsView.tableView.delegate = self
-        settingsView.userBarView.setActionForAddButton(self, action: #selector(addButtonDidPress))
+       
+        settingsView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
+        settingsView.addNewUserButtonDidPress(self, action: #selector(addNewUserDidPress))
+        settingsView.addNewShiftButtonDidPress(self, action: #selector(settingsButtonDidPress))
         
         let tableViewReloadDataNotification = NotificationCenter.default
         tableViewReloadDataNotification.addObserver(self, selector: #selector(tableViewReloadData), name: NewShiftViewControllerHandler, object: nil)
         
         let newUserDidRegister = NotificationCenter.default
-        newUserDidRegister.addObserver(self, selector: #selector(newUserDidRegisterNotificationHandler), name: newUserDidRegisterNotification, object: nil)
+        newUserDidRegister.addObserver(self, selector: #selector(reloadDataNotificationHandler), name: newUserDidRegisterNotification, object: nil)
         
         let updateUser = NotificationCenter.default
-        updateUser.addObserver(self, selector: #selector(deleteAndUpdateUserNotificationHandler), name: updateUserNotification, object: nil)
+        updateUser.addObserver(self, selector: #selector(reloadDataNotificationHandler), name: updateUserNotification, object: nil)
         
         let deleteUser = NotificationCenter.default
-        deleteUser.addObserver(self, selector: #selector(deleteAndUpdateUserNotificationHandler), name: deleteUserNotification, object: nil)
+        deleteUser.addObserver(self, selector: #selector(reloadDataNotificationHandler), name: deleteUserNotification, object: nil)
         
         let refreshUserView = NotificationCenter.default
         refreshUserView.addObserver(self, selector: #selector(refreshScreen), name: refreshUserViewNotification, object: nil)
@@ -52,13 +59,7 @@ final class SettingsViewController: UIViewController {
         settingsView.tableView.reloadData()
     }
     
-    func deleteAndUpdateUserNotificationHandler() {
-        settingsView.userView.reloadData()
-        settingsView.userBarView.reloadData()
-        tableViewReloadData()
-    }
-    
-    func newUserDidRegisterNotificationHandler() {
+    func reloadDataNotificationHandler() {
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
         tableViewReloadData()
@@ -69,11 +70,17 @@ final class SettingsViewController: UIViewController {
         tableViewReloadData()
     }
 
+    func backButtonDidPress(){
+        navigationController?.isNavigationBarHidden = false
+         _ = navigationController?.popViewController(animated: true)
+    }
+    
     func settingsButtonDidPress() {
+        navigationController?.isNavigationBarHidden = false
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
     
-    func addButtonDidPress(){
+    func addNewUserDidPress() {
         self.navigationController?.pushViewController(NewUserViewController(), animated: true)
     }
     

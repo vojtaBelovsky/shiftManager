@@ -10,7 +10,7 @@ import UIKit
 
 final class ColorSelectDataSource: NSObject, UICollectionViewDataSource {
     
-    let colors: [UIColor] = [.black, .darkGray, .red, .green, .blue, .cyan, .lightGray, .yellow, .magenta, .orange, .purple, .brown]
+    let colors: [UIColor] = [Colors.sandyBrown, Colors.moss, Colors.silver, Colors.maroon, Colors.khaki, Colors.pool, Colors.teal, Colors.night, Colors.lake, Colors.bluebell, Colors.beat, Colors.persimmon, Colors.papaya, Colors.poppy, Colors.blossom, Colors.plun, Colors.strawberry, Colors.fuchsia, Colors.red, Colors.sunshine, Colors.fig, Colors.chocolate, Colors.paperBag, Colors.gravel]
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

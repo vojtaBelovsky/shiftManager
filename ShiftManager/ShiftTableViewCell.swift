@@ -20,6 +20,7 @@ final class ShiftTableViewCell: UITableViewCell {
         titleLabel.textColor = .black
         titleLabel.numberOfLines = 0
         addSubview(titleLabel)
+        
         setupConstraints()
     }
     
@@ -27,7 +28,7 @@ final class ShiftTableViewCell: UITableViewCell {
         let inset = CGFloat(40.0)
         titleLabel.autoPinEdge(toSuperviewEdge: .top, withInset: Spacing.VerticalSpacing)
         titleLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: inset)
-         titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: inset)
+        titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: inset)
         titleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing)
     }
     
@@ -39,6 +40,7 @@ final class ShiftTableViewCell: UITableViewCell {
 extension ShiftTableViewCell {
     func setup(with viewModel: ShiftViewModel) {
         titleLabel.text = viewModel.title
-        backgroundColor = viewModel.color
+        //backgroundColor = viewModel.color
+        backgroundColor = UIColor.white.withAlphaComponent(0.6)
     }
 }

@@ -26,6 +26,10 @@ final class ColorSelectViewController: UIViewController {
         super.viewDidLoad()
         edgesForExtendedLayout = UIRectEdge.bottom
         
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "bcg")
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         colorSelectView.collectionView.register(ColorSelectCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: ColorSelectCollectionViewCell.self))
         colorSelectView.collectionView.dataSource = dataSource
         colorSelectView.collectionView.delegate = self
