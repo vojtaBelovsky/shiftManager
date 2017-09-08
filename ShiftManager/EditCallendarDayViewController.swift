@@ -13,12 +13,10 @@ import UIKit
 final class EditCallendarDayViewController: UIViewController {
     
     fileprivate let editCallendarDayView = EditCallendarDayView()
-<<<<<<< HEAD
     fileprivate var editCalendarDay = EditCalendarDayModel()
     fileprivate var extraShifts: [ShiftModel] = []
-=======
     fileprivate var editCalendarDayModel = EditCalendarDayModel()
->>>>>>> 89b33afb3b4246d3e9fb43602c7a82a24767fc3b
+
     
     // WARNING: DIRTY HACK - because DidSet was not called in this case, so Get and Set func was implemented!!!
     // Probably would be better to get rid of it
