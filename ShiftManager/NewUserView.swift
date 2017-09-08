@@ -26,6 +26,7 @@ final class NewUserView: UIView {
     
     let profileImgSize: CGFloat = 125.0
     fileprivate let userPlaceholderImage = #imageLiteral(resourceName: "addImageIcon")
+    fileprivate let userDefaultImage = #imageLiteral(resourceName: "defaultIcon")
     
     init() {
         super.init(frame: .zero)
@@ -141,6 +142,9 @@ extension NewUserView {
     }
     
     public func userPhoto() -> UIImage? {
+        if selectImageView.image == userPlaceholderImage {
+            selectImageView.image = userDefaultImage
+        }
         return selectImageView.image
     }
     
