@@ -17,7 +17,7 @@ final class NewShiftView: UIView {
     fileprivate let datePicker = UIDatePicker()
     fileprivate let intervalTextField = BoundedTextField()
     fileprivate let selectShiftColorButton = UIButton()
-    fileprivate let scrollView = UIScrollView()
+    fileprivate let view = UIView()
     fileprivate let contentHolder = UIView()
     let navigationBar = NavigationBar()
     
@@ -65,13 +65,13 @@ final class NewShiftView: UIView {
         selectShiftColorButton.setTitleColor(.black, for: UIControlState.normal)
 
         datePicker.backgroundColor = textFields.textFieldColorWithAlpha
-        addSubview(scrollView)
+        addSubview(view)
         addSubview(navigationBar)
-        addSubviewToScrollView()
+        addSubviewToView()
     }
     
-    fileprivate func addSubviewToScrollView() {
-        scrollView.addSubview(contentHolder)
+    fileprivate func addSubviewToView() {
+        view.addSubview(contentHolder)
 
         [nameTextField, shortcutTextField, selectFirstShiftDateLabel, datePicker, intervalTextField, selectShiftColorButton ].forEach { subview in
             contentHolder.addSubview(subview)
@@ -79,7 +79,7 @@ final class NewShiftView: UIView {
     }
     
     fileprivate func setupConstraints() {
-        scrollView.autoPinEdgesToSuperviewEdges()
+        view.autoPinEdgesToSuperviewEdges()
         
         navigationBar.autoPinEdge(.bottom, to: .top, of: nameTextField, withOffset: -10)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
@@ -88,11 +88,7 @@ final class NewShiftView: UIView {
         
         contentHolder.autoMatch(.width, to: .width, of: self)
         contentHolder.autoPinEdgesToSuperviewEdges()
-       /*
-        nameLabel.autoPinEdge(toSuperviewEdge: .top, withInset: Spacing.VerticalSpacing)
-        nameLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        nameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        */
+
         nameTextField.autoPinEdge(.top, to: .bottom, of: navigationBar, withOffset: Spacing.VerticalSpacing)
         nameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         nameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
@@ -109,11 +105,7 @@ final class NewShiftView: UIView {
         datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing, relation: .greaterThanOrEqual)
         datePicker.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing, relation: .greaterThanOrEqual)
         datePicker.autoAlignAxis(toSuperviewAxis: .vertical)
-        /*
-        intervalLabel.autoPinEdge(.top, to: .bottom, of: datePicker, withOffset: Spacing.VerticalSpacing)
-        intervalLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        intervalLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        */
+
         intervalTextField.autoPinEdge(.top, to: .bottom, of: datePicker, withOffset: Spacing.VerticalSpacing)
         intervalTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         intervalTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
