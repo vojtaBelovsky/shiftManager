@@ -65,13 +65,9 @@ final class NewUserView: UIView {
         lastNameTextField.layer.borderWidth = 0
         
         contactsButton.backgroundColor = Colors.papaya
-        //contactsButton.layer.cornerRadius = 17
-       // contactsButton.layer.borderWidth = 1
         contactsButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
         
         createButton.backgroundColor = Colors.papaya
-        //createButton.layer.cornerRadius = 17
-       // createButton.layer.borderWidth = 1
         createButton.setTitle(NSLocalizedString("RegisterButton_loc003", comment: ""), for: .normal)
     }
     

@@ -34,18 +34,14 @@ class NewUserViewController: UIViewController {
         edgesForExtendedLayout = .bottom
         
         newUserView.navigationBar.setTitle(NSLocalizedString("RegisterTitle_loc001", comment: ""))
-        //title = NSLocalizedString("RegisterTitle_loc001", comment: "")
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(NewUserViewController.tapDetected))
         singleTap.numberOfTapsRequired = 1
         newUserView.addGestureRecognizerToSelectedImageView(singleTap)
-       newUserView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
+        newUserView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
         newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
-        //newUserView.cameraButtonDidPress(self, action: #selector(cameraButtonDidPress))
         newUserView.contactsButtonDidPress(self, action: #selector(contactsButtonDidPress))
-        
-        //newUserView.setDeleteButtonVisible(false)
-    }
+        }
     
     func tapDetected() {
         selectPicture()

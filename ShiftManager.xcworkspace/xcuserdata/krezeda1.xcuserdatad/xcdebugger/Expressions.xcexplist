@@ -3,15 +3,18 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "EditCallendarDayView.extraShiftTitleWithButtonPressed(sender : UIButton) -&gt; ():EditCallendarDayView.swift">
+         contextName = "ExtraShiftViewController.(doneButtonDidPress() -&gt; ()).(closure #1):ExtraShiftViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CalendarDataSource.getDateForCell(at : IndexPath) -&gt; Date?:CalendarDataSource.swift">
          <PersistentStrings>
             <PersistentString
-               value = "sender.tag">
+               value = "((today.component(.month) ?? 0) + indexPath.section)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "EditCallendarDayViewController.saveButtonDidPress() -&gt; ():EditCallendarDayViewController.swift">
+         contextName = "EditCallendarDayViewController.setupViewData() -&gt; ():EditCallendarDayViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "UserManager.sharedInstance.selectedUser">
@@ -19,21 +22,43 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ExtraShiftDataSource.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:ExtraShiftDataSource.swift">
+         contextName = "UserManager.saveShift(shift : ShiftModel) -&gt; ():UserManager.swift">
          <PersistentStrings>
             <PersistentString
-               value = "ShiftManager.sharedInstance.numberOfShifts()">
+               value = "shift.uniqueID.isEmpty">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserManager.update(User : UserModel) -&gt; ():UserManager.swift">
       </ContextState>
       <ContextState
          contextName = "ShiftManager.saveShift(shift : ShiftModel) -&gt; ():ShiftManager.swift">
       </ContextState>
       <ContextState
-         contextName = "CalendarDataSource.getDateForCell(at : IndexPath) -&gt; Date?:CalendarDataSource.swift">
+         contextName = "EditCallendarDayViewController.viewDidLoad() -&gt; ():EditCallendarDayViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "((today.component(.month) ?? 0) + indexPath.section)">
+               value = "editCalendarDayModel.extraShifts">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ExtraShiftViewController.doneButtonDidPress() -&gt; ():ExtraShiftViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CalendarCollectionViewCell.setDayTitle() -&gt; ():CalendarCollectionViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dateFormatter.string(from: date)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserManager.shiftForDate(Date) -&gt; ShiftModel?:UserManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "users.first?.shiftForDateDictionary">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -46,13 +71,115 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ExtraShiftViewController.(doneButtonDidPress() -&gt; ()).(closure #1):ExtraShiftViewController.swift">
+         contextName = "CalendarDataSource.getDateForCell(at : IndexPath) -&gt; Date:CalendarDataSource.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "today.component(.day)">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UserManager.update(User : UserModel) -&gt; ():UserManager.swift">
+         contextName = "CalendarDataSource.collectionView(UICollectionView, cellForItemAt : IndexPath) -&gt; UICollectionViewCell:CalendarDataSource.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserManager.sharedInstance.shiftForDate(date)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EditCallendarDayView.setExtraShifts(extraShifts : [ShiftModel]) -&gt; ():EditCallendarDayView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "EditCallendarDayView.setDate(date : Date) -&gt; ():EditCallendarDayView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "UserBarView.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():UserBarView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserManager.sharedInstance.userForIndex(indexPath.row)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserModel.generateShifts() -&gt; ():UserModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "date.compare(.isSameDay(as: UserManager.sharedInstance.getMaxDate()))">
+            </PersistentString>
+            <PersistentString
+               value = "UserManager.sharedInstance.getMaxDate()">
+            </PersistentString>
+            <PersistentString
+               value = "UserManager.sharedInstance">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewUserViewController.registerButtonDidPress() -&gt; ():NewUserViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "NewShiftView.date() -&gt; Date:NewShiftView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "datePicker.date">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "ExtraShiftDataSource.init(date : Date) -&gt; ExtraShiftDataSource:ExtraShiftDataSource.swift">
+      </ContextState>
+      <ContextState
+         contextName = "EditCallendarDayViewController.setExtraShifts(extraShifts : [ShiftModel]) -&gt; ():EditCallendarDayViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "EditCallendarDayView.(setupView(with : EditCalendarDayModel) -&gt; ()).(closure #1):EditCallendarDayView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "EditCallendarDayView.switchValueDidChange(sender : UISwitch) -&gt; ():EditCallendarDayView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ExtraShiftDataSource.extraShiftsForDate.getter:ExtraShiftDataSource.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CalendarViewController.init(nibName : String?, bundle : Bundle?) -&gt; CalendarViewController:CalendarViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "UserManager.addNewUser(user : UserModel) -&gt; ():UserManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "users">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ExtraShiftDataSource.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:ExtraShiftDataSource.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ShiftManager.sharedInstance.numberOfShifts()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EditCallendarDayView.extraShiftTitleWithButtonPressed(sender : UIButton) -&gt; ():EditCallendarDayView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.tag">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EditCallendarDayView.removeSubviewsFromStackView() -&gt; ():EditCallendarDayView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "EditCallendarDayViewController.saveButtonDidPress() -&gt; ():EditCallendarDayViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserManager.sharedInstance.selectedUser">
+            </PersistentString>
+            <PersistentString
+               value = "extraShifts">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "ExtraShiftDataSource.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:ExtraShiftDataSource.swift">
@@ -69,100 +196,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CalendarDataSource.getDateForCell(at : IndexPath) -&gt; Date:CalendarDataSource.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "today.component(.day)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "NewShiftView.date() -&gt; Date:NewShiftView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "datePicker.date">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "EditCallendarDayViewController.setupViewData() -&gt; ():EditCallendarDayViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UserManager.sharedInstance.selectedUser">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "CalendarCollectionViewCell.setDayTitle() -&gt; ():CalendarCollectionViewCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "dateFormatter.string(from: date)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "EditCallendarDayViewController.setExtraShifts(extraShifts : [ShiftModel]) -&gt; ():EditCallendarDayViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "EditCallendarDayView.removeSubviewsFromStackView() -&gt; ():EditCallendarDayView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "UserModel.generateShifts() -&gt; ():UserModel.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UserManager.sharedInstance">
-            </PersistentString>
-            <PersistentString
-               value = "UserManager.sharedInstance.getMaxDate()">
-            </PersistentString>
-            <PersistentString
-               value = "date.compare(.isSameDay(as: UserManager.sharedInstance.getMaxDate()))">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UserBarView.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():UserBarView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UserManager.sharedInstance.userForIndex(indexPath.row)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "EditCallendarDayView.setExtraShifts(extraShifts : [ShiftModel]) -&gt; ():EditCallendarDayView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "ExtraShiftViewController.viewDidLoad() -&gt; ():ExtraShiftViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "UserManager.shiftForDate(Date) -&gt; ShiftModel?:UserManager.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "users.first?.shiftForDateDictionary">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "EditCallendarDayView.deleteShift(at : Int) -&gt; ():EditCallendarDayView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "NewUserViewController.registerButtonDidPress() -&gt; ():NewUserViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "ExtraShiftDataSource.extraShiftsForDate.getter:ExtraShiftDataSource.swift">
-      </ContextState>
-      <ContextState
-         contextName = "ExtraShiftViewController.doneButtonDidPress() -&gt; ():ExtraShiftViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "CalendarDataSource.collectionView(UICollectionView, cellForItemAt : IndexPath) -&gt; UICollectionViewCell:CalendarDataSource.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UserManager.sharedInstance.shiftForDate(date)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "CalendarDataSource.collectionView(UICollectionView, viewForSupplementaryElementOfKind : String, at : IndexPath) -&gt; UICollectionReusableView:CalendarDataSource.swift">
          <PersistentStrings>
             <PersistentString
@@ -174,29 +207,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UserManager.saveShift(shift : ShiftModel) -&gt; ():UserManager.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "shift.uniqueID.isEmpty">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "ExtraShiftViewController.viewDidLoad() -&gt; ():ExtraShiftViewController.swift">
       </ContextState>
       <ContextState
-         contextName = "EditCallendarDayView.(setupView(with : EditCalendarDayModel) -&gt; ()).(closure #1):EditCallendarDayView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "CalendarViewController.init(nibName : String?, bundle : Bundle?) -&gt; CalendarViewController:CalendarViewController.swift">
-      </ContextState>
-      <ContextState
-         contextName = "EditCallendarDayView.switchValueDidChange(sender : UISwitch) -&gt; ():EditCallendarDayView.swift">
-      </ContextState>
-      <ContextState
-         contextName = "UserManager.addNewUser(user : UserModel) -&gt; ():UserManager.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "users">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "EditCallendarDayView.setupView(with : EditCalendarDayModel) -&gt; ():EditCallendarDayView.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

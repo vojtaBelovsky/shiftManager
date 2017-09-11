@@ -32,10 +32,8 @@ class NavigationBar: UIView {
         addSubview(offSetView)
         
         backButton.setImage( UIImage.init(named: "backIcon.png"), for: .normal)
-       // backButton.backgroundColor = .red
         addSubview(backButton)
         
-       // actionButton.backgroundColor = .red
         addSubview(actionButton)
         
         titleLabel.backgroundColor = .clear
@@ -65,7 +63,6 @@ class NavigationBar: UIView {
         actionButton.autoPinEdge(.top, to: .bottom, of: offSetView, withOffset: 1)
         actionButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 5)
         actionButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 5)
-       // .autoPinEdge(.top, to: .bottom, of: offSetView, withOffset: 1)
         actionButton.autoPinEdge(.leading, to: .trailing, of: titleLabel, withOffset: 1)
         actionButton.autoSetDimensions(to: CGSize(width: 28, height: 28))
     }

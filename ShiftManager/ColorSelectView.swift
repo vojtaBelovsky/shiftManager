@@ -36,9 +36,7 @@ final class ColorSelectView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
-       // backgroundColor = .white
-        
-        addSubview(collectionView)
+    addSubview(collectionView)
     }
     
     fileprivate func setupConstraints() {

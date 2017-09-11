@@ -24,7 +24,6 @@ final class SettingsViewController: UIViewController {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "bcg")
         self.view.insertSubview(backgroundImage, at: 0)
-        //title = NSLocalizedString("Settings_loc002", comment: "")
         
         setup()
     }

@@ -151,15 +151,12 @@ extension CalendarCollectionViewCell {
             holidayShift?.extraShifts.forEach({ shiftModel in
                 if(i == 0) {
                     extraFirstLabel.isHidden = false
-//                    extraFirstLabel.text = shiftModel.shortcut
                     extraFirstLabel.backgroundColor = shiftModel.color
                 } else if (i == 1) {
                     extraSecondLabel.isHidden = false
-//                    extraSecondLabel.text = shiftModel.shortcut
                     extraSecondLabel.backgroundColor = shiftModel.color
                 } else if (i == 2) {
                     extraThirdLabel.isHidden = false
-//                    extraThirdLabel.text = shiftModel.shortcut
                     extraThirdLabel.backgroundColor = shiftModel.color
                 } else if (i == 3) {
                     extraFourthLabel.isHidden = false
