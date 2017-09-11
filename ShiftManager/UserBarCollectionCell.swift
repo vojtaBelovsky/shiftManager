@@ -67,15 +67,9 @@ final class UserBarCollectionCell: UICollectionViewCell {
     }
     
     func set(with image: UIImage?, initials: String) {
-        if image != nil {
-            photoImageView.image = image
-            photoImageView.isHidden = false
-            initialsNameLabel.isHidden = true
-        } else {
-            initialsNameLabel.text = initials
-            photoImageView.isHidden = true
-            initialsNameLabel.isHidden = false
+            initialsNameLabel.text = initials.uppercased()
+ 
         }
     }
     
-}
+

@@ -10,16 +10,11 @@ import UIKit
 
 class NavigationBar: UIView {
 
-        fileprivate let backButton = UIButton()
-        fileprivate let actionButton = UIButton()
+        fileprivate let backButton = NavigationButton()
+        fileprivate let actionButton = NavigationButton()
         fileprivate let titleLabel = UILabel()
+        fileprivate let offSetView = UIView()
     
-        fileprivate let editIcon = #imageLiteral(resourceName: "editIcon")
-        fileprivate let saveIcon = #imageLiteral(resourceName: "saveIcon")
-        fileprivate let doneIcon = #imageLiteral(resourceName: "doneIcon")
-        fileprivate let addIcon = #imageLiteral(resourceName: "addButtonIcon")
-        fileprivate let trashIcon = #imageLiteral(resourceName: "trashIcon")
-
     init() {
         super.init(frame: .zero)
         
@@ -33,37 +28,46 @@ class NavigationBar: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
+        offSetView.backgroundColor = .clear
+        addSubview(offSetView)
         
-        backButton.backgroundColor = .clear
         backButton.setImage( UIImage.init(named: "backIcon.png"), for: .normal)
+       // backButton.backgroundColor = .red
         addSubview(backButton)
         
-        actionButton.backgroundColor = .clear
+       // actionButton.backgroundColor = .red
         addSubview(actionButton)
         
         titleLabel.backgroundColor = .clear
         titleLabel.textAlignment = .center
+        titleLabel.font = titleLabel.font.withSize(17)
         addSubview(titleLabel)
-        
+
     }
     
     fileprivate func setupConstraints(){
         backgroundColor = .clear
         
-        backButton.autoPinEdge(toSuperviewEdge: .top, withInset: 20)
+        offSetView.autoPinEdge(toSuperviewEdge: .top, withInset: 20)
+        offSetView.autoPinEdge(toSuperviewEdge: .trailing)
+        offSetView.autoPinEdge(toSuperviewEdge: .leading)
+        offSetView.autoSetDimensions(to: CGSize(width: 1, height: 1))
+      
         backButton.autoPinEdge(toSuperviewEdge: .leading)
         backButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 5)
+        backButton.autoPinEdge(.top, to: .bottom, of: offSetView, withOffset: 1)
         backButton.autoPinEdge(.trailing, to: .leading, of: titleLabel, withOffset: 1)
-        backButton.autoSetDimensions(to: CGSize(width: 70, height: 40))
+        backButton.autoSetDimensions(to: CGSize(width: 28, height: 28))
         
-        titleLabel.autoPinEdge(toSuperviewEdge: .top, withInset: 20)
+        titleLabel.autoPinEdge(.top, to: .bottom, of: offSetView, withOffset: 1)
         titleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 5)
         
-        actionButton.autoPinEdge(toSuperviewEdge: .top, withInset: 20)
-        actionButton.autoPinEdge(toSuperviewEdge: .trailing)
+        actionButton.autoPinEdge(.top, to: .bottom, of: offSetView, withOffset: 1)
+        actionButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 5)
         actionButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 5)
+       // .autoPinEdge(.top, to: .bottom, of: offSetView, withOffset: 1)
         actionButton.autoPinEdge(.leading, to: .trailing, of: titleLabel, withOffset: 1)
-        actionButton.autoSetDimensions(to: CGSize(width: 70, height: 40))
+        actionButton.autoSetDimensions(to: CGSize(width: 28, height: 28))
     }
     
 }
