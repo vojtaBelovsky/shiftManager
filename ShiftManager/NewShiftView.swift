@@ -102,8 +102,8 @@ final class NewShiftView: UIView {
         selectFirstShiftDateLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
         datePicker.autoPinEdge(.top, to: .bottom, of: selectFirstShiftDateLabel)
-        datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing, relation: .greaterThanOrEqual)
-        datePicker.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing, relation: .greaterThanOrEqual)
+        datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        datePicker.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         datePicker.autoAlignAxis(toSuperviewAxis: .vertical)
 
         intervalTextField.autoPinEdge(.top, to: .bottom, of: datePicker, withOffset: Spacing.VerticalSpacing)
@@ -114,7 +114,6 @@ final class NewShiftView: UIView {
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoSetDimension(.height, toSize: 100.0)
-        selectShiftColorButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing)
     }
     
     fileprivate func shiftFirstDate() {
