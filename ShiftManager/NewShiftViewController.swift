@@ -25,8 +25,6 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "bcg")
         self.view.insertSubview(backgroundImage, at: 0)
-       // title = NSLocalizedString("CreateNewShift_loc002", comment: "")
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -57,7 +55,6 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
     }
     
     func backButtonDidPress(){
-       // navigationController?.isNavigationBarHidden = false
         _ = navigationController?.popViewController(animated: true)
     }
 

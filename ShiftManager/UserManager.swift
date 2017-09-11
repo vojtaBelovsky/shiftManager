@@ -18,7 +18,6 @@ final class UserManager: NSObject {
     var maximumDate: Date?
     var selectedUser: UserModel? {
         didSet {
-            // post notification - selectedUserChanged
         }
     }
     

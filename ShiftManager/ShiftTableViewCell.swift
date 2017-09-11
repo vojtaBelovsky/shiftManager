@@ -40,7 +40,6 @@ final class ShiftTableViewCell: UITableViewCell {
 extension ShiftTableViewCell {
     func setup(with viewModel: ShiftViewModel) {
         titleLabel.text = viewModel.title
-        //backgroundColor = viewModel.color
         backgroundColor = UIColor.white.withAlphaComponent(0.6)
     }
 }
