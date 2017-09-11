@@ -16,7 +16,6 @@ final class ExtraShiftViewController: UIViewController {
 
     fileprivate let extraShiftView = ExtraShiftView()
     
-    
     public weak var delegate: ExtraShiftViewControllerDelegate?
     
     fileprivate let date: Date

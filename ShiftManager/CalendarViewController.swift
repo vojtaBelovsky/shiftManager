@@ -25,6 +25,10 @@ final class CalendarViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(settingsButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "bcg")
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         let newUserDidRegister = NotificationCenter.default
         newUserDidRegister.addObserver(self, selector: #selector(reloadUserBarDataHandler), name: newUserDidRegisterNotification, object: nil)
         

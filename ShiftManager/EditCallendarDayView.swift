@@ -20,6 +20,12 @@ final class EditCallendarDayView: UIView {
     fileprivate let noteLabel = UILabel()
     fileprivate let noteTextView = UITextView()
     let navigationBar = NavigationBar()
+    var editCalendarDayModel = EditCalendarDayModel() {
+        didSet {
+            setupView(with: editCalendarDayModel)
+        }
+    }
+
     
     init() {
         super.init(frame: .zero)
@@ -144,14 +150,10 @@ final class EditCallendarDayView: UIView {
         }
     }
     
-    fileprivate func deleteShift(at index: Int) {
-        let subviewForDelete = extraShiftStackView.subviews[index]
-        extraShiftStackView.removeArrangedSubview(subviewForDelete)
-        subviewForDelete.removeFromSuperview()
-    }
-    
     func extraShiftTitleWithButtonPressed(sender: UIButton) {
-        deleteShift(at: sender.tag)
+        var extraShifts = editCalendarDayModel.extraShifts
+        extraShifts.remove(at: sender.tag)
+        setExtraShifts(extraShifts: extraShifts)
     }
 }
 
@@ -186,6 +188,7 @@ extension EditCallendarDayView {
             titleWithButton.button.addTarget(self, action: #selector(extraShiftTitleWithButtonPressed), for: .touchUpInside)
             titleWithButton.button.tag = index
         }
+        editCalendarDayModel.extraShifts = extraShifts
     }
 
     public func setupView(with model: EditCalendarDayModel) {
