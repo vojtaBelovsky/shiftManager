@@ -31,12 +31,11 @@ final class SettingsViewController: UIViewController {
     
     fileprivate func setup() {
         settingsView.userView.addTarget(self, action: #selector(userViewButtonDidPress), for: .touchUpInside)
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
         settingsView.tableView.dataSource = dataSource
         settingsView.tableView.delegate = self
        
         settingsView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
-        settingsView.addNewUserButtonDidPress(self, action: #selector(addNewUserDidPress))
+        settingsView.navigationBar.actionButtonSetAction(self, action: #selector(newUserButtonDidPress))
         settingsView.addNewShiftButtonDidPress(self, action: #selector(settingsButtonDidPress))
         
         let tableViewReloadDataNotification = NotificationCenter.default
@@ -80,7 +79,7 @@ final class SettingsViewController: UIViewController {
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
     
-    func addNewUserDidPress() {
+    func newUserButtonDidPress() {
         self.navigationController?.pushViewController(NewUserViewController(), animated: true)
     }
     

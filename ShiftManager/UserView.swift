@@ -42,12 +42,14 @@ final class UserView: UIButton {
         addSubview(userPhotoImageView)
         
         userFirstNameLabel.textColor = .black
+        //userFirstNameLabel.textAlignment = .center
         userFirstNameLabel.font = .systemFont(ofSize: 20)
         userFirstNameLabel.isUserInteractionEnabled = false
         userFirstNameLabel.numberOfLines = 2
         addSubview(userFirstNameLabel)
         
         userLastNameLabel.textColor = .black
+       // userLastNameLabel.textAlignment = .center
         userLastNameLabel.font = .systemFont(ofSize: 20)
         userLastNameLabel.isUserInteractionEnabled = false
         userLastNameLabel.numberOfLines = 2
