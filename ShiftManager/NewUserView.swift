@@ -49,10 +49,12 @@ final class NewUserView: UIView {
         selectImageView.layer.borderColor = UIColor.black.cgColor
         selectImageView.layer.cornerRadius = profileImgSize / 2
         selectImageView.clipsToBounds = true
-        selectImageView.contentMode = .center
+        selectImageView.contentMode = .scaleAspectFit
         selectImageView.layer.masksToBounds = true
         selectImageView.isUserInteractionEnabled = true
         selectImageView.image = userPlaceholderImage
+        //TODO: userPlaceholderImage resize
+        
         
         firstNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc001", comment: "")
         firstNameTextField.backgroundColor = textFields.textFieldColorWithAlpha
@@ -95,6 +97,7 @@ final class NewUserView: UIView {
         selectImageView.autoPinEdge(toSuperviewEdge: .top)
         selectImageView.autoPinEdge(toSuperviewEdge: .bottom)
         selectImageView.autoAlignAxis(toSuperviewAxis: .vertical)
+        
     }
     
     fileprivate func getSpaceView() -> UIView {
@@ -146,12 +149,9 @@ extension NewUserView {
     }
     
     public func setImage(_ image: UIImage) {
+        //TODO: set image error
         selectImageView.image = image
         selectImageView.contentMode = UIViewContentMode.scaleAspectFill
     }
-    /*
-    public func setDeleteButtonVisible(_ visible: Bool) {
-        trashButton.isHidden = !visible
-    }
- */
+   
 }
