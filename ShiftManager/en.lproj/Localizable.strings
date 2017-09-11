@@ -14,17 +14,19 @@
 "CreateNewShift_loc008" = "Shortcut for shift (max. 2 symbols)";
 "CreateNewShift_loc009" = "Edit shift";
 //Register
-"RegisterTitle_loc001" = "New user";
+"RegisterTitle_loc001" = "Create new user";
 "RegisterTitle_loc002" = "Edit user";
 "RegisterPlaceholder_loc001" = "First name";
 "RegisterPlaceholder_loc002" = "Last name";
-"RegisterButton_loc003" = "Create";
+"RegisterButton_loc003" = "CREATE";
 "RegisterButton_loc004" = "Camera";
 "RegisterButton_loc005" = "Update";
-"RegisterButton_loc006" = "Contacts";
+"RegisterButton_loc006" = "IMPORT";
 "RegisterAllert_loc001" = "Error";
 "RegisterAllert_loc002" = "First name field is empty";
 "RegisterAllert_loc003" = "Last name field is empty";
+"NewShiftAlertController_loc001" = "Take a picture";
+"NewShiftAlertController_loc002" = "Select from gallery";
 //New shift
 "NewShiftAllert_loc001" = "Error";
 "NewShiftAllert_loc002" = "Name field is empty";
@@ -35,7 +37,7 @@
 //Edit Callendar Day
 "BasicInfo_loc001" = "Basic info:";
 "ExtraShiftButton_loc001" = "Manage extra shift";
-"EditCallendarDayViewTitle_loc001" = "Edit day";
+"EditCallendarDayViewTitle_loc001" = "Edit day %@";
 "EditCallendarDayViewTitle_loc002" = "Select extra shift";
 "DayOffLabel_loc001" = "Holiday";
 "NoteLabel_loc001" = "Your notes";

@@ -25,7 +25,7 @@ final class CalendarEmtpyCollectionViewCell: UICollectionViewCell {
     }
     
     fileprivate func emptyCell()  {
-        cellView.backgroundColor = .white
+        cellView.backgroundColor = .clear
     }
     
     fileprivate func addSubviews() {

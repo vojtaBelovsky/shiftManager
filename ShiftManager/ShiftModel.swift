@@ -15,7 +15,7 @@ final class ShiftModel: NSObject, NSCoding {
     var name: String = ""
     var shortcut: String = ""
     var interval: Int!
-    var date: Date?
+    var firstDateOfShift: Date?
     var color: UIColor?
     
     fileprivate let namePropertyKey = "namePropertyKey"
@@ -44,7 +44,7 @@ final class ShiftModel: NSObject, NSCoding {
         }
         
         if let date = aDecoder.decodeObject(forKey: datePropertyKey) as? Date {
-            self.date = date
+            self.firstDateOfShift = date
         }
         
         if let shiftID = aDecoder.decodeObject(forKey: shiftIDKey) as? String {
@@ -61,7 +61,7 @@ final class ShiftModel: NSObject, NSCoding {
         aCoder.encode(name, forKey: namePropertyKey)
         aCoder.encode(shortcut, forKey: shortcutPropertyKey)
         
-        if let date = self.date{
+        if let date = self.firstDateOfShift {
             aCoder.encode(date, forKey: datePropertyKey)
         }
 

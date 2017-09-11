@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = UINavigationController(rootViewController: CalendarViewController())
         window?.makeKeyAndVisible()
-       
         return true
     }
    

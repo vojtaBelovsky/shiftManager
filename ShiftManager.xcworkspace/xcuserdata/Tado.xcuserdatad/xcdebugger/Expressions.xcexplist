@@ -11,6 +11,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "CalendarViewController.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():CalendarViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "ColorSelectViewController.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():ColorSelectViewController.swift">
       </ContextState>
       <ContextState
@@ -25,19 +28,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CalendarViewController.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():CalendarViewController.swift">
-      </ContextState>
-      <ContextState
          contextName = "NewUserViewController.contactPicker(CNContactPickerViewController, didSelect : CNContact) -&gt; ():NewUserViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "contact.imageData">
+               value = "contact.imageDataAvailable">
             </PersistentString>
             <PersistentString
                value = "contact.thumbnailImageData">
             </PersistentString>
             <PersistentString
-               value = "contact.imageDataAvailable">
+               value = "contact.imageData">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -54,6 +54,17 @@
       </ContextState>
       <ContextState
          contextName = "UserModel.encode(with : NSCoder) -&gt; ():UserModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SettingsView.init() -&gt; SettingsView:SettingsView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SettingsViewController.setup() -&gt; ():SettingsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationBar.backButton.frame">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "CalendarCollectionViewCell.layoutSubviews() -&gt; ():CalendarCollectionViewCell.swift">
@@ -74,6 +85,17 @@
       </ContextState>
       <ContextState
          contextName = "EditUserViewController.registerButtonDidPress() -&gt; ():EditUserViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "NavigationBar.setImage(UIImage) -&gt; ():NavigationBar.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SettingsViewController.addNewUserDidPress() -&gt; ():SettingsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationBar.backButton.frame">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "UserModel.init(coder : NSCoder) -&gt; UserModel?:UserModel.swift">

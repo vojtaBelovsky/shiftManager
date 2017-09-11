@@ -7,8 +7,21 @@
 //
 
 import UIKit
+import AFDateHelper
 
 final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
+    
+    fileprivate let date: Date
+    
+    fileprivate var extraShiftsForDate: EditCalendarDayModel? {
+        return UserManager.sharedInstance.selectedUser?.editCalendarDays[date]
+    }
+    
+    init(date: Date) {
+        self.date = date
+    }
+    
+    var preselectedIndexPaths: [IndexPath] = []
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
@@ -23,6 +36,10 @@ final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
         let formatString = String(format: NSLocalizedString("ExtraShiftName_loc001", comment: ""), shiftModel?.name ?? "", shiftModel?.shortcut ?? "")
         let viewModel = ShiftViewModel(title: formatString, color: shiftModel?.color)
         cell.setup(with: viewModel)
+        
+        if let model = shiftModel, extraShiftsForDate?.extraShifts.contains(model) ?? false {
+            preselectedIndexPaths.append(indexPath)
+        }
         
         return cell
     }
