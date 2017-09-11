@@ -69,12 +69,12 @@ final class SettingsViewController: UIViewController {
     }
 
     func backButtonDidPress(){
-        navigationController?.isNavigationBarHidden = false
+      //  navigationController?.isNavigationBarHidden = false
          _ = navigationController?.popViewController(animated: true)
     }
     
     func settingsButtonDidPress() {
-        navigationController?.isNavigationBarHidden = false
+        //navigationController?.isNavigationBarHidden = false
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
     

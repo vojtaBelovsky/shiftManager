@@ -65,7 +65,7 @@ final class EditCallendarDayViewController: UIViewController {
         UserManager.sharedInstance.saveEditCalendarDayModel(model)
         
         NotificationCenter.default.post(name: reloadCalendarView, object: nil)
-        navigationController?.isNavigationBarHidden = false
+       // navigationController?.isNavigationBarHidden = false
         _ = navigationController?.popViewController(animated: true)
     }
     

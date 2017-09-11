@@ -41,6 +41,8 @@
 "EditCallendarDayViewTitle_loc002" = "Select extra shift";
 "DayOffLabel_loc001" = "Holiday";
 "NoteLabel_loc001" = "Your notes";
+"NoteLabel_loc002" = "Type your notes here";
+
 //SHARE
 "AddFriendButton_loc001" = "+";
 //ShiftName

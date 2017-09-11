@@ -14,6 +14,7 @@ final class CalendarView: UIView {
     fileprivate let headerView = HeaderView()
     fileprivate let daysLabel = UILabel()
     let userBarView = UserBarView()
+    let navigationBar = NavigationBar()
     
     lazy var calendarCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -29,6 +30,8 @@ final class CalendarView: UIView {
     
     init() {
         super.init(frame: .zero)
+        navigationBar.setImage(#imageLiteral(resourceName: "editIcon"))
+        navigationBar.setTitle(NSLocalizedString("Calendar_loc001", comment: ""))
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
         
@@ -44,10 +47,16 @@ final class CalendarView: UIView {
         addSubview(userBarView)
         addSubview(headerView)
         addSubview(calendarCollectionView)
+        addSubview(navigationBar)
     }
     
     fileprivate func setupConstraints() {
-        headerView.autoPinEdge(toSuperviewEdge: .top)
+        navigationBar.autoPinEdge(toSuperviewEdge: .top)
+        navigationBar.autoPinEdge(toSuperviewEdge: .leading)
+        navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
+        navigationBar.autoPinEdge(.bottom, to: .top, of: headerView)
+        
+       // headerView.autoPinEdge(toSuperviewEdge: .top)
         headerView.autoMatch(.width, to: .width, of: self)
         headerView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         

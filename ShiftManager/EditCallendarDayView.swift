@@ -52,9 +52,9 @@ final class EditCallendarDayView: UIView {
         extraShiftStackView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         addSubview(extraShiftStackView)
         
-        extraShiftButton.backgroundColor = .red
-        extraShiftButton.layer.cornerRadius = 17
-        extraShiftButton.layer.borderWidth = 1
+        extraShiftButton.backgroundColor = Colors.papaya
+      //  extraShiftButton.layer.cornerRadius = 17
+      //  extraShiftButton.layer.borderWidth = 1
         extraShiftButton.setTitle(NSLocalizedString("ExtraShiftButton_loc001", comment: ""), for: .normal)
         addSubview(extraShiftButton)
         
@@ -76,6 +76,9 @@ final class EditCallendarDayView: UIView {
         noteTextView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         noteTextView.layer.borderColor = UIColor.black.cgColor
         noteTextView.layer.borderWidth = 1
+        //TODO: placeholder for TextView !!!
+       // noteTextView.placeholderText = "ji"
+        //noteTextView.placeholderText = NSLocalizedString("NoteLabel_loc002", comment: "")
         addSubview(noteTextView)
         addSubview(navigationBar)
     }
