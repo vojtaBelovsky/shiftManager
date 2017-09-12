@@ -15,13 +15,9 @@ final class NewUserView: UIView {
     fileprivate var selectImageView = UIImageView()
     let createButton = UIButton()
     fileprivate let contactsButton = UIButton()
-    //fileprivate let backButton = UIButton()
-    //fileprivate let trashButton = UIButton()
     let firstNameTextField = BoundedTextField()
     let lastNameTextField = BoundedTextField()
     fileprivate let stackView = UIStackView()
-    
-    fileprivate let toolBar = UIToolbar()
      let navigationBar = NavigationBar()
     
     let profileImgSize: CGFloat = 125.0
@@ -41,18 +37,8 @@ final class NewUserView: UIView {
     func initializeViewsAndAddThemAsSubviews() {
         backgroundColor = .clear
         
-        toolBar.alpha = 0.6
-        addSubview(toolBar)
         addSubview(navigationBar)
-        /*
-        trashButton.backgroundColor = .clear
-        trashButton.setImage( UIImage.init(named: "trashIcon.png"), for: .normal)
-        addSubview(trashButton)
         
-        backButton.backgroundColor = .clear
-        backButton.setImage( UIImage.init(named: "backIcon.png"), for: .normal)
-        addSubview(backButton)
-        */
         stackView.axis = .vertical
         stackView.distribution = .equalCentering
         addSubviewToStackView()
@@ -63,23 +49,27 @@ final class NewUserView: UIView {
         selectImageView.layer.borderColor = UIColor.black.cgColor
         selectImageView.layer.cornerRadius = profileImgSize / 2
         selectImageView.clipsToBounds = true
-        selectImageView.contentMode = .center
+        selectImageView.contentMode = .scaleAspectFit
         selectImageView.layer.masksToBounds = true
         selectImageView.isUserInteractionEnabled = true
         selectImageView.image = userPlaceholderImage
+        //TODO: userPlaceholderImage resize
+        
         
         firstNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc001", comment: "")
+        firstNameTextField.backgroundColor = textFields.textFieldColorWithAlpha
+        firstNameTextField.borderStyle = UITextBorderStyle.none
+        firstNameTextField.layer.borderWidth = 0
        
         lastNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc002", comment: "")
+        lastNameTextField.backgroundColor = textFields.textFieldColorWithAlpha
+        lastNameTextField.borderStyle = UITextBorderStyle.none
+        lastNameTextField.layer.borderWidth = 0
         
-        contactsButton.backgroundColor = .red
-        contactsButton.layer.cornerRadius = 17
-        contactsButton.layer.borderWidth = 1
+        contactsButton.backgroundColor = Colors.papaya
         contactsButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
         
-        createButton.backgroundColor = .red
-        createButton.layer.cornerRadius = 17
-        createButton.layer.borderWidth = 1
+        createButton.backgroundColor = Colors.papaya
         createButton.setTitle(NSLocalizedString("RegisterButton_loc003", comment: ""), for: .normal)
     }
     
@@ -97,18 +87,17 @@ final class NewUserView: UIView {
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
         navigationBar.autoPinEdge(toSuperviewEdge: .top)
-
-        toolBar.autoPinEdgesToSuperviewEdges()
         
         stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         stackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        stackView.autoPinEdge(toSuperviewEdge: .top, withInset: 60)
+        stackView.autoPinEdge(toSuperviewEdge: .top, withInset: 55)
         
         selectImageView.autoSetDimension(.width, toSize: profileImgSize)
         selectImageView.autoSetDimension(.height, toSize: profileImgSize)
         selectImageView.autoPinEdge(toSuperviewEdge: .top)
         selectImageView.autoPinEdge(toSuperviewEdge: .bottom)
         selectImageView.autoAlignAxis(toSuperviewAxis: .vertical)
+        
     }
     
     fileprivate func getSpaceView() -> UIView {
@@ -160,12 +149,9 @@ extension NewUserView {
     }
     
     public func setImage(_ image: UIImage) {
+        //TODO: set image error
         selectImageView.image = image
         selectImageView.contentMode = UIViewContentMode.scaleAspectFill
     }
-    /*
-    public func setDeleteButtonVisible(_ visible: Bool) {
-        trashButton.isHidden = !visible
-    }
- */
+   
 }

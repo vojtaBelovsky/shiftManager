@@ -24,19 +24,17 @@ final class SettingsViewController: UIViewController {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "bcg")
         self.view.insertSubview(backgroundImage, at: 0)
-        //title = NSLocalizedString("Settings_loc002", comment: "")
         
         setup()
     }
     
     fileprivate func setup() {
         settingsView.userView.addTarget(self, action: #selector(userViewButtonDidPress), for: .touchUpInside)
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsButtonDidPress))
         settingsView.tableView.dataSource = dataSource
         settingsView.tableView.delegate = self
        
         settingsView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
-        settingsView.addNewUserButtonDidPress(self, action: #selector(addNewUserDidPress))
+        settingsView.navigationBar.actionButtonSetAction(self, action: #selector(newUserButtonDidPress))
         settingsView.addNewShiftButtonDidPress(self, action: #selector(settingsButtonDidPress))
         
         let tableViewReloadDataNotification = NotificationCenter.default
@@ -71,16 +69,16 @@ final class SettingsViewController: UIViewController {
     }
 
     func backButtonDidPress(){
-        navigationController?.isNavigationBarHidden = false
+      //  navigationController?.isNavigationBarHidden = false
          _ = navigationController?.popViewController(animated: true)
     }
     
     func settingsButtonDidPress() {
-        navigationController?.isNavigationBarHidden = false
+        //navigationController?.isNavigationBarHidden = false
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
     
-    func addNewUserDidPress() {
+    func newUserButtonDidPress() {
         self.navigationController?.pushViewController(NewUserViewController(), animated: true)
     }
     

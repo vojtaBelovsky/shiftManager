@@ -28,7 +28,6 @@ final class EditCalendarDayModel: NSObject, NSCoding {
     
     required init?(coder aDecoder: NSCoder) {
         
-        // MARK: Saving freeDaySwtich bool
         self.freeDay = aDecoder.decodeBool(forKey: freeDayPropertyKey)
         
         if let extraShifts = aDecoder.decodeObject(forKey: extraShiftPropertyKey) as? Array<ShiftModel> {

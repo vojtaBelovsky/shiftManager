@@ -13,6 +13,10 @@ public struct Spacing {
     public static let DoubleVertialSpacin: CGFloat = 32.0
 }
 
+public struct textFields{
+    public static let textFieldColorWithAlpha = UIColor.white.withAlphaComponent(0.4)
+}
+
 public struct Colors {
     public static let sandyBrown = UIColor(red: 244.0/255, green: 164.0/255, blue: 96.0/255, alpha: 1.0)
     public static let moss = UIColor(red: 153.0/255, green: 154.0/255, blue: 86.0/255, alpha: 1.0)

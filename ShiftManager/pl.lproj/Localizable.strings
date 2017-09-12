@@ -8,8 +8,8 @@
 "CreateNewShift_loc002" = "Utwórz nową zmianę";
 "CreateNewShift_loc003" = "Nazwa nowej zmiany";
 "CreateNewShift_loc004" = "Wybierz ostatnią zmianę";
-"CreateNewShift_loc005" = "Interwał";
-"CreateNewShift_loc006" = "Kiedy zmiana się powtarza";
+//"CreateNewShift_loc005" = "Interwał";
+"CreateNewShift_loc006" = "Interwał (powtórka zmiany)";
 "CreateNewShift_loc007" = "Wybierz kolor";
 "CreateNewShift_loc008" = "Skrót zmiany (maks. 2 znaki)";
 "CreateNewShift_loc009" = "Edytacja zmiany";
@@ -41,6 +41,7 @@
 "EditCallendarDayViewTitle_loc002" = "Wybierz extra zmiane";
 "DayOffLabel_loc001" = "Urlop";
 "NoteLabel_loc001" = "Twoje notatki";
+"NoteLabel_loc002" = "Tutaj napisz swoje notatki";
 //SHARE
 "AddFriendButton_loc001" = "+";
 //ShiftName

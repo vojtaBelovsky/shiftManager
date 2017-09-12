@@ -9,7 +9,7 @@
 "CreateNewShift_loc003" = "Name of the New Shift";
 "CreateNewShift_loc004" = "Select First Shift";
 "CreateNewShift_loc005" = "Interval";
-"CreateNewShift_loc006" = "When your shift will repeat";
+"CreateNewShift_loc006" = "Interval (shift repeat)";
 "CreateNewShift_loc007" = "Select Color";
 "CreateNewShift_loc008" = "Shortcut for shift (max. 2 symbols)";
 "CreateNewShift_loc009" = "Edit shift";
@@ -41,6 +41,8 @@
 "EditCallendarDayViewTitle_loc002" = "Select extra shift";
 "DayOffLabel_loc001" = "Holiday";
 "NoteLabel_loc001" = "Your notes";
+"NoteLabel_loc002" = "Type your notes here";
+
 //SHARE
 "AddFriendButton_loc001" = "+";
 //ShiftName

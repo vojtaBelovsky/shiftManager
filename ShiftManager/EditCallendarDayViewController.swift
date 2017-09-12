@@ -13,10 +13,6 @@ import UIKit
 final class EditCallendarDayViewController: UIViewController {
     
     fileprivate let editCallendarDayView = EditCallendarDayView()
-    fileprivate var editCalendarDay = EditCalendarDayModel()
-    fileprivate var extraShifts: [ShiftModel] = []
-    fileprivate var editCalendarDayModel = EditCalendarDayModel()
-
     
     // WARNING: DIRTY HACK - because DidSet was not called in this case, so Get and Set func was implemented!!!
     // Probably would be better to get rid of it
@@ -47,8 +43,6 @@ final class EditCallendarDayViewController: UIViewController {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "bcg")
         self.view.insertSubview(backgroundImage, at: 0)
-       // title = NSLocalizedString("EditCallendarDayViewTitle_loc001", comment: "")
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -64,21 +58,20 @@ final class EditCallendarDayViewController: UIViewController {
     }
 
     func saveButtonDidPress() {
-        editCalendarDayModel.freeDay = editCallendarDayView.freeDay()
-        editCalendarDayModel.extraShifts = editCallendarDayView.extraShifts
-        editCalendarDayModel.note = editCallendarDayView.notes()
-        editCalendarDayModel.date = date
-        UserManager.sharedInstance.saveEditCalendarDayModel(editCalendarDayModel)
+        let model = editCallendarDayView.editCalendarDayModel
+        model.freeDay = editCallendarDayView.freeDay()
+        model.note = editCallendarDayView.notes()
+        model.date = date
+        UserManager.sharedInstance.saveEditCalendarDayModel(model)
         
         NotificationCenter.default.post(name: reloadCalendarView, object: nil)
-        navigationController?.isNavigationBarHidden = false
+       // navigationController?.isNavigationBarHidden = false
         _ = navigationController?.popViewController(animated: true)
     }
     
     fileprivate func setupViewData() {
         guard let model = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] else { return }
-        editCalendarDayModel = model
-        editCallendarDayView.setupView(with: model)
+        editCallendarDayView.editCalendarDayModel = model
     }
     
     func setActionForBackButton(){
@@ -95,6 +88,6 @@ final class EditCallendarDayViewController: UIViewController {
 
 extension EditCallendarDayViewController: ExtraShiftViewControllerDelegate {
     public func setExtraShifts(extraShifts: [ShiftModel]) {
-        editCallendarDayView.extraShifts = extraShifts
+        editCallendarDayView.setExtraShifts(extraShifts: extraShifts)
     }
 }

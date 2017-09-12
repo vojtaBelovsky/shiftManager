@@ -32,7 +32,6 @@ final class HeaderView: UIView {
     
     fileprivate func stackViewInitilizer() {
         stackView.axis = .horizontal
-//        stackView.alignment = .center
         stackView.distribution = .equalSpacing
         
         var i = 0
@@ -62,14 +61,6 @@ final class HeaderView: UIView {
         stackView.autoPinEdge(toSuperviewEdge: .top)
         stackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 10)
         stackView.autoPinEdge(toSuperviewEdge: .bottom)
-        
-//        dayMon.autoSetDimension(.width, toSize: 40)
-//        dayTues.autoSetDimension(.width, toSize: 40)
-//        dayWedn.autoSetDimension(.width, toSize: 40)
-//        dayThur.autoSetDimension(.width, toSize: 40)
-//        dayFri.autoSetDimension(.width, toSize: 40)
-//        daySat.autoSetDimension(.width, toSize: 40)
-//        daySun.autoSetDimension(.width, toSize: 40)
     }
 }
 

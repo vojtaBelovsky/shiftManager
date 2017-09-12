@@ -28,7 +28,6 @@ final class EditUserViewController: NewUserViewController {
         newUserView.navigationBar.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""))
         newUserView.navigationBar.setImage(#imageLiteral(resourceName: "trashIcon"))
         navigationController?.isNavigationBarHidden = true
-        //title = NSLocalizedString("RegisterTitle_loc002", comment: "")
         newUserView.createButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
         setupView()
         newUserView.navigationBar.actionButtonSetAction(self, action: #selector(deleteButtonDidPress))
@@ -36,7 +35,6 @@ final class EditUserViewController: NewUserViewController {
     
     fileprivate func setupView() {
         newUserView.editUserSetupView(with: user)
-        //newUserView.setDeleteButtonVisible(true)
     }
     
     func deleteButtonDidPress(){
