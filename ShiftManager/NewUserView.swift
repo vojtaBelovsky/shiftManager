@@ -11,6 +11,7 @@ import PureLayout
 
 final class NewUserView: UIView {
     
+    fileprivate let selectIVCContainer = UIView()
     fileprivate let selectImageViewContainer = UIView()
     fileprivate var selectImageView = UIImageView()
     let createButton = UIButton()
@@ -44,17 +45,13 @@ final class NewUserView: UIView {
         addSubviewToStackView()
         addSubview(stackView)
         
-        selectImageView.layer.borderWidth = 4
-        
-        selectImageView.layer.borderColor = UIColor.black.cgColor
-        selectImageView.layer.cornerRadius = profileImgSize / 2
-        selectImageView.clipsToBounds = true
-        selectImageView.contentMode = .scaleAspectFit
-        selectImageView.layer.masksToBounds = true
-        selectImageView.isUserInteractionEnabled = true
+        selectImageViewContainer.layer.borderWidth = 4
+        selectImageViewContainer.layer.borderColor = UIColor.black.cgColor
+        selectImageViewContainer.layer.cornerRadius = profileImgSize / 2
+        selectImageViewContainer.clipsToBounds = true
+        selectImageViewContainer.isUserInteractionEnabled = true
+
         selectImageView.image = userPlaceholderImage
-        //TODO: userPlaceholderImage resize
-        
         
         firstNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc001", comment: "")
         firstNameTextField.backgroundColor = textFields.textFieldColorWithAlpha
@@ -74,9 +71,10 @@ final class NewUserView: UIView {
     }
     
     fileprivate func addSubviewToStackView() {
+        selectIVCContainer.addSubview(selectImageViewContainer)
         selectImageViewContainer.addSubview(selectImageView)
         [
-            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField,contactsButton, createButton
+            getSpaceView(), selectIVCContainer, getSpaceView(), firstNameTextField, lastNameTextField,contactsButton, createButton
         ].forEach { subview in
             stackView.addArrangedSubview(subview)
         }
@@ -92,12 +90,12 @@ final class NewUserView: UIView {
         stackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         stackView.autoPinEdge(toSuperviewEdge: .top, withInset: 55)
         
-        selectImageView.autoSetDimension(.width, toSize: profileImgSize)
-        selectImageView.autoSetDimension(.height, toSize: profileImgSize)
-        selectImageView.autoPinEdge(toSuperviewEdge: .top)
-        selectImageView.autoPinEdge(toSuperviewEdge: .bottom)
-        selectImageView.autoAlignAxis(toSuperviewAxis: .vertical)
+        selectImageViewContainer.autoSetDimensions(to: CGSize(width: profileImgSize, height: profileImgSize))
+        selectImageViewContainer.autoPinEdge(.top, to: .top, of: selectIVCContainer)
+        selectImageViewContainer.autoPinEdge(.bottom, to: .bottom, of: selectIVCContainer)
+        selectImageViewContainer.autoAlignAxis(toSuperviewAxis: .vertical)
         
+        selectImageView.autoCenterInSuperview()
     }
     
     fileprivate func getSpaceView() -> UIView {
@@ -119,7 +117,7 @@ extension NewUserView {
     }
     
     public func addGestureRecognizerToSelectedImageView(_ gestureRecognizer: UITapGestureRecognizer) {
-        selectImageView.addGestureRecognizer(gestureRecognizer)
+        selectImageViewContainer.addGestureRecognizer(gestureRecognizer)
     }
     
     public func firstName() -> String {
