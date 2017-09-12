@@ -27,6 +27,7 @@ final class NewUserView: UIView {
         super.init(frame: .zero)
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
+        navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
     }
     
     required init?(coder aDecoder: NSCoder) {

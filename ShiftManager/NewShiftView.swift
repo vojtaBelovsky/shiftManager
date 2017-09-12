@@ -28,6 +28,7 @@ final class NewShiftView: UIView {
         setupConstraints()
         navigationBar.setTitle(NSLocalizedString("CreateNewShift_loc002", comment: ""))
         navigationBar.setImage(#imageLiteral(resourceName: "saveIcon"))
+         navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
         
     }
 

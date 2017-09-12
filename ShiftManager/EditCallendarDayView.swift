@@ -31,6 +31,7 @@ final class EditCallendarDayView: UIView {
         super.init(frame: .zero)
         setup()
         navigationBar.setImage(#imageLiteral(resourceName: "saveIcon"))
+        navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
     }
     
     fileprivate func setup() {

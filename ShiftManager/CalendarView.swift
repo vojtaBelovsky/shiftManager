@@ -30,6 +30,7 @@ final class CalendarView: UIView {
     
     init() {
         super.init(frame: .zero)
+         //navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
         navigationBar.setImage(#imageLiteral(resourceName: "editIcon"))
         navigationBar.setTitle(NSLocalizedString("Calendar_loc001", comment: ""))
         initializeViewsAndAddThemAsSubviews()

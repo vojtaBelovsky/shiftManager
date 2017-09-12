@@ -27,6 +27,7 @@ final class EditUserViewController: NewUserViewController {
         super.viewDidLoad()
         newUserView.navigationBar.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""))
         newUserView.navigationBar.setImage(#imageLiteral(resourceName: "trashIcon"))
+        newUserView.navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
         navigationController?.isNavigationBarHidden = true
         newUserView.createButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
         setupView()

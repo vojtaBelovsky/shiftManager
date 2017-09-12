@@ -21,6 +21,7 @@ final class ExtraShiftView: UIView {
         setupConstraints()
         navigationBar.setTitle(NSLocalizedString("EditCallendarDayViewTitle_loc002", comment: ""))
         navigationBar.setImage(#imageLiteral(resourceName: "doneIcon"))
+        navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
     }
     
     fileprivate func setupViewItems() {

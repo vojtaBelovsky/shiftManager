@@ -19,7 +19,7 @@ final class SettingsView: UIView, UITableViewDelegate {
     
     init() {
         super.init(frame: .zero)
-
+        navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
         navigationBar.setImage(#imageLiteral(resourceName: "addIcon"))
         setupViewItems()
         setupConstraints()
