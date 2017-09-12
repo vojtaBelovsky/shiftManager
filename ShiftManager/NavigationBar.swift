@@ -31,7 +31,7 @@ class NavigationBar: UIView {
         offSetView.backgroundColor = .clear
         addSubview(offSetView)
         
-        backButton.setImage( UIImage.init(named: "backIcon.png"), for: .normal)
+       // backButton.setImage( UIImage.init(named: "backIcon.png"), for: .normal)
         addSubview(backButton)
         
         addSubview(actionButton)
@@ -73,6 +73,10 @@ extension NavigationBar {
     
     public func setImage(_ image: UIImage) {
         actionButton.setImage(image, for: .normal)
+    }
+    
+    public func setBackImage(_ image: UIImage) {
+        backButton.setImage(image, for: .normal)
     }
     
     public func setTitle(_ title: String){

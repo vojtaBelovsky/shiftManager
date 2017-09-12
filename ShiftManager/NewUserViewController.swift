@@ -73,7 +73,7 @@ class NewUserViewController: UIViewController {
             }
         }
         
-        let clearAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("NewShiftAlertController_loc003", comment: ""), style: .default) { action -> Void in
+        let clearAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("NewShiftAlertController_loc003", comment: ""), style: .destructive) { action -> Void in
             self.newUserView.clearSelectedImage()
         }
         
