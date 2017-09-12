@@ -35,17 +35,11 @@ class NewUserViewController: UIViewController {
         
         newUserView.navigationBar.setTitle(NSLocalizedString("RegisterTitle_loc001", comment: ""))
         
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(NewUserViewController.tapDetected))
-        singleTap.numberOfTapsRequired = 1
-        newUserView.addGestureRecognizerToSelectedImageView(singleTap)
         newUserView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
         newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
         newUserView.contactsButtonDidPress(self, action: #selector(contactsButtonDidPress))
+        newUserView.selectImageButtonDidPress(self, action: #selector(selectPicture))
         }
-    
-    func tapDetected() {
-        selectPicture()
-    }
     
     func backButtonDidPress(){
    _ = navigationController?.popViewController(animated: true)
