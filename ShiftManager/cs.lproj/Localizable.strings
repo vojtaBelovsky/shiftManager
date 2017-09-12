@@ -28,6 +28,7 @@
 "RegisterAllert_loc003" = "Pole s příjmením je prázdné";
 "NewShiftAlertController_loc001" = "Vyfotit se";
 "NewShiftAlertController_loc002" = "Vybrat z galerie";
+"NewShiftAlertController_loc003" = "Smazat vybraný obrazek";
 
 //New shift
 "NewShiftAllert_loc001" = "Chyba";

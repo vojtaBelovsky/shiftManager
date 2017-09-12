@@ -27,6 +27,7 @@
 "RegisterAllert_loc003" = "Pole z nazwiskiem jest puste";
 "NewShiftAlertController_loc001" = "Zrób zdjecie";
 "NewShiftAlertController_loc002" = "Wybrać z galeri";
+"NewShiftAlertController_loc003" = "Usuń zdjęcie";
 //New shift
 "NewShiftAllert_loc001" = "Błąd";
 "NewShiftAllert_loc002" = "Pole z imieniem jest puste";

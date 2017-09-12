@@ -73,9 +73,14 @@ class NewUserViewController: UIViewController {
             }
         }
         
+        let clearAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("NewShiftAlertController_loc003", comment: ""), style: .destructive) { action -> Void in
+            self.newUserView.clearSelectedImage()
+        }
+        
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
         actionSheetController.addAction(firstAction)
         actionSheetController.addAction(secondAction)
+        actionSheetController.addAction(clearAction)
         actionSheetController.addAction(cancelAction)
         present(actionSheetController, animated: true, completion: nil)
 

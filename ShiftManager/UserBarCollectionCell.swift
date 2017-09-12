@@ -67,9 +67,7 @@ final class UserBarCollectionCell: UICollectionViewCell {
     }
     
     func set(with image: UIImage?, initials: String) {
-            initialsNameLabel.text = initials.uppercased()
- 
-        }
+        photoImageView.image = image
+        initialsNameLabel.text = image == nil ? initials.uppercased() : nil
     }
-    
-
+}
