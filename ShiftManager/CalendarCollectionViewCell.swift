@@ -86,12 +86,12 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         cellView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 3)
         
         dayLabel.autoPinEdge(.top, to: .top, of: cellView)
-        dayLabel.autoMatch(.height, to: .height, of: cellView, withMultiplier: 0.3)
+        dayLabel.autoMatch(.height, to: .height, of: cellView, withMultiplier: 0.35)
         dayLabel.autoMatch(.width, to: .width, of: cellView)
         dayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
       
         relayView.autoPinEdge(.top, to: .bottom, of: dayLabel)
-        relayView.autoMatch(.height, to: .height, of: cellView, withMultiplier: 0.7)
+        relayView.autoMatch(.height, to: .height, of: cellView, withMultiplier: 0.65)
         relayView.autoPinEdge(.leading, to: .leading, of: cellView)
         relayView.autoPinEdge(.trailing, to: .trailing, of: cellView)
         
