@@ -86,21 +86,21 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         cellView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 3)
         
         dayLabel.autoPinEdge(.top, to: .top, of: cellView)
-        dayLabel.autoMatch(.height, to: .height, of: cellView, withMultiplier: 0.4)
+        dayLabel.autoMatch(.height, to: .height, of: cellView, withMultiplier: 0.3)
         dayLabel.autoMatch(.width, to: .width, of: cellView)
         dayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
       
         relayView.autoPinEdge(.top, to: .bottom, of: dayLabel)
-        relayView.autoMatch(.height, to: .height, of: cellView, withMultiplier: 0.6)
+        relayView.autoMatch(.height, to: .height, of: cellView, withMultiplier: 0.7)
         relayView.autoPinEdge(.leading, to: .leading, of: cellView)
         relayView.autoPinEdge(.trailing, to: .trailing, of: cellView)
         
         relayLabel.autoPinEdge(.top, to: .top, of: relayView)
         relayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
-        relayLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.7)
+        relayLabel.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.65)
         relayLabel.autoMatch(.width, to: .height, of: relayLabel)
         
-        stackView.autoPinEdge(.bottom, to: .bottom, of: relayView)
+        stackView.autoPinEdge(.bottom, to: .bottom, of: relayView, withOffset: -2)
         stackView.autoPinEdge(.leading, to: .leading, of: relayView)
         stackView.autoPinEdge(.trailing, to: .trailing, of: relayView)
         stackView.autoMatch(.height, to: .height, of: relayView, withMultiplier: 0.25)

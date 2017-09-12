@@ -42,6 +42,29 @@ public struct Colors {
     public static let holidayClr = UIColor(red: 204.0/255, green: 255.0/255, blue: 0.0/255, alpha: 1.0)
 }
 
-public struct PinterestColours {
-
+public struct MaterialColors {
+    public static let red = UIColor(red: 249.0/255, green: 64.0/255, blue: 61.0/255, alpha: 1.0)
+    public static let indigo = UIColor(red: 62.0/255, green: 83.0/255, blue: 174.0/255, alpha: 1.0)
+    public static let green = UIColor(red: 65.0/255, green: 174.0/255, blue: 93.0/255, alpha: 1.0)
+    public static let orange = UIColor(red: 255.0/255, green: 150.0/255, blue: 53.0/255, alpha: 1.0)
+    public static let pink = UIColor(red: 238.0/255, green: 25.0/255, blue: 98.0/255, alpha: 1.0)
+    public static let blue = UIColor(red: 6.0/255, green: 152.0/255, blue: 236.0/255, alpha: 1.0)
+    public static let lightGreen = UIColor(red: 135.0/255, green: 194.0/255, blue: 93.0/255, alpha: 1.0)
+    public static let deepOrange = UIColor(red: 255.0/255, green: 84.0/255, blue: 49.0/255, alpha: 1.0)
+    public static let lightBlue = UIColor(red: 0.0/255, green: 171.0/255, blue: 238.0/255, alpha: 1.0)
+    public static let lime = UIColor(red: 204.0/255, green: 219.0/255, blue: 90.0/255, alpha: 1.0)
+    public static let brown = UIColor(red: 122.0/255, green: 85.0/255, blue: 74.0/255, alpha: 1.0)
+    public static let purple = UIColor(red: 160.0/255, green: 43.0/255, blue: 169.0/255, alpha: 1.0)
+    public static let cyan = UIColor(red: 0.0/255, green: 189.0/255, blue: 209.0/255, alpha: 1.0)
+    public static let yellow = UIColor(red: 255.0/255, green: 233.0/255, blue: 97.0/255, alpha: 1.0)
+    public static let grey = UIColor(red: 158.0/255, green: 158.0/255, blue: 158.0/255, alpha: 1.0)
+    public static let deepPurple = UIColor(red: 105.0/255, green: 62.0/255, blue: 176.0/255, alpha: 1.0)
+    public static let teal = UIColor(red: 0.0/255, green: 150.0/255, blue: 137.0/255, alpha: 1.0)
+    public static let amber = UIColor(red: 255.0/255, green: 191.0/255, blue: 67.0/255, alpha: 1.0)
+    public static let blueGrey = UIColor(red: 94.0/255, green: 125.0/255, blue: 138.0/255, alpha: 1.0)
+    public static let paperBag = UIColor(red: 196.0/255, green: 171.0/255, blue: 140.0/255, alpha: 1.0)
+    public static let maroon = UIColor(red: 128.0/255, green: 0.0/255, blue: 0.0/255, alpha: 1.0)
+    public static let sandyBrown = UIColor(red: 244.0/255, green: 164.0/255, blue: 96.0/255, alpha: 1.0)
+    public static let persimmon = UIColor(red: 225.0/255, green: 65.0/255, blue: 227.0/255, alpha: 1.0)
+    public static let papaya = UIColor(red: 242.0/255, green: 140.0/255, blue: 111.0/255, alpha: 1.0)
 }
