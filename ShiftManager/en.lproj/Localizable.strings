@@ -27,6 +27,7 @@
 "RegisterAllert_loc003" = "Last name field is empty";
 "NewShiftAlertController_loc001" = "Take a picture";
 "NewShiftAlertController_loc002" = "Select from gallery";
+"NewShiftAlertController_loc003" = "Clear selected picture";
 //New shift
 "NewShiftAllert_loc001" = "Error";
 "NewShiftAllert_loc002" = "Name field is empty";
