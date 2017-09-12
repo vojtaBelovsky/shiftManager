@@ -10,7 +10,7 @@ import UIKit
 
 
 
-final class EditCallendarDayViewController: UIViewController {
+final class EditCallendarDayViewController: UIViewController, UITextViewDelegate {
     
     fileprivate let editCallendarDayView = EditCallendarDayView()
     
@@ -51,6 +51,13 @@ final class EditCallendarDayViewController: UIViewController {
         editCallendarDayView.navigationBar.backButtonSetAction(self, action: #selector(setActionForBackButton))
         editCallendarDayView.navigationBar.actionButtonSetAction(self, action: #selector(saveButtonDidPress))
         setupViewData()
+        
+        editCallendarDayView.noteTextView.delegate = self
+        editCallendarDayView.placeholderLabel.isHidden = !editCallendarDayView.noteTextView.text.isEmpty
+    }
+    
+    func textViewDidChange(_ noteTextView: UITextView) {
+        editCallendarDayView.placeholderLabel.isHidden = !editCallendarDayView.noteTextView.text.isEmpty
     }
     
     override func loadView() {

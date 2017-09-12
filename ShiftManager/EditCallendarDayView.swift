@@ -17,7 +17,8 @@ final class EditCallendarDayView: UIView {
     fileprivate let dayOffLabel = UILabel()
     fileprivate let dayOffSwitch = UISwitch()
     fileprivate let noteLabel = UILabel()
-    fileprivate let noteTextView = UITextView()
+    let noteTextView = UITextView()
+    let placeholderLabel = UILabel()
     let navigationBar = NavigationBar()
     var editCalendarDayModel = EditCalendarDayModel() {
         didSet {
@@ -76,11 +77,15 @@ final class EditCallendarDayView: UIView {
         noteTextView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         noteTextView.layer.borderColor = UIColor.black.cgColor
         noteTextView.layer.borderWidth = 1
-        //TODO: placeholder for TextView !!!
-       // noteTextView.placeholderText = "ji"
-        //noteTextView.placeholderText = NSLocalizedString("NoteLabel_loc002", comment: "")
         addSubview(noteTextView)
         addSubview(navigationBar)
+        
+        placeholderLabel.text = NSLocalizedString("NoteLabel_loc002", comment: "")
+        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (noteTextView.font?.pointSize)!)
+        placeholderLabel.sizeToFit()
+        noteTextView.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (noteTextView.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor.darkGray
     }
     
     fileprivate func setupConstraints() {
