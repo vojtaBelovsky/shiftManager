@@ -18,7 +18,7 @@ final class NewUserView: UIView {
     let firstNameTextField = BoundedTextField()
     let lastNameTextField = BoundedTextField()
     fileprivate let stackView = UIStackView()
-     let navigationBar = NavigationBar()
+    let navigationBar = NavigationBar()
     
     let profileImgSize: CGFloat = 125.0
     fileprivate let userPlaceholderImage = #imageLiteral(resourceName: "addImageIcon")
@@ -131,8 +131,8 @@ extension NewUserView {
     }
     
     public func userPhoto() -> UIImage? {
-        if selectImageView.image == userPlaceholderImage {
-            selectImageView.image = userDefaultImage
+        if selectImageView.image == userPlaceholderImage || selectImageView.image == userDefaultImage {
+            return nil
         }
         return selectImageView.image
     }
@@ -149,7 +149,6 @@ extension NewUserView {
     }
     
     public func setImage(_ image: UIImage) {
-        //TODO: set image error
         selectImageView.image = image
         selectImageView.contentMode = UIViewContentMode.scaleAspectFill
     }
