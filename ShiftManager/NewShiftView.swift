@@ -59,7 +59,6 @@ final class NewShiftView: UIView {
         addSubview(intervalTextField)
         
         selectShiftColorButton.backgroundColor = textFields.textFieldColorWithAlpha
-        selectShiftColorButton.setTitle(NSLocalizedString("CreateNewShift_loc007", comment: ""), for: .normal)
         selectShiftColorButton.setTitleColor(.black, for: UIControlState.normal)
         addSubview(selectShiftColorButton)
     }
@@ -93,7 +92,7 @@ final class NewShiftView: UIView {
         selectShiftColorButton.autoPinEdge(.top, to: .bottom, of: intervalTextField, withOffset: Spacing.VerticalSpacing)
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        selectShiftColorButton.autoSetDimension(.height, toSize: 100.0)
+        selectShiftColorButton.autoSetDimension(.height, toSize: 80.0)
     }
     
     fileprivate func shiftFirstDate() {
@@ -105,6 +104,15 @@ final class NewShiftView: UIView {
 
 extension NewShiftView {
 
+    public func renameButton(){
+        
+        if selectShiftColorButton.backgroundColor == textFields.textFieldColorWithAlpha {
+            selectShiftColorButton.setTitle(NSLocalizedString("CreateNewShift_loc007", comment: ""), for: .normal)
+        } else{
+            selectShiftColorButton.setTitle(NSLocalizedString("CreateNewShift_loc010", comment: ""), for: .normal)
+        }
+    }
+    
     public func setActionForColorButton(_ target: Any?, action: Selector) {
         selectShiftColorButton.addTarget(target, action: action, for: .touchUpInside)
     }
@@ -146,6 +154,6 @@ extension NewShiftView {
     
     public func setSelectShiftColorButtonBackground(_ color: UIColor?) {
         selectShiftColorButton.backgroundColor = color
-        selectShiftColorButton.setTitle("", for: .normal)
+        renameButton()
     }
 }

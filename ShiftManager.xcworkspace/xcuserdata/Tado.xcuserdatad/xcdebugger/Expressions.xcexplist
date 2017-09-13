@@ -31,13 +31,13 @@
          contextName = "NewUserViewController.contactPicker(CNContactPickerViewController, didSelect : CNContact) -&gt; ():NewUserViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "contact.imageData">
+            </PersistentString>
+            <PersistentString
                value = "contact.imageDataAvailable">
             </PersistentString>
             <PersistentString
                value = "contact.thumbnailImageData">
-            </PersistentString>
-            <PersistentString
-               value = "contact.imageData">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -63,6 +63,14 @@
          <PersistentStrings>
             <PersistentString
                value = "navigationBar.backButton.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewShiftView.renameButton() -&gt; ():NewShiftView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectShiftColorButton.backgroundColor == nil">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -9,6 +9,7 @@
 "CreateNewShift_loc003" = "Name of the new shift";
 "CreateNewShift_loc004" = "Select first shift";
 //"CreateNewShift_loc005" = "Interval";
+"CreateNewShift_loc010" = "Change color";
 "CreateNewShift_loc006" = "Interval (shift repeat)";
 "CreateNewShift_loc007" = "Select color";
 "CreateNewShift_loc008" = "Shortcut for shift (max. 2 symbols)";
