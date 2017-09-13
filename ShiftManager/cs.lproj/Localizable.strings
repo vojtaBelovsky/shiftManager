@@ -9,6 +9,7 @@
 "CreateNewShift_loc003" = "Název nové šichty";
 "CreateNewShift_loc004" = "Zvolte si první šichtu";
 //"CreateNewShift_loc005" = "Interval";
+"CreateNewShift_loc010" = "Změnit barvu";
 "CreateNewShift_loc006" = "Interval (opakování šichty)";
 "CreateNewShift_loc007" = "Zvolte barvu";
 "CreateNewShift_loc008" = "Zkratka šichty (max. 2 znaky)";
