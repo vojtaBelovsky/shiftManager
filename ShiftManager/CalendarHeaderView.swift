@@ -43,4 +43,12 @@ extension CalendarHeaderView {
     func setMonthName(name: String) {
         monthLabel.text = name
     }
+    
+    func setCurrentMonth() {
+        monthLabel.textColor = MaterialColors.red
+    }
+    
+    func setDefaultStateToMonth() {
+        monthLabel.textColor = .black
+    }
 }

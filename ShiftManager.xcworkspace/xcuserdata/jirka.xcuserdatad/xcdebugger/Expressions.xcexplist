@@ -8,6 +8,9 @@
             <PersistentString
                value = "UserManager.sharedInstance.selectedUser">
             </PersistentString>
+            <PersistentString
+               value = "Date()">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState

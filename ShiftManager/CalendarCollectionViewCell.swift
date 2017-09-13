@@ -112,6 +112,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     }
     
     public func setDefaultStateToLabels() {
+        dayLabel.textColor = .black
         
         extraFirstLabel.isHidden = true
         extraSecondLabel.isHidden = true
@@ -135,6 +136,10 @@ extension CalendarCollectionViewCell {
     
     func setup(with shift: ShiftModel?) {
         relayLabel.setup(with: shift)
+    }
+    
+    func setupCurrentDay() {
+        dayLabel.textColor = MaterialColors.red
     }
     
     func setupHoliday(with holidayShift: EditCalendarDayModel?) {

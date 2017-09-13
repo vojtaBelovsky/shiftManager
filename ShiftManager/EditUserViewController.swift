@@ -30,7 +30,7 @@ final class EditUserViewController: NewUserViewController {
         newUserView.navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
         navigationController?.isNavigationBarHidden = true
         newUserView.deleteButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
-        newUserView.deleteButton.backgroundColor = Colors.papaya
+        newUserView.deleteButton.backgroundColor = MaterialColors.red
         setupView()
         newUserView.deleteButtonDidPress(self, action: #selector(deleteButtonDidPress))
         newUserView.navigationBar.actionButtonSetAction(self, action: #selector(checkmarkButtonDidPress))
