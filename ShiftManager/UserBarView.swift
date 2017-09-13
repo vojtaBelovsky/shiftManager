@@ -18,7 +18,7 @@ final class UserBarView: UIView {
     fileprivate lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 0
-        flowLayout.minimumLineSpacing = 6
+        flowLayout.minimumLineSpacing = 2
         flowLayout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -34,14 +34,13 @@ final class UserBarView: UIView {
     
     fileprivate let userBarViewDataSource = UserBarViewDataSource()
     fileprivate let viewHeight: CGFloat = 50.0
-    fileprivate let cellDimension: CGFloat = 45.0
+    fileprivate let cellDimension: CGFloat = 50.0
     
     init() {
         super.init(frame: .zero)
 
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -53,17 +52,17 @@ final class UserBarView: UIView {
         stackView.axis = .horizontal
         addSubview(stackView)
         
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = .clear
         collectionView.dataSource = userBarViewDataSource
         collectionView.delegate = self
         collectionView.register(UserBarCollectionCell.self, forCellWithReuseIdentifier: String(describing: UserBarCollectionCell.self))
         stackView.addArrangedSubview(collectionView)
-        
     }
     
     fileprivate func setupConstraints() {
         stackView.autoSetDimension(.height, toSize: viewHeight)
-        stackView.autoPinEdgesToSuperviewMargins()
+        stackView.autoPinEdgesToSuperviewEdges()
     }
 }
 
@@ -71,7 +70,7 @@ extension UserBarView {
     public func reloadData() {
         self.collectionView.reloadData()
     }
-  }
+}
 
 extension UserBarView: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
