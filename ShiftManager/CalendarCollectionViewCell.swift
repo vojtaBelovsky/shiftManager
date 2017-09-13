@@ -77,13 +77,13 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     fileprivate func setupConstraints() {
         toolbar.autoPinEdge(toSuperviewEdge: .top)
         toolbar.autoPinEdge(toSuperviewEdge: .bottom)
-        toolbar.autoPinEdge(toSuperviewEdge: .leading, withInset: 3)
-        toolbar.autoPinEdge(toSuperviewEdge: .trailing, withInset: 3)
+        toolbar.autoPinEdge(toSuperviewEdge: .leading)
+        toolbar.autoPinEdge(toSuperviewEdge: .trailing)
         
         cellView.autoPinEdge(toSuperviewEdge: .top)
         cellView.autoPinEdge(toSuperviewEdge: .bottom)
-        cellView.autoPinEdge(toSuperviewEdge: .leading, withInset: 3)
-        cellView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 3)
+        cellView.autoPinEdge(toSuperviewEdge: .leading)
+        cellView.autoPinEdge(toSuperviewEdge: .trailing)
         
         dayLabel.autoPinEdge(.top, to: .top, of: cellView)
         dayLabel.autoMatch(.height, to: .height, of: cellView, withMultiplier: 0.35)
