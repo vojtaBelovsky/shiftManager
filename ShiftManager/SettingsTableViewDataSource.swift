@@ -25,7 +25,9 @@ final class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
         cell.setup(with: viewModel)
         cell.selectionStyle = .none
         cell.backgroundColor = .clear
-
+        
+        
+        
         return cell
     }
    
