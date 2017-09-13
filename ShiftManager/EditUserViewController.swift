@@ -26,12 +26,14 @@ final class EditUserViewController: NewUserViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         newUserView.navigationBar.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""))
-        newUserView.navigationBar.setImage(#imageLiteral(resourceName: "trashIcon"))
+        newUserView.navigationBar.setImage(#imageLiteral(resourceName: "checkmark"))
         newUserView.navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
         navigationController?.isNavigationBarHidden = true
-        newUserView.createButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
+        newUserView.deleteButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
+        newUserView.deleteButton.backgroundColor = Colors.papaya
         setupView()
-        newUserView.navigationBar.actionButtonSetAction(self, action: #selector(deleteButtonDidPress))
+        newUserView.deleteButtonDidPress(self, action: #selector(deleteButtonDidPress))
+        newUserView.navigationBar.actionButtonSetAction(self, action: #selector(checkmarkButtonDidPress))
     }
     
     fileprivate func setupView() {
@@ -54,7 +56,7 @@ final class EditUserViewController: NewUserViewController {
         updateUser.post(name: updateUserNotification, object: nil)
     }
     
-    override func registerButtonDidPress() {
+    override func checkmarkButtonDidPress() {
         user.firstName = newUserView.firstName()
         user.lastName = newUserView.lastName()
         user.userPhotoImage = newUserView.userPhoto()

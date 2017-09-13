@@ -20,7 +20,7 @@
 "RegisterPlaceholder_loc002" = "Příjmení";
 "RegisterButton_loc003" = "VYTVOŘIT";
 //"RegisterButton_loc004" = "FOTO";
-"RegisterButton_loc005" = "UPDATE";
+"RegisterButton_loc005" = "SMAZAT";
 "RegisterButton_loc006" = "IMPORTOVAT";
 "RegisterAllert_loc001" = "Chyba";
 "RegisterAllert_loc002" = "Pole se jménem je prázdné";

@@ -20,7 +20,7 @@
 "RegisterPlaceholder_loc002" = "Last name";
 "RegisterButton_loc003" = "CREATE";
 //"RegisterButton_loc004" = "Camera";
-"RegisterButton_loc005" = "UPDATE";
+"RegisterButton_loc005" = "DELETE";
 "RegisterButton_loc006" = "IMPORT";
 "RegisterAllert_loc001" = "Error";
 "RegisterAllert_loc002" = "First name field is empty";
