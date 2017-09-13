@@ -9,6 +9,7 @@
 "CreateNewShift_loc003" = "Název nové šichty";
 "CreateNewShift_loc004" = "Zvolte si první šichtu";
 //"CreateNewShift_loc005" = "Interval";
+"CreateNewShift_loc010" = "Změnit barvu";
 "CreateNewShift_loc006" = "Interval (opakování šichty)";
 "CreateNewShift_loc007" = "Zvolte barvu";
 "CreateNewShift_loc008" = "Zkratka šichty (max. 2 znaky)";
@@ -28,6 +29,10 @@
 "NewShiftAlertController_loc001" = "Vyfotit se";
 "NewShiftAlertController_loc002" = "Vybrat z galerie";
 "NewShiftAlertController_loc003" = "Smazat vybraný obrázek";
+"DeleteUserAlertController_loc001" = "Smazat uživatele";
+"DeleteUserAlertController_loc002" = "Uživatele nebude možné obnovit";
+"DeleteUserAlertController_loc003" = "OK";
+"DeleteUserAlertController_loc004" = "Cancel";
 //New shift
 "NewShiftAllert_loc001" = "Chyba";
 "NewShiftAllert_loc002" = "Pole se jménem je prázdné";

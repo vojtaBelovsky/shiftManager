@@ -8,7 +8,7 @@
 "CreateNewShift_loc002" = "Create New Shift";
 "CreateNewShift_loc003" = "Name of the new shift";
 "CreateNewShift_loc004" = "Select first shift";
-//"CreateNewShift_loc005" = "Interval";
+"CreateNewShift_loc010" = "Change color";
 "CreateNewShift_loc006" = "Interval (shift repeat)";
 "CreateNewShift_loc007" = "Select color";
 "CreateNewShift_loc008" = "Shortcut for shift (max. 2 symbols)";
@@ -19,7 +19,6 @@
 "RegisterPlaceholder_loc001" = "First name";
 "RegisterPlaceholder_loc002" = "Last name";
 "RegisterButton_loc003" = "CREATE";
-//"RegisterButton_loc004" = "Camera";
 "RegisterButton_loc005" = "DELETE";
 "RegisterButton_loc006" = "IMPORT";
 "RegisterAllert_loc001" = "Error";
@@ -28,6 +27,10 @@
 "NewShiftAlertController_loc001" = "Take a picture";
 "NewShiftAlertController_loc002" = "Select from gallery";
 "NewShiftAlertController_loc003" = "Clear selected picture";
+"DeleteUserAlertController_loc001" = "Delete user";
+"DeleteUserAlertController_loc002" = "User will not be able to recover";
+"DeleteUserAlertController_loc003" = "OK";
+"DeleteUserAlertController_loc004" = "Cancel";
 //New shift
 "NewShiftAllert_loc001" = "Error";
 "NewShiftAllert_loc002" = "Name field is empty";
@@ -36,16 +39,12 @@
 "NewShiftAllert_loc005" = "Please select color";
 "NewShiftAllert_loc006" = "Shortcut is too long or field is empty";
 //Edit Callendar Day
-//"BasicInfo_loc001" = "Basic info:";
 "ExtraShiftButton_loc001" = "Manage extra shift";
 "EditCallendarDayViewTitle_loc001" = "Edit day %@";
 "EditCallendarDayViewTitle_loc002" = "Select extra shift";
 "DayOffLabel_loc001" = "Holiday";
 "NoteLabel_loc001" = "Notes";
 "NoteLabel_loc002" = "Type your notes here";
-
-//SHARE
-//"AddFriendButton_loc001" = "+";
 //ShiftName
 "ShiftName_loc001" = "%@ (%@)";
 //ExtraShiftName

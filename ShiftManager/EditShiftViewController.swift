@@ -22,8 +22,10 @@ final class EditShiftViewController: NewShiftViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        title = NSLocalizedString("CreateNewShift_loc009", comment: "")
+        //title = NSLocalizedString("CreateNewShift_loc009", comment: "")
+        newShiftView.navigationBar.setTitle(NSLocalizedString("CreateNewShift_loc009", comment: ""))
         setupView()
+        newShiftView.renameButton()
     }
     
     fileprivate func setupView() {

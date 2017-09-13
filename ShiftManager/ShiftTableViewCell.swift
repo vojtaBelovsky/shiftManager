@@ -14,6 +14,7 @@ final class ShiftTableViewCell: UITableViewCell {
     fileprivate let titleLabel = UILabel()
     fileprivate let tableView = UITableView()
     fileprivate let colourCircleLabel = CalendarCircleLabel()
+    fileprivate let separatorLine = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,6 +27,8 @@ final class ShiftTableViewCell: UITableViewCell {
         addSubview(titleLabel)
         
         addSubview(colourCircleLabel)
+        separatorLine.backgroundColor = .black
+        addSubview(separatorLine)
         
         setupConstraints()
     }
@@ -40,6 +43,9 @@ final class ShiftTableViewCell: UITableViewCell {
         titleLabel.autoPinEdge(.leading, to: .trailing, of: colourCircleLabel, withOffset: Spacing.HorizontalSpacing)
         titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         titleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing)
+        
+        separatorLine.autoSetDimension(.height, toSize: 1)
+        separatorLine.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
     }
     
     required init?(coder aDecoder: NSCoder) {

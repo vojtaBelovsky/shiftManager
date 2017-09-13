@@ -9,6 +9,7 @@
 "CreateNewShift_loc003" = "Nazwa nowej zmiany";
 "CreateNewShift_loc004" = "Wybierz ostatnią zmianę";
 //"CreateNewShift_loc005" = "Interwał";
+"CreateNewShift_loc010" = "Zmienić kolor";
 "CreateNewShift_loc006" = "Interwał (powtórka zmiany)";
 "CreateNewShift_loc007" = "Wybierz kolor";
 "CreateNewShift_loc008" = "Skrót zmiany (maks. 2 znaki)";
@@ -28,6 +29,10 @@
 "NewShiftAlertController_loc001" = "Zrób zdjecie";
 "NewShiftAlertController_loc002" = "Wybrać z galeri";
 "NewShiftAlertController_loc003" = "Usuń zdjęcie";
+"DeleteUserAlertController_loc001" = "Usuń użytkownika";
+"DeleteUserAlertController_loc002" = "Użytkownika nie będzie wstanie obnowić";
+"DeleteUserAlertController_loc003" = "OK";
+"DeleteUserAlertController_loc004" = "Cancel";
 //New shift
 "NewShiftAllert_loc001" = "Błąd";
 "NewShiftAllert_loc002" = "Pole z imieniem jest puste";
