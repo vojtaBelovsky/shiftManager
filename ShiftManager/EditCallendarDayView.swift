@@ -11,21 +11,22 @@ import PureLayout
 
 final class EditCallendarDayView: UIView {
     
+    let navigationBar = NavigationBar()
+    fileprivate let scrollView = UIScrollView()
+    fileprivate let contentHolder = UIView()
     fileprivate let dateLabel = UILabel()
-    fileprivate let extraShiftStackView = UIStackView()
     fileprivate let extraShiftButton = UIButton()
+    fileprivate let extraShiftStackView = UIStackView()
     fileprivate let dayOffLabel = UILabel()
     fileprivate let dayOffSwitch = UISwitch()
     fileprivate let noteLabel = UILabel()
     let noteTextView = UITextView()
     let placeholderLabel = UILabel()
-    let navigationBar = NavigationBar()
     var editCalendarDayModel = EditCalendarDayModel() {
         didSet {
             setupView(with: editCalendarDayModel)
         }
     }
-
     
     init() {
         super.init(frame: .zero)
@@ -45,6 +46,10 @@ final class EditCallendarDayView: UIView {
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
         
+        addSubview(navigationBar)
+        addSubview(scrollView)
+        addSubviewToScrollView()
+        
         backgroundColor = .clear
         dateLabel.textColor = .black
         addSubview(dateLabel)
@@ -52,25 +57,18 @@ final class EditCallendarDayView: UIView {
         extraShiftStackView.axis = .vertical
         extraShiftStackView.spacing = 10.0
         extraShiftStackView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
-        addSubview(extraShiftStackView)
         
         extraShiftButton.backgroundColor = Colors.papaya
-      //  extraShiftButton.layer.cornerRadius = 17
-      //  extraShiftButton.layer.borderWidth = 1
         extraShiftButton.setTitle(NSLocalizedString("ExtraShiftButton_loc001", comment: ""), for: .normal)
-        addSubview(extraShiftButton)
         
         dayOffLabel.text = NSLocalizedString("DayOffLabel_loc001", comment: "")
         dayOffLabel.textColor = .black
-        addSubview(dayOffLabel)
         
         dayOffSwitch.addTarget(self, action: #selector(freeDay), for: .valueChanged)
-        addSubview(dayOffSwitch)
 
         noteLabel.text = NSLocalizedString("NoteLabel_loc001", comment: "")
         noteLabel.textColor = .black
         noteLabel.textAlignment = .center
-        addSubview(noteLabel)
         
         noteTextView.textAlignment = NSTextAlignment.natural
         noteTextView.textColor = UIColor.black
@@ -78,51 +76,58 @@ final class EditCallendarDayView: UIView {
         noteTextView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         noteTextView.layer.borderColor = UIColor.black.cgColor
         noteTextView.layer.borderWidth = 1
-        addSubview(noteTextView)
-        addSubview(navigationBar)
+        noteTextView.addSubview(placeholderLabel)
         
         placeholderLabel.text = NSLocalizedString("NoteLabel_loc002", comment: "")
         placeholderLabel.font = UIFont.italicSystemFont(ofSize: (noteTextView.font?.pointSize)!)
         placeholderLabel.sizeToFit()
-        noteTextView.addSubview(placeholderLabel)
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (noteTextView.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor.darkGray
     }
     
+    fileprivate func addSubviewToScrollView() {
+        scrollView.addSubview(contentHolder)
+        [extraShiftButton, extraShiftStackView, dayOffLabel, dayOffSwitch, noteLabel, noteTextView].forEach { subview in
+            contentHolder.addSubview(subview)
+        }
+    }
+    
     fileprivate func setupConstraints() {
-        
-        navigationBar.autoPinEdge(.bottom, to: .top, of: extraShiftButton, withOffset: -30)
+        navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
-        navigationBar.autoPinEdge(toSuperviewEdge: .top)
         
-        extraShiftButton.autoPinEdge(.top, to: .bottom, of: navigationBar)
-        extraShiftButton.autoPinEdge(.bottom, to: .top, of: extraShiftStackView, withOffset: -20)
+        scrollView.autoPinEdge(.top, to: .bottom, of: navigationBar, withOffset: Spacing.DoubleVertialSpacing)
+        scrollView.autoPinEdge(toSuperviewEdge: .leading)
+        scrollView.autoPinEdge(toSuperviewEdge: .trailing)
+        scrollView.autoPinEdge(toSuperviewEdge: .bottom)
+        
+        contentHolder.autoMatch(.width, to: .width, of: self)
+        contentHolder.autoPinEdgesToSuperviewEdges()
+        
+        extraShiftButton.autoPinEdge(toSuperviewEdge: .top)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         extraShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
 
-        extraShiftStackView.autoPinEdge(.bottom, to: .top, of: dayOffLabel, withOffset: -35)
-        extraShiftStackView.autoPinEdge(.top, to: .bottom, of: extraShiftButton)
+        extraShiftStackView.autoPinEdge(.top, to: .bottom, of: extraShiftButton, withOffset: Spacing.DoubleVertialSpacing)
         extraShiftStackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         extraShiftStackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
-        dayOffLabel.autoPinEdge(.top, to: .bottom, of: extraShiftStackView, withOffset: -20)
-        dayOffLabel.autoPinEdge(.bottom, to: .top, of: noteLabel, withOffset: -20)
+        dayOffLabel.autoPinEdge(.top, to: .bottom, of: extraShiftStackView, withOffset: Spacing.DoubleVertialSpacing)
         dayOffLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         
-        dayOffSwitch.autoPinEdge(.leading, to: .trailing, of: dayOffLabel, withOffset: Spacing.HorizontalSpacing)
         dayOffSwitch.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         dayOffSwitch.autoAlignAxis(.horizontal, toSameAxisOf: dayOffLabel)
         
-        noteLabel.autoPinEdge(.top, to: .bottom, of: dayOffLabel, withOffset: Spacing.HorizontalSpacing)
+        noteLabel.autoPinEdge(.top, to: .bottom, of: dayOffLabel, withOffset: Spacing.DoubleVertialSpacing)
         noteLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         noteLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
-        noteTextView.autoPinEdge(.top, to: .bottom, of: noteLabel, withOffset: Spacing.HorizontalSpacing)
+        noteTextView.autoPinEdge(.top, to: .bottom, of: noteLabel, withOffset: Spacing.VerticalSpacing)
         noteTextView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         noteTextView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        noteTextView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.2)
-        noteTextView.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing, relation: .greaterThanOrEqual)
+        noteTextView.autoSetDimension(.height, toSize: 150)
+        noteTextView.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.DoubleVertialSpacing)
     }
     
     func setSwitch() {

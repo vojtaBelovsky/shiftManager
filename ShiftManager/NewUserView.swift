@@ -15,7 +15,7 @@ final class NewUserView: UIView {
     fileprivate var selectImageView = UIImageView()
     fileprivate var selectImageButton = UIButton()
     let createButton = UIButton()
-    fileprivate let contactsButton = UIButton()
+    fileprivate let importButton = UIButton()
     let firstNameTextField = BoundedTextField()
     let lastNameTextField = BoundedTextField()
     fileprivate let stackView = UIStackView()
@@ -55,16 +55,12 @@ final class NewUserView: UIView {
         
         firstNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc001", comment: "")
         firstNameTextField.backgroundColor = textFields.textFieldColorWithAlpha
-        firstNameTextField.borderStyle = UITextBorderStyle.none
-        firstNameTextField.layer.borderWidth = 0
        
         lastNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc002", comment: "")
         lastNameTextField.backgroundColor = textFields.textFieldColorWithAlpha
-        lastNameTextField.borderStyle = UITextBorderStyle.none
-        lastNameTextField.layer.borderWidth = 0
         
-        contactsButton.backgroundColor = Colors.papaya
-        contactsButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
+        importButton.backgroundColor = Colors.papaya
+        importButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
         
         createButton.backgroundColor = Colors.papaya
         createButton.setTitle(NSLocalizedString("RegisterButton_loc003", comment: ""), for: .normal)
@@ -73,25 +69,24 @@ final class NewUserView: UIView {
     fileprivate func addSubviewToStackView() {
         selectImageViewContainer.addSubview(selectImageButton)
         [
-            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField,contactsButton, createButton
+            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField, importButton, createButton
         ].forEach { subview in
             stackView.addArrangedSubview(subview)
         }
     }
     
     func setupConstraints() {
-        navigationBar.autoPinEdge(.bottom, to: .top, of: stackView)
+        navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
-        navigationBar.autoPinEdge(toSuperviewEdge: .top)
         
+        stackView.autoPinEdge(.top, to: .bottom, of: navigationBar)
         stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         stackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-        stackView.autoPinEdge(toSuperviewEdge: .top, withInset: 55)
         
+        selectImageButton.autoPinEdge(.top, to: .top, of: selectImageViewContainer)
         selectImageButton.autoSetDimensions(to: CGSize(width: profileImgSize, height: profileImgSize))
         selectImageButton.autoAlignAxis(toSuperviewAxis: .vertical)
-        selectImageButton.autoPinEdge(.top, to: .top, of: selectImageViewContainer)
         selectImageButton.autoPinEdge(.bottom, to: .bottom, of: selectImageViewContainer)
     }
     
@@ -109,8 +104,8 @@ extension NewUserView {
         createButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
-    public func contactsButtonDidPress(_ target: Any?, action: Selector) {
-        contactsButton.addTarget(target, action: action, for: .touchUpInside)
+    public func importButtonDidPress(_ target: Any?, action: Selector) {
+        importButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     public func selectImageButtonDidPress(_ target: Any?, action: Selector) {

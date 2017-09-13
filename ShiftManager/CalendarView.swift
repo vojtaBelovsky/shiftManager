@@ -11,10 +11,10 @@ import PureLayout
 
 final class CalendarView: UIView {
     
+    let navigationBar = NavigationBar()
     fileprivate let headerView = HeaderView()
     fileprivate let daysLabel = UILabel()
     let userBarView = UserBarView()
-    let navigationBar = NavigationBar()
     
     lazy var calendarCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -35,8 +35,8 @@ final class CalendarView: UIView {
         navigationBar.setTitle(NSLocalizedString("Calendar_loc001", comment: ""))
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
-        
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -44,20 +44,19 @@ final class CalendarView: UIView {
     fileprivate func initializeViewsAndAddThemAsSubviews() {
         calendarCollectionView.backgroundColor = .clear
         userBarView.isAddUserButtonHidden = true
-
-        addSubview(userBarView)
+        
+        addSubview(navigationBar)
         addSubview(headerView)
         addSubview(calendarCollectionView)
-        addSubview(navigationBar)
+        addSubview(userBarView)
     }
     
     fileprivate func setupConstraints() {
         navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
-        navigationBar.autoPinEdge(.bottom, to: .top, of: headerView)
         
-       // headerView.autoPinEdge(toSuperviewEdge: .top)
+        headerView.autoPinEdge(.top, to: .bottom, of: navigationBar)
         headerView.autoMatch(.width, to: .width, of: self)
         headerView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         

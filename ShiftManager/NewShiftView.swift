@@ -11,15 +11,13 @@ import PureLayout
 
 final class NewShiftView: UIView {
     
+    let navigationBar = NavigationBar()
     fileprivate let nameTextField = BoundedTextField()
     fileprivate let shortcutTextField = BoundedTextField()
     fileprivate let selectFirstShiftDateLabel = UILabel()
     fileprivate let datePicker = UIDatePicker()
     fileprivate let intervalTextField = BoundedTextField()
     fileprivate let selectShiftColorButton = UIButton()
-    fileprivate let view = UIView()
-    fileprivate let contentHolder = UIView()
-    let navigationBar = NavigationBar()
     
     init() {
         super.init(frame: .zero)
@@ -28,8 +26,7 @@ final class NewShiftView: UIView {
         setupConstraints()
         navigationBar.setTitle(NSLocalizedString("CreateNewShift_loc002", comment: ""))
         navigationBar.setImage(#imageLiteral(resourceName: "saveIcon"))
-         navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
-        
+        navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -37,58 +34,40 @@ final class NewShiftView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
+        addSubview(navigationBar)
+        
         nameTextField.backgroundColor = UIColor.white.withAlphaComponent(0.4)
         nameTextField.placeholder = NSLocalizedString("CreateNewShift_loc003", comment: "")
-        nameTextField.borderStyle = UITextBorderStyle.none
-        nameTextField.layer.borderWidth = 0
+        addSubview(nameTextField)
         
         shortcutTextField.placeholder = NSLocalizedString("CreateNewShift_loc008", comment: "")
         shortcutTextField.backgroundColor = textFields.textFieldColorWithAlpha
-        shortcutTextField.borderStyle = UITextBorderStyle.none
-        shortcutTextField.layer.borderWidth = 0
-        
+        addSubview(shortcutTextField)
         
         selectFirstShiftDateLabel.text = NSLocalizedString("CreateNewShift_loc004", comment: "")
         selectFirstShiftDateLabel.textColor = .black
         selectFirstShiftDateLabel.backgroundColor = textFields.textFieldColorWithAlpha
         selectFirstShiftDateLabel.textAlignment = .center
+        addSubview(selectFirstShiftDateLabel)
+        
+        datePicker.backgroundColor = textFields.textFieldColorWithAlpha
+        addSubview(datePicker)
         
         intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
         intervalTextField.backgroundColor = textFields.textFieldColorWithAlpha
         intervalTextField.keyboardType = UIKeyboardType.numberPad
-        intervalTextField.borderStyle = UITextBorderStyle.none
-        intervalTextField.layer.borderWidth = 0
+        addSubview(intervalTextField)
         
         selectShiftColorButton.backgroundColor = textFields.textFieldColorWithAlpha
-        selectShiftColorButton.layer.borderWidth = 0
-        selectShiftColorButton.layer.masksToBounds = true
         selectShiftColorButton.setTitle(NSLocalizedString("CreateNewShift_loc007", comment: ""), for: .normal)
         selectShiftColorButton.setTitleColor(.black, for: UIControlState.normal)
-
-        datePicker.backgroundColor = textFields.textFieldColorWithAlpha
-        addSubview(view)
-        addSubview(navigationBar)
-        addSubviewToView()
-    }
-    
-    fileprivate func addSubviewToView() {
-        view.addSubview(contentHolder)
-
-        [nameTextField, shortcutTextField, selectFirstShiftDateLabel, datePicker, intervalTextField, selectShiftColorButton ].forEach { subview in
-            contentHolder.addSubview(subview)
-        }
+        addSubview(selectShiftColorButton)
     }
     
     fileprivate func setupConstraints() {
-        view.autoPinEdgesToSuperviewEdges()
-        
-        navigationBar.autoPinEdge(.bottom, to: .top, of: nameTextField, withOffset: -10)
+        navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
-        navigationBar.autoPinEdge(toSuperviewEdge: .top)
-        
-        contentHolder.autoMatch(.width, to: .width, of: self)
-        contentHolder.autoPinEdgesToSuperviewEdges()
 
         nameTextField.autoPinEdge(.top, to: .bottom, of: navigationBar, withOffset: Spacing.VerticalSpacing)
         nameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
@@ -137,7 +116,6 @@ extension NewShiftView {
     public func shortcut() -> String {
         return self.shortcutTextField.text ?? ""
     }
-    
     
     public func interval() -> Int {
         if let textInput = intervalTextField.text, let interval = Int(textInput) {

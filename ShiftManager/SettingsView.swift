@@ -11,19 +11,19 @@ import PureLayout
 
 final class SettingsView: UIView, UITableViewDelegate {
     
-    let userBarView = UserBarView()
-    let tableView = UITableView()
-    let userView = UserView()
     let navigationBar = NavigationBar()
+    let userView = UserView()
+    let tableView = UITableView()
     let addNewShiftButton = NavigationButton()
+    let userBarView = UserBarView()
     
     init() {
         super.init(frame: .zero)
         navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
         navigationBar.setImage(#imageLiteral(resourceName: "addIcon"))
+        navigationBar.setTitle(NSLocalizedString("Settings_loc002", comment: ""))
         setupViewItems()
         setupConstraints()
-        navigationBar.setTitle(NSLocalizedString("Settings_loc002", comment: ""))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,7 +31,7 @@ final class SettingsView: UIView, UITableViewDelegate {
     }
     
     fileprivate func setupViewItems() {
-        
+        addSubview(navigationBar)
         addSubview(userView)
         
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
@@ -40,24 +40,20 @@ final class SettingsView: UIView, UITableViewDelegate {
         tableView.register(ShiftTableViewCell.self, forCellReuseIdentifier: String(describing: ShiftTableViewCell.self))
         tableView.delegate = self
         tableView.backgroundColor = textFields.textFieldColorWithAlpha
-        
         addSubview(tableView)
         
-       
-        addSubview(userBarView)
-        addSubview(navigationBar)
         addNewShiftButton.setImage(UIImage.init(named: "addButtonIcon.png"), for: .normal)
         addNewShiftButton.backgroundColor = textFields.textFieldColorWithAlpha
         addSubview(addNewShiftButton)
- 
+        addSubview(userBarView)
     }
 
     fileprivate func setupConstraints() {
-        navigationBar.autoPinEdge(.bottom, to: .top, of: userView)
+        navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
-        navigationBar.autoPinEdge(toSuperviewEdge: .top)
         
+        userView.autoPinEdge(.top, to: .bottom, of: navigationBar)
         userView.autoPinEdge(toSuperviewEdge: .leading)
         userView.autoPinEdge(toSuperviewEdge: .trailing)
         
@@ -75,7 +71,6 @@ final class SettingsView: UIView, UITableViewDelegate {
 }
 
 extension SettingsView {
-    
     public func addNewUserButtonDidPress(_ target: Any?, action: Selector) {
     }
     

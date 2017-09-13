@@ -10,10 +10,10 @@ import UIKit
 public struct Spacing {
     public static let HorizontalSpacing: CGFloat = 16.0
     public static let VerticalSpacing: CGFloat = 16.0
-    public static let DoubleVertialSpacin: CGFloat = 32.0
+    public static let DoubleVertialSpacing: CGFloat = 32.0
 }
 
-public struct textFields{
+public struct textFields {
     public static let textFieldColorWithAlpha = UIColor.white.withAlphaComponent(0.4)
 }
 

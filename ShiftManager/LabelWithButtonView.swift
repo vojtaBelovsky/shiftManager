@@ -40,7 +40,6 @@ final class LabelWithButtonView: UIView {
         label.autoPinEdge(toSuperviewEdge: .bottom)
         
         button.autoSetDimensions(to: CGSize(width: 25.0, height: 25.0))
-        button.autoPinEdge(.leading, to: .trailing, of: label, withOffset: Spacing.HorizontalSpacing)
         button.autoPinEdge(toSuperviewEdge: .trailing)
         button.autoAlignAxis(.horizontal, toSameAxisOf: label)
     }

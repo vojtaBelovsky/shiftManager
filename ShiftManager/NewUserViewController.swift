@@ -37,7 +37,7 @@ class NewUserViewController: UIViewController {
         
         newUserView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
         newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
-        newUserView.contactsButtonDidPress(self, action: #selector(contactsButtonDidPress))
+        newUserView.importButtonDidPress(self, action: #selector(importButtonDidPress))
         newUserView.selectImageButtonDidPress(self, action: #selector(selectPicture))
         }
     
@@ -77,10 +77,9 @@ class NewUserViewController: UIViewController {
         actionSheetController.addAction(clearAction)
         actionSheetController.addAction(cancelAction)
         present(actionSheetController, animated: true, completion: nil)
-
     }
     
-    func contactsButtonDidPress(){
+    func importButtonDidPress(){
         let contactPicker = CNContactPickerViewController()
         contactPicker.delegate = self
         self.present(contactPicker, animated: true, completion: nil)

@@ -12,9 +12,6 @@ class BoundedTextField: UITextField, UITextFieldDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 1
     }
     
     required init?(coder aDecoder: NSCoder) {
