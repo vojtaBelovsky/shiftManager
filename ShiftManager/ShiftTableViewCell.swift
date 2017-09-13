@@ -36,7 +36,7 @@ final class ShiftTableViewCell: UITableViewCell {
     fileprivate func setupConstraints() {
         colourCircleLabel.autoSetDimensions(to: CGSize(width: 25.0, height: 25.0))
         colourCircleLabel.autoPinEdge(toSuperviewEdge: .top, withInset: Spacing.VerticalSpacing)
-        colourCircleLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        colourCircleLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing*3)
         colourCircleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing, relation: .greaterThanOrEqual)
 
         titleLabel.autoPinEdge(.top, to: .top, of: colourCircleLabel)
