@@ -50,7 +50,7 @@ final class ShiftModelValidator: NSObject {
             return error
         }
         
-        if shift.color == UIColor.white || shift.color == nil {
+        if shift.color == UIColor.white || shift.color == nil || shift.color == textFields.textFieldColorWithAlpha {
             let userInfo: [AnyHashable : Any] = [
                 NSLocalizedDescriptionKey :  NSLocalizedString("NewShiftAllert_loc001", comment: "") ,
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("NewShiftAllert_loc005", comment: "")
