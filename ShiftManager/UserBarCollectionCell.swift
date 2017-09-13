@@ -10,12 +10,12 @@ import PureLayout
 
 final class UserBarCollectionCell: UICollectionViewCell {
     
+    fileprivate let contentHolder = UILabel()
     fileprivate let photoImageView = UIImageView()
-    fileprivate let initialsNameLabel = UILabel()
+    fileprivate let initialsNameLabel = CalendarCircleLabel()
     
     override var isSelected: Bool {
         didSet {
-            photoImageView.layer.borderColor = isSelected ? Colors.papaya.cgColor : UIColor.clear.cgColor
             initialsNameLabel.layer.borderColor = isSelected ? Colors.papaya.cgColor : UIColor.black.cgColor
         }
     }
@@ -34,36 +34,29 @@ final class UserBarCollectionCell: UICollectionViewCell {
     
     fileprivate func setupViewItems() {
 
-        initialsNameLabel.textColor = .black
-        initialsNameLabel.layer.borderWidth = 1
+        initialsNameLabel.layer.borderWidth = 2
         initialsNameLabel.layer.borderColor = UIColor.black.cgColor
-        initialsNameLabel.textAlignment = .center
         
-        photoImageView.layer.borderWidth = 2
-        photoImageView.layer.borderColor = UIColor.clear.cgColor
         photoImageView.clipsToBounds = true
         
     }
     
     fileprivate func addSubviews() {
-        contentView.addSubview(photoImageView)
-        contentView.addSubview(initialsNameLabel)
+        addSubview(contentHolder)
+        contentHolder.addSubview(photoImageView)
+        contentHolder.addSubview(initialsNameLabel)
     }
 
     fileprivate func setupConstraints() {
-        initialsNameLabel.autoMatch(.height, to: .height, of: self, withMultiplier: 1.0)
-        initialsNameLabel.autoMatch(.width, to: .height, of: photoImageView)
-        initialsNameLabel.autoCenterInSuperview()
+        contentHolder.autoPinEdgesToSuperviewEdges(with: UIEdgeInsetsMake(2, 2, 2, 2))
         
-        photoImageView.autoMatch(.height, to: .height, of: self, withMultiplier: 1.0)
-        photoImageView.autoMatch(.width, to: .height, of: photoImageView)
-        photoImageView.autoCenterInSuperview()
+        initialsNameLabel.autoPinEdgesToSuperviewEdges()
+        photoImageView.autoPinEdgesToSuperviewEdges()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        photoImageView.layer.cornerRadius = contentView.bounds.size.height/2;
-        initialsNameLabel.layer.cornerRadius = contentView.bounds.size.height/2;
+        photoImageView.layer.cornerRadius = bounds.size.height/2
     }
     
     func set(with image: UIImage?, initials: String) {
