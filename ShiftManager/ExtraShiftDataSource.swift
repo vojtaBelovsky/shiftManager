@@ -33,9 +33,7 @@ final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
         }
         
         let shiftModel = UserManager.sharedInstance.shiftForIndex(indexPath.row)
-        let formatString = String(format: NSLocalizedString("ExtraShiftName_loc001", comment: ""), shiftModel?.name ?? "", shiftModel?.shortcut ?? "")
-        let viewModel = ShiftViewModel(title: formatString, color: shiftModel?.color)
-        cell.setup(with: viewModel)
+        cell.setup(with: shiftModel)
         
         if let model = shiftModel, extraShiftsForDate?.extraShifts.contains(model) ?? false {
             preselectedIndexPaths.append(indexPath)

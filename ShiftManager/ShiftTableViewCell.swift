@@ -52,13 +52,9 @@ final class ShiftTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 extension ShiftTableViewCell {
-    func setup(with viewModel: ShiftViewModel) {
-        titleLabel.text = viewModel.title
-    }
-    
     func setup(with shiftModel: ShiftModel?) {
         colourCircleLabel.setup(with: shiftModel)
+        titleLabel.text = shiftModel?.name
     }
 }
