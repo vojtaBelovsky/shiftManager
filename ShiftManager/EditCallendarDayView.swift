@@ -74,8 +74,6 @@ final class EditCallendarDayView: UIView {
         noteTextView.textColor = UIColor.black
         noteTextView.font = UIFont.systemFont(ofSize: 18)
         noteTextView.backgroundColor = textFields.textFieldColorWithAlpha
-       // noteTextView.layer.borderColor = UIColor.black.cgColor
-       // noteTextView.layer.borderWidth = 1
         noteTextView.addSubview(placeholderLabel)
         
         placeholderLabel.text = NSLocalizedString("NoteLabel_loc002", comment: "")

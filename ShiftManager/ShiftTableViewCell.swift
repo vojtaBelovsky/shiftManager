@@ -13,15 +13,20 @@ final class ShiftTableViewCell: UITableViewCell {
 
     fileprivate let titleLabel = UILabel()
     fileprivate let tableView = UITableView()
+    fileprivate let colourCircleLabel = CalendarCircleLabel()
     fileprivate let separatorLine = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        selectionStyle = .none
+        backgroundColor = .clear
+        
         titleLabel.textColor = .black
         titleLabel.numberOfLines = 0
         addSubview(titleLabel)
         
+        addSubview(colourCircleLabel)
         separatorLine.backgroundColor = .black
         addSubview(separatorLine)
         
@@ -29,10 +34,14 @@ final class ShiftTableViewCell: UITableViewCell {
     }
     
     fileprivate func setupConstraints() {
-        let inset = CGFloat(40.0)
-        titleLabel.autoPinEdge(toSuperviewEdge: .top, withInset: Spacing.VerticalSpacing)
-        titleLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: inset)
-        titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: inset)
+        colourCircleLabel.autoSetDimensions(to: CGSize(width: 25.0, height: 25.0))
+        colourCircleLabel.autoPinEdge(toSuperviewEdge: .top, withInset: Spacing.VerticalSpacing)
+        colourCircleLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing*3)
+        colourCircleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing, relation: .greaterThanOrEqual)
+
+        titleLabel.autoPinEdge(.top, to: .top, of: colourCircleLabel)
+        titleLabel.autoPinEdge(.leading, to: .trailing, of: colourCircleLabel, withOffset: Spacing.HorizontalSpacing)
+        titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         titleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing)
         
         separatorLine.autoSetDimension(.height, toSize: 1)
@@ -43,10 +52,9 @@ final class ShiftTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 extension ShiftTableViewCell {
-    func setup(with viewModel: ShiftViewModel) {
-        titleLabel.text = viewModel.title
-        backgroundColor = UIColor.white.withAlphaComponent(0.6)
+    func setup(with shiftModel: ShiftModel?) {
+        colourCircleLabel.setup(with: shiftModel)
+        titleLabel.text = shiftModel?.name
     }
 }

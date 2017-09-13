@@ -118,8 +118,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         extraThirdLabel.isHidden = true
         extraFourthLabel.isHidden = true
         
-        relayLabel.text = ""
-        relayLabel.backgroundColor = .clear
+        relayLabel.setup(with: nil)
     }
     
     fileprivate func setDayTitle() {
@@ -135,8 +134,7 @@ extension CalendarCollectionViewCell {
     }
     
     func setup(with shift: ShiftModel?) {
-        relayLabel.text = shift?.shortcut ?? ""
-        relayLabel.backgroundColor = shift?.color ?? .clear
+        relayLabel.setup(with: shift)
     }
     
     func setupHoliday(with holidayShift: EditCalendarDayModel?) {

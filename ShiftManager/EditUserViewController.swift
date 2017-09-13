@@ -42,15 +42,15 @@ final class EditUserViewController: NewUserViewController {
     
     func deleteButtonDidPress(){
         
-        let refreshAlert = UIAlertController(title: "Delete user", message: "Are you sure to delete user?", preferredStyle: UIAlertControllerStyle.alert)
+        let refreshAlert = UIAlertController(title: NSLocalizedString("DeleteUserAlertController_loc001", comment: ""), message: NSLocalizedString("DeleteUserAlertController_loc002", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
         
-        refreshAlert.addAction(UIAlertAction(title: "YES!", style: .destructive, handler: { (action: UIAlertAction!) in
+        refreshAlert.addAction(UIAlertAction(title: NSLocalizedString("DeleteUserAlertController_loc003", comment: ""), style: .destructive, handler: { (action: UIAlertAction!) in
             UserManager.sharedInstance.deleteSelectedUser()
             self.sendDeleteNotification()
-            self.navigationController?.popViewController(animated:true)
+            _ = self.navigationController?.popViewController(animated:true)
         }))
         
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
+        refreshAlert.addAction(UIAlertAction(title: NSLocalizedString("DeleteUserAlertController_loc004", comment: ""), style: .default, handler: { (action: UIAlertAction!) in
             
             refreshAlert .dismiss(animated: true, completion: nil)
         

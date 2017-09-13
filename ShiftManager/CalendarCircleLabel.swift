@@ -13,7 +13,6 @@ class CalendarCircleLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        //backgroundColor = .white
         layer.masksToBounds = true
         textColor = .black
         textAlignment = .center
@@ -25,7 +24,11 @@ class CalendarCircleLabel: UILabel {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = bounds.size.height/2;
+        layer.cornerRadius = bounds.size.height/2
     }
     
+    public func setup(with shiftModel: ShiftModel?) {
+        text = shiftModel?.shortcut ?? ""
+        backgroundColor = shiftModel?.color ?? .clear
+    }
 }

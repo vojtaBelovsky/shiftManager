@@ -29,6 +29,10 @@
 "NewShiftAlertController_loc001" = "Zrób zdjecie";
 "NewShiftAlertController_loc002" = "Wybrać z galeri";
 "NewShiftAlertController_loc003" = "Usuń zdjęcie";
+"DeleteUserAlertController_loc001" = "Usuń użytkownika";
+"DeleteUserAlertController_loc002" = "Użytkownika nie będzie wstanie obnowić";
+"DeleteUserAlertController_loc003" = "OK";
+"DeleteUserAlertController_loc004" = "Cancel";
 //New shift
 "NewShiftAllert_loc001" = "Błąd";
 "NewShiftAllert_loc002" = "Pole z imieniem jest puste";

@@ -53,7 +53,6 @@
 		2AE8C9BE1F43279A00F70A7F /* ShiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BD1F43279A00F70A7F /* ShiftTableViewCell.swift */; };
 		2AE8C9C01F4327B900F70A7F /* ExtraShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */; };
 		2AE8C9C31F43370C00F70A7F /* ExtraShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9C21F43370C00F70A7F /* ExtraShiftViewController.swift */; };
-		2AE8C9C61F4345DA00F70A7F /* ShiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9C51F4345DA00F70A7F /* ShiftViewModel.swift */; };
 		2AF3B3C31F1F5A7D00AB752A /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3B3C21F1F5A7D00AB752A /* CalendarHeaderView.swift */; };
 		4902634A1F4B164F00E1CA19 /* BoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490263491F4B164F00E1CA19 /* BoundedTextField.swift */; };
 		492FE44F1F58629B0012243B /* CalendarCircleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492FE44E1F58629B0012243B /* CalendarCircleLabel.swift */; };
@@ -125,7 +124,6 @@
 		2AE8C9BD1F43279A00F70A7F /* ShiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftTableViewCell.swift; sourceTree = "<group>"; };
 		2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftDataSource.swift; sourceTree = "<group>"; };
 		2AE8C9C21F43370C00F70A7F /* ExtraShiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraShiftViewController.swift; sourceTree = "<group>"; };
-		2AE8C9C51F4345DA00F70A7F /* ShiftViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftViewModel.swift; sourceTree = "<group>"; };
 		2AF3B3C21F1F5A7D00AB752A /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		41B505A5093617F2F673C392 /* Pods_ShiftManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46462C769EDFC89CE54BAAB5 /* Pods_ShiftManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,7 +292,6 @@
 				18CDAB791F39AE3500FA1CF8 /* EditCallendarDay */,
 				188974C71F25D49A00E4CE92 /* User */,
 				18D8469A1F1F65EB004264D8 /* Models */,
-				2AE8C9C41F4345A800F70A7F /* ViewModel */,
 				18D8469E1F1F6A25004264D8 /* Managers */,
 				183AF5A81F18F0C90033CFD7 /* Cellendar */,
 				183AF5A71F18F0720033CFD7 /* Settings */,
@@ -470,14 +467,6 @@
 				2AE8C9C21F43370C00F70A7F /* ExtraShiftViewController.swift */,
 			);
 			name = Controller;
-			sourceTree = "<group>";
-		};
-		2AE8C9C41F4345A800F70A7F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				2AE8C9C51F4345DA00F70A7F /* ShiftViewModel.swift */,
-			);
-			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		544C7C9C385207CDA315669A /* Frameworks */ = {
@@ -735,7 +724,6 @@
 				183AF59A1F18B0F60033CFD7 /* ColorSelectView.swift in Sources */,
 				2A834CFC1F13AC170084F697 /* HeaderView.swift in Sources */,
 				185078E81F3B2F57004C4F49 /* UserModel.swift in Sources */,
-				2AE8C9C61F4345DA00F70A7F /* ShiftViewModel.swift in Sources */,
 				185078EA1F3B314A004C4F49 /* UserManager.swift in Sources */,
 				2AE8C9C31F43370C00F70A7F /* ExtraShiftViewController.swift in Sources */,
 				2AE8C9BE1F43279A00F70A7F /* ShiftTableViewCell.swift in Sources */,
