@@ -9,13 +9,12 @@
 import Foundation
 import UIKit
 
-final class EditCalendarDayModel: NSObject, NSCoding {
+final class EditCalendarDayModel: NSObject, NSCoding, NSCopying {
 
     var freeDay: Bool = false
     var extraShifts: [ShiftModel] = []
     var note: String = ""
     var date: Date?
-    
     
     fileprivate let freeDayPropertyKey = "freeDayPropertyKey"
     fileprivate let extraShiftPropertyKey = "extraShiftPropertyKey"
@@ -24,6 +23,18 @@ final class EditCalendarDayModel: NSObject, NSCoding {
     
     override init() {
         super.init()
+    }
+    
+    init(freeDay: Bool, extraShifts: [ShiftModel], note: String, date: Date?) {
+        self.freeDay = freeDay
+        self.extraShifts = extraShifts.flatMap { $0.copy() as? ShiftModel }
+        self.note = note
+        self.date = date
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = EditCalendarDayModel(freeDay: freeDay, extraShifts: extraShifts, note: note, date: date)
+        return copy
     }
     
     required init?(coder aDecoder: NSCoder) {
