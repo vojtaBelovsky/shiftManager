@@ -15,8 +15,8 @@ final class UserBarCollectionCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            photoImageView.layer.borderColor = isSelected ? UIColor.green.cgColor : UIColor.clear.cgColor
-            initialsNameLabel.layer.borderColor = isSelected ? UIColor.green.cgColor : UIColor.black.cgColor
+            photoImageView.layer.borderColor = isSelected ? Colors.papaya.cgColor : UIColor.clear.cgColor
+            initialsNameLabel.layer.borderColor = isSelected ? Colors.papaya.cgColor : UIColor.black.cgColor
         }
     }
     
