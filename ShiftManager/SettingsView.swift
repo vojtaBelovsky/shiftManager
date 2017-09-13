@@ -34,7 +34,9 @@ final class SettingsView: UIView, UITableViewDelegate {
         addSubview(navigationBar)
         addSubview(userView)
         
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+        tableView.separatorColor = UIColor.black
+        tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
         tableView.register(ShiftTableViewCell.self, forCellReuseIdentifier: String(describing: ShiftTableViewCell.self))

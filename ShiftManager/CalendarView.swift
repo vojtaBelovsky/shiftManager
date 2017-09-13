@@ -61,8 +61,8 @@ final class CalendarView: UIView {
         headerView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
         calendarCollectionView.autoPinEdge(.top, to: .bottom, of: headerView)
-        calendarCollectionView.autoPinEdge(toSuperviewEdge: .leading)
-        calendarCollectionView.autoPinEdge(toSuperviewEdge: .trailing)
+        calendarCollectionView.autoPinEdge(toSuperviewEdge: .leading, withInset: 3)
+        calendarCollectionView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 3)
         
         userBarView.autoPinEdge(.top, to: .bottom, of: calendarCollectionView)
         userBarView.autoPinEdge(toSuperviewEdge: .leading)
@@ -73,7 +73,7 @@ final class CalendarView: UIView {
 
 extension CalendarView {
     func getCalendarCellSize() -> CGSize {
-        let width = UIScreen.main.bounds.size.width / CGFloat(numberOfCalendarCellsInCollum)
+        let width = UIScreen.main.bounds.size.width / CGFloat(numberOfCalendarCellsInCollum) - 4
         let height = UIScreen.main.bounds.size.width / CGFloat(numberOfCalendarCellsInCollum) + 10
         return CGSize(width: width, height: height)
     }
