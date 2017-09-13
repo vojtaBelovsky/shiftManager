@@ -45,7 +45,3 @@
 "DayOffLabel_loc001" = "Holiday";
 "NoteLabel_loc001" = "Notes";
 "NoteLabel_loc002" = "Type your notes here";
-//ShiftName
-"ShiftName_loc001" = "%@ (%@)";
-//ExtraShiftName
-"ExtraShiftName_loc001" = "%@ (%@)";
