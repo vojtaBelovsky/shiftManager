@@ -13,6 +13,7 @@ final class ShiftTableViewCell: UITableViewCell {
 
     fileprivate let titleLabel = UILabel()
     fileprivate let tableView = UITableView()
+    fileprivate let separatorLine = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -20,6 +21,9 @@ final class ShiftTableViewCell: UITableViewCell {
         titleLabel.textColor = .black
         titleLabel.numberOfLines = 0
         addSubview(titleLabel)
+        
+        separatorLine.backgroundColor = .black
+        addSubview(separatorLine)
         
         setupConstraints()
     }
@@ -30,6 +34,9 @@ final class ShiftTableViewCell: UITableViewCell {
         titleLabel.autoPinEdge(toSuperviewEdge: .leading, withInset: inset)
         titleLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: inset)
         titleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.VerticalSpacing)
+        
+        separatorLine.autoSetDimension(.height, toSize: 1)
+        separatorLine.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
     }
     
     required init?(coder aDecoder: NSCoder) {
