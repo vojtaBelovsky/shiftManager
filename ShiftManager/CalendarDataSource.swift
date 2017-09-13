@@ -83,6 +83,9 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
             } else {
                 cell.setup(with: nil)
             }
+            if date.normalizedDate() == Date().normalizedDate() {
+                cell.setupCurrentDay()
+            }
             return cell
         }
     }
@@ -106,6 +109,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
             assertionFailure("Cannot deque CalendarHeaderView header")
             return UICollectionReusableView()
         }
+        headerView.setDefaultStateToMonth()
         
         var date = Date()
         date = date.adjust(.month, offset: indexPath.section)
@@ -115,6 +119,9 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         if let monthOrder = date.component(.month) {
             let monthName = DateFormatter().shortMonthSymbols[monthOrder - 1]
             headerView.setMonthName(name: monthName)
+        }
+        if date.normalizedDate() == Date().normalizedDate() {
+            headerView.setCurrentMonth()
         }
         
         return headerView
