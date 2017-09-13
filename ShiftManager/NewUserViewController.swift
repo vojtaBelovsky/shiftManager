@@ -36,7 +36,8 @@ class NewUserViewController: UIViewController {
         newUserView.navigationBar.setTitle(NSLocalizedString("RegisterTitle_loc001", comment: ""))
         
         newUserView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
-        newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
+        newUserView.navigationBar.actionButtonSetAction(self, action: #selector(checkmarkButtonDidPress))
+      //  newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
         newUserView.importButtonDidPress(self, action: #selector(importButtonDidPress))
         newUserView.selectImageButtonDidPress(self, action: #selector(selectPicture))
         }
@@ -90,7 +91,7 @@ class NewUserViewController: UIViewController {
         newUserDidRegister.post(name: newUserDidRegisterNotification, object: nil)
     }
     
-    func registerButtonDidPress() {
+    func checkmarkButtonDidPress() {
         let user = UserModel()
         user.firstName = newUserView.firstName()
         user.lastName = newUserView.lastName()

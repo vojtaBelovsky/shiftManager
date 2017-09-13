@@ -36,7 +36,7 @@ final class NewShiftView: UIView {
     fileprivate func initializeViewsAndAddThemAsSubviews() {
         addSubview(navigationBar)
         
-        nameTextField.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+        nameTextField.backgroundColor = textFields.textFieldColorWithAlpha
         nameTextField.placeholder = NSLocalizedString("CreateNewShift_loc003", comment: "")
         addSubview(nameTextField)
         

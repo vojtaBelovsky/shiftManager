@@ -13,7 +13,7 @@ class CalendarCircleLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .white
+        //backgroundColor = .white
         layer.masksToBounds = true
         textColor = .black
         textAlignment = .center

@@ -14,7 +14,7 @@ final class NewUserView: UIView {
     fileprivate let selectImageViewContainer = UIView()
     fileprivate var selectImageView = UIImageView()
     fileprivate var selectImageButton = UIButton()
-    let createButton = UIButton()
+    let deleteButton = UIButton()
     fileprivate let importButton = UIButton()
     let firstNameTextField = BoundedTextField()
     let lastNameTextField = BoundedTextField()
@@ -29,6 +29,7 @@ final class NewUserView: UIView {
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
         navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
+        navigationBar.setImage(#imageLiteral(resourceName: "checkmark"))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,14 +63,14 @@ final class NewUserView: UIView {
         importButton.backgroundColor = Colors.papaya
         importButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
         
-        createButton.backgroundColor = Colors.papaya
-        createButton.setTitle(NSLocalizedString("RegisterButton_loc003", comment: ""), for: .normal)
+        //createButton.backgroundColor = Colors.papaya
+       // createButton.setTitle(NSLocalizedString("RegisterButton_loc003", comment: ""), for: .normal)
     }
     
     fileprivate func addSubviewToStackView() {
         selectImageViewContainer.addSubview(selectImageButton)
         [
-            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField, importButton, createButton
+            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField, importButton, deleteButton
         ].forEach { subview in
             stackView.addArrangedSubview(subview)
         }
@@ -100,8 +101,8 @@ final class NewUserView: UIView {
 
 extension NewUserView {
     
-    public func registerButtonDidPress(_ target: Any?, action: Selector) {
-        createButton.addTarget(target, action: action, for: .touchUpInside)
+    public func deleteButtonDidPress(_ target: Any?, action: Selector) {
+        deleteButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     public func importButtonDidPress(_ target: Any?, action: Selector) {

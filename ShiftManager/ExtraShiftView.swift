@@ -35,7 +35,7 @@ final class ExtraShiftView: UIView {
         tableView.separatorStyle = .none
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.isEditing = true
-        tableView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        tableView.backgroundColor = textFields.textFieldColorWithAlpha
         addSubview(tableView)
     }
     
