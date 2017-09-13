@@ -98,6 +98,13 @@ class NewUserViewController: UIViewController {
         user.userPhotoImage = newUserView.userPhoto()
         
         if let validationError = NewUserValidator.validateNewUser(user) {
+            if validationError.code == userErrorType.userErrorTypeFirstName.rawValue {
+                newUserView.firstNameTextField.backgroundColor = .red
+            }
+            
+            if validationError.code == userErrorType.userErrorTypeLastName.rawValue {
+                newUserView.lastNameTextField.backgroundColor = .red
+            }
             let alertController = UIAlertController(title: validationError.localizedDescription, message: validationError.localizedFailureReason, preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: NSLocalizedString("NewShiftAllert_loc004", comment: ""), style: .default, handler: nil)
             alertController.addAction(defaultAction)
