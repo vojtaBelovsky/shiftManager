@@ -10,13 +10,13 @@ import UIKit
 import PureLayout
 
 final class ExtraShiftView: UIView {
-
+    
     let tableView = UITableView()
     let navigationBar = NavigationBar()
     
     init() {
         super.init(frame: .zero)
-
+        
         setupViewItems()
         setupConstraints()
         navigationBar.setTitle(NSLocalizedString("EditCallendarDayViewTitle_loc002", comment: ""))

@@ -13,7 +13,7 @@ protocol ExtraShiftViewControllerDelegate: class {
 }
 
 final class ExtraShiftViewController: UIViewController {
-
+    
     fileprivate let extraShiftView = ExtraShiftView()
     fileprivate let dataSource: ExtraShiftDataSource
     public weak var delegate: ExtraShiftViewControllerDelegate?
@@ -22,7 +22,7 @@ final class ExtraShiftViewController: UIViewController {
         dataSource = ExtraShiftDataSource(editCalendarDayModel: editCalendarDayModel)
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -33,7 +33,6 @@ final class ExtraShiftViewController: UIViewController {
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "bcg")
         self.view.insertSubview(backgroundImage, at: 0)
-
         
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -63,7 +62,7 @@ final class ExtraShiftViewController: UIViewController {
         let extraShifts = extraShiftView.tableView.indexPathsForSelectedRows?.flatMap {
             UserManager.sharedInstance.shiftForIndex($0.row)
         }
-
+        
         delegate?.setExtraShifts(extraShifts: extraShifts ?? [])
         navigationController?.isNavigationBarHidden = true
         _ = navigationController?.popViewController(animated: true)

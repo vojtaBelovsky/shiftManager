@@ -30,11 +30,11 @@ final class EditCallendarDayViewController: UIViewController, UITextViewDelegate
         super.init(nibName: nil, bundle: nil)
         date = day
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
@@ -45,7 +45,7 @@ final class EditCallendarDayViewController: UIViewController, UITextViewDelegate
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        editCallendarDayView.setActionForShiftButton(self, action: #selector(setActionForShiftButton))
+        editCallendarDayView.setActionForManageButton(self, action: #selector(setActionForManageButton))
         editCallendarDayView.navigationBar.setBackButton(self, action: #selector(setActionForBackButton))
         editCallendarDayView.navigationBar.setActionButton(self, action: #selector(saveButtonDidPress))
         setupViewData()
@@ -61,7 +61,7 @@ final class EditCallendarDayViewController: UIViewController, UITextViewDelegate
     override func loadView() {
         view = editCallendarDayView
     }
-
+    
     func saveButtonDidPress() {
         let model = editCallendarDayView.editCalendarDayModel
         model.freeDay = editCallendarDayView.freeDay()
@@ -76,20 +76,20 @@ final class EditCallendarDayViewController: UIViewController, UITextViewDelegate
     fileprivate func setupViewData() {
         guard let model = UserManager.sharedInstance.selectedUser?.editCalendarDays[date],
             let modelCopy = model.copy() as? EditCalendarDayModel
-        else {
-            return
+            else {
+                return
         }
         editCallendarDayView.editCalendarDayModel = modelCopy
     }
     
     func setActionForBackButton(){
-         _ = navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
-    func setActionForShiftButton() {
+    func setActionForManageButton() {
         let extraShiftViewController = ExtraShiftViewController(editCalendarDayModel: editCallendarDayView.editCalendarDayModel)
         extraShiftViewController.delegate = self
-       
+        
         navigationController?.pushViewController(extraShiftViewController, animated: true)
     }
 }

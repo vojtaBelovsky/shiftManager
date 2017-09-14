@@ -15,7 +15,7 @@ final class EditCallendarDayView: UIView {
     fileprivate let scrollView = UIScrollView()
     fileprivate let contentHolder = UIView()
     fileprivate let dateLabel = UILabel()
-    fileprivate let extraShiftButton = UIButton()
+    fileprivate let manageButton = UIButton()
     fileprivate let extraShiftStackView = UIStackView()
     fileprivate let dayOffLabel = UILabel()
     fileprivate let dayOffSwitch = UISwitch()
@@ -58,14 +58,14 @@ final class EditCallendarDayView: UIView {
         extraShiftStackView.spacing = 10.0
         extraShiftStackView.backgroundColor = textFields.textFieldColorWithAlpha
         
-        extraShiftButton.backgroundColor = Colors.papaya
-        extraShiftButton.setTitle(NSLocalizedString("ExtraShiftButton_loc001", comment: ""), for: .normal)
+        manageButton.backgroundColor = Colors.papaya
+        manageButton.setTitle(NSLocalizedString("ExtraShiftButton_loc001", comment: ""), for: .normal)
         
         dayOffLabel.text = NSLocalizedString("DayOffLabel_loc001", comment: "")
         dayOffLabel.textColor = .black
         
         dayOffSwitch.addTarget(self, action: #selector(freeDay), for: .valueChanged)
-
+        
         noteLabel.text = NSLocalizedString("NoteLabel_loc001", comment: "")
         noteLabel.textColor = .black
         noteLabel.textAlignment = .center
@@ -85,7 +85,7 @@ final class EditCallendarDayView: UIView {
     
     fileprivate func addSubviewToScrollView() {
         scrollView.addSubview(contentHolder)
-        [extraShiftButton, extraShiftStackView, dayOffLabel, dayOffSwitch, noteLabel, noteTextView].forEach { subview in
+        [manageButton, extraShiftStackView, dayOffLabel, dayOffSwitch, noteLabel, noteTextView].forEach { subview in
             contentHolder.addSubview(subview)
         }
     }
@@ -103,11 +103,11 @@ final class EditCallendarDayView: UIView {
         contentHolder.autoMatch(.width, to: .width, of: self)
         contentHolder.autoPinEdgesToSuperviewEdges()
         
-        extraShiftButton.autoPinEdge(toSuperviewEdge: .top)
-        extraShiftButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
-        extraShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
-
-        extraShiftStackView.autoPinEdge(.top, to: .bottom, of: extraShiftButton, withOffset: Spacing.DoubleVertialSpacing)
+        manageButton.autoPinEdge(toSuperviewEdge: .top)
+        manageButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
+        manageButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        
+        extraShiftStackView.autoPinEdge(.top, to: .bottom, of: manageButton, withOffset: Spacing.DoubleVertialSpacing)
         extraShiftStackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         extraShiftStackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
@@ -129,7 +129,7 @@ final class EditCallendarDayView: UIView {
     }
     
     func setSwitch() {
-        extraShiftButton.isEnabled = !dayOffSwitch.isOn
+        manageButton.isEnabled = !dayOffSwitch.isOn
     }
     
     func switchValueDidChange(sender: UISwitch) {
@@ -151,9 +151,9 @@ final class EditCallendarDayView: UIView {
 }
 
 extension EditCallendarDayView {
-
-    public func setActionForShiftButton(_ target: Any?, action: Selector) {
-        extraShiftButton.addTarget(target, action: action, for: .touchUpInside)
+    
+    public func setActionForManageButton(_ target: Any?, action: Selector) {
+        manageButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     public func freeDay() -> Bool {
@@ -169,7 +169,7 @@ extension EditCallendarDayView {
         formatter.dateFormat = "d.M.yyyy"
         navigationBar.setTitle("\(formatter.string(from: date))")
     }
-
+    
     public func setExtraShifts(extraShifts: [ShiftModel]) {
         removeSubviewsFromStackView()
         for (index, element) in extraShifts.enumerated() {
@@ -180,7 +180,7 @@ extension EditCallendarDayView {
         }
         editCalendarDayModel.extraShifts = extraShifts
     }
-
+    
     public func setupView(with model: EditCalendarDayModel) {
         noteTextView.text = model.note
         dayOffSwitch.isOn = model.freeDay

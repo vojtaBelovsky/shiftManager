@@ -9,7 +9,7 @@
 import UIKit
 
 final class LabelWithButtonView: UIView {
-
+    
     fileprivate let label = UILabel()
     let button = UIButton()
     

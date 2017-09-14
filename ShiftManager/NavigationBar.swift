@@ -9,17 +9,17 @@
 import UIKit
 
 class NavigationBar: UIView {
-
-        fileprivate let backButton = NavigationButton()
-        fileprivate let actionButton = NavigationButton()
-        fileprivate let titleLabel = UILabel()
-        fileprivate let offSetView = UIView()
+    
+    fileprivate let backButton = NavigationButton()
+    fileprivate let actionButton = NavigationButton()
+    fileprivate let titleLabel = UILabel()
+    fileprivate let offSetView = UIView()
     
     init() {
         super.init(frame: .zero)
         
         initializeViewsAndAddThemAsSubviews()
-       setupConstraints()
+        setupConstraints()
         
     }
     
@@ -39,7 +39,7 @@ class NavigationBar: UIView {
         titleLabel.textAlignment = .center
         titleLabel.font = titleLabel.font.withSize(17)
         addSubview(titleLabel)
-
+        
     }
     
     fileprivate func setupConstraints(){
@@ -49,7 +49,7 @@ class NavigationBar: UIView {
         offSetView.autoPinEdge(toSuperviewEdge: .trailing)
         offSetView.autoPinEdge(toSuperviewEdge: .leading)
         offSetView.autoSetDimensions(to: CGSize(width: 1, height: 1))
-      
+        
         backButton.autoPinEdge(toSuperviewEdge: .leading)
         backButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 5)
         backButton.autoPinEdge(.top, to: .bottom, of: offSetView, withOffset: 1)

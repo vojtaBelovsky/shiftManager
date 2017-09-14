@@ -22,10 +22,10 @@ final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: String(describing: ExtraShiftTableViewCell.self), for: indexPath)
-        as? ExtraShiftTableViewCell
-        else {
-            assertionFailure("Non existing cell")
-            return UITableViewCell()
+            as? ExtraShiftTableViewCell
+            else {
+                assertionFailure("Non existing cell")
+                return UITableViewCell()
         }
         
         cell.setup(with: UserManager.sharedInstance.selectedUser?.shifts[indexPath.row])
@@ -33,7 +33,7 @@ final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
         if let shift = UserManager.sharedInstance.selectedUser?.shifts[indexPath.row], editCalendarDayModel.extraShifts.contains(shift) {
             preselectedIndexPaths.append(indexPath)
         }
-
+        
         return cell
     }
     

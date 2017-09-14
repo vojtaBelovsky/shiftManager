@@ -19,7 +19,7 @@ class BaseShiftCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        
         commonInit()
     }
     
@@ -35,7 +35,7 @@ class BaseShiftCell: UITableViewCell {
         addSubview(titleLabel)
         
         addSubview(colourCircleLabel)
-
+        
         separatorLine.backgroundColor = .black
         addSubview(separatorLine)
         
