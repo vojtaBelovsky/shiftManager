@@ -38,6 +38,7 @@
 "NewShiftAllert_loc004" = "Close";
 "NewShiftAllert_loc005" = "Please select color";
 "NewShiftAllert_loc006" = "Shortcut is too long or field is empty";
+"NewShiftAllert_loc007" = "This date is already using";
 //Edit Callendar Day
 "ExtraShiftButton_loc001" = "Manage extra shift";
 "EditCallendarDayViewTitle_loc001" = "Edit day %@";
