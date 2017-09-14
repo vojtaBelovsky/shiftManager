@@ -8,7 +8,6 @@
 "CreateNewShift_loc002" = "Vytvořit novou šichtu";
 "CreateNewShift_loc003" = "Název nové šichty";
 "CreateNewShift_loc004" = "Zvolte si první šichtu";
-//"CreateNewShift_loc005" = "Interval";
 "CreateNewShift_loc010" = "Změnit barvu";
 "CreateNewShift_loc006" = "Interval (opakování šichty)";
 "CreateNewShift_loc007" = "Zvolte barvu";
@@ -20,7 +19,6 @@
 "RegisterPlaceholder_loc001" = "Jméno";
 "RegisterPlaceholder_loc002" = "Příjmení";
 "RegisterButton_loc003" = "VYTVOŘIT";
-//"RegisterButton_loc004" = "FOTO";
 "RegisterButton_loc005" = "SMAZAT";
 "RegisterButton_loc006" = "IMPORTOVAT";
 "RegisterAllert_loc001" = "Chyba";
