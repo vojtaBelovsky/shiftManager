@@ -40,8 +40,15 @@ final class ShiftModelValidator: NSObject {
             error = NSError.init(domain: "ShiftModelDomain", code: 0, userInfo: userInfo)
             return error
         }
-        
-        if shift.firstDateOfShift == nil {
+        /* NEMAZAT !!!!
+        var isFirstDateOfShiftUnique = true
+        UserManager.sharedInstance.selectedUser?.shifts.forEach({ shiftModel in
+            if shiftModel.firstDateOfShift porovnat shift.firstDateOfShift {
+                isFirstDateOfShiftUnique = false
+                break
+            }
+        })
+        if !isFirstDateOfShiftUnique {
             let userInfo: [AnyHashable : Any] = [
                 NSLocalizedDescriptionKey :  NSLocalizedString("NewShiftAllert_loc001", comment: "") ,
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("NewShiftAllert_loc006", comment: "")
@@ -49,6 +56,7 @@ final class ShiftModelValidator: NSObject {
             error = NSError.init(domain: "ShiftModelDomain", code: 0, userInfo: userInfo)
             return error
         }
+         NEMAZAT !!!  */
         
         if shift.color == UIColor.white || shift.color == nil || shift.color == textFields.textFieldColorWithAlpha {
             let userInfo: [AnyHashable : Any] = [
