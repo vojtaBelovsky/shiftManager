@@ -15,15 +15,11 @@ protocol ExtraShiftViewControllerDelegate: class {
 final class ExtraShiftViewController: UIViewController {
 
     fileprivate let extraShiftView = ExtraShiftView()
-    
+    fileprivate let dataSource: ExtraShiftDataSource
     public weak var delegate: ExtraShiftViewControllerDelegate?
     
-    fileprivate let date: Date
-    fileprivate let dataSource: ExtraShiftDataSource
-    
-    init(date: Date) {
-        self.date = date
-        dataSource = ExtraShiftDataSource(date: date)
+    init(editCalendarDayModel: EditCalendarDayModel) {
+        dataSource = ExtraShiftDataSource(editCalendarDayModel: editCalendarDayModel)
         super.init(nibName: nil, bundle: nil)
     }
 

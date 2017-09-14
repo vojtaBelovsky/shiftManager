@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 final class EditCallendarDayViewController: UIViewController, UITextViewDelegate {
     
     fileprivate let editCallendarDayView = EditCallendarDayView()
@@ -89,7 +87,7 @@ final class EditCallendarDayViewController: UIViewController, UITextViewDelegate
     }
     
     func setActionForShiftButton() {
-        let extraShiftViewController = ExtraShiftViewController(date: date)
+        let extraShiftViewController = ExtraShiftViewController(editCalendarDayModel: editCallendarDayView.editCalendarDayModel)
         extraShiftViewController.delegate = self
        
         navigationController?.pushViewController(extraShiftViewController, animated: true)

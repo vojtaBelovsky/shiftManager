@@ -90,6 +90,9 @@
          contextName = "EditCallendarDayView.setExtraShifts(extraShifts : [ShiftModel]) -&gt; ():EditCallendarDayView.swift">
       </ContextState>
       <ContextState
+         contextName = "ExtraShiftViewController.viewDidAppear(Bool) -&gt; ():ExtraShiftViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "EditCallendarDayView.setDate(date : Date) -&gt; ():EditCallendarDayView.swift">
       </ContextState>
       <ContextState
@@ -104,10 +107,10 @@
          contextName = "UserModel.generateShifts() -&gt; ():UserModel.swift">
          <PersistentStrings>
             <PersistentString
-               value = "date.compare(.isSameDay(as: UserManager.sharedInstance.getMaxDate()))">
+               value = "UserManager.sharedInstance.getMaxDate()">
             </PersistentString>
             <PersistentString
-               value = "UserManager.sharedInstance.getMaxDate()">
+               value = "date.compare(.isSameDay(as: UserManager.sharedInstance.getMaxDate()))">
             </PersistentString>
             <PersistentString
                value = "UserManager.sharedInstance">
@@ -185,13 +188,13 @@
          contextName = "ExtraShiftDataSource.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:ExtraShiftDataSource.swift">
          <PersistentStrings>
             <PersistentString
+               value = "editCalendarDayModel">
+            </PersistentString>
+            <PersistentString
                value = "preselectedIndexPaths">
             </PersistentString>
             <PersistentString
-               value = "extraShiftsForDate?.extraShifts">
-            </PersistentString>
-            <PersistentString
-               value = "extraShiftsForDate?.extraShifts.contains(model)">
+               value = "UserManager.sharedInstance.selectedUser?.shifts[indexPath.row]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

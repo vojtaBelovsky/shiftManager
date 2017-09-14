@@ -11,14 +11,10 @@ import AFDateHelper
 
 final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
     
-    fileprivate let date: Date
+    fileprivate let editCalendarDayModel: EditCalendarDayModel
     
-    fileprivate var extraShiftsForDate: EditCalendarDayModel? {
-        return UserManager.sharedInstance.selectedUser?.editCalendarDays[date]
-    }
-    
-    init(date: Date) {
-        self.date = date
+    init(editCalendarDayModel: EditCalendarDayModel) {
+        self.editCalendarDayModel = editCalendarDayModel
     }
     
     var preselectedIndexPaths: [IndexPath] = []
@@ -32,13 +28,12 @@ final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let shiftModel = UserManager.sharedInstance.shiftForIndex(indexPath.row)
-        cell.setup(with: shiftModel)
+        cell.setup(with: UserManager.sharedInstance.selectedUser?.shifts[indexPath.row])
         
-        if let model = shiftModel, extraShiftsForDate?.extraShifts.contains(model) ?? false {
+        if let shift = UserManager.sharedInstance.selectedUser?.shifts[indexPath.row], editCalendarDayModel.extraShifts.contains(shift) {
             preselectedIndexPaths.append(indexPath)
         }
-        
+
         return cell
     }
     

@@ -62,6 +62,6 @@ final class EditCalendarDayModel: NSObject, NSCoding, NSCopying {
         
         if let date = self.date{
             aCoder.encode(date, forKey: datePropertyKey)
-        }        
+        }
     }
 }
