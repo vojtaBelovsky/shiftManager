@@ -42,6 +42,57 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         shift.interval = newShiftView.interval()
         
         if let validationError = ShiftModelValidator.validateShift(shift) {
+            
+            if validationError.code == shiftErrorType.shiftErrorTypeShiftName.rawValue {
+                newShiftView.nameTextField.backgroundColor = .red
+                newShiftView.shortcutTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.intervalTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.selectShiftColorButton.layer.borderColor = textFields.textFieldColorWithAlpha.cgColor
+                newShiftView.selectShiftColorButton.layer.borderWidth = 0.0
+                newShiftView.datePicker.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.selectFirstShiftDateLabel.backgroundColor = textFields.textFieldColorWithAlpha
+            }
+            
+            if validationError.code == shiftErrorType.shiftErrorTypeShiftShortcut.rawValue {
+                newShiftView.nameTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.shortcutTextField.backgroundColor = .red
+                newShiftView.intervalTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.selectShiftColorButton.layer.borderColor = textFields.textFieldColorWithAlpha.cgColor
+                newShiftView.selectShiftColorButton.layer.borderWidth = 0.0
+                newShiftView.datePicker.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.selectFirstShiftDateLabel.backgroundColor = textFields.textFieldColorWithAlpha
+            }
+            
+            if validationError.code == shiftErrorType.shiftErrorTypeShiftPicker.rawValue {
+                newShiftView.nameTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.shortcutTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.intervalTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.selectShiftColorButton.layer.borderColor = textFields.textFieldColorWithAlpha.cgColor
+                newShiftView.selectShiftColorButton.layer.borderWidth = 0.0
+                newShiftView.datePicker.backgroundColor = .red
+                newShiftView.selectFirstShiftDateLabel.backgroundColor = .red
+            }
+            
+            if validationError.code == shiftErrorType.shiftErrorTypeShiftInterval.rawValue {
+                newShiftView.nameTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.shortcutTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.intervalTextField.backgroundColor = .red
+                newShiftView.selectShiftColorButton.layer.borderColor = textFields.textFieldColorWithAlpha.cgColor
+                newShiftView.selectShiftColorButton.layer.borderWidth = 0.0
+                newShiftView.datePicker.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.selectFirstShiftDateLabel.backgroundColor = textFields.textFieldColorWithAlpha
+            }
+            
+            if validationError.code == shiftErrorType.shiftErrorTypeShiftColor.rawValue {
+                newShiftView.nameTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.shortcutTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.intervalTextField.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.selectShiftColorButton.layer.borderColor = UIColor.red.cgColor
+                newShiftView.selectShiftColorButton.layer.borderWidth = 1.0
+                newShiftView.datePicker.backgroundColor = textFields.textFieldColorWithAlpha
+                newShiftView.selectFirstShiftDateLabel.backgroundColor = textFields.textFieldColorWithAlpha
+            }
+
             let alertController = UIAlertController(title: validationError.localizedDescription, message: validationError.localizedFailureReason, preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: NSLocalizedString("NewShiftAllert_loc004", comment: ""), style: .default, handler: nil)
             alertController.addAction(defaultAction)

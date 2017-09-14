@@ -40,8 +40,8 @@ final class HeaderView: UIView {
             var date = Date()
             date = date.adjust(.day, offset: i)
             let dateFormatter = DateFormatter()
-//            dateFormatter.locale = NSLocale.current
-            daysLabel.text = dateFormatter.shortWeekdaySymbols[i]
+            let firstDay = (Calendar.current.firstWeekday + i - 1)%7
+            daysLabel.text = dateFormatter.shortWeekdaySymbols[firstDay]
             i += 1
         }
         

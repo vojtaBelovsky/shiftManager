@@ -40,6 +40,7 @@
 "NewShiftAllert_loc004" = "Zamknij";
 "NewShiftAllert_loc005" = "Kolor nie został wybrany";
 "NewShiftAllert_loc006" = "Skrót jest za długi albo pole jest puste";
+"NewShiftAllert_loc007" = "Data juz jest uzywana";
 //Edit Callendar Day
 //"BasicInfo_loc001" = "Podstawowe info:";
 "ExtraShiftButton_loc001" = "Stwórz ekstra zmiane";

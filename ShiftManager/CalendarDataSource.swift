@@ -91,7 +91,12 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
     }
     
     fileprivate func numberOfEmptyDays(date: Date) -> Int {
-        return NSCalendar.current.component(.weekday, from: date.dateFor(.startOfMonth)) - 1
+        let firstDay = Calendar.current.firstWeekday
+        var emptyDays = NSCalendar.current.component(.weekday, from: date.dateFor(.startOfMonth)) - firstDay
+        if emptyDays < 0 {
+            emptyDays = emptyDays + 7
+        }
+        return emptyDays
     }
     
     static func Shift(_ shift: ShiftModel) {
@@ -117,7 +122,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         dateFormatter.dateFormat = "dd-MMM-yyyy"
         
         if let monthOrder = date.component(.month) {
-            let monthName = DateFormatter().shortMonthSymbols[monthOrder - 1]
+            let monthName = DateFormatter().shortMonthSymbols[monthOrder - 1].capitalized
             headerView.setMonthName(name: monthName)
         }
         if date.normalizedDate() == Date().normalizedDate() {
@@ -126,6 +131,8 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         
         return headerView
     }
+    
+    
 }
 
 extension CalendarDataSource {
