@@ -40,8 +40,8 @@
 "NewShiftAllert_loc004" = "Zavřít";
 "NewShiftAllert_loc005" = "Vyberte prosím barvu";
 "NewShiftAllert_loc006" = "Zkratka je příliš dlouha nebo pole je prázdné";
+"NewShiftAllert_loc007" = "Toto datum je již použito";
 //Edit Callendar Day
-//"BasicInfo_loc001" = "Základní informace:";
 "ExtraShiftButton_loc001" = "Upravit extra šichtu";
 "EditCallendarDayViewTitle_loc001" = "Úprava dne";
 "EditCallendarDayViewTitle_loc002" = "Vyberte extra šichtu";
