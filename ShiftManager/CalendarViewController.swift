@@ -22,8 +22,6 @@ final class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
          navigationController?.isNavigationBarHidden = true
-       // title = NSLocalizedString("Calendar_loc001", comment: "")
-       // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(settingsButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         
         calendarView.navigationBar.setActionButton(self, action: #selector(settingsButtonDidPress))
