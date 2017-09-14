@@ -35,8 +35,8 @@ class NewUserViewController: UIViewController {
         
         newUserView.navigationBar.setTitle(NSLocalizedString("RegisterTitle_loc001", comment: ""))
         
-        newUserView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
-        newUserView.navigationBar.actionButtonSetAction(self, action: #selector(checkmarkButtonDidPress))
+        newUserView.navigationBar.setBackButton(self, action: #selector(backButtonDidPress))
+        newUserView.navigationBar.setActionButton(self, action: #selector(checkmarkButtonDidPress))
       //  newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
         newUserView.importButtonDidPress(self, action: #selector(importButtonDidPress))
         newUserView.selectImageButtonDidPress(self, action: #selector(selectPicture))

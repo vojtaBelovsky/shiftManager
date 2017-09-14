@@ -33,8 +33,8 @@ final class SettingsViewController: UIViewController {
         settingsView.tableView.dataSource = dataSource
         settingsView.tableView.delegate = self
        
-        settingsView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
-        settingsView.navigationBar.actionButtonSetAction(self, action: #selector(newUserButtonDidPress))
+        settingsView.navigationBar.setBackButton(self, action: #selector(backButtonDidPress))
+        settingsView.navigationBar.setActionButton(self, action: #selector(newUserButtonDidPress))
         settingsView.addNewShiftButtonDidPress(self, action: #selector(settingsButtonDidPress))
         
         let tableViewReloadDataNotification = NotificationCenter.default

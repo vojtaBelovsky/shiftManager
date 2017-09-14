@@ -26,7 +26,7 @@ final class CalendarViewController: UIViewController {
        // navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(settingsButtonDidPress))
         edgesForExtendedLayout = UIRectEdge.bottom
         
-        calendarView.navigationBar.actionButtonSetAction(self, action: #selector(settingsButtonDidPress))
+        calendarView.navigationBar.setActionButton(self, action: #selector(settingsButtonDidPress))
         
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "bcg")

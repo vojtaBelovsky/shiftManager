@@ -39,8 +39,8 @@ final class ExtraShiftViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        extraShiftView.navigationBar.actionButtonSetAction(self, action: #selector(doneButtonDidPress))
-        extraShiftView.navigationBar.backButtonSetAction(self, action: #selector(backButton))
+        extraShiftView.navigationBar.setActionButton(self, action: #selector(doneButtonDidPress))
+        extraShiftView.navigationBar.setBackButton(self, action: #selector(backButton))
         extraShiftView.tableView.dataSource = dataSource
     }
     

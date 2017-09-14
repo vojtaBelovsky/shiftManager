@@ -33,7 +33,7 @@ final class EditUserViewController: NewUserViewController {
         newUserView.deleteButton.backgroundColor = MaterialColors.red
         setupView()
         newUserView.deleteButtonDidPress(self, action: #selector(deleteButtonDidPress))
-        newUserView.navigationBar.actionButtonSetAction(self, action: #selector(checkmarkButtonDidPress))
+        newUserView.navigationBar.setActionButton(self, action: #selector(checkmarkButtonDidPress))
     }
     
     fileprivate func setupView() {

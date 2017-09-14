@@ -83,11 +83,11 @@ extension NavigationBar {
         titleLabel.text = "\(title)"
     }
     
-    public func backButtonSetAction(_ target: Any?, action: Selector) {
+    public func setBackButton(_ target: Any?, action: Selector) {
         backButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
-    public func actionButtonSetAction(_ target: Any?, action: Selector) {
+    public func setActionButton(_ target: Any?, action: Selector) {
         actionButton.addTarget(target, action: action, for: .touchUpInside)
     }
     

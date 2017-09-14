@@ -46,8 +46,8 @@ final class EditCallendarDayViewController: UIViewController, UITextViewDelegate
         navigationController?.navigationBar.shadowImage = UIImage()
         
         editCallendarDayView.setActionForShiftButton(self, action: #selector(setActionForShiftButton))
-        editCallendarDayView.navigationBar.backButtonSetAction(self, action: #selector(setActionForBackButton))
-        editCallendarDayView.navigationBar.actionButtonSetAction(self, action: #selector(saveButtonDidPress))
+        editCallendarDayView.navigationBar.setBackButton(self, action: #selector(setActionForBackButton))
+        editCallendarDayView.navigationBar.setActionButton(self, action: #selector(saveButtonDidPress))
         setupViewData()
         
         editCallendarDayView.noteTextView.delegate = self

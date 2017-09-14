@@ -28,8 +28,8 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         edgesForExtendedLayout = UIRectEdge.bottom
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        newShiftView.navigationBar.backButtonSetAction(self, action: #selector(backButtonDidPress))
-        newShiftView.navigationBar.actionButtonSetAction(self, action: #selector(saveButtonDidPress))
+        newShiftView.navigationBar.setBackButton(self, action: #selector(backButtonDidPress))
+        newShiftView.navigationBar.setActionButton(self, action: #selector(saveButtonDidPress))
         newShiftView.setActionForColorButton(self, action: #selector(selectShiftColorButtonDidPress))
         newShiftView.renameButton()
     }
