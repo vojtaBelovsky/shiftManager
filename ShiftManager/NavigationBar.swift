@@ -31,7 +31,6 @@ class NavigationBar: UIView {
         offSetView.backgroundColor = .clear
         addSubview(offSetView)
         
-       // backButton.setImage( UIImage.init(named: "backIcon.png"), for: .normal)
         addSubview(backButton)
         
         addSubview(actionButton)
