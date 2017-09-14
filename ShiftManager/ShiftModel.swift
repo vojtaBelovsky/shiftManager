@@ -87,4 +87,17 @@ final class ShiftModel: NSObject, NSCoding, NSCopying {
             aCoder.encode(color, forKey: colorPropertyKey)
         }
     }
+
+    override func isEqual(_ object: Any?) -> Bool {
+        if let other = object as? ShiftModel {
+            return self.uniqueID == other.uniqueID &&
+                self.name == other.name &&
+                self.shortcut == other.shortcut &&
+                self.interval == other.interval &&
+                self.firstDateOfShift == other.firstDateOfShift &&
+                self.color == other.color
+        } else {
+            return false
+        }
+    }
 }
