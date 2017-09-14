@@ -12,12 +12,12 @@ import PureLayout
 final class NewShiftView: UIView {
     
     let navigationBar = NavigationBar()
-    fileprivate let nameTextField = BoundedTextField()
-    fileprivate let shortcutTextField = BoundedTextField()
-    fileprivate let selectFirstShiftDateLabel = UILabel()
-    fileprivate let datePicker = UIDatePicker()
-    fileprivate let intervalTextField = BoundedTextField()
-    fileprivate let selectShiftColorButton = UIButton()
+      public let nameTextField = BoundedTextField()
+     let shortcutTextField = BoundedTextField()
+     let selectFirstShiftDateLabel = UILabel()
+     let datePicker = UIDatePicker()
+     let intervalTextField = BoundedTextField()
+     let selectShiftColorButton = UIButton()
     
     init() {
         super.init(frame: .zero)

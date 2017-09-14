@@ -114,7 +114,6 @@ class NewUserViewController: UIViewController {
         } else {
             UserManager.sharedInstance.saveUser(user: user)
             sendNotification()
-            
             _ = navigationController?.popViewController(animated: true)
         }
     }
