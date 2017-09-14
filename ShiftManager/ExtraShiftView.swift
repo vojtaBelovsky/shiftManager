@@ -31,7 +31,7 @@ final class ExtraShiftView: UIView {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
-        tableView.register(ShiftTableViewCell.self, forCellReuseIdentifier: String(describing: ShiftTableViewCell.self))
+        tableView.register(ExtraShiftTableViewCell.self, forCellReuseIdentifier: String(describing: ExtraShiftTableViewCell.self))
         tableView.separatorStyle = .none
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.isEditing = true

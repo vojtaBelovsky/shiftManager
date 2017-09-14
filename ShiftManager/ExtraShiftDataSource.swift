@@ -25,8 +25,8 @@ final class ExtraShiftDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: String(describing: ShiftTableViewCell.self), for: indexPath)
-        as? ShiftTableViewCell
+            withIdentifier: String(describing: ExtraShiftTableViewCell.self), for: indexPath)
+        as? ExtraShiftTableViewCell
         else {
             assertionFailure("Non existing cell")
             return UITableViewCell()

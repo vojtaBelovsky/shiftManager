@@ -48,9 +48,3 @@
 "DayOffLabel_loc001" = "Dovolená";
 "NoteLabel_loc001" = "Poznámky";
 "NoteLabel_loc002" = "Zde napište své poznámky";
-//SHARE
-//"AddFriendButton_loc001" = "+";
-//ShiftName
-"ShiftName_loc001" = "%@ (%@)";
-//ExtraShiftName
-"ExtraShiftName_loc001" = "%@ (%@)";

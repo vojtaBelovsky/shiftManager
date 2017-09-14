@@ -76,8 +76,12 @@ final class EditCallendarDayViewController: UIViewController, UITextViewDelegate
     }
     
     fileprivate func setupViewData() {
-        guard let model = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] else { return }
-        editCallendarDayView.editCalendarDayModel = model
+        guard let model = UserManager.sharedInstance.selectedUser?.editCalendarDays[date],
+            let modelCopy = model.copy() as? EditCalendarDayModel
+        else {
+            return
+        }
+        editCallendarDayView.editCalendarDayModel = modelCopy
     }
     
     func setActionForBackButton(){

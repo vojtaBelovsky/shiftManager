@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class ShiftModel: NSObject, NSCoding {
+final class ShiftModel: NSObject, NSCoding, NSCopying {
     
     var uniqueID: String = ""
     var name: String = ""
@@ -24,6 +24,20 @@ final class ShiftModel: NSObject, NSCoding {
     fileprivate let datePropertyKey = "datePropertyKey"
     fileprivate let colorPropertyKey = "colorPropertyKey"
     fileprivate let shiftIDKey = "shiftIDKey"
+    
+    init(uniqueID: String, name: String, shortcut: String, interval: Int, firstDateOfShift: Date?, color: UIColor?) {
+        self.uniqueID = uniqueID
+        self.name = name
+        self.shortcut = shortcut
+        self.interval = interval
+        self.firstDateOfShift = firstDateOfShift
+        self.color = color
+    }
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = ShiftModel(uniqueID: uniqueID, name: name, shortcut: shortcut, interval: interval, firstDateOfShift: firstDateOfShift, color: color)
+        return copy
+    }
 
     override init() {
         super.init()

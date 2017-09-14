@@ -8,6 +8,7 @@
 
 import UIKit
 import PureLayout
+import AFDateHelper
 
 final class HeaderView: UIView {
     
@@ -39,6 +40,7 @@ final class HeaderView: UIView {
             var date = Date()
             date = date.adjust(.day, offset: i)
             let dateFormatter = DateFormatter()
+//            dateFormatter.locale = NSLocale.current
             daysLabel.text = dateFormatter.shortWeekdaySymbols[i]
             i += 1
         }
