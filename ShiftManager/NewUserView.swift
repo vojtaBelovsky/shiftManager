@@ -63,8 +63,6 @@ final class NewUserView: UIView {
         importButton.backgroundColor = Colors.papaya
         importButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
         
-        //createButton.backgroundColor = Colors.papaya
-       // createButton.setTitle(NSLocalizedString("RegisterButton_loc003", comment: ""), for: .normal)
     }
     
     fileprivate func addSubviewToStackView() {
