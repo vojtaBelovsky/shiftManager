@@ -11,10 +11,10 @@ import UIKit
 let refreshUserViewNotification = Notification.Name(rawValue:"RefreshUserViewProfil")
 
 final class UserBarView: UIView {
-
+    
     fileprivate let stackView = UIStackView()
-    fileprivate let addUserCircleLbl = CalendarCircleLabel()
-    fileprivate let addUserLbl = UILabel()
+    fileprivate let addUserCircleLabel = CalendarCircleLabel()
+    fileprivate let addUserLabel = UILabel()
     fileprivate lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 0
@@ -27,8 +27,8 @@ final class UserBarView: UIView {
     
     var isAddUserButtonHidden = false {
         didSet {
-            addUserCircleLbl.isHidden = isAddUserButtonHidden
-            addUserLbl.isHidden = isAddUserButtonHidden
+            addUserCircleLabel.isHidden = isAddUserButtonHidden
+            addUserLabel.isHidden = isAddUserButtonHidden
         }
     }
     
@@ -38,11 +38,11 @@ final class UserBarView: UIView {
     
     init() {
         super.init(frame: .zero)
-
+        
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
