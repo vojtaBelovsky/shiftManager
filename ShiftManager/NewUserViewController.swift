@@ -37,7 +37,6 @@ class NewUserViewController: UIViewController {
         
         newUserView.navigationBar.setBackButton(self, action: #selector(backButtonDidPress))
         newUserView.navigationBar.setActionButton(self, action: #selector(checkmarkButtonDidPress))
-      //  newUserView.registerButtonDidPress(self, action: #selector(registerButtonDidPress))
         newUserView.importButtonDidPress(self, action: #selector(importButtonDidPress))
         newUserView.selectImageButtonDidPress(self, action: #selector(selectPicture))
         }
