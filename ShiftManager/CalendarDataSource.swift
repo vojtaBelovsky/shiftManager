@@ -91,7 +91,12 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
     }
     
     fileprivate func numberOfEmptyDays(date: Date) -> Int {
-        return NSCalendar.current.component(.weekday, from: date.dateFor(.startOfMonth)) - 1
+        let firstDay = Calendar.current.firstWeekday
+        var emptyDays = NSCalendar.current.component(.weekday, from: date.dateFor(.startOfMonth)) - firstDay
+        if emptyDays < 0 {
+            emptyDays = emptyDays + 7
+        }
+        return emptyDays
     }
     
     static func Shift(_ shift: ShiftModel) {
