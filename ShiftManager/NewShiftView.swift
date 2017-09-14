@@ -12,12 +12,12 @@ import PureLayout
 final class NewShiftView: UIView {
     
     let navigationBar = NavigationBar()
-      public let nameTextField = BoundedTextField()
-     let shortcutTextField = BoundedTextField()
-     let selectFirstShiftDateLabel = UILabel()
-     let datePicker = UIDatePicker()
-     let intervalTextField = BoundedTextField()
-     let selectShiftColorButton = UIButton()
+    public let nameTextField = BoundedTextField()
+    let shortcutTextField = BoundedTextField()
+    let selectFirstShiftDateLabel = UILabel()
+    let datePicker = UIDatePicker()
+    let intervalTextField = BoundedTextField()
+    let selectShiftColorButton = UIButton()
     
     init() {
         super.init(frame: .zero)
@@ -28,7 +28,7 @@ final class NewShiftView: UIView {
         navigationBar.setImage(#imageLiteral(resourceName: "saveIcon"))
         navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -67,7 +67,7 @@ final class NewShiftView: UIView {
         navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
-
+        
         nameTextField.autoPinEdge(.top, to: .bottom, of: navigationBar, withOffset: Spacing.VerticalSpacing)
         nameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         nameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
@@ -84,7 +84,7 @@ final class NewShiftView: UIView {
         datePicker.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         datePicker.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         datePicker.autoAlignAxis(toSuperviewAxis: .vertical)
-
+        
         intervalTextField.autoPinEdge(.top, to: .bottom, of: datePicker, withOffset: Spacing.VerticalSpacing)
         intervalTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         intervalTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
@@ -103,7 +103,7 @@ final class NewShiftView: UIView {
 }
 
 extension NewShiftView {
-
+    
     public func renameButton(){
         
         if selectShiftColorButton.backgroundColor == textFields.textFieldColorWithAlpha {

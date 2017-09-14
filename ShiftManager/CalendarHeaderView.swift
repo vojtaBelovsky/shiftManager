@@ -19,7 +19,7 @@ final class CalendarHeaderView: UICollectionReusableView {
         addSubviews()
         labelSettings()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -39,7 +39,7 @@ final class CalendarHeaderView: UICollectionReusableView {
 }
 
 extension CalendarHeaderView {
-
+    
     func setMonthName(name: String) {
         monthLabel.text = name
     }

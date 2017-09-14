@@ -53,7 +53,7 @@ final class EditUserViewController: NewUserViewController {
         refreshAlert.addAction(UIAlertAction(title: NSLocalizedString("DeleteUserAlertController_loc004", comment: ""), style: .default, handler: { (action: UIAlertAction!) in
             
             refreshAlert .dismiss(animated: true, completion: nil)
-        
+            
         }))
         
         present(refreshAlert, animated: true, completion: nil)

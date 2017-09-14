@@ -47,7 +47,7 @@ final class SettingsView: UIView, UITableViewDelegate {
         addSubview(addNewShiftButton)
         addSubview(userBarView)
     }
-
+    
     fileprivate func setupConstraints() {
         navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
@@ -60,7 +60,7 @@ final class SettingsView: UIView, UITableViewDelegate {
         tableView.autoPinEdge(.top, to: .bottom, of: userView)
         tableView.autoPinEdge(toSuperviewEdge: .leading)
         tableView.autoPinEdge(toSuperviewEdge: .trailing)
-       
+        
         addNewShiftButton.autoPinEdge(.bottom, to: .top, of: userBarView, withOffset: -15)
         addNewShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 17)
         addNewShiftButton.autoSetDimensions(to: CGSize(width: 50, height: 50))

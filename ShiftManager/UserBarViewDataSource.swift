@@ -40,7 +40,6 @@ extension UserBarViewDataSource: UICollectionViewDataSource {
         } else {
             cell.isSelected = false
         }
-        
         let selectedUser = UserManager.sharedInstance.userForIndex(indexPath.row)
         var initials: String
         if let firstNameInicial = selectedUser.firstName.characters.first, let lastNameInicial = selectedUser.lastName.characters.first {

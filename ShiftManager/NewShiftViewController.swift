@@ -92,7 +92,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
                 newShiftView.datePicker.backgroundColor = textFields.textFieldColorWithAlpha
                 newShiftView.selectFirstShiftDateLabel.backgroundColor = textFields.textFieldColorWithAlpha
             }
-
+            
             let alertController = UIAlertController(title: validationError.localizedDescription, message: validationError.localizedFailureReason, preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: NSLocalizedString("NewShiftAllert_loc004", comment: ""), style: .default, handler: nil)
             alertController.addAction(defaultAction)
@@ -108,7 +108,6 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
     func backButtonDidPress(){
         _ = navigationController?.popViewController(animated: true)
     }
-
     
     func sendNotification() {
         let nc = NotificationCenter.default

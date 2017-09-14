@@ -73,10 +73,10 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
                 let extraShifts = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] {
                 cell.setup(with: shiftForDate)
                 cell.setupHoliday(with: extraShifts)
-
+                
             } else if let shiftForDate = UserManager.sharedInstance.shiftForDate(date) {
                 cell.setup(with: shiftForDate)
-               
+                
             } else if let extraShifts = UserManager.sharedInstance.selectedUser?.editCalendarDays[date] {
                 cell.setupHoliday(with: extraShifts)
                 
@@ -110,9 +110,9 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
             ofKind: UICollectionElementKindSectionHeader,
             withReuseIdentifier: String(describing: CalendarHeaderView.self),
             for: indexPath
-        ) as? CalendarHeaderView else {
-            assertionFailure("Cannot deque CalendarHeaderView header")
-            return UICollectionReusableView()
+            ) as? CalendarHeaderView else {
+                assertionFailure("Cannot deque CalendarHeaderView header")
+                return UICollectionReusableView()
         }
         headerView.setDefaultStateToMonth()
         
@@ -131,8 +131,6 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         
         return headerView
     }
-    
-    
 }
 
 extension CalendarDataSource {
@@ -144,7 +142,7 @@ extension CalendarDataSource {
         components.year = today.component(.year)
         components.month = monthIndex
         components.day = dayIndex
-
+        
         return Calendar(identifier: .gregorian).date(from: components)
     }
 }

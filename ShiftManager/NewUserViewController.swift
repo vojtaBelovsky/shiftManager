@@ -39,11 +39,10 @@ class NewUserViewController: UIViewController {
         newUserView.navigationBar.setActionButton(self, action: #selector(checkmarkButtonDidPress))
         newUserView.importButtonDidPress(self, action: #selector(importButtonDidPress))
         newUserView.selectImageButtonDidPress(self, action: #selector(selectPicture))
-        }
+    }
     
     func backButtonDidPress(){
-   _ = navigationController?.popViewController(animated: true)
- 
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func selectPicture() {
@@ -109,7 +108,7 @@ class NewUserViewController: UIViewController {
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
             return
-        
+            
         } else {
             UserManager.sharedInstance.saveUser(user: user)
             sendNotification()
@@ -141,8 +140,8 @@ extension NewUserViewController: UINavigationControllerDelegate, UIImagePickerCo
 }
 
 extension NewUserViewController: CNContactPickerDelegate {
-
-     public func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+    
+    public func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         if let data = contact.imageData, let image = UIImage(data: data) {
             newUserView.setImage(image)
         }

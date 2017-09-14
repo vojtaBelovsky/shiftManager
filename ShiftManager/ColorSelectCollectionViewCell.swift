@@ -1,6 +1,6 @@
 //
 //  ColorSelectCollectionViewCell.swift
-//  
+//
 //
 //  Created by Tadeusz Raszka on 13.07.17.
 //  Copyright © 2017 iDevBand. All rights reserved.
@@ -14,14 +14,14 @@ final class ColorSelectCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-    initializeViewsAndAddThemAsSubviews()
-
+        initializeViewsAndAddThemAsSubviews()
+        
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     fileprivate func initializeViewsAndAddThemAsSubviews() {
         
         layer.borderWidth = 1
@@ -32,5 +32,4 @@ final class ColorSelectCollectionViewCell: UICollectionViewCell {
         isUserInteractionEnabled = true
         
     }
-    
 }

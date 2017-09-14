@@ -13,12 +13,12 @@ final class NewUserView: UIView {
     
     fileprivate let selectImageViewContainer = UIView()
     fileprivate var selectImageView = UIImageView()
+    fileprivate let stackView = UIStackView()
     fileprivate var selectImageButton = UIButton()
-    let deleteButton = UIButton()
     fileprivate let importButton = UIButton()
+    let deleteButton = UIButton()
     let firstNameTextField = BoundedTextField()
     let lastNameTextField = BoundedTextField()
-    fileprivate let stackView = UIStackView()
     let navigationBar = NavigationBar()
     
     let profileImgSize: CGFloat = 125.0
@@ -56,7 +56,7 @@ final class NewUserView: UIView {
         
         firstNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc001", comment: "")
         firstNameTextField.backgroundColor = textFields.textFieldColorWithAlpha
-       
+        
         lastNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc002", comment: "")
         lastNameTextField.backgroundColor = textFields.textFieldColorWithAlpha
         
@@ -69,8 +69,8 @@ final class NewUserView: UIView {
         selectImageViewContainer.addSubview(selectImageButton)
         [
             getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField, importButton, deleteButton
-        ].forEach { subview in
-            stackView.addArrangedSubview(subview)
+            ].forEach { subview in
+                stackView.addArrangedSubview(subview)
         }
     }
     

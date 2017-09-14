@@ -158,9 +158,8 @@
 		18014A971F42DA6000980414 /* UserBarView */ = {
 			isa = PBXGroup;
 			children = (
-				18014A951F41D91600980414 /* UserBarView.swift */,
-				18014A981F42DAEB00980414 /* UserBarViewDataSource.swift */,
-				18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */,
+				2A26455E1F6AF61D001F2295 /* View */,
+				2A26455F1F6AF627001F2295 /* DataSource */,
 			);
 			name = UserBarView;
 			sourceTree = "<group>";
@@ -417,6 +416,23 @@
 				185078E91F3B314A004C4F49 /* UserManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		2A26455E1F6AF61D001F2295 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18014A951F41D91600980414 /* UserBarView.swift */,
+				18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2A26455F1F6AF627001F2295 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				18014A981F42DAEB00980414 /* UserBarViewDataSource.swift */,
+			);
+			name = DataSource;
 			sourceTree = "<group>";
 		};
 		2A7F0E261F69592600D7411C /* Shift Cell */ = {

@@ -21,9 +21,8 @@ final class UserManager: NSObject {
         }
     }
     
-        
     static let sharedInstance = UserManager()
-
+    
     fileprivate override init() {
         super.init()
         loadUsersFromUserDefaults()
@@ -116,26 +115,26 @@ extension UserManager {
         saveUsersToPersistentStorage()
         shiftForDateDictionaryShouldReloadData()
     }
-
+    
     public func addNewShift(shift: ShiftModel) {
         shift.uniqueID = UUID().uuidString
         selectedUser?.shifts.append(shift)
     }
-
+    
     public func update() {
         //TODO: Not implemented in this version
     }
-
+    
     public func deleteShift(at index: Int) {
         selectedUser?.shifts.remove(at: index)
         NotificationCenter.default.post(name: reloadCalendarView, object: nil)
         saveUsersToPersistentStorage()
     }
-
+    
     public func numberOfShifts() -> Int {
         return selectedUser?.shifts.count ?? 0
     }
-
+    
     public func shiftForIndex(_ index: Int) -> ShiftModel? {
         return selectedUser?.shifts[index]
     }
@@ -153,7 +152,7 @@ extension UserManager {
             selectedUser?.generateShiftForDateDictionary()
             selectedUser?.shouldGenerateShiftForDateDictionary = false
         }
-
+        
         return selectedUser?.shiftForDateDictionary[date]
     }
     

@@ -32,7 +32,7 @@ final class SettingsViewController: UIViewController {
         settingsView.userView.addTarget(self, action: #selector(userViewButtonDidPress), for: .touchUpInside)
         settingsView.tableView.dataSource = dataSource
         settingsView.tableView.delegate = self
-       
+        
         settingsView.navigationBar.setBackButton(self, action: #selector(backButtonDidPress))
         settingsView.navigationBar.setActionButton(self, action: #selector(newUserButtonDidPress))
         settingsView.addNewShiftButtonDidPress(self, action: #selector(settingsButtonDidPress))
@@ -67,9 +67,9 @@ final class SettingsViewController: UIViewController {
         settingsView.userView.reloadData()
         tableViewReloadData()
     }
-
+    
     func backButtonDidPress(){
-         _ = navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func settingsButtonDidPress() {

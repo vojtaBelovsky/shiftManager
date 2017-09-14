@@ -38,7 +38,7 @@ final class ShiftModel: NSObject, NSCoding, NSCopying {
         let copy = ShiftModel(uniqueID: uniqueID, name: name, shortcut: shortcut, interval: interval, firstDateOfShift: firstDateOfShift, color: color)
         return copy
     }
-
+    
     override init() {
         super.init()
     }
@@ -78,16 +78,16 @@ final class ShiftModel: NSObject, NSCoding, NSCopying {
         if let date = self.firstDateOfShift {
             aCoder.encode(date, forKey: datePropertyKey)
         }
-
+        
         aCoder.encode(interval, forKey: intervalPropertyKey)
         
         aCoder.encode(uniqueID, forKey: shiftIDKey)
-
+        
         if let color = self.color {
             aCoder.encode(color, forKey: colorPropertyKey)
         }
     }
-
+    
     override func isEqual(_ object: Any?) -> Bool {
         if let other = object as? ShiftModel {
             return self.uniqueID == other.uniqueID &&

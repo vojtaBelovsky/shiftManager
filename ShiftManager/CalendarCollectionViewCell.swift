@@ -9,7 +9,7 @@ import UIKit
 import PureLayout
 
 final class CalendarCollectionViewCell: UICollectionViewCell {
-
+    
     fileprivate let dayLabel = UILabel()
     fileprivate let relayLabel = CalendarCircleLabel()
     fileprivate let relayView = UIView()
@@ -30,7 +30,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         setupViewItems()
         addSubviews()
         setupConstraints()
@@ -50,7 +50,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
     }
- 
+    
     fileprivate func addSubviews() {
         contentView.addSubview(toolbar)
         contentView.addSubview(cellView)
@@ -89,7 +89,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         dayLabel.autoMatch(.height, to: .height, of: cellView, withMultiplier: 0.35)
         dayLabel.autoMatch(.width, to: .width, of: cellView)
         dayLabel.autoAlignAxis(toSuperviewAxis: .vertical)
-      
+        
         relayView.autoPinEdge(.top, to: .bottom, of: dayLabel)
         relayView.autoMatch(.height, to: .height, of: cellView, withMultiplier: 0.65)
         relayView.autoPinEdge(.leading, to: .leading, of: cellView)
@@ -129,7 +129,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
 }
 
 extension CalendarCollectionViewCell {
-
+    
     func setDate(date: Date?) {
         self.date = date
     }

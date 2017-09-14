@@ -35,6 +35,4 @@ final class CalendarEmtpyCollectionViewCell: UICollectionViewCell {
     fileprivate func setupConstraints() {
         cellView.autoPinEdgesToSuperviewEdges()
     }
-    
-    
 }

@@ -19,7 +19,7 @@ final class ColorSelectView: UIView {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = .clear
-
+        
         return collectionView
     }()
     
@@ -36,7 +36,7 @@ final class ColorSelectView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
-    addSubview(collectionView)
+        addSubview(collectionView)
     }
     
     fileprivate func setupConstraints() {
@@ -48,8 +48,8 @@ final class ColorSelectView: UIView {
 }
 
 extension ColorSelectView {
-
-    func getCellSize() -> CGSize {
+    
+    public func getCellSize() -> CGSize {
         let size = (UIScreen.main.bounds.size.width / CGFloat(numberOfCellsInCollum)) - 10
         return CGSize(width: size, height: size)
     }

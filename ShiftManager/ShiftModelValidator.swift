@@ -35,7 +35,7 @@ final class ShiftModelValidator: NSObject {
             error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftShortcut.rawValue, userInfo: userInfo)
             return error
         }
-
+        
         if shift.interval <= 1 {
             let userInfo: [AnyHashable : Any] = [
                 NSLocalizedDescriptionKey :  NSLocalizedString("NewShiftAllert_loc001", comment: "") ,
@@ -44,7 +44,7 @@ final class ShiftModelValidator: NSObject {
             error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftInterval.rawValue, userInfo: userInfo)
             return error
         }
-
+        
         var isFirstDateOfShiftUnique = true
         UserManager.sharedInstance.selectedUser?.shifts.forEach({ shiftModel in
             if shiftModel.firstDateOfShift?.normalizedDate().compare((shift.firstDateOfShift?.normalizedDate())!) == .orderedSame {

@@ -23,13 +23,13 @@ final class ColorSelectDataSource: NSObject, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: String(describing: ColorSelectCollectionViewCell.self), for: indexPath)
-        as? ColorSelectCollectionViewCell else {
-            assertionFailure("Non existing cell")
-            return UICollectionViewCell()
+            as? ColorSelectCollectionViewCell else {
+                assertionFailure("Non existing cell")
+                return UICollectionViewCell()
         }
-
+        
         cell.backgroundColor = colors[indexPath.row]
         return cell
     }
-
+    
 }

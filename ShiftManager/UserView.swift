@@ -19,7 +19,7 @@ final class UserView: UIButton {
     
     init() {
         super.init(frame: .zero)
-
+        
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
         reloadData()
@@ -69,7 +69,7 @@ final class UserView: UIButton {
         userLastNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 10)
     }
 }
-    
+
 extension UserView {
     public func reloadData() {
         userPhotoImageView.image = UserManager.sharedInstance.selectedUser?.userPhotoImage ?? userDefaultIcon

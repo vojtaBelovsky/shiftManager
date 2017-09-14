@@ -9,7 +9,7 @@
 import Foundation
 import AFDateHelper
 import UIKit
-    
+
 final class UserModel: NSObject, NSCoding {
     
     var shifts: [ShiftModel] = []
@@ -26,7 +26,7 @@ final class UserModel: NSObject, NSCoding {
     fileprivate let userIDKey = "userIDKey"
     fileprivate let shitsPropertyKey = "shitsPropertyKey"
     fileprivate let editCalendarDaysPropertyKey = "editCalendarDaysPropertyKey"
-
+    
     var shouldGenerateShiftForDateDictionary = true
     
     override init() {
@@ -82,7 +82,7 @@ final class UserModel: NSObject, NSCoding {
     
     fileprivate func fillShifForDateDictionary(with shift: ShiftModel) {
         guard let firstDateOfShift = shift.firstDateOfShift else { return }
-
+        
         var date = firstDateOfShift.normalizedDate()
         
         while date.compare(.isEarlier(than: UserManager.sharedInstance.getMaxDate())) {

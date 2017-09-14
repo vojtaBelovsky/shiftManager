@@ -22,7 +22,7 @@ final class UserBarCollectionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         setupViewItems()
         addSubviews()
         setupConstraints()
@@ -33,7 +33,7 @@ final class UserBarCollectionCell: UICollectionViewCell {
     }
     
     fileprivate func setupViewItems() {
-
+        
         initialsNameLabel.layer.borderWidth = 2
         initialsNameLabel.layer.borderColor = UIColor.black.cgColor
         
@@ -46,7 +46,7 @@ final class UserBarCollectionCell: UICollectionViewCell {
         contentHolder.addSubview(photoImageView)
         contentHolder.addSubview(initialsNameLabel)
     }
-
+    
     fileprivate func setupConstraints() {
         contentHolder.autoPinEdgesToSuperviewEdges(with: UIEdgeInsetsMake(2, 2, 2, 2))
         
