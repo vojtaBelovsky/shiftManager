@@ -8,7 +8,6 @@
 "CreateNewShift_loc002" = "Utwórz nową zmianę";
 "CreateNewShift_loc003" = "Nazwa nowej zmiany";
 "CreateNewShift_loc004" = "Wybierz ostatnią zmianę";
-//"CreateNewShift_loc005" = "Interwał";
 "CreateNewShift_loc010" = "Zmienić kolor";
 "CreateNewShift_loc006" = "Interwał (powtórka zmiany)";
 "CreateNewShift_loc007" = "Wybierz kolor";
@@ -20,7 +19,6 @@
 "RegisterPlaceholder_loc001" = "Imię";
 "RegisterPlaceholder_loc002" = "Nazkisko";
 "RegisterButton_loc003" = "STWORZYĆ";
-//"RegisterButton_loc004" = "Aparat";
 "RegisterButton_loc005" = "USUŃ";
 "RegisterButton_loc006" = "IMPORT";
 "RegisterAllert_loc001" = "Błąd";
@@ -42,7 +40,6 @@
 "NewShiftAllert_loc006" = "Skrót jest za długi albo pole jest puste";
 "NewShiftAllert_loc007" = "Data juz jest uzywana";
 //Edit Callendar Day
-//"BasicInfo_loc001" = "Podstawowe info:";
 "ExtraShiftButton_loc001" = "Stwórz ekstra zmiane";
 "EditCallendarDayViewTitle_loc001" = "Edytacja dnia";
 "EditCallendarDayViewTitle_loc002" = "Wybierz extra zmiane";
