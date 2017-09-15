@@ -10,6 +10,8 @@ import UIKit
 
 class NavigationBar: UIView {
     
+    
+    
     fileprivate let backButton = NavigationButton()
     fileprivate let actionButton = NavigationButton()
     fileprivate let titleLabel = UILabel()
@@ -28,6 +30,7 @@ class NavigationBar: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
+        
         offSetView.backgroundColor = .clear
         addSubview(offSetView)
         
@@ -43,6 +46,7 @@ class NavigationBar: UIView {
     }
     
     fileprivate func setupConstraints(){
+        
         backgroundColor = .clear
         
         offSetView.autoPinEdge(toSuperviewEdge: .top, withInset: 20)

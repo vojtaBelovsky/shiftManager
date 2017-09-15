@@ -11,7 +11,7 @@ import PureLayout
 
 final class SettingsView: UIView, UITableViewDelegate {
     
-    let blureEffectView = BlureEffectView()
+     let blureEffectView = BlureEffectView()
     let navigationBar = NavigationBar()
     let userView = UserView()
     let tableView = UITableView()

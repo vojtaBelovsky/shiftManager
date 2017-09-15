@@ -8,26 +8,13 @@
 
 import UIKit
 
-class BlureEffectView: UIView {
+class BlureEffectView: UIVisualEffectView {
     
-    var visualEffect = UIVisualEffectView()
     init() {
-        super.init(frame: .zero)
-        initializeViewsAndAddThemAsSubviews()
-        //setupConstraints()
+        super.init(effect: UIBlurEffect(style: .light))
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func initializeViewsAndAddThemAsSubviews() {
-        let blurEffect = UIBlurEffect(style: .light)
-        visualEffect = UIVisualEffectView(effect: blurEffect)
-        //backgroundColor = .red
-    }
-    
-    //fileprivate func setupConstraints() {
-    //    visualEffect.autoPinEdgesToSuperviewEdges()
-    //}
 }

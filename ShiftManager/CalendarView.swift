@@ -15,6 +15,7 @@ final class CalendarView: UIView {
     fileprivate let headerView = HeaderView()
     fileprivate let daysLabel = UILabel()
     let userBarView = UserBarView()
+    let blureEfectView = BlureEffectView()
     
     lazy var calendarCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -41,9 +42,9 @@ final class CalendarView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
+        addSubview(blureEfectView)
         calendarCollectionView.backgroundColor = .clear
         userBarView.isAddUserButtonHidden = true
-        
         addSubview(navigationBar)
         addSubview(headerView)
         addSubview(calendarCollectionView)
@@ -58,6 +59,11 @@ final class CalendarView: UIView {
         headerView.autoPinEdge(.top, to: .bottom, of: navigationBar)
         headerView.autoMatch(.width, to: .width, of: self)
         headerView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
+        
+        blureEfectView.autoPinEdge(toSuperviewEdge: .top)
+        blureEfectView.autoPinEdge(toSuperviewEdge: .leading)
+        blureEfectView.autoPinEdge(toSuperviewEdge: .trailing)
+        blureEfectView.autoPinEdge(.bottom, to: .top, of: calendarCollectionView)
         
         calendarCollectionView.autoPinEdge(.top, to: .bottom, of: headerView)
         calendarCollectionView.autoPinEdge(toSuperviewEdge: .leading, withInset: 3)

@@ -12,6 +12,7 @@ let refreshUserViewNotification = Notification.Name(rawValue:"RefreshUserViewPro
 
 final class UserBarView: UIView {
     
+    let blureEffectView = BlureEffectView()
     fileprivate let stackView = UIStackView()
     fileprivate let addUserCircleLabel = CalendarCircleLabel()
     fileprivate let addUserLabel = UILabel()
@@ -48,6 +49,7 @@ final class UserBarView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
+        addSubview(blureEffectView)
         stackView.distribution = .fill
         stackView.axis = .horizontal
         addSubview(stackView)
@@ -61,6 +63,7 @@ final class UserBarView: UIView {
     }
     
     fileprivate func setupConstraints() {
+        blureEffectView.autoPinEdgesToSuperviewEdges()
         stackView.autoSetDimension(.height, toSize: viewHeight)
         stackView.autoPinEdgesToSuperviewEdges()
     }

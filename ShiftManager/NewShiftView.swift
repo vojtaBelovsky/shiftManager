@@ -11,6 +11,7 @@ import PureLayout
 
 final class NewShiftView: UIView {
     
+    let blureEffectView = BlureEffectView()
     let navigationBar = NavigationBar()
     public let nameTextField = BoundedTextField()
     let shortcutTextField = BoundedTextField()
@@ -34,6 +35,7 @@ final class NewShiftView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
+        addSubview(blureEffectView)
         addSubview(navigationBar)
         
         nameTextField.backgroundColor = textFields.textFieldColorWithAlpha
@@ -64,6 +66,11 @@ final class NewShiftView: UIView {
     }
     
     fileprivate func setupConstraints() {
+        blureEffectView.autoPinEdge(toSuperviewEdge: .top)
+        blureEffectView.autoPinEdge(toSuperviewEdge: .leading)
+        blureEffectView.autoPinEdge(toSuperviewEdge: .trailing)
+        blureEffectView.autoPinEdge(.bottom, to: .bottom, of: navigationBar)
+        
         navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
