@@ -26,7 +26,7 @@ final class EditUserViewController: NewUserViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         newUserView.navigationBar.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""))
-        newUserView.navigationBar.setImage(#imageLiteral(resourceName: "checkmark"))
+        newUserView.navigationBar.setImage(#imageLiteral(resourceName: "saveIcon"))
         newUserView.navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
         navigationController?.isNavigationBarHidden = true
         newUserView.deleteButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
