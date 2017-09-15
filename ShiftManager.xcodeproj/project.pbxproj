@@ -19,6 +19,7 @@
 		183AF5A41F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AF5A31F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift */; };
 		185078E81F3B2F57004C4F49 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185078E71F3B2F57004C4F49 /* UserModel.swift */; };
 		185078EA1F3B314A004C4F49 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185078E91F3B314A004C4F49 /* UserManager.swift */; };
+		186F3DBB1F6BF17100EDFDA3 /* BlureEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186F3DBA1F6BF17100EDFDA3 /* BlureEffectView.swift */; };
 		188974CA1F25D4C400E4CE92 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974C91F25D4C400E4CE92 /* NewUserViewController.swift */; };
 		188974CC1F25D54800E4CE92 /* NewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974CB1F25D54800E4CE92 /* NewUserView.swift */; };
 		188974D41F261A9D00E4CE92 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188974D31F261A9D00E4CE92 /* Constants.swift */; };
@@ -85,6 +86,7 @@
 		183AF5A31F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectCollectionViewCell.swift; sourceTree = "<group>"; };
 		185078E71F3B2F57004C4F49 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		185078E91F3B314A004C4F49 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		186F3DBA1F6BF17100EDFDA3 /* BlureEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlureEffectView.swift; sourceTree = "<group>"; };
 		188974C91F25D4C400E4CE92 /* NewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		188974CB1F25D54800E4CE92 /* NewUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserView.swift; sourceTree = "<group>"; };
 		188974D31F261A9D00E4CE92 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				490263491F4B164F00E1CA19 /* BoundedTextField.swift */,
 				492FE44E1F58629B0012243B /* CalendarCircleLabel.swift */,
 				18F914B31F667ED5008A43B6 /* NavigationButton.swift */,
+				186F3DBA1F6BF17100EDFDA3 /* BlureEffectView.swift */,
 			);
 			name = GenericViews;
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				183AF59B1F18B0F60033CFD7 /* NewShiftView.swift in Sources */,
 				18F914B41F667ED5008A43B6 /* NavigationButton.swift in Sources */,
 				18C92B4F1F05170F00F29A1B /* AppDelegate.swift in Sources */,
+				186F3DBB1F6BF17100EDFDA3 /* BlureEffectView.swift in Sources */,
 				18C92B721F05198400F29A1B /* CalendarView.swift in Sources */,
 				188974D41F261A9D00E4CE92 /* Constants.swift in Sources */,
 				183AF5A01F18B1030033CFD7 /* NewShiftViewController.swift in Sources */,
