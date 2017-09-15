@@ -29,7 +29,7 @@ final class NewUserView: UIView {
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
         navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
-        navigationBar.setImage(#imageLiteral(resourceName: "checkmark"))
+        navigationBar.setImage(#imageLiteral(resourceName: "saveIcon"))
     }
     
     required init?(coder aDecoder: NSCoder) {
