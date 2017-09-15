@@ -44,7 +44,11 @@ final class CalendarView: UIView {
     fileprivate func initializeViewsAndAddThemAsSubviews() {
         addSubview(blureEfectView)
         calendarCollectionView.backgroundColor = .clear
+<<<<<<< HEAD
         userBarView.isAddUserButtonHidden = true
+=======
+        
+>>>>>>> 215efd279ca666078f0b327334f34679c35f507c
         addSubview(navigationBar)
         addSubview(headerView)
         addSubview(calendarCollectionView)
