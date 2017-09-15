@@ -11,6 +11,7 @@ pod 'AFNetworking', '~> 2.6'
 pod 'PureLayout'
 pod 'IQKeyboardManager'
 pod 'SwiftLint'
+pod 'PBTutorialManager'
 
   target 'ShiftManagerTests' do
     inherit! :search_paths

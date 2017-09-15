@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "164EF9BE4EF2DD5AF13BEE007925D508"
+               BlueprintIdentifier = "F56511CE5AA60A2147D917E76C3C9D19"
                BuildableName = "Pods_ShiftManager.framework"
                BlueprintName = "Pods-ShiftManager"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "164EF9BE4EF2DD5AF13BEE007925D508"
+            BlueprintIdentifier = "F56511CE5AA60A2147D917E76C3C9D19"
             BuildableName = "Pods_ShiftManager.framework"
             BlueprintName = "Pods-ShiftManager"
             ReferencedContainer = "container:Pods.xcodeproj">
