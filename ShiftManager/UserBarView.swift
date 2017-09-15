@@ -13,8 +13,6 @@ let refreshUserViewNotification = Notification.Name(rawValue:"RefreshUserViewPro
 final class UserBarView: UIView {
     
     fileprivate let stackView = UIStackView()
-    fileprivate let addUserCircleLabel = CalendarCircleLabel()
-    fileprivate let addUserLabel = UILabel()
     fileprivate lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 0
@@ -24,13 +22,6 @@ final class UserBarView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         return collectionView
     }()
-    
-    var isAddUserButtonHidden = false {
-        didSet {
-            addUserCircleLabel.isHidden = isAddUserButtonHidden
-            addUserLabel.isHidden = isAddUserButtonHidden
-        }
-    }
     
     fileprivate let userBarViewDataSource = UserBarViewDataSource()
     fileprivate let viewHeight: CGFloat = 50.0
