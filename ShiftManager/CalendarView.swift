@@ -68,8 +68,9 @@ final class CalendarView: UIView {
         calendarCollectionView.autoPinEdge(.top, to: .bottom, of: headerView)
         calendarCollectionView.autoPinEdge(toSuperviewEdge: .leading, withInset: 3)
         calendarCollectionView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 3)
+        calendarCollectionView.autoPinEdge(toSuperviewEdge: .bottom)
         
-        userBarView.autoPinEdge(.top, to: .bottom, of: calendarCollectionView)
+        userBarView.autoSetDimension(.height, toSize: 50)
         userBarView.autoPinEdge(toSuperviewEdge: .leading)
         userBarView.autoPinEdge(toSuperviewEdge: .trailing)
         userBarView.autoPinEdge(toSuperviewEdge: .bottom)

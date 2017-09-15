@@ -10,8 +10,6 @@ import UIKit
 
 class NavigationBar: UIView {
     
-    
-    
     fileprivate let backButton = NavigationButton()
     fileprivate let actionButton = NavigationButton()
     fileprivate let titleLabel = UILabel()
@@ -22,7 +20,6 @@ class NavigationBar: UIView {
         
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,7 +39,6 @@ class NavigationBar: UIView {
         titleLabel.textAlignment = .center
         titleLabel.font = titleLabel.font.withSize(17)
         addSubview(titleLabel)
-        
     }
     
     fileprivate func setupConstraints(){
@@ -69,7 +65,6 @@ class NavigationBar: UIView {
         actionButton.autoPinEdge(.leading, to: .trailing, of: titleLabel, withOffset: 1)
         actionButton.autoSetDimensions(to: CGSize(width: 28, height: 28))
     }
-    
 }
 
 extension NavigationBar {
@@ -93,5 +88,4 @@ extension NavigationBar {
     public func setActionButton(_ target: Any?, action: Selector) {
         actionButton.addTarget(target, action: action, for: .touchUpInside)
     }
-    
 }
