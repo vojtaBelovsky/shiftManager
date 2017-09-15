@@ -25,7 +25,7 @@ final class UserBarView: UIView {
     }()
     
     fileprivate let userBarViewDataSource = UserBarViewDataSource()
-    fileprivate let viewHeight: CGFloat = 50.0
+    public let viewHeight: CGFloat = 50.0
     fileprivate let cellDimension: CGFloat = 50.0
     
     init() {

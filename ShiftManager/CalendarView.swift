@@ -42,12 +42,13 @@ final class CalendarView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
-        addSubview(blureEfectView)
         calendarCollectionView.backgroundColor = .clear
+        calendarCollectionView.contentInset = UIEdgeInsetsMake(100, 0, 50, 0)
 
+        addSubview(calendarCollectionView)
+        addSubview(blureEfectView)
         addSubview(navigationBar)
         addSubview(headerView)
-        addSubview(calendarCollectionView)
         addSubview(userBarView)
     }
     
@@ -63,14 +64,14 @@ final class CalendarView: UIView {
         blureEfectView.autoPinEdge(toSuperviewEdge: .top)
         blureEfectView.autoPinEdge(toSuperviewEdge: .leading)
         blureEfectView.autoPinEdge(toSuperviewEdge: .trailing)
-        blureEfectView.autoPinEdge(.bottom, to: .top, of: calendarCollectionView)
+        blureEfectView.autoPinEdge(.bottom, to: .bottom, of: headerView)
         
-        calendarCollectionView.autoPinEdge(.top, to: .bottom, of: headerView)
+        calendarCollectionView.autoPinEdge(toSuperviewEdge: .top)
         calendarCollectionView.autoPinEdge(toSuperviewEdge: .leading, withInset: 3)
         calendarCollectionView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 3)
         calendarCollectionView.autoPinEdge(toSuperviewEdge: .bottom)
         
-        userBarView.autoSetDimension(.height, toSize: 50)
+        userBarView.autoSetDimension(.height, toSize: userBarView.viewHeight)
         userBarView.autoPinEdge(toSuperviewEdge: .leading)
         userBarView.autoPinEdge(toSuperviewEdge: .trailing)
         userBarView.autoPinEdge(toSuperviewEdge: .bottom)
