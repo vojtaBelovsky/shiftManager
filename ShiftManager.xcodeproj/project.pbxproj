@@ -911,7 +911,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B24AEA32C6A1BD17EDB60E4 /* Pods-ShiftManager.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = L36HE29JXS;
 				INFOPLIST_FILE = ShiftManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
@@ -927,7 +927,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 29C811EC97CC96244BD29BFD /* Pods-ShiftManager.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = L36HE29JXS;
 				INFOPLIST_FILE = ShiftManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
