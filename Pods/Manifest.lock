@@ -22,6 +22,9 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - IQKeyboardManager (4.0.10)
+  - JMHoledView (0.2.0)
+  - PBTutorialManager (1.0.4):
+    - JMHoledView
   - PureLayout (3.0.2)
   - SwiftLint (0.20.0)
 
@@ -29,6 +32,7 @@ DEPENDENCIES:
   - AFDateHelper (~> 4.2.1)
   - AFNetworking (~> 2.6)
   - IQKeyboardManager
+  - PBTutorialManager
   - PureLayout
   - SwiftLint
 
@@ -36,9 +40,11 @@ SPEC CHECKSUMS:
   AFDateHelper: 0f9588a442b4d7ef862568ae5d40ab883672efb5
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
+  JMHoledView: c934232ad56e7db3a5cdc9486a21c5108687bb10
+  PBTutorialManager: b6752a593d1892c6f5268d94ecb0a0b744746944
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SwiftLint: 3f7543509c931d1291395335f34e245d3919b7f2
 
-PODFILE CHECKSUM: 4cda08769b2ce25dfc0d385970879927c2a5dfce
+PODFILE CHECKSUM: 67b47a51fd2ef4609792bafa2c311a8d90f9408e
 
 COCOAPODS: 1.2.1
