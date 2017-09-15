@@ -48,3 +48,16 @@
 "NoteLabel_loc002" = "Tutaj napisz swoje notatki";
 //SHARE
 "AddFriendButton_loc001" = "+";
+//Months
+"Month_loc001" = "Styczen";
+"Month_loc002" = "Luty";
+"Month_loc003" = "Marzec";
+"Month_loc004" = "Kwiecien";
+"Month_loc005" = "Maj";
+"Month_loc006" = "Czerviec";
+"Month_loc007" = "Lipiec";
+"Month_loc008" = "Sierpien";
+"Month_loc009" = "Wrzesien";
+"Month_loc0010" = "Pazdziernik";
+"Month_loc0011" = "Listopad";
+"Month_loc0012" = "Grudzien";

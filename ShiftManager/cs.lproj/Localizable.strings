@@ -46,3 +46,16 @@
 "DayOffLabel_loc001" = "Dovolená";
 "NoteLabel_loc001" = "Poznámky";
 "NoteLabel_loc002" = "Zde napište své poznámky";
+//Months
+"Month_loc001" = "Leden";
+"Month_loc002" = "Únor";
+"Month_loc003" = "Březen";
+"Month_loc004" = "Duben";
+"Month_loc005" = "Květen";
+"Month_loc006" = "Červen";
+"Month_loc007" = "Červenec";
+"Month_loc008" = "Srpen";
+"Month_loc009" = "Září";
+"Month_loc0010" = "Říjen";
+"Month_loc0011" = "Listopad";
+"Month_loc0012" = "Prosinec";

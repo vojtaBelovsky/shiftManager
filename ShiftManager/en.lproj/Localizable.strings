@@ -46,3 +46,16 @@
 "DayOffLabel_loc001" = "Holiday";
 "NoteLabel_loc001" = "Notes";
 "NoteLabel_loc002" = "Type your notes here";
+//Months
+"Month_loc001" = "January";
+"Month_loc002" = "February";
+"Month_loc003" = "March";
+"Month_loc004" = "April";
+"Month_loc005" = "May";
+"Month_loc006" = "June";
+"Month_loc007" = "Jule";
+"Month_loc008" = "August";
+"Month_loc009" = "September";
+"Month_loc0010" = "October";
+"Month_loc0011" = "November";
+"Month_loc0012" = "December";

@@ -122,8 +122,7 @@ final class CalendarDataSource: NSObject, UICollectionViewDataSource {
         dateFormatter.dateFormat = "dd-MMM-yyyy"
         
         if let monthOrder = date.component(.month) {
-            let monthName = DateFormatter().shortMonthSymbols[monthOrder - 1].capitalized
-            headerView.setMonthName(name: monthName)
+            headerView.setMonthName(index: monthOrder)
         }
         if date.normalizedDate() == Date().normalizedDate() {
             headerView.setCurrentMonth()

@@ -39,9 +39,8 @@ final class CalendarHeaderView: UICollectionReusableView {
 }
 
 extension CalendarHeaderView {
-    
-    func setMonthName(name: String) {
-        monthLabel.text = name
+    func setMonthName(index: Int) {
+        monthLabel.text = NSLocalizedString("Month_loc00\(index)", comment: "")
     }
     
     func setCurrentMonth() {
