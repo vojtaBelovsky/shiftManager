@@ -61,6 +61,7 @@ final class SettingsView: UIView, UITableViewDelegate {
         navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
+        navigationBar.autoSetDimension(.height, toSize: navigationBar.viewHeight)
         
         userView.autoPinEdge(.top, to: .bottom, of: navigationBar)
         userView.autoPinEdge(toSuperviewEdge: .leading)

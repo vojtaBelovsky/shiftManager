@@ -40,14 +40,13 @@ final class ExtraShiftView: UIView {
     }
     
     fileprivate func setupConstraints() {
-        navigationBar.autoPinEdge(.bottom, to: .top, of: tableView)
+        navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
-        navigationBar.autoPinEdge(toSuperviewEdge: .top)
+        navigationBar.autoSetDimension(.height, toSize: navigationBar.viewHeight)
         
-        tableView.autoPinEdge(toSuperviewEdge: .leading)
-        tableView.autoPinEdge(toSuperviewEdge: .trailing)
-        tableView.autoPinEdge(toSuperviewEdge: .bottom)
+        tableView.autoPinEdge(.top, to: .bottom, of: navigationBar)
+        tableView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
     }
     
     required init?(coder aDecoder: NSCoder) {
