@@ -11,7 +11,7 @@ import PureLayout
 
 final class SettingsView: UIView, UITableViewDelegate {
     
-     let blureEffectView = BlureEffectView()
+    let blureEffectView = BlureEffectView()
     let navigationBar = NavigationBar()
     let userView = UserView()
     let tableView = UITableView()
@@ -32,7 +32,6 @@ final class SettingsView: UIView, UITableViewDelegate {
     }
     
     fileprivate func setupViewItems() {
-        //blureEffectView.backgroundColor = .red
         addSubview(blureEffectView)
         addSubview(navigationBar)
         addSubview(userView)
@@ -44,6 +43,8 @@ final class SettingsView: UIView, UITableViewDelegate {
         tableView.delegate = self
         tableView.backgroundColor = textFields.textFieldColorWithAlpha
         addSubview(tableView)
+        
+        setAddNewShiftButtonVisibility()
         
         addNewShiftButton.setImage(UIImage.init(named: "addButtonIcon.png"), for: .normal)
         addNewShiftButton.backgroundColor = textFields.textFieldColorWithAlpha
@@ -84,5 +85,9 @@ extension SettingsView {
     
     public func addNewShiftButtonDidPress(_ target: Any?, action: Selector) {
         addNewShiftButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    public func setAddNewShiftButtonVisibility() {
+        addNewShiftButton.isHidden = UserManager.sharedInstance.selectedUser == nil
     }
 }

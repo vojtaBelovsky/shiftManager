@@ -61,6 +61,7 @@ final class SettingsViewController: UIViewController {
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
         tableViewReloadData()
+        settingsView.setAddNewShiftButtonVisibility()
     }
     
     func refreshScreen() {
