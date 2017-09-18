@@ -46,8 +46,8 @@ final class ShiftModelValidator: NSObject {
         }
         
         var isFirstDateOfShiftUnique = true
-        UserManager.sharedInstance.selectedUser?.shifts.forEach({ shiftModel in
-            if shiftModel.firstDateOfShift?.normalizedDate().compare((shift.firstDateOfShift?.normalizedDate())!) == .orderedSame {
+        UserManager.sharedInstance.selectedUser?.shifts.forEach({ currentShift in
+            if currentShift.firstDateOfShift?.normalizedDate().compare((shift.firstDateOfShift?.normalizedDate())!) == .orderedSame && shift.uniqueID != currentShift.uniqueID {
                 isFirstDateOfShiftUnique = false
             }
         })

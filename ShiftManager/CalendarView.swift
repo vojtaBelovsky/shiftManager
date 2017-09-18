@@ -44,7 +44,6 @@ final class CalendarView: UIView {
     fileprivate func initializeViewsAndAddThemAsSubviews() {
         calendarCollectionView.backgroundColor = .clear
         calendarCollectionView.contentInset = UIEdgeInsetsMake(100, 0, 50, 0)
-
         addSubview(calendarCollectionView)
         addSubview(blureEfectView)
         addSubview(navigationBar)
