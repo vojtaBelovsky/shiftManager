@@ -20,7 +20,6 @@ class NavigationBar: UIView {
         
         initializeViewsAndAddThemAsSubviews()
         setupConstraints()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,6 +27,7 @@ class NavigationBar: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
+        
         offSetView.backgroundColor = .clear
         addSubview(offSetView)
         
@@ -39,10 +39,10 @@ class NavigationBar: UIView {
         titleLabel.textAlignment = .center
         titleLabel.font = titleLabel.font.withSize(17)
         addSubview(titleLabel)
-        
     }
     
     fileprivate func setupConstraints(){
+        
         backgroundColor = .clear
         
         offSetView.autoPinEdge(toSuperviewEdge: .top, withInset: 20)
@@ -65,7 +65,6 @@ class NavigationBar: UIView {
         actionButton.autoPinEdge(.leading, to: .trailing, of: titleLabel, withOffset: 1)
         actionButton.autoSetDimensions(to: CGSize(width: 28, height: 28))
     }
-    
 }
 
 extension NavigationBar {
@@ -89,5 +88,4 @@ extension NavigationBar {
     public func setActionButton(_ target: Any?, action: Selector) {
         actionButton.addTarget(target, action: action, for: .touchUpInside)
     }
-    
 }

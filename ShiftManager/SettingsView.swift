@@ -11,6 +11,7 @@ import PureLayout
 
 final class SettingsView: UIView, UITableViewDelegate {
     
+     let blureEffectView = BlureEffectView()
     let navigationBar = NavigationBar()
     let userView = UserView()
     let tableView = UITableView()
@@ -31,6 +32,8 @@ final class SettingsView: UIView, UITableViewDelegate {
     }
     
     fileprivate func setupViewItems() {
+        //blureEffectView.backgroundColor = .red
+        addSubview(blureEffectView)
         addSubview(navigationBar)
         addSubview(userView)
         
@@ -49,6 +52,11 @@ final class SettingsView: UIView, UITableViewDelegate {
     }
     
     fileprivate func setupConstraints() {
+        blureEffectView.autoPinEdge(toSuperviewEdge: .top)
+        blureEffectView.autoPinEdge(toSuperviewEdge: .leading)
+        blureEffectView.autoPinEdge(toSuperviewEdge: .trailing)
+        blureEffectView.autoPinEdge(.bottom, to: .top, of: tableView)
+        
         navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)

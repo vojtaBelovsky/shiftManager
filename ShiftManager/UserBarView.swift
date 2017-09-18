@@ -12,9 +12,8 @@ let refreshUserViewNotification = Notification.Name(rawValue:"RefreshUserViewPro
 
 final class UserBarView: UIView {
     
+    let blureEffectView = BlureEffectView()
     fileprivate let stackView = UIStackView()
-    fileprivate let addUserCircleLabel = CalendarCircleLabel()
-    fileprivate let addUserLabel = UILabel()
     fileprivate lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 0
@@ -25,15 +24,8 @@ final class UserBarView: UIView {
         return collectionView
     }()
     
-    var isAddUserButtonHidden = false {
-        didSet {
-            addUserCircleLabel.isHidden = isAddUserButtonHidden
-            addUserLabel.isHidden = isAddUserButtonHidden
-        }
-    }
-    
     fileprivate let userBarViewDataSource = UserBarViewDataSource()
-    fileprivate let viewHeight: CGFloat = 50.0
+    public let viewHeight: CGFloat = 50.0
     fileprivate let cellDimension: CGFloat = 50.0
     
     init() {
@@ -48,6 +40,7 @@ final class UserBarView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
+        addSubview(blureEffectView)
         stackView.distribution = .fill
         stackView.axis = .horizontal
         addSubview(stackView)
@@ -61,6 +54,7 @@ final class UserBarView: UIView {
     }
     
     fileprivate func setupConstraints() {
+        blureEffectView.autoPinEdgesToSuperviewEdges()
         stackView.autoSetDimension(.height, toSize: viewHeight)
         stackView.autoPinEdgesToSuperviewEdges()
     }

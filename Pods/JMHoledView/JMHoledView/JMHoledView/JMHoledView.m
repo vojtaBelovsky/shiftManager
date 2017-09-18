@@ -261,7 +261,7 @@
     CGSize fontSize;
     if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
         // code here for iOS 5.0,6.0 and so on
-        fontSize = [text sizeWithFont:[UIFont systemFontOfSize:14.0f]];
+       // fontSize = [text sizeWithFont:[UIFont systemFontOfSize:14.0f]];
     } else {
         // code here for iOS 7.0
         fontSize = [text sizeWithAttributes:

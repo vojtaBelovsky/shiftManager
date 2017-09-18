@@ -33,8 +33,6 @@ final class UserView: UIButton {
         
         backgroundColor = .clear
         
-        userPhotoImageView.layer.borderWidth = 2
-        userPhotoImageView.layer.borderColor = UIColor.clear.cgColor
         userPhotoImageView.layer.cornerRadius = userPhotoSize/2.0
         userPhotoImageView.layer.masksToBounds = true
         userPhotoImageView.image = userDefaultIcon

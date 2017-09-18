@@ -11,6 +11,7 @@ import PureLayout
 
 final class EditCallendarDayView: UIView {
     
+    let blureEffectView = BlureEffectView()
     let navigationBar = NavigationBar()
     fileprivate let scrollView = UIScrollView()
     fileprivate let contentHolder = UIView()
@@ -45,7 +46,7 @@ final class EditCallendarDayView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
-        
+        addSubview(blureEffectView)
         addSubview(navigationBar)
         addSubview(scrollView)
         addSubviewToScrollView()
@@ -91,6 +92,11 @@ final class EditCallendarDayView: UIView {
     }
     
     fileprivate func setupConstraints() {
+        blureEffectView.autoPinEdge(toSuperviewEdge: .top)
+        blureEffectView.autoPinEdge(toSuperviewEdge: .leading)
+        blureEffectView.autoPinEdge(toSuperviewEdge: .trailing)
+        blureEffectView.autoPinEdge(.bottom, to: .bottom, of: navigationBar)
+        
         navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)

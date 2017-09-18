@@ -15,6 +15,7 @@ final class CalendarView: UIView {
     fileprivate let headerView = HeaderView()
     fileprivate let daysLabel = UILabel()
     let userBarView = UserBarView()
+    let blureEfectView = BlureEffectView()
     
     lazy var calendarCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -42,11 +43,12 @@ final class CalendarView: UIView {
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
         calendarCollectionView.backgroundColor = .clear
-        userBarView.isAddUserButtonHidden = true
-        
+        calendarCollectionView.contentInset = UIEdgeInsetsMake(100, 0, 50, 0)
+
+        addSubview(calendarCollectionView)
+        addSubview(blureEfectView)
         addSubview(navigationBar)
         addSubview(headerView)
-        addSubview(calendarCollectionView)
         addSubview(userBarView)
     }
     
@@ -59,11 +61,17 @@ final class CalendarView: UIView {
         headerView.autoMatch(.width, to: .width, of: self)
         headerView.autoMatch(.height, to: .height, of: self, withMultiplier: 0.05)
         
-        calendarCollectionView.autoPinEdge(.top, to: .bottom, of: headerView)
+        blureEfectView.autoPinEdge(toSuperviewEdge: .top)
+        blureEfectView.autoPinEdge(toSuperviewEdge: .leading)
+        blureEfectView.autoPinEdge(toSuperviewEdge: .trailing)
+        blureEfectView.autoPinEdge(.bottom, to: .bottom, of: headerView)
+        
+        calendarCollectionView.autoPinEdge(toSuperviewEdge: .top)
         calendarCollectionView.autoPinEdge(toSuperviewEdge: .leading, withInset: 3)
         calendarCollectionView.autoPinEdge(toSuperviewEdge: .trailing, withInset: 3)
+        calendarCollectionView.autoPinEdge(toSuperviewEdge: .bottom)
         
-        userBarView.autoPinEdge(.top, to: .bottom, of: calendarCollectionView)
+        userBarView.autoSetDimension(.height, toSize: userBarView.viewHeight)
         userBarView.autoPinEdge(toSuperviewEdge: .leading)
         userBarView.autoPinEdge(toSuperviewEdge: .trailing)
         userBarView.autoPinEdge(toSuperviewEdge: .bottom)

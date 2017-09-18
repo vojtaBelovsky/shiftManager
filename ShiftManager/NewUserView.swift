@@ -11,6 +11,7 @@ import PureLayout
 
 final class NewUserView: UIView {
     
+    let blureEffectView = BlureEffectView()
     fileprivate let selectImageViewContainer = UIView()
     fileprivate var selectImageView = UIImageView()
     fileprivate let stackView = UIStackView()
@@ -37,6 +38,7 @@ final class NewUserView: UIView {
     }
     
     func initializeViewsAndAddThemAsSubviews() {
+        addSubview(blureEffectView)
         backgroundColor = .clear
         
         addSubview(navigationBar)
@@ -75,6 +77,11 @@ final class NewUserView: UIView {
     }
     
     func setupConstraints() {
+        blureEffectView.autoPinEdge(toSuperviewEdge: .top)
+        blureEffectView.autoPinEdge(toSuperviewEdge: .leading)
+        blureEffectView.autoPinEdge(toSuperviewEdge: .trailing)
+        blureEffectView.autoPinEdge(.bottom, to: .bottom, of: navigationBar)
+        
         navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
