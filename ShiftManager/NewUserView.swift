@@ -85,6 +85,7 @@ final class NewUserView: UIView {
         navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
+        navigationBar.autoSetDimension(.height, toSize: navigationBar.viewHeight)
         
         stackView.autoPinEdge(.top, to: .bottom, of: navigationBar)
         stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)

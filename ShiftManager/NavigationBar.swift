@@ -15,6 +15,8 @@ class NavigationBar: UIView {
     fileprivate let titleLabel = UILabel()
     fileprivate let offSetView = UIView()
     
+    public let viewHeight: CGFloat = 55.0
+    
     init() {
         super.init(frame: .zero)
         
@@ -42,27 +44,24 @@ class NavigationBar: UIView {
     }
     
     fileprivate func setupConstraints(){
-        
         backgroundColor = .clear
         
         offSetView.autoPinEdge(toSuperviewEdge: .top, withInset: 20)
-        offSetView.autoPinEdge(toSuperviewEdge: .trailing)
         offSetView.autoPinEdge(toSuperviewEdge: .leading)
+        offSetView.autoPinEdge(toSuperviewEdge: .trailing)
         offSetView.autoSetDimensions(to: CGSize(width: 1, height: 1))
         
-        backButton.autoPinEdge(toSuperviewEdge: .leading)
-        backButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 5)
         backButton.autoPinEdge(.top, to: .bottom, of: offSetView, withOffset: 1)
-        backButton.autoPinEdge(.trailing, to: .leading, of: titleLabel, withOffset: 1)
+        backButton.autoPinEdge(toSuperviewEdge: .leading, withInset: 5)
+        backButton.autoPinEdge(.trailing, to: .leading, of: titleLabel)
         backButton.autoSetDimensions(to: CGSize(width: 28, height: 28))
         
         titleLabel.autoPinEdge(.top, to: .bottom, of: offSetView, withOffset: 1)
         titleLabel.autoPinEdge(toSuperviewEdge: .bottom, withInset: 5)
         
         actionButton.autoPinEdge(.top, to: .bottom, of: offSetView, withOffset: 1)
-        actionButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 5)
-        actionButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 5)
         actionButton.autoPinEdge(.leading, to: .trailing, of: titleLabel, withOffset: 1)
+        actionButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 5)
         actionButton.autoSetDimensions(to: CGSize(width: 28, height: 28))
     }
 }

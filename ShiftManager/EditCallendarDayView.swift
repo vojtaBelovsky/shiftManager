@@ -100,6 +100,7 @@ final class EditCallendarDayView: UIView {
         navigationBar.autoPinEdge(toSuperviewEdge: .top)
         navigationBar.autoPinEdge(toSuperviewEdge: .leading)
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
+        navigationBar.autoSetDimension(.height, toSize: navigationBar.viewHeight)
         
         scrollView.autoPinEdge(.top, to: .bottom, of: navigationBar, withOffset: Spacing.DoubleVertialSpacing)
         scrollView.autoPinEdge(toSuperviewEdge: .leading)

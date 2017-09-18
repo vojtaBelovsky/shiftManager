@@ -21,6 +21,8 @@ final class HeaderView: UIView {
     fileprivate let daySat = UILabel()
     fileprivate let daySun = UILabel()
     
+    public let viewHeight: CGFloat = 30.0
+    
     init() {
         super.init(frame: .zero)
         stackViewInitilizer()
