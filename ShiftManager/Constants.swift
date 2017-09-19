@@ -13,6 +13,10 @@ public struct Spacing {
     public static let DoubleVertialSpacing: CGFloat = 32.0
 }
 
+public struct Insets {
+    public static let navBarInset: CGFloat = 5.0
+}
+
 public struct textFields {
     public static let textFieldColorWithAlpha = UIColor.white.withAlphaComponent(0.4)
 }
