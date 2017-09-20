@@ -61,3 +61,9 @@
 "Month_loc0010" = "Pazdziernik";
 "Month_loc0011" = "Listopad";
 "Month_loc0012" = "Grudzien";
+//TŽ
+"TZquestionLabel_001" = "Pracujesz we WERKU?";
+"TZyesButton_loc001" = "TAK";
+"TZnoButton_loc001" = "NIE";
+"TZquestionLabel_002" = "Wybierz swoja zmiane";
+

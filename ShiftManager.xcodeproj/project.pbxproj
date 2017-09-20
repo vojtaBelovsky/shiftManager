@@ -39,6 +39,8 @@
 		18CDAB781F39933D00FA1CF8 /* NewUserValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDAB771F39933D00FA1CF8 /* NewUserValidator.swift */; };
 		18CDAB7B1F39AE7200FA1CF8 /* EditCallendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDAB7A1F39AE7200FA1CF8 /* EditCallendarDayView.swift */; };
 		18CDAB7D1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CDAB7C1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift */; };
+		18D37F4F1F7254FC001BB1C6 /* TZViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D37F4E1F7254FC001BB1C6 /* TZViewController.swift */; };
+		18D37F511F725547001BB1C6 /* TZView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D37F501F725547001BB1C6 /* TZView.swift */; };
 		18D8469C1F1F660F004264D8 /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* ShiftModel.swift */; };
 		18D8469D1F1F660F004264D8 /* ShiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D8469B1F1F660F004264D8 /* ShiftModel.swift */; };
 		18DCD4E61F3DCFD400442DAE /* UserBarCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */; };
@@ -110,6 +112,8 @@
 		18CDAB771F39933D00FA1CF8 /* NewUserValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserValidator.swift; sourceTree = "<group>"; };
 		18CDAB7A1F39AE7200FA1CF8 /* EditCallendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCallendarDayView.swift; sourceTree = "<group>"; };
 		18CDAB7C1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCallendarDayViewController.swift; sourceTree = "<group>"; };
+		18D37F4E1F7254FC001BB1C6 /* TZViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZViewController.swift; sourceTree = "<group>"; };
+		18D37F501F725547001BB1C6 /* TZView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TZView.swift; sourceTree = "<group>"; };
 		18D8469B1F1F660F004264D8 /* ShiftModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShiftModel.swift; sourceTree = "<group>"; };
 		18DCD4E51F3DCFD400442DAE /* UserBarCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBarCollectionCell.swift; sourceTree = "<group>"; };
 		18F914B11F602754008A43B6 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 		18C92B4D1F05170F00F29A1B /* ShiftManager */ = {
 			isa = PBXGroup;
 			children = (
+				18D37F4D1F72549B001BB1C6 /* TŽ */,
 				2A96BD721F54769000260959 /* Extensions */,
 				18014A9C1F44428500980414 /* GenericViews */,
 				18CDAB791F39AE3500FA1CF8 /* EditCallendarDay */,
@@ -336,6 +341,15 @@
 				18CDAB7C1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift */,
 			);
 			name = EditCallendarDay;
+			sourceTree = "<group>";
+		};
+		18D37F4D1F72549B001BB1C6 /* TŽ */ = {
+			isa = PBXGroup;
+			children = (
+				18D37F4E1F7254FC001BB1C6 /* TZViewController.swift */,
+				18D37F501F725547001BB1C6 /* TZView.swift */,
+			);
+			name = "TŽ";
 			sourceTree = "<group>";
 		};
 		18D8468B1F18F55E004264D8 /* Controllers */ = {
@@ -740,6 +754,7 @@
 				18DCD4E61F3DCFD400442DAE /* UserBarCollectionCell.swift in Sources */,
 				18CDAB7D1F39AE9C00FA1CF8 /* EditCallendarDayViewController.swift in Sources */,
 				2A96BD741F5476AD00260959 /* Date+normalizedDay.swift in Sources */,
+				18D37F511F725547001BB1C6 /* TZView.swift in Sources */,
 				492FE44F1F58629B0012243B /* CalendarCircleLabel.swift in Sources */,
 				18C473861F4491BA00E9F25F /* EditCalendarDayModel.swift in Sources */,
 				18C92B7E1F0633EF00F29A1B /* SettingsView.swift in Sources */,
@@ -764,6 +779,7 @@
 				183AF59B1F18B0F60033CFD7 /* NewShiftView.swift in Sources */,
 				18F914B41F667ED5008A43B6 /* NavigationButton.swift in Sources */,
 				18C92B4F1F05170F00F29A1B /* AppDelegate.swift in Sources */,
+				18D37F4F1F7254FC001BB1C6 /* TZViewController.swift in Sources */,
 				186F3DBB1F6BF17100EDFDA3 /* BlureEffectView.swift in Sources */,
 				18C92B721F05198400F29A1B /* CalendarView.swift in Sources */,
 				188974D41F261A9D00E4CE92 /* Constants.swift in Sources */,

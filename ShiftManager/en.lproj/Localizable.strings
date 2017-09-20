@@ -59,3 +59,11 @@
 "Month_loc0010" = "October";
 "Month_loc0011" = "November";
 "Month_loc0012" = "December";
+//TŽ
+"TZquestionLabel_001" = "Do you work in Třinecké Železárny?";
+"TZyesButton_loc001" = "YES";
+"TZnoButton_loc001" = "NO";
+"TZquestionLabel_002" = "Select your shift";
+
+
+
