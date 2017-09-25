@@ -34,7 +34,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         newShiftView.renameButton()
     }
     
-    func saveButtonDidPress() {
+    @objc func saveButtonDidPress() {
         shift.name = newShiftView.name()
         shift.shortcut = newShiftView.shortcut()
         shift.firstDateOfShift = newShiftView.date()
@@ -105,7 +105,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         }
     }
     
-    func backButtonDidPress(){
+    @objc func backButtonDidPress(){
         _ = navigationController?.popViewController(animated: true)
     }
     
@@ -114,7 +114,7 @@ class NewShiftViewController: UIViewController, ColorSelectViewControllerDelegat
         nc.post(name: NewShiftViewControllerHandler, object: nil)
     }
     
-    func selectShiftColorButtonDidPress() {
+    @objc func selectShiftColorButtonDidPress() {
         let colorController = ColorSelectViewController()
         colorController.delegate = self
         

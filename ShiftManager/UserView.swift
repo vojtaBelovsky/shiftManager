@@ -60,7 +60,7 @@ final class UserView: UIButton {
         
         userFirstNameLabel.autoPinEdge(.top, to: .top, of: userPhotoImageView,withOffset: 14)
         userFirstNameLabel.autoPinEdge(.leading, to: .trailing, of: userPhotoImageView,withOffset: 8)
-        userFirstNameLabel.setContentHuggingPriority(501, for: .horizontal)
+        userFirstNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 501), for: .horizontal)
         
         userLastNameLabel.autoPinEdge(.top, to: .top, of: userPhotoImageView, withOffset: 14)
         userLastNameLabel.autoPinEdge(.leading, to: .trailing, of: userFirstNameLabel, withOffset: 8)

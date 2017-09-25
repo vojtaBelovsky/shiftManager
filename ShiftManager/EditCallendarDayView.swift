@@ -150,7 +150,7 @@ final class EditCallendarDayView: UIView {
         }
     }
     
-    func extraShiftTitleWithButtonPressed(sender: UIButton) {
+    @objc func extraShiftTitleWithButtonPressed(sender: UIButton) {
         var extraShifts = editCalendarDayModel.extraShifts
         extraShifts.remove(at: sender.tag)
         setExtraShifts(extraShifts: extraShifts)
@@ -163,7 +163,7 @@ extension EditCallendarDayView {
         manageButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
-    public func freeDay() -> Bool {
+    @objc public func freeDay() -> Bool {
         return dayOffSwitch.isOn
     }
     

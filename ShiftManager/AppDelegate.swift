@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared().isEnabled = true
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
-        window?.rootViewController = UINavigationController(rootViewController: TZViewController())
+        window?.rootViewController = UINavigationController(rootViewController: CalendarViewController())
         window?.makeKeyAndVisible()
         return true
     }

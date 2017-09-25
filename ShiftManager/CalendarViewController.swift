@@ -56,20 +56,20 @@ final class CalendarViewController: UIViewController {
                                              withReuseIdentifier: String(describing: CalendarHeaderView.self))
     }
     
-    func settingsButtonDidPress() {
+    @objc func settingsButtonDidPress() {
         navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
-    func reloadCollectionViewDataHandler() {
+    @objc func reloadCollectionViewDataHandler() {
         calendarView.calendarCollectionView.reloadData()
     }
     
-    func reloadCalendarViewHandler() {
+    @objc func reloadCalendarViewHandler() {
         UserManager.sharedInstance.shiftForDateDictionaryShouldReloadData()
         calendarView.calendarCollectionView.reloadData()
     }
     
-    func reloadUserBarDataHandler() {
+    @objc func reloadUserBarDataHandler() {
         calendarView.calendarCollectionView.reloadData()
         calendarView.userBarView.reloadData()
     }

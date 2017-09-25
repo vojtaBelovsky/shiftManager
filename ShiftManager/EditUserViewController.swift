@@ -44,7 +44,7 @@ final class EditUserViewController: NewUserViewController {
         newUserView.editUserSetupView(with: user)
     }
     
-    func deleteButtonDidPress(){
+    @objc func deleteButtonDidPress(){
         
         let refreshAlert = UIAlertController(title: NSLocalizedString("DeleteUserAlertController_loc001", comment: ""), message: NSLocalizedString("DeleteUserAlertController_loc002", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
         

@@ -25,7 +25,7 @@ final class NewUserValidator: NSObject {
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("RegisterAllert_loc002", comment: "")
                 
             ]
-            error = NSError.init(domain: "ShiftModelDomain", code: userErrorType.userErrorTypeFirstName.rawValue, userInfo: userInfo)
+            error = NSError.init(domain: "ShiftModelDomain", code: userErrorType.userErrorTypeFirstName.rawValue, userInfo: userInfo as? [String : Any])
             return error
         }
         
@@ -34,7 +34,7 @@ final class NewUserValidator: NSObject {
                 NSLocalizedDescriptionKey :  NSLocalizedString("RegisterAllert_loc001", comment: "") ,
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("RegisterAllert_loc003", comment: "")
             ]
-            error = NSError.init(domain: "ShiftModelDomain", code: userErrorType.userErrorTypeLastName.rawValue, userInfo: userInfo)
+            error = NSError.init(domain: "ShiftModelDomain", code: userErrorType.userErrorTypeLastName.rawValue, userInfo: userInfo as? [String : Any])
             return error
         }
         return nil

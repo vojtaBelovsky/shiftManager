@@ -62,7 +62,7 @@ final class EditCallendarDayViewController: UIViewController, UITextViewDelegate
         view = editCallendarDayView
     }
     
-    func saveButtonDidPress() {
+    @objc func saveButtonDidPress() {
         let model = editCallendarDayView.editCalendarDayModel
         model.freeDay = editCallendarDayView.freeDay()
         model.note = editCallendarDayView.notes()
@@ -82,11 +82,11 @@ final class EditCallendarDayViewController: UIViewController, UITextViewDelegate
         editCallendarDayView.editCalendarDayModel = modelCopy
     }
     
-    func setActionForBackButton(){
+    @objc func setActionForBackButton(){
         _ = navigationController?.popViewController(animated: true)
     }
     
-    func setActionForManageButton() {
+    @objc func setActionForManageButton() {
         let extraShiftViewController = ExtraShiftViewController(editCalendarDayModel: editCallendarDayView.editCalendarDayModel)
         extraShiftViewController.delegate = self
         

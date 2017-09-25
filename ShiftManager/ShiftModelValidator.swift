@@ -23,7 +23,7 @@ final class ShiftModelValidator: NSObject {
                 NSLocalizedDescriptionKey :  NSLocalizedString("NewShiftAllert_loc001", comment: "") ,
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("NewShiftAllert_loc002", comment: "")
             ]
-            error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftName.rawValue, userInfo: userInfo)
+            error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftName.rawValue, userInfo: userInfo as? [String : Any])
             return error
         }
         
@@ -32,7 +32,7 @@ final class ShiftModelValidator: NSObject {
                 NSLocalizedDescriptionKey :  NSLocalizedString("NewShiftAllert_loc001", comment: "") ,
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("NewShiftAllert_loc006", comment: "")
             ]
-            error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftShortcut.rawValue, userInfo: userInfo)
+            error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftShortcut.rawValue, userInfo: userInfo as? [String : Any])
             return error
         }
         
@@ -41,7 +41,7 @@ final class ShiftModelValidator: NSObject {
                 NSLocalizedDescriptionKey :  NSLocalizedString("NewShiftAllert_loc001", comment: "") ,
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("NewShiftAllert_loc003", comment: "")
             ]
-            error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftInterval.rawValue, userInfo: userInfo)
+            error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftInterval.rawValue, userInfo: userInfo as? [String : Any])
             return error
         }
         
@@ -56,7 +56,7 @@ final class ShiftModelValidator: NSObject {
                 NSLocalizedDescriptionKey :  NSLocalizedString("NewShiftAllert_loc001", comment: "") ,
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("NewShiftAllert_loc007", comment: "")
             ]
-            error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftPicker.rawValue, userInfo: userInfo)
+            error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftPicker.rawValue, userInfo: userInfo as? [String : Any])
             return error
         }
         
@@ -65,7 +65,7 @@ final class ShiftModelValidator: NSObject {
                 NSLocalizedDescriptionKey :  NSLocalizedString("NewShiftAllert_loc001", comment: "") ,
                 NSLocalizedFailureReasonErrorKey : NSLocalizedString("NewShiftAllert_loc005", comment: "")
             ]
-            error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftColor.rawValue, userInfo: userInfo)
+            error = NSError.init(domain: "ShiftModelDomain", code: shiftErrorType.shiftErrorTypeShiftColor.rawValue, userInfo: userInfo as? [String : Any])
             return error
         }
         

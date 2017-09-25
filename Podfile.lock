@@ -1,50 +1,44 @@
 PODS:
-  - AFDateHelper (4.2.2)
-  - AFNetworking (2.6.3):
-    - AFNetworking/NSURLConnection (= 2.6.3)
-    - AFNetworking/NSURLSession (= 2.6.3)
-    - AFNetworking/Reachability (= 2.6.3)
-    - AFNetworking/Security (= 2.6.3)
-    - AFNetworking/Serialization (= 2.6.3)
-    - AFNetworking/UIKit (= 2.6.3)
-  - AFNetworking/NSURLConnection (2.6.3):
+  - AFDateHelper (4.2.4)
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - AFNetworking/UIKit (2.6.3):
-    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - IQKeyboardManager (4.0.10)
+  - IQKeyboardManager (5.0.2)
   - JMHoledView (0.2.0)
   - PBTutorialManager (1.0.4):
     - JMHoledView
   - PureLayout (3.0.2)
-  - SwiftLint (0.20.0)
+  - SwiftLint (0.22.0)
 
 DEPENDENCIES:
-  - AFDateHelper (~> 4.2.1)
-  - AFNetworking (~> 2.6)
+  - AFDateHelper
+  - AFNetworking
   - IQKeyboardManager
   - PBTutorialManager
   - PureLayout
   - SwiftLint
 
 SPEC CHECKSUMS:
-  AFDateHelper: 0f9588a442b4d7ef862568ae5d40ab883672efb5
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
+  AFDateHelper: fbbf706fc7ef3b12efb8c25493c8dc5b9d18f86a
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  IQKeyboardManager: 5ab84749f20f682f784160c2c63bef4f19d10d26
   JMHoledView: c934232ad56e7db3a5cdc9486a21c5108687bb10
   PBTutorialManager: b6752a593d1892c6f5268d94ecb0a0b744746944
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  SwiftLint: 3f7543509c931d1291395335f34e245d3919b7f2
+  SwiftLint: 1134786caedd2caab0560d2f36b76414a5a56808
 
-PODFILE CHECKSUM: 67b47a51fd2ef4609792bafa2c311a8d90f9408e
+PODFILE CHECKSUM: 6f3a02312d5d61b05e1dba06ed787f58a2792afc
 
 COCOAPODS: 1.2.1

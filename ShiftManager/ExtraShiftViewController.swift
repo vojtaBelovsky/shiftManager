@@ -54,11 +54,11 @@ final class ExtraShiftViewController: UIViewController {
         }
     }
     
-    func backButton(){
+    @objc func backButton(){
         _ = navigationController?.popViewController(animated: true)
     }
     
-    func doneButtonDidPress(){
+    @objc func doneButtonDidPress(){
         let extraShifts = extraShiftView.tableView.indexPathsForSelectedRows?.flatMap {
             UserManager.sharedInstance.shiftForIndex($0.row)
         }

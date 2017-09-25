@@ -53,35 +53,35 @@ final class SettingsViewController: UIViewController {
         refreshUserView.addObserver(self, selector: #selector(refreshScreen), name: refreshUserViewNotification, object: nil)
     }
     
-    func tableViewReloadData(){
+    @objc func tableViewReloadData(){
         settingsView.tableView.reloadData()
     }
     
-    func reloadDataNotificationHandler() {
+    @objc func reloadDataNotificationHandler() {
         settingsView.userView.reloadData()
         settingsView.userBarView.reloadData()
         tableViewReloadData()
         settingsView.setAddNewShiftButtonVisibility()
     }
     
-    func refreshScreen() {
+    @objc func refreshScreen() {
         settingsView.userView.reloadData()
         tableViewReloadData()
     }
     
-    func backButtonDidPress(){
+    @objc func backButtonDidPress(){
         _ = navigationController?.popViewController(animated: true)
     }
     
-    func settingsButtonDidPress() {
+    @objc func settingsButtonDidPress() {
         self.navigationController?.pushViewController(NewShiftViewController(), animated: true)
     }
     
-    func newUserButtonDidPress() {
+    @objc func newUserButtonDidPress() {
         self.navigationController?.pushViewController(NewUserViewController(), animated: true)
     }
     
-    func userViewButtonDidPress(){
+    @objc func userViewButtonDidPress(){
         if let selectedUser = UserManager.sharedInstance.selectedUser {
             self.navigationController?.pushViewController(EditUserViewController(user: selectedUser), animated: true)
         }

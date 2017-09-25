@@ -41,11 +41,11 @@ class NewUserViewController: UIViewController {
         newUserView.selectImageButtonDidPress(self, action: #selector(selectPicture))
     }
     
-    func backButtonDidPress(){
+    @objc func backButtonDidPress(){
         _ = navigationController?.popViewController(animated: true)
     }
     
-    func selectPicture() {
+    @objc func selectPicture() {
         let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let firstAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("NewShiftAlertController_loc002", comment: ""), style: .default) { action -> Void in
             
@@ -78,7 +78,7 @@ class NewUserViewController: UIViewController {
         present(actionSheetController, animated: true, completion: nil)
     }
     
-    func importButtonDidPress(){
+    @objc func importButtonDidPress(){
         let contactPicker = CNContactPickerViewController()
         contactPicker.delegate = self
         self.present(contactPicker, animated: true, completion: nil)
@@ -89,7 +89,7 @@ class NewUserViewController: UIViewController {
         newUserDidRegister.post(name: newUserDidRegisterNotification, object: nil)
     }
     
-    func checkmarkButtonDidPress() {
+    @objc func checkmarkButtonDidPress() {
         let user = UserModel()
         user.firstName = newUserView.firstName()
         user.lastName = newUserView.lastName()
