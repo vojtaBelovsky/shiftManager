@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManager
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         window?.rootViewController = UINavigationController(rootViewController: CalendarViewController())
         window?.makeKeyAndVisible()
+        GADMobileAds.configure(withApplicationID: "ca-app-pub-3940256099942544~1458002511")
         return true
     }
    

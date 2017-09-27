@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Google-Mobile-Ads-SDK (7.24.0)
   - IQKeyboardManager (5.0.2)
   - JMHoledView (0.2.0)
   - PBTutorialManager (1.0.4):
@@ -25,6 +26,7 @@ PODS:
 DEPENDENCIES:
   - AFDateHelper
   - AFNetworking
+  - Google-Mobile-Ads-SDK
   - IQKeyboardManager
   - PBTutorialManager
   - PureLayout
@@ -33,12 +35,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFDateHelper: fbbf706fc7ef3b12efb8c25493c8dc5b9d18f86a
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Google-Mobile-Ads-SDK: f405b7acb098fe89e6fcd05fdbf400c1a5bcb935
   IQKeyboardManager: 5ab84749f20f682f784160c2c63bef4f19d10d26
   JMHoledView: c934232ad56e7db3a5cdc9486a21c5108687bb10
   PBTutorialManager: b6752a593d1892c6f5268d94ecb0a0b744746944
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SwiftLint: 1134786caedd2caab0560d2f36b76414a5a56808
 
-PODFILE CHECKSUM: 6f3a02312d5d61b05e1dba06ed787f58a2792afc
+PODFILE CHECKSUM: ea8a189a5740034a94a9890411d2a07e11fa040b
 
 COCOAPODS: 1.2.1

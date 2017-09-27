@@ -12,6 +12,7 @@ pod 'PureLayout'
 pod 'IQKeyboardManager'
 pod 'SwiftLint'
 pod 'PBTutorialManager'
+pod 'Google-Mobile-Ads-SDK'
 
   target 'ShiftManagerTests' do
     inherit! :search_paths

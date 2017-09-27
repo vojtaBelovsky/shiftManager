@@ -8,6 +8,7 @@
 
 import UIKit
 import PureLayout
+import GoogleMobileAds
 
 final class NewUserView: UIView {
     
@@ -21,6 +22,7 @@ final class NewUserView: UIView {
     let firstNameTextField = BoundedTextField()
     let lastNameTextField = BoundedTextField()
     let navigationBar = NavigationBar()
+    var bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
     
     let profileImgSize: CGFloat = 125.0
     fileprivate let userPlaceholderImage = #imageLiteral(resourceName: "addImageIcon")
@@ -65,6 +67,8 @@ final class NewUserView: UIView {
         importButton.backgroundColor = Colors.papaya
         importButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
         
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        addSubview(bannerView)
     }
     
     fileprivate func addSubviewToStackView() {
@@ -95,6 +99,8 @@ final class NewUserView: UIView {
         selectImageButton.autoSetDimensions(to: CGSize(width: profileImgSize, height: profileImgSize))
         selectImageButton.autoAlignAxis(toSuperviewAxis: .vertical)
         selectImageButton.autoPinEdge(.bottom, to: .bottom, of: selectImageViewContainer)
+        
+        bannerView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
     }
     
     fileprivate func getSpaceView() -> UIView {

@@ -6,107 +6,51 @@
 	<dict>
 		<key>AFDateHelper.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>JMHoledView.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>PBTutorialManager-PBTutorialManager.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>PBTutorialManager.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-ShiftManager.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-ShiftManagerTests.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>PureLayout.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>164EF9BE4EF2DD5AF13BEE007925D508</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>18BBAB79CF0128F3EBB7C0DFF9B83167</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1ED8BE8BD6A53853974A60E1AC8B1019</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>279AA6726F52A334C45E85774BD21A3D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2F1BB5F2F162D83927EDF513B578057F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>347A4CB32EE8761528D60DFE07BFAC52</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>453449A5A32C04E2582AAE5BA0522AD5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>68856BC49EFA72261E8D9692EB6E92EC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>792C4C00E409C577A72D1AF279779E70</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D226F6583184A3F9CC84DEC8297E5AFC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F56511CE5AA60A2147D917E76C3C9D19</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

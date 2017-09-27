@@ -8,6 +8,7 @@
 
 import UIKit
 import PureLayout
+import GoogleMobileAds
 
 final class EditCallendarDayView: UIView {
     
@@ -23,6 +24,7 @@ final class EditCallendarDayView: UIView {
     fileprivate let noteLabel = UILabel()
     let noteTextView = UITextView()
     let placeholderLabel = UILabel()
+    var bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
     var editCalendarDayModel = EditCalendarDayModel() {
         didSet {
             setupView(with: editCalendarDayModel)
@@ -82,6 +84,9 @@ final class EditCallendarDayView: UIView {
         placeholderLabel.sizeToFit()
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (noteTextView.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor.darkGray
+        
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        addSubview(bannerView)
     }
     
     fileprivate func addSubviewToScrollView() {
@@ -105,7 +110,7 @@ final class EditCallendarDayView: UIView {
         scrollView.autoPinEdge(.top, to: .bottom, of: navigationBar, withOffset: Spacing.DoubleVertialSpacing)
         scrollView.autoPinEdge(toSuperviewEdge: .leading)
         scrollView.autoPinEdge(toSuperviewEdge: .trailing)
-        scrollView.autoPinEdge(toSuperviewEdge: .bottom)
+        scrollView.autoPinEdge(.bottom, to: .top, of: bannerView)
         
         contentHolder.autoMatch(.width, to: .width, of: self)
         contentHolder.autoPinEdgesToSuperviewEdges()
@@ -133,6 +138,8 @@ final class EditCallendarDayView: UIView {
         noteTextView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         noteTextView.autoSetDimension(.height, toSize: 150)
         noteTextView.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.DoubleVertialSpacing)
+        
+        bannerView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
     }
     
     func setSwitch() {
