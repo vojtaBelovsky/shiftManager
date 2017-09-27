@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 let reloadCalendarView = Notification.Name(rawValue: "ReloadCalendarView")
 
-final class CalendarViewController: UIViewController {
+final class CalendarViewController: UIViewController, GADInterstitialDelegate {
     
     fileprivate let calendarView = CalendarView()
     fileprivate let calendarDataSource = CalendarDataSource()
+    var interstitial: GADInterstitial?
 
     override func loadView() {
         view = calendarView
@@ -21,7 +23,7 @@ final class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
         edgesForExtendedLayout = UIRectEdge.bottom
         
         calendarView.navigationBar.setActionButton(self, action: #selector(settingsButtonDidPress))
@@ -54,6 +56,33 @@ final class CalendarViewController: UIViewController {
         calendarView.calendarCollectionView.register(CalendarHeaderView.self,
                                              forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                                              withReuseIdentifier: String(describing: CalendarHeaderView.self))
+        
+        interstitial = createAndLoadInterstitial()
+    }
+    
+    private func createAndLoadInterstitial() -> GADInterstitial? {
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712")
+        
+        guard let interstitial = interstitial else {
+            return nil
+        }
+        
+        let request = GADRequest()
+        // Remove the following line before you upload the app
+        request.testDevices = [ kGADSimulatorID ]
+        interstitial.load(request)
+        interstitial.delegate = self
+        
+        return interstitial
+    }
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("Interstitial loaded successfully")
+        ad.present(fromRootViewController: self)
+    }
+    
+    func interstitialDidFail(toPresentScreen ad: GADInterstitial) {
+        print("Fail to receive interstitial")
     }
     
     @objc func settingsButtonDidPress() {
