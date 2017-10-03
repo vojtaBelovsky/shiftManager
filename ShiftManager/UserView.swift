@@ -11,8 +11,7 @@ import UIKit
 final class UserView: UIButton {
     
     fileprivate let userPhotoImageView = UIImageView()
-    fileprivate let userFirstNameLabel = UILabel()
-    fileprivate let userLastNameLabel = UILabel()
+    fileprivate let userNameLabel = UILabel()
     fileprivate let userDefaultIcon = #imageLiteral(resourceName: "defaultIcon")
     
     let userPhotoSize: CGFloat = 50.0
@@ -39,17 +38,10 @@ final class UserView: UIButton {
         userPhotoImageView.isUserInteractionEnabled = false
         addSubview(userPhotoImageView)
         
-        userFirstNameLabel.textColor = .black
-        userFirstNameLabel.font = .systemFont(ofSize: 20)
-        userFirstNameLabel.isUserInteractionEnabled = false
-        userFirstNameLabel.numberOfLines = 2
-        addSubview(userFirstNameLabel)
-        
-        userLastNameLabel.textColor = .black
-        userLastNameLabel.font = .systemFont(ofSize: 20)
-        userLastNameLabel.isUserInteractionEnabled = false
-        userLastNameLabel.numberOfLines = 2
-        addSubview(userLastNameLabel)
+        userNameLabel.font = .systemFont(ofSize: 20)
+        userNameLabel.isUserInteractionEnabled = false
+        userNameLabel.numberOfLines = 2
+        addSubview(userNameLabel)
     }
     
     fileprivate func setupConstraints() {
@@ -58,20 +50,19 @@ final class UserView: UIButton {
         userPhotoImageView.autoSetDimensions(to: CGSize(width: userPhotoSize, height: userPhotoSize))
         userPhotoImageView.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)
         
-        userFirstNameLabel.autoPinEdge(.top, to: .top, of: userPhotoImageView,withOffset: 14)
-        userFirstNameLabel.autoPinEdge(.leading, to: .trailing, of: userPhotoImageView,withOffset: 8)
-        userFirstNameLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 501), for: .horizontal)
-        
-        userLastNameLabel.autoPinEdge(.top, to: .top, of: userPhotoImageView, withOffset: 14)
-        userLastNameLabel.autoPinEdge(.leading, to: .trailing, of: userFirstNameLabel, withOffset: 8)
-        userLastNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 10)
+        userNameLabel.autoPinEdge(.top, to: .top, of: userPhotoImageView, withOffset: 14)
+        userNameLabel.autoPinEdge(.leading, to: .trailing, of: userPhotoImageView, withOffset: 8)
+        userNameLabel.autoPinEdge(toSuperviewEdge: .trailing, withInset: 10)
     }
 }
 
 extension UserView {
     public func reloadData() {
         userPhotoImageView.image = UserManager.sharedInstance.selectedUser?.userPhotoImage ?? userDefaultIcon
-        userFirstNameLabel.text = UserManager.sharedInstance.selectedUser?.firstName
-        userLastNameLabel.text = UserManager.sharedInstance.selectedUser?.lastName
+        if let firstName = UserManager.sharedInstance.selectedUser?.firstName, let lastName = UserManager.sharedInstance.selectedUser?.lastName {
+            userNameLabel.text = firstName + " " + lastName
+        } else {
+            userNameLabel.text = ""
+        }
     }
 }

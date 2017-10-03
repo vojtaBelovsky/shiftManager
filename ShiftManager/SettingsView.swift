@@ -15,7 +15,7 @@ final class SettingsView: UIView, UITableViewDelegate {
     let navigationBar = NavigationBar()
     let userView = UserView()
     let tableView = UITableView()
-    let addNewShiftButton = NavigationButton()
+    let addNewShiftButton = UIButton()
     let userBarView = UserBarView()
     
     init() {
@@ -46,8 +46,8 @@ final class SettingsView: UIView, UITableViewDelegate {
         
         setAddNewShiftButtonVisibility()
         
-        addNewShiftButton.setImage(UIImage.init(named: "addButtonIcon.png"), for: .normal)
-        addNewShiftButton.backgroundColor = textFields.textFieldColorWithAlpha
+        addNewShiftButton.setTitle("Přidej novou šichtu!", for: .normal)
+        addNewShiftButton.setTitleColor(MaterialColors.green, for: .normal)
         addSubview(addNewShiftButton)
         
         addSubview(userBarView)
@@ -68,13 +68,15 @@ final class SettingsView: UIView, UITableViewDelegate {
         userView.autoPinEdge(toSuperviewEdge: .leading)
         userView.autoPinEdge(toSuperviewEdge: .trailing)
         
-        tableView.autoPinEdge(.top, to: .bottom, of: userView)
+        addNewShiftButton.autoPinEdge(.top, to: .bottom, of: userView)
+        addNewShiftButton.autoPinEdge(toSuperviewEdge: .leading)
+        addNewShiftButton.autoPinEdge(toSuperviewEdge: .trailing)
+        addNewShiftButton.autoSetDimension(.height, toSize: 40)
+        
+        tableView.autoPinEdge(.top, to: .bottom, of: addNewShiftButton)
         tableView.autoPinEdge(toSuperviewEdge: .leading)
         tableView.autoPinEdge(toSuperviewEdge: .trailing)
-        
-        addNewShiftButton.autoPinEdge(.bottom, to: .top, of: userBarView, withOffset: -15)
-        addNewShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 17)
-        addNewShiftButton.autoSetDimensions(to: CGSize(width: 50, height: 50))
+        tableView.autoPinEdge(.bottom, to: .top, of: userBarView)
         
         userBarView.autoSetDimension(.height, toSize: userBarView.viewHeight)
         userBarView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
