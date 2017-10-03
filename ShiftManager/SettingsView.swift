@@ -8,7 +8,6 @@
 
 import UIKit
 import PureLayout
-import GoogleMobileAds
 
 final class SettingsView: UIView, UITableViewDelegate {
     
@@ -17,7 +16,6 @@ final class SettingsView: UIView, UITableViewDelegate {
     let userView = UserView()
     let tableView = UITableView()
     let addNewShiftButton = NavigationButton()
-    var bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
     let userBarView = UserBarView()
     
     init() {
@@ -52,8 +50,6 @@ final class SettingsView: UIView, UITableViewDelegate {
         addNewShiftButton.backgroundColor = textFields.textFieldColorWithAlpha
         addSubview(addNewShiftButton)
         
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
-        addSubview(bannerView)
         addSubview(userBarView)
     }
     
@@ -76,15 +72,11 @@ final class SettingsView: UIView, UITableViewDelegate {
         tableView.autoPinEdge(toSuperviewEdge: .leading)
         tableView.autoPinEdge(toSuperviewEdge: .trailing)
         
-        addNewShiftButton.autoPinEdge(.bottom, to: .top, of: bannerView, withOffset: -15)
+        addNewShiftButton.autoPinEdge(.bottom, to: .top, of: userBarView, withOffset: -15)
         addNewShiftButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: 17)
         addNewShiftButton.autoSetDimensions(to: CGSize(width: 50, height: 50))
         
-        bannerView.autoPinEdge(.top, to: .bottom, of: tableView)
-        bannerView.autoPinEdge(toSuperviewEdge: .leading)
-        bannerView.autoPinEdge(toSuperviewEdge: .trailing)
-        
-        userBarView.autoPinEdge(.top, to: .bottom, of: bannerView)
+        userBarView.autoSetDimension(.height, toSize: userBarView.viewHeight)
         userBarView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
     }
 }

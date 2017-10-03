@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 protocol ExtraShiftViewControllerDelegate: class {
     func setExtraShifts(extraShifts: [ShiftModel])
 }
 
-final class ExtraShiftViewController: UIViewController, GADBannerViewDelegate {
+final class ExtraShiftViewController: UIViewController {
     
     fileprivate let extraShiftView = ExtraShiftView()
     fileprivate let dataSource: ExtraShiftDataSource
@@ -42,17 +41,6 @@ final class ExtraShiftViewController: UIViewController, GADBannerViewDelegate {
         extraShiftView.navigationBar.setActionButton(self, action: #selector(doneButtonDidPress))
         extraShiftView.navigationBar.setBackButton(self, action: #selector(backButton))
         extraShiftView.tableView.dataSource = dataSource
-        
-        extraShiftView.bannerView.delegate = self
-        extraShiftView.bannerView.rootViewController = self
-        extraShiftView.bannerView.load(GADRequest())
-    }
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        bannerView.alpha = 0
-        UIView.animate(withDuration: 1, animations: {
-            bannerView.alpha = 1
-        })
     }
     
     override func loadView() {

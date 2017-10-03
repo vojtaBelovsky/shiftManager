@@ -8,13 +8,11 @@
 
 import UIKit
 import PureLayout
-import GoogleMobileAds
 
 final class ExtraShiftView: UIView {
     
     let tableView = UITableView()
     let navigationBar = NavigationBar()
-    var bannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
     
     init() {
         super.init(frame: .zero)
@@ -39,9 +37,6 @@ final class ExtraShiftView: UIView {
         tableView.isEditing = true
         tableView.backgroundColor = textFields.textFieldColorWithAlpha
         addSubview(tableView)
-        
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
-        addSubview(bannerView)
     }
     
     fileprivate func setupConstraints() {
@@ -51,11 +46,7 @@ final class ExtraShiftView: UIView {
         navigationBar.autoSetDimension(.height, toSize: navigationBar.viewHeight)
         
         tableView.autoPinEdge(.top, to: .bottom, of: navigationBar)
-        tableView.autoPinEdge(toSuperviewEdge: .leading)
-        tableView.autoPinEdge(toSuperviewEdge: .trailing)
-        
-        bannerView.autoPinEdge(.top, to: .bottom, of: tableView)
-        bannerView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
+        tableView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
     }
     
     required init?(coder aDecoder: NSCoder) {

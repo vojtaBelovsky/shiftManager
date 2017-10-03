@@ -8,7 +8,6 @@
 
 import UIKit
 import ContactsUI
-import GoogleMobileAds
 
 protocol NewUserViewControllerDelegate {
     func newUserViewController(_ controller: NewUserViewController, didRegisterUser: UserModel)
@@ -16,7 +15,7 @@ protocol NewUserViewControllerDelegate {
 
 let newUserDidRegisterNotification = Notification.Name(rawValue:"newUserDidRegisterNotification")
 
-class NewUserViewController: UIViewController, GADBannerViewDelegate {
+class NewUserViewController: UIViewController {
     
     let newUserView = NewUserView()
     var delegate: NewUserViewControllerDelegate?
@@ -40,17 +39,6 @@ class NewUserViewController: UIViewController, GADBannerViewDelegate {
         newUserView.navigationBar.setActionButton(self, action: #selector(checkmarkButtonDidPress))
         newUserView.importButtonDidPress(self, action: #selector(importButtonDidPress))
         newUserView.selectImageButtonDidPress(self, action: #selector(selectPicture))
-        
-        newUserView.bannerView.delegate = self
-        newUserView.bannerView.rootViewController = self
-        newUserView.bannerView.load(GADRequest())
-    }
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        bannerView.alpha = 0
-        UIView.animate(withDuration: 1, animations: {
-            bannerView.alpha = 1
-        })
     }
     
     @objc func backButtonDidPress(){

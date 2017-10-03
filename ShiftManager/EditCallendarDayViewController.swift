@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
-final class EditCallendarDayViewController: UIViewController, UITextViewDelegate, GADBannerViewDelegate {
+final class EditCallendarDayViewController: UIViewController, UITextViewDelegate {
     
     fileprivate let editCallendarDayView = EditCallendarDayView()
     
@@ -53,17 +52,6 @@ final class EditCallendarDayViewController: UIViewController, UITextViewDelegate
         
         editCallendarDayView.noteTextView.delegate = self
         editCallendarDayView.placeholderLabel.isHidden = !editCallendarDayView.noteTextView.text.isEmpty
-        
-        editCallendarDayView.bannerView.delegate = self
-        editCallendarDayView.bannerView.rootViewController = self
-        editCallendarDayView.bannerView.load(GADRequest())
-    }
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        bannerView.alpha = 0
-        UIView.animate(withDuration: 1, animations: {
-            bannerView.alpha = 1
-        })
     }
     
     func textViewDidChange(_ noteTextView: UITextView) {

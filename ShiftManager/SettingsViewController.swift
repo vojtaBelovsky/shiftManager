@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
-final class SettingsViewController: UIViewController, GADBannerViewDelegate {
+final class SettingsViewController: UIViewController {
     
     fileprivate let dataSource = SettingsTableViewDataSource()
     fileprivate let settingsView = SettingsView()
@@ -37,10 +36,6 @@ final class SettingsViewController: UIViewController, GADBannerViewDelegate {
         settingsView.navigationBar.setActionButton(self, action: #selector(newUserButtonDidPress))
         settingsView.addNewShiftButtonDidPress(self, action: #selector(settingsButtonDidPress))
         
-        settingsView.bannerView.delegate = self
-        settingsView.bannerView.rootViewController = self
-        settingsView.bannerView.load(GADRequest())
-        
         let tableViewReloadDataNotification = NotificationCenter.default
         tableViewReloadDataNotification.addObserver(self, selector: #selector(tableViewReloadData), name: NewShiftViewControllerHandler, object: nil)
         
@@ -55,13 +50,6 @@ final class SettingsViewController: UIViewController, GADBannerViewDelegate {
         
         let refreshUserView = NotificationCenter.default
         refreshUserView.addObserver(self, selector: #selector(refreshScreen), name: refreshUserViewNotification, object: nil)
-    }
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        bannerView.alpha = 0
-        UIView.animate(withDuration: 1, animations: {
-            bannerView.alpha = 1
-        })
     }
     
     @objc func tableViewReloadData(){
