@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "doneIcon.png",
+      "filename" : "checkmark.png",
       "scale" : "1x"
     },
     {

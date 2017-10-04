@@ -47,6 +47,7 @@ public struct Colors {
     public static let paperBag = UIColor(red: 196.0/255, green: 171.0/255, blue: 140.0/255, alpha: 1.0)
     public static let gravel = UIColor(red: 179.0/255, green: 177.0/255, blue: 165.0/255, alpha: 1.0)
     public static let holidayClr = UIColor(red: 204.0/255, green: 255.0/255, blue: 0.0/255, alpha: 1.0)
+    public static let nativeBlue = UIColor(red: 19.0/255, green: 122.0/255, blue: 255.0/255, alpha: 1.0)
 }
 
 public struct MaterialColors {

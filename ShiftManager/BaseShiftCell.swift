@@ -36,7 +36,7 @@ class BaseShiftCell: UITableViewCell {
         
         addSubview(colourCircleLabel)
         
-        separatorLine.backgroundColor = .black
+        separatorLine.backgroundColor = UIColor.lightGray
         addSubview(separatorLine)
         
         setupConstraints()

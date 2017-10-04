@@ -47,7 +47,7 @@ final class SettingsView: UIView, UITableViewDelegate {
         setAddNewShiftButtonVisibility()
         
         addNewShiftButton.setTitle((NSLocalizedString("CreateNewShift_loc002", comment: "")), for: .normal)
-        addNewShiftButton.setTitleColor(MaterialColors.green, for: .normal)
+        addNewShiftButton.setTitleColor(Colors.nativeBlue, for: .normal)
         addSubview(addNewShiftButton)
         
         addSubview(userBarView)
