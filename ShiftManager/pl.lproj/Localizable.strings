@@ -20,7 +20,7 @@
 "RegisterPlaceholder_loc002" = "Nazkisko";
 "RegisterButton_loc003" = "STWORZYĆ";
 "RegisterButton_loc005" = "USUŃ";
-"RegisterButton_loc006" = "IMPORT";
+"RegisterButton_loc006" = "Pobierać z kontaktów";
 "RegisterAllert_loc001" = "Błąd";
 "RegisterAllert_loc002" = "Pole z imieniem jest puste";
 "RegisterAllert_loc003" = "Pole z nazwiskiem jest puste";

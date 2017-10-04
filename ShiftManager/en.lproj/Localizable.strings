@@ -20,7 +20,7 @@
 "RegisterPlaceholder_loc002" = "Last name";
 "RegisterButton_loc003" = "CREATE";
 "RegisterButton_loc005" = "DELETE";
-"RegisterButton_loc006" = "IMPORT";
+"RegisterButton_loc006" = "Retrieve from contacts";
 "RegisterAllert_loc001" = "Error";
 "RegisterAllert_loc002" = "First name field is empty";
 "RegisterAllert_loc003" = "Last name field is empty";
