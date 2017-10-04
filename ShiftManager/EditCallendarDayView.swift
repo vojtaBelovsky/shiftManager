@@ -46,9 +46,11 @@ final class EditCallendarDayView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
+        scrollView.contentInset = UIEdgeInsetsMake(navigationBar.viewHeight + Spacing.DoubleVertialSpacing, 0, 0, 0)
+        addSubview(scrollView)
         addSubview(blureEffectView)
         addSubview(navigationBar)
-        addSubview(scrollView)
+        
         addSubviewToScrollView()
         
         backgroundColor = .clear
@@ -56,7 +58,7 @@ final class EditCallendarDayView: UIView {
         addSubview(dateLabel)
         
         extraShiftStackView.axis = .vertical
-        extraShiftStackView.spacing = 10.0
+        extraShiftStackView.spacing = 15.0
         extraShiftStackView.backgroundColor = textFields.textFieldColorWithAlpha
         
         manageButton.backgroundColor = Colors.papaya
@@ -102,8 +104,7 @@ final class EditCallendarDayView: UIView {
         navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
         navigationBar.autoSetDimension(.height, toSize: navigationBar.viewHeight)
         
-        scrollView.autoPinEdge(.top, to: .bottom, of: navigationBar, withOffset: Spacing.DoubleVertialSpacing)
-        scrollView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
+        scrollView.autoPinEdgesToSuperviewEdges()
         
         contentHolder.autoMatch(.width, to: .width, of: self)
         contentHolder.autoPinEdgesToSuperviewEdges()
