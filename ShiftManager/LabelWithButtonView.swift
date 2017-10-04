@@ -27,6 +27,7 @@ final class LabelWithButtonView: UIView {
     
     fileprivate func setupViewItems() {
         button.setImage(#imageLiteral(resourceName: "trashIcon"), for: .normal)
+        button.contentEdgeInsets = UIEdgeInsetsMake(6, 10, 6, 10)
     }
     
     fileprivate func addSubviewsForSuperview() {
@@ -39,7 +40,7 @@ final class LabelWithButtonView: UIView {
         label.autoPinEdge(toSuperviewEdge: .leading)
         label.autoPinEdge(toSuperviewEdge: .bottom)
         
-        button.autoSetDimensions(to: CGSize(width: 30.0, height: 30.0))
+        button.autoSetDimensions(to: CGSize(width: 44.0, height: 36.0))
         button.autoPinEdge(toSuperviewEdge: .trailing)
         button.autoAlignAxis(.horizontal, toSameAxisOf: label)
     }
