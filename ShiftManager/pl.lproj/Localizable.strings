@@ -5,14 +5,14 @@
 "Settings_loc002" = "Zmiany";
 //Create new shift
 "CreateNewShift_loc001" = "Zmiany";
-"CreateNewShift_loc002" = "Utwórz nową zmianę";
-"CreateNewShift_loc003" = "Nazwa nowej zmiany";
-"CreateNewShift_loc004" = "Wybierz ostatnią zmianę";
+"CreateNewShift_loc002" = "Utwórz nowy dzień";
+"CreateNewShift_loc003" = "Nazwa nowego dnia";
+"CreateNewShift_loc004" = "Wybierz pierwszą datę";
 "CreateNewShift_loc010" = "Zmienić kolor";
-"CreateNewShift_loc006" = "Interwał (powtórka zmiany)";
+"CreateNewShift_loc006" = "Powtórka dnia";
 "CreateNewShift_loc007" = "Wybierz kolor";
-"CreateNewShift_loc008" = "Skrót zmiany (maks. 2 znaki)";
-"CreateNewShift_loc009" = "Edytacja zmiany";
+"CreateNewShift_loc008" = "Skrót dnia (maks. 2 znaki)";
+"CreateNewShift_loc009" = "Edytacja dnia";
 //Register
 "RegisterTitle_loc001" = "Nowy użytkownik";
 "RegisterTitle_loc002" = "Edytacja użytkownika";

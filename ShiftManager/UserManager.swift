@@ -75,6 +75,7 @@ extension UserManager {
     
     public func update(User: UserModel) {
         saveUsersToPersistentStorage()
+        shiftForDateDictionaryShouldReloadData()
     }
     
     public func deleteUser(at index: Int) {

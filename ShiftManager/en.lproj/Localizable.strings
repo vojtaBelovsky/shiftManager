@@ -5,14 +5,14 @@
 "Settings_loc002" = "Shifts";
 //Create new shift
 "CreateNewShift_loc001" = "Shifts";
-"CreateNewShift_loc002" = "Create New Shift";
-"CreateNewShift_loc003" = "Name of the new shift";
-"CreateNewShift_loc004" = "Select first shift";
+"CreateNewShift_loc002" = "Create new day";
+"CreateNewShift_loc003" = "Name of the new day";
+"CreateNewShift_loc004" = "Select first date";
 "CreateNewShift_loc010" = "Change color";
-"CreateNewShift_loc006" = "Interval (shift repeat)";
+"CreateNewShift_loc006" = "Repeat of day";
 "CreateNewShift_loc007" = "Select color";
-"CreateNewShift_loc008" = "Shortcut for shift (max. 2 symbols)";
-"CreateNewShift_loc009" = "Edit shift";
+"CreateNewShift_loc008" = "Shortcut for day (max. 2 symbols)";
+"CreateNewShift_loc009" = "Edit day";
 //Register
 "RegisterTitle_loc001" = "Create new user";
 "RegisterTitle_loc002" = "Edit user";

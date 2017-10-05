@@ -5,14 +5,14 @@
 "Settings_loc002" = "Směny";
 //Create new shift
 "CreateNewShift_loc001" = "Směny";
-"CreateNewShift_loc002" = "Vytvořit novou šichtu";
-"CreateNewShift_loc003" = "Název nové šichty";
-"CreateNewShift_loc004" = "Zvolte si první šichtu";
+"CreateNewShift_loc002" = "Vytvořit nový den";
+"CreateNewShift_loc003" = "Název nového dne";
+"CreateNewShift_loc004" = "Zvolte první datum";
 "CreateNewShift_loc010" = "Změnit barvu";
-"CreateNewShift_loc006" = "Interval (opakování šichty)";
+"CreateNewShift_loc006" = "Opakování dne";
 "CreateNewShift_loc007" = "Zvolte barvu";
-"CreateNewShift_loc008" = "Zkratka šichty (max. 2 znaky)";
-"CreateNewShift_loc009" = "Úprava šichty";
+"CreateNewShift_loc008" = "Zkratka dne (max. 2 znaky)";
+"CreateNewShift_loc009" = "Úprava dne";
 //Register
 "RegisterTitle_loc001" = "Nový uživatel";
 "RegisterTitle_loc002" = "Úprava uživatele";

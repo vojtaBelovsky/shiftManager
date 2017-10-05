@@ -94,6 +94,7 @@ class NewUserViewController: UIViewController {
         user.firstName = newUserView.firstName()
         user.lastName = newUserView.lastName()
         user.userPhotoImage = newUserView.userPhoto()
+        user.cycle = newUserView.cycle()
         
         if let validationError = NewUserValidator.validateNewUser(user) {
             if validationError.code == userErrorType.userErrorTypeFirstName.rawValue {

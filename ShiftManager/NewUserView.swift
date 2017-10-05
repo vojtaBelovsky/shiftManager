@@ -12,15 +12,16 @@ import PureLayout
 final class NewUserView: UIView {
     
     let blureEffectView = BlureEffectView()
+    let navigationBar = NavigationBar()
     fileprivate let selectImageViewContainer = UIView()
-    fileprivate var selectImageView = UIImageView()
     fileprivate let stackView = UIStackView()
     fileprivate var selectImageButton = UIButton()
-    fileprivate let importButton = UIButton()
-    let deleteButton = UIButton()
     let firstNameTextField = BoundedTextField()
     let lastNameTextField = BoundedTextField()
-    let navigationBar = NavigationBar()
+    fileprivate let contactsButton = UIButton()
+    fileprivate let cycleLabel = UILabel()
+    let cycleTextField = BoundedTextField()
+    let deleteButton = UIButton()
     
     let profileImgSize: CGFloat = 125.0
     fileprivate let userPlaceholderImage = #imageLiteral(resourceName: "addImageIcon")
@@ -38,15 +39,14 @@ final class NewUserView: UIView {
     }
     
     func initializeViewsAndAddThemAsSubviews() {
+        addSubview(stackView)
         addSubview(blureEffectView)
-        backgroundColor = .clear
-        
         addSubview(navigationBar)
         
         stackView.axis = .vertical
         stackView.distribution = .equalCentering
         addSubviewToStackView()
-        addSubview(stackView)
+        
         
         selectImageButton.setImage(userPlaceholderImage, for: .normal)
         selectImageButton.layer.borderWidth = 4
@@ -62,31 +62,35 @@ final class NewUserView: UIView {
         lastNameTextField.placeholder = NSLocalizedString("RegisterPlaceholder_loc002", comment: "")
         lastNameTextField.backgroundColor = textFields.textFieldColorWithAlpha
         
-        importButton.backgroundColor = Colors.papaya
-        importButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
+        contactsButton.backgroundColor = Colors.papaya
+        contactsButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
+        
+        cycleLabel.backgroundColor = textFields.textFieldColorWithAlpha
+        cycleLabel.text = "Délka cyklu. Jak často se vám opakují vaše pracovní dny. Např. při směnách 2+2+2 je cyklus 8, při práci 5 dní v týdnu R+O+N je cyklus 21. Základní 0 znamená žádné opakování"
+        cycleLabel.numberOfLines = 0
+        
+        cycleTextField.text = "0"
+        cycleTextField.backgroundColor = textFields.textFieldColorWithAlpha
+        cycleTextField.keyboardType = UIKeyboardType.numberPad
     }
     
     fileprivate func addSubviewToStackView() {
         selectImageViewContainer.addSubview(selectImageButton)
         [
-            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField, importButton, deleteButton
+            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField, contactsButton, getSpaceView(), cycleLabel, cycleTextField, deleteButton
             ].forEach { subview in
                 stackView.addArrangedSubview(subview)
         }
     }
     
     func setupConstraints() {
-        blureEffectView.autoPinEdge(toSuperviewEdge: .top)
-        blureEffectView.autoPinEdge(toSuperviewEdge: .leading)
-        blureEffectView.autoPinEdge(toSuperviewEdge: .trailing)
+        blureEffectView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         blureEffectView.autoPinEdge(.bottom, to: .bottom, of: navigationBar)
         
-        navigationBar.autoPinEdge(toSuperviewEdge: .top)
-        navigationBar.autoPinEdge(toSuperviewEdge: .leading)
-        navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
+        navigationBar.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         navigationBar.autoSetDimension(.height, toSize: navigationBar.viewHeight)
         
-        stackView.autoPinEdge(.top, to: .bottom, of: navigationBar)
+        stackView.autoPinEdge(toSuperviewEdge: .top, withInset: navigationBar.viewHeight)
         stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         stackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
@@ -111,7 +115,7 @@ extension NewUserView {
     }
     
     public func importButtonDidPress(_ target: Any?, action: Selector) {
-        importButton.addTarget(target, action: action, for: .touchUpInside)
+        contactsButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     public func selectImageButtonDidPress(_ target: Any?, action: Selector) {
@@ -142,6 +146,7 @@ extension NewUserView {
         firstNameTextField.text = user.firstName
         lastNameTextField.text = user.lastName
         setImage(user.userPhotoImage ?? userPlaceholderImage)
+        cycleTextField.text = String(user.cycle)
     }
     
     public func setImage(_ image: UIImage) {
@@ -151,5 +156,13 @@ extension NewUserView {
     
     func clearSelectedImage() {
         selectImageButton.setImage(userPlaceholderImage, for: .normal)
+    }
+    
+    public func cycle() -> Int {
+        if let textInput = cycleTextField.text, let cycle = Int(textInput) {
+            return cycle
+        } else {
+            return 0
+        }
     }
 }

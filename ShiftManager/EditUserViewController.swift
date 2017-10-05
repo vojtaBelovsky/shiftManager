@@ -77,6 +77,7 @@ final class EditUserViewController: NewUserViewController {
         user.firstName = newUserView.firstName()
         user.lastName = newUserView.lastName()
         user.userPhotoImage = newUserView.userPhoto()
+        user.cycle = newUserView.cycle()
         
         if let validationError = NewUserValidator.validateNewUser(user) {
             let alertController = UIAlertController(title: validationError.localizedDescription, message: validationError.localizedFailureReason, preferredStyle: .alert)

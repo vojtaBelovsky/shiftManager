@@ -19,6 +19,7 @@ final class UserModel: NSObject, NSCoding {
     var userPhotoImage: UIImage?
     var firstName: String = ""
     var lastName: String = ""
+    var cycle: Int!
     
     fileprivate let userPhotoImagePropertyKey = "userPhotoImagePropertyKey"
     fileprivate let firstNamePropertyKey = "firstNamePropertyKey"
@@ -26,6 +27,7 @@ final class UserModel: NSObject, NSCoding {
     fileprivate let userIDKey = "userIDKey"
     fileprivate let shitsPropertyKey = "shitsPropertyKey"
     fileprivate let editCalendarDaysPropertyKey = "editCalendarDaysPropertyKey"
+    fileprivate let cyclePropertyKey = "cyclePropertyKey"
     
     var shouldGenerateShiftForDateDictionary = true
     
@@ -58,6 +60,10 @@ final class UserModel: NSObject, NSCoding {
         if let editCalendarDays = aDecoder.decodeObject(forKey: editCalendarDaysPropertyKey) as? [Date: EditCalendarDayModel] {
             self.editCalendarDays = editCalendarDays
         }
+        
+        if let cycle = aDecoder.decodeObject(forKey: cyclePropertyKey) as? Int {
+            self.cycle = cycle
+        }
     }
     
     func encode(with aCoder: NSCoder) {
@@ -68,6 +74,7 @@ final class UserModel: NSObject, NSCoding {
         aCoder.encode(uniqueID, forKey: userIDKey)
         aCoder.encode(shifts, forKey: shitsPropertyKey)
         aCoder.encode(editCalendarDays, forKey: editCalendarDaysPropertyKey)
+        aCoder.encode(cycle, forKey: cyclePropertyKey)
     }
     
     func generateShiftForDateDictionary() {
@@ -84,10 +91,23 @@ final class UserModel: NSObject, NSCoding {
         guard let firstDateOfShift = shift.firstDateOfShift else { return }
         
         var date = firstDateOfShift.normalizedDate()
+        let index = shift.interval ?? 1
+        let offset = cycle - index
         
-        while date.compare(.isEarlier(than: UserManager.sharedInstance.getMaxDate())) {
-            shiftForDateDictionary[date] = shift
-            date = date.adjust(.day, offset: shift.interval)
+        if offset > 0 {
+            while date.compare(.isEarlier(than: UserManager.sharedInstance.getMaxDate())) {
+                shiftForDateDictionary[date] = shift
+                for _ in 1...index {
+                    shiftForDateDictionary[date] = shift
+                    date = date.adjust(.day, offset: 1)
+                }
+                date = date.adjust(.day, offset: offset)
+            }
+        } else {
+            for _ in 1...index {
+                shiftForDateDictionary[date] = shift
+                date = date.adjust(.day, offset: 1)
+            }
         }
     }
 }
