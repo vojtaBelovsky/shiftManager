@@ -13,6 +13,8 @@ final class NewShiftView: UIView {
     
     let blureEffectView = BlureEffectView()
     let navigationBar = NavigationBar()
+    fileprivate let scrollView = UIScrollView()
+    fileprivate let contentHolder = UIView()
     public let nameTextField = BoundedTextField()
     let shortcutTextField = BoundedTextField()
     let selectFirstShiftDateLabel = UILabel()
@@ -35,48 +37,54 @@ final class NewShiftView: UIView {
     }
     
     fileprivate func initializeViewsAndAddThemAsSubviews() {
+        scrollView.contentInset = UIEdgeInsetsMake(navigationBar.viewHeight + Spacing.VerticalSpacing, 0, 0, 0)
+        addSubview(scrollView)
         addSubview(blureEffectView)
         addSubview(navigationBar)
         
+        addSubviewToScrollView()
+        
         nameTextField.backgroundColor = textFields.textFieldColorWithAlpha
         nameTextField.placeholder = NSLocalizedString("CreateNewShift_loc003", comment: "")
-        addSubview(nameTextField)
         
         shortcutTextField.placeholder = NSLocalizedString("CreateNewShift_loc008", comment: "")
         shortcutTextField.backgroundColor = textFields.textFieldColorWithAlpha
-        addSubview(shortcutTextField)
         
         selectFirstShiftDateLabel.text = NSLocalizedString("CreateNewShift_loc004", comment: "")
-        selectFirstShiftDateLabel.textColor = .black
         selectFirstShiftDateLabel.backgroundColor = textFields.textFieldColorWithAlpha
         selectFirstShiftDateLabel.textAlignment = .center
-        addSubview(selectFirstShiftDateLabel)
         
         datePicker.backgroundColor = textFields.textFieldColorWithAlpha
-        addSubview(datePicker)
         
         intervalTextField.placeholder = NSLocalizedString("CreateNewShift_loc006", comment: "")
         intervalTextField.backgroundColor = textFields.textFieldColorWithAlpha
         intervalTextField.keyboardType = UIKeyboardType.numberPad
-        addSubview(intervalTextField)
         
         selectShiftColorButton.backgroundColor = textFields.textFieldColorWithAlpha
         selectShiftColorButton.setTitleColor(.black, for: UIControlState.normal)
-        addSubview(selectShiftColorButton)
+    }
+    
+    fileprivate func addSubviewToScrollView() {
+        scrollView.addSubview(contentHolder)
+        [nameTextField, shortcutTextField, selectFirstShiftDateLabel, datePicker, intervalTextField, selectShiftColorButton
+            ].forEach { subview in
+                contentHolder.addSubview(subview)
+        }
     }
     
     fileprivate func setupConstraints() {
-        blureEffectView.autoPinEdge(toSuperviewEdge: .top)
-        blureEffectView.autoPinEdge(toSuperviewEdge: .leading)
-        blureEffectView.autoPinEdge(toSuperviewEdge: .trailing)
+        blureEffectView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         blureEffectView.autoPinEdge(.bottom, to: .bottom, of: navigationBar)
         
-        navigationBar.autoPinEdge(toSuperviewEdge: .top)
-        navigationBar.autoPinEdge(toSuperviewEdge: .leading)
-        navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
+        navigationBar.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         navigationBar.autoSetDimension(.height, toSize: navigationBar.viewHeight)
         
-        nameTextField.autoPinEdge(.top, to: .bottom, of: navigationBar, withOffset: Spacing.VerticalSpacing)
+        scrollView.autoPinEdgesToSuperviewEdges()
+        
+        contentHolder.autoMatch(.width, to: .width, of: self)
+        contentHolder.autoPinEdgesToSuperviewEdges()
+        
+        nameTextField.autoPinEdge(toSuperviewEdge: .top)
         nameTextField.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         nameTextField.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         
@@ -101,6 +109,7 @@ final class NewShiftView: UIView {
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
         selectShiftColorButton.autoSetDimension(.height, toSize: 80.0)
+        selectShiftColorButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: Spacing.HorizontalSpacing)
     }
     
     fileprivate func shiftFirstDate() {

@@ -94,14 +94,10 @@ final class EditCallendarDayView: UIView {
     }
     
     fileprivate func setupConstraints() {
-        blureEffectView.autoPinEdge(toSuperviewEdge: .top)
-        blureEffectView.autoPinEdge(toSuperviewEdge: .leading)
-        blureEffectView.autoPinEdge(toSuperviewEdge: .trailing)
+        blureEffectView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         blureEffectView.autoPinEdge(.bottom, to: .bottom, of: navigationBar)
         
-        navigationBar.autoPinEdge(toSuperviewEdge: .top)
-        navigationBar.autoPinEdge(toSuperviewEdge: .leading)
-        navigationBar.autoPinEdge(toSuperviewEdge: .trailing)
+        navigationBar.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         navigationBar.autoSetDimension(.height, toSize: navigationBar.viewHeight)
         
         scrollView.autoPinEdgesToSuperviewEdges()

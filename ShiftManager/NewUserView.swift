@@ -14,6 +14,8 @@ final class NewUserView: UIView {
     let blureEffectView = BlureEffectView()
     let navigationBar = NavigationBar()
     fileprivate let selectImageViewContainer = UIView()
+    fileprivate let scrollView = UIScrollView()
+    fileprivate let contentHolder = UIView()
     fileprivate let stackView = UIStackView()
     fileprivate var selectImageButton = UIButton()
     let firstNameTextField = BoundedTextField()
@@ -39,14 +41,14 @@ final class NewUserView: UIView {
     }
     
     func initializeViewsAndAddThemAsSubviews() {
-        addSubview(stackView)
+        scrollView.contentInset = UIEdgeInsetsMake(navigationBar.viewHeight, 0, 0, 0)
+        addSubview(scrollView)
         addSubview(blureEffectView)
         addSubview(navigationBar)
         
         stackView.axis = .vertical
         stackView.distribution = .equalCentering
-        addSubviewToStackView()
-        
+        addSubviewToScrollView()
         
         selectImageButton.setImage(userPlaceholderImage, for: .normal)
         selectImageButton.layer.borderWidth = 4
@@ -74,10 +76,12 @@ final class NewUserView: UIView {
         cycleTextField.keyboardType = UIKeyboardType.numberPad
     }
     
-    fileprivate func addSubviewToStackView() {
+    fileprivate func addSubviewToScrollView() {
         selectImageViewContainer.addSubview(selectImageButton)
+        scrollView.addSubview(contentHolder)
+        contentHolder.addSubview(stackView)
         [
-            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField, contactsButton, getSpaceView(), cycleLabel, cycleTextField, deleteButton
+            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField, contactsButton, getSpaceView(), cycleLabel, cycleTextField, deleteButton, getSpaceView()
             ].forEach { subview in
                 stackView.addArrangedSubview(subview)
         }
@@ -90,9 +94,15 @@ final class NewUserView: UIView {
         navigationBar.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         navigationBar.autoSetDimension(.height, toSize: navigationBar.viewHeight)
         
-        stackView.autoPinEdge(toSuperviewEdge: .top, withInset: navigationBar.viewHeight)
+        scrollView.autoPinEdgesToSuperviewEdges()
+        
+        contentHolder.autoMatch(.width, to: .width, of: self)
+        contentHolder.autoPinEdgesToSuperviewEdges()
+        
+        stackView.autoPinEdge(toSuperviewEdge: .top)
         stackView.autoPinEdge(toSuperviewEdge: .leading, withInset: Spacing.HorizontalSpacing)
         stackView.autoPinEdge(toSuperviewEdge: .trailing, withInset: Spacing.HorizontalSpacing)
+        stackView.autoPinEdge(toSuperviewEdge: .bottom)
         
         selectImageButton.autoPinEdge(.top, to: .top, of: selectImageViewContainer)
         selectImageButton.autoSetDimensions(to: CGSize(width: profileImgSize, height: profileImgSize))
