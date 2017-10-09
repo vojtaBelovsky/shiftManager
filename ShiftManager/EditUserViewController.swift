@@ -25,14 +25,13 @@ final class EditUserViewController: NewUserViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        newUserView.navigationBar.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""))
-
+        
         newUserView.navigationBar.setTitle(NSLocalizedString("RegisterTitle_loc002", comment: ""))
 
         newUserView.navigationBar.setImage(#imageLiteral(resourceName: "saveIcon"))
         newUserView.navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
         navigationController?.isNavigationBarHidden = true
+        newUserView.templateButton.isHidden = true
         newUserView.deleteButton.setTitle(NSLocalizedString("RegisterButton_loc005", comment: ""), for: .normal)
         newUserView.deleteButton.backgroundColor = MaterialColors.red
         setupView()

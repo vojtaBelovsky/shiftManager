@@ -21,6 +21,7 @@ final class NewUserView: UIView {
     let firstNameTextField = BoundedTextField()
     let lastNameTextField = BoundedTextField()
     fileprivate let contactsButton = UIButton()
+    let templateButton = UIButton()
     fileprivate let cycleLabel = UILabel()
     let cycleTextField = BoundedTextField()
     let deleteButton = UIButton()
@@ -67,6 +68,9 @@ final class NewUserView: UIView {
         contactsButton.backgroundColor = Colors.papaya
         contactsButton.setTitle(NSLocalizedString("RegisterButton_loc006", comment: ""), for: .normal)
         
+        templateButton.backgroundColor = Colors.papaya
+        templateButton.setTitle("Šablony", for: .normal)
+        
         cycleLabel.backgroundColor = textFields.textFieldColorWithAlpha
         cycleLabel.text = "Délka cyklu. Jak často se vám opakují vaše pracovní dny. Např. při směnách 2+2+2 je cyklus 8, při práci 5 dní v týdnu R+O+N je cyklus 21. Základní 0 znamená žádné opakování"
         cycleLabel.numberOfLines = 0
@@ -81,7 +85,7 @@ final class NewUserView: UIView {
         scrollView.addSubview(contentHolder)
         contentHolder.addSubview(stackView)
         [
-            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField, contactsButton, getSpaceView(), cycleLabel, cycleTextField, deleteButton, getSpaceView()
+            getSpaceView(), selectImageViewContainer, getSpaceView(), firstNameTextField, lastNameTextField, contactsButton, templateButton, getSpaceView(), cycleLabel, cycleTextField, deleteButton, getSpaceView()
             ].forEach { subview in
                 stackView.addArrangedSubview(subview)
         }
@@ -124,8 +128,12 @@ extension NewUserView {
         deleteButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
-    public func importButtonDidPress(_ target: Any?, action: Selector) {
+    public func contactsButtonDidPress(_ target: Any?, action: Selector) {
         contactsButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    public func templateButtonDidPress(_ target: Any?, action: Selector) {
+        templateButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
     public func selectImageButtonDidPress(_ target: Any?, action: Selector) {

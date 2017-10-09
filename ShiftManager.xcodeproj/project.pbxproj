@@ -56,9 +56,16 @@
 		2AE8C9C01F4327B900F70A7F /* ExtraShiftDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9BF1F4327B900F70A7F /* ExtraShiftDataSource.swift */; };
 		2AE8C9C31F43370C00F70A7F /* ExtraShiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8C9C21F43370C00F70A7F /* ExtraShiftViewController.swift */; };
 		2AF3B3C31F1F5A7D00AB752A /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF3B3C21F1F5A7D00AB752A /* CalendarHeaderView.swift */; };
+		4900DB001F87AD1800C15F6D /* TemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4900DAFF1F87AD1800C15F6D /* TemplatesView.swift */; };
 		4902634A1F4B164F00E1CA19 /* BoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490263491F4B164F00E1CA19 /* BoundedTextField.swift */; };
+		492A00AA1F87B548004E40EF /* TemplatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A00A91F87B548004E40EF /* TemplatesViewController.swift */; };
+		492A00AC1F87BFBD004E40EF /* TemplatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A00AB1F87BFBD004E40EF /* TemplatesTableViewCell.swift */; };
+		492A00AE1F8B7338004E40EF /* TemplatesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A00AD1F8B7338004E40EF /* TemplatesTableViewDataSource.swift */; };
+		492A00B11F8B84FA004E40EF /* ShiftsTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492A00B01F8B84FA004E40EF /* ShiftsTemplateView.swift */; };
 		492FE44F1F58629B0012243B /* CalendarCircleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492FE44E1F58629B0012243B /* CalendarCircleLabel.swift */; };
 		49528D421F8388CD00FAA23D /* AppDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49528D411F8388CD00FAA23D /* AppDelegateManager.swift */; };
+		496FB89D1F8B856100D2EFFB /* ShiftsTemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496FB89C1F8B856100D2EFFB /* ShiftsTemplateViewController.swift */; };
+		496FB8C31F8BC6AB00D2EFFB /* ShiftManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 496FB8C11F8BC6AB00D2EFFB /* ShiftManager.xcdatamodeld */; };
 		4973B3141F8279BF00C3FB2B /* AdBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4973B3131F8279BF00C3FB2B /* AdBannerView.swift */; };
 		4973B3161F8279DE00C3FB2B /* AdBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4973B3151F8279DE00C3FB2B /* AdBannerViewController.swift */; };
 		6D0B5C94BFCEA0029E048C87 /* Pods_ShiftManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B505A5093617F2F673C392 /* Pods_ShiftManager.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -134,9 +141,16 @@
 		2AF3B3C21F1F5A7D00AB752A /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		41B505A5093617F2F673C392 /* Pods_ShiftManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46462C769EDFC89CE54BAAB5 /* Pods_ShiftManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4900DAFF1F87AD1800C15F6D /* TemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesView.swift; sourceTree = "<group>"; };
 		490263491F4B164F00E1CA19 /* BoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundedTextField.swift; sourceTree = "<group>"; };
+		492A00A91F87B548004E40EF /* TemplatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesViewController.swift; sourceTree = "<group>"; };
+		492A00AB1F87BFBD004E40EF /* TemplatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesTableViewCell.swift; sourceTree = "<group>"; };
+		492A00AD1F8B7338004E40EF /* TemplatesTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesTableViewDataSource.swift; sourceTree = "<group>"; };
+		492A00B01F8B84FA004E40EF /* ShiftsTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftsTemplateView.swift; sourceTree = "<group>"; };
 		492FE44E1F58629B0012243B /* CalendarCircleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCircleLabel.swift; sourceTree = "<group>"; };
 		49528D411F8388CD00FAA23D /* AppDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateManager.swift; sourceTree = "<group>"; };
+		496FB89C1F8B856100D2EFFB /* ShiftsTemplateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftsTemplateViewController.swift; sourceTree = "<group>"; };
+		496FB8C21F8BC6AB00D2EFFB /* ShiftManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShiftManager.xcdatamodel; sourceTree = "<group>"; };
 		4973B3131F8279BF00C3FB2B /* AdBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBannerView.swift; sourceTree = "<group>"; };
 		4973B3151F8279DE00C3FB2B /* AdBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBannerViewController.swift; sourceTree = "<group>"; };
 		5B24AEA32C6A1BD17EDB60E4 /* Pods-ShiftManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftManager/Pods-ShiftManager.debug.xcconfig"; sourceTree = "<group>"; };
@@ -305,6 +319,7 @@
 				18D8469E1F1F6A25004264D8 /* Managers */,
 				183AF5A81F18F0C90033CFD7 /* Cellendar */,
 				183AF5A71F18F0720033CFD7 /* Settings */,
+				4900DAFE1F87ACD400C15F6D /* Templates */,
 				4973B3121F82796700C3FB2B /* AdBanner */,
 				18C8E4331F31CBE0001D1AAD /* Validator */,
 				18C92B4E1F05170F00F29A1B /* AppDelegate.swift */,
@@ -313,6 +328,7 @@
 				18C92B5A1F05170F00F29A1B /* Info.plist */,
 				188974D31F261A9D00E4CE92 /* Constants.swift */,
 				2AA400261F1E09B300712B19 /* Localizable.strings */,
+				496FB8C11F8BC6AB00D2EFFB /* ShiftManager.xcdatamodeld */,
 			);
 			path = ShiftManager;
 			sourceTree = "<group>";
@@ -505,6 +521,27 @@
 				2AE8C9C21F43370C00F70A7F /* ExtraShiftViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		4900DAFE1F87ACD400C15F6D /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				4900DAFF1F87AD1800C15F6D /* TemplatesView.swift */,
+				492A00A91F87B548004E40EF /* TemplatesViewController.swift */,
+				492A00AB1F87BFBD004E40EF /* TemplatesTableViewCell.swift */,
+				492A00AD1F8B7338004E40EF /* TemplatesTableViewDataSource.swift */,
+				492A00AF1F8B84CD004E40EF /* ShiftsTemplates */,
+			);
+			name = Templates;
+			sourceTree = "<group>";
+		};
+		492A00AF1F8B84CD004E40EF /* ShiftsTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				492A00B01F8B84FA004E40EF /* ShiftsTemplateView.swift */,
+				496FB89C1F8B856100D2EFFB /* ShiftsTemplateViewController.swift */,
+			);
+			name = ShiftsTemplates;
 			sourceTree = "<group>";
 		};
 		4973B3121F82796700C3FB2B /* AdBanner */ = {
@@ -749,9 +786,11 @@
 				188974CA1F25D4C400E4CE92 /* NewUserViewController.swift in Sources */,
 				2AE8C9C01F4327B900F70A7F /* ExtraShiftDataSource.swift in Sources */,
 				18CDAB781F39933D00FA1CF8 /* NewUserValidator.swift in Sources */,
+				492A00AA1F87B548004E40EF /* TemplatesViewController.swift in Sources */,
 				18C92B751F0519AE00F29A1B /* CalendarCollectionViewCell.swift in Sources */,
 				2AA4FFEF1F177A0C00712B19 /* SettingsTableViewDataSource.swift in Sources */,
 				2AC926601F6023B80092266F /* LabelWithButtonView.swift in Sources */,
+				496FB89D1F8B856100D2EFFB /* ShiftsTemplateViewController.swift in Sources */,
 				183AF5A41F18B1150033CFD7 /* ColorSelectCollectionViewCell.swift in Sources */,
 				2A7F0E281F69594900D7411C /* BaseShiftCell.swift in Sources */,
 				18D8469C1F1F660F004264D8 /* ShiftModel.swift in Sources */,
@@ -767,6 +806,7 @@
 				2AE8C9BC1F43275F00F70A7F /* ExtraShiftView.swift in Sources */,
 				183AF59F1F18B1030033CFD7 /* ColorSelectViewController.swift in Sources */,
 				49528D421F8388CD00FAA23D /* AppDelegateManager.swift in Sources */,
+				492A00B11F8B84FA004E40EF /* ShiftsTemplateView.swift in Sources */,
 				18C92B511F05170F00F29A1B /* CalendarViewController.swift in Sources */,
 				18CDAB7B1F39AE7200FA1CF8 /* EditCallendarDayView.swift in Sources */,
 				18014A991F42DAEB00980414 /* UserBarViewDataSource.swift in Sources */,
@@ -779,6 +819,7 @@
 				185078E81F3B2F57004C4F49 /* UserModel.swift in Sources */,
 				185078EA1F3B314A004C4F49 /* UserManager.swift in Sources */,
 				2AE8C9C31F43370C00F70A7F /* ExtraShiftViewController.swift in Sources */,
+				492A00AC1F87BFBD004E40EF /* TemplatesTableViewCell.swift in Sources */,
 				2AE8C9BE1F43279A00F70A7F /* ShiftTableViewCell.swift in Sources */,
 				183AF5A21F18B10E0033CFD7 /* ColorSelectDataSource.swift in Sources */,
 				18014A931F41D50200980414 /* UserView.swift in Sources */,
@@ -787,11 +828,14 @@
 				18F914B41F667ED5008A43B6 /* NavigationButton.swift in Sources */,
 				18C92B4F1F05170F00F29A1B /* AppDelegate.swift in Sources */,
 				186F3DBB1F6BF17100EDFDA3 /* BlureEffectView.swift in Sources */,
+				4900DB001F87AD1800C15F6D /* TemplatesView.swift in Sources */,
 				18C92B721F05198400F29A1B /* CalendarView.swift in Sources */,
+				496FB8C31F8BC6AB00D2EFFB /* ShiftManager.xcdatamodeld in Sources */,
 				188974D41F261A9D00E4CE92 /* Constants.swift in Sources */,
 				183AF5A01F18B1030033CFD7 /* NewShiftViewController.swift in Sources */,
 				18014A9B1F43092200980414 /* EditUserViewController.swift in Sources */,
 				18C92B781F0519CC00F29A1B /* CalendarEmtpyCollectionViewCell.swift in Sources */,
+				492A00AE1F8B7338004E40EF /* TemplatesTableViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1050,6 +1094,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		496FB8C11F8BC6AB00D2EFFB /* ShiftManager.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				496FB8C21F8BC6AB00D2EFFB /* ShiftManager.xcdatamodel */,
+			);
+			currentVersion = 496FB8C21F8BC6AB00D2EFFB /* ShiftManager.xcdatamodel */;
+			path = ShiftManager.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 18C92B431F05170F00F29A1B /* Project object */;
 }

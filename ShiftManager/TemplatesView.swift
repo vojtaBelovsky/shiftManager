@@ -1,40 +1,41 @@
 //
-//  ExtraShiftView.swift
+//  TemplatesView.swift
 //  ShiftManager
 //
-//  Created by Daniel Krezelok on 15/08/2017.
-//  Copyright © 2017 iDevBand. All rights reserved.
+//  Created by Jiří Tomis on 06.10.17.
+//  Copyright © 2017 Tadeusz Raszka. All rights reserved.
 //
 
 import UIKit
 import PureLayout
 
-final class ExtraShiftView: UIView {
+class TemplatesView: UIView, UITableViewDelegate {
     
-    let tableView = UITableView()
     let navigationBar = NavigationBar()
+    let tableView = UITableView()
+    
     
     init() {
         super.init(frame: .zero)
-        
-        setupViewItems()
+        initializeViewsAndAddThemAsSubviews()
         setupConstraints()
-        navigationBar.setTitle(NSLocalizedString("EditCallendarDayViewTitle_loc002", comment: ""))
-        navigationBar.setImage(#imageLiteral(resourceName: "doneIcon"))
         navigationBar.setBackImage(#imageLiteral(resourceName: "backIcon"))
+        navigationBar.setTitle("Předlohy")
     }
     
-    fileprivate func setupViewItems() {
-        backgroundColor = .clear
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func initializeViewsAndAddThemAsSubviews() {
         
         addSubview(navigationBar)
         
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
-        tableView.register(ExtraShiftTableViewCell.self, forCellReuseIdentifier: String(describing: ExtraShiftTableViewCell.self))
-        tableView.separatorStyle = .none
-        tableView.allowsMultipleSelectionDuringEditing = true
-        tableView.isEditing = true
+        tableView.register(TemplatesTableViewCell.self, forCellReuseIdentifier: String(describing: TemplatesTableViewCell.self))
+        tableView.delegate = self
         tableView.backgroundColor = textFields.textFieldColorWithAlpha
         addSubview(tableView)
     }
@@ -47,7 +48,4 @@ final class ExtraShiftView: UIView {
         tableView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 }
